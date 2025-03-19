@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro.md
+parts:
+  - caption: Aktuelle Inhalte
+    chapters:
+        - file: 250122/speicherstrukturen.md
+          title: Speicherstrukturen
+        - file: 250219/queue.md
+        - file: 250305/bst.ipynb
+        - file: 250312/binaersystem.md
+          sections:
+          - file: 250312/umrechnungen.ipynb
+            title: Anwendungsübung
+          - file: 250312/muloe_umrechnungen.ipynb
+            title: Musterlösungen
+        - file: 250319/base64.md
+          title: Base64 Codierung  
+        - file: 250326/lernziele.md
+          title: Lernziele   
+  - caption: Anleitungen
+    chapters:
+        - file: anleitungen/python.md
+          title: Python Installation
+        - file: anleitungen/kurzanleitung_venv.md
+          title: Anleitung Python Virtual Environment
+        - file: anleitungen/jupyter.md
+          title: Anleitung Jupyter Notebook
+

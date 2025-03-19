@@ -1,0 +1,53 @@
+name: Deploy JupyterBook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    
+    steps:
+    - uses: actions/checkout@v4  # Aktualisiert auf v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4  # Aktualisiert auf v4
+      with:
+        python-version: '3.x'
+        
+    - name: Install dependencies
+      run: |
+        pip install jupyter-book
+        pip install ghp-import
+        
+    - name: Build book
+      run: |
+        cd docs
+        jupyter-book build .
+        touch _build/html/.nojekyll
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4  # Aktualisiert auf v4
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3  # Aktualisiert auf v3
+      with:
+        path: 'docs/_build/html'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4  # Aktualisiert auf v4
