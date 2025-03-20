@@ -43,7 +43,7 @@ Dole Queue Great Depression (Quelle: https://view.genially.com/609aac10d34c960d5
 ```	
 
 Für die Übungen finden Sie hier eine
-[Klasse Node](src/node.py) 
+[Klasse Node](src/nodes.py) 
 und eine 
 [Klasse Linked List](src/linked_list.py)
 zum Download.

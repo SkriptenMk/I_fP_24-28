@@ -21,7 +21,7 @@ können. Wir brauchen also eine Struktur für die Daten und eine Struktur, welch
 die Reihenfolge der Speicherung festhält. Die Struktur, welche die Reihenfolge
 festhält, muss ausserdem in der Lage sein, neue Daten abzuspeichern und bereits
 abgespeicherte Daten wieder zurückzugeben. Diese Anforderungen können mit Hilfe
-bereits programmierter Klassen umgesetzt werden. Um die Daten abzuspeichern
+bereits programmierter Klassen umgesetzt werden. Um die Daten abzuspeichern,
 können wir Nodes verwenden und für die Struktur zum Erhalt der Reihenfolge die
 Linke List.
 
