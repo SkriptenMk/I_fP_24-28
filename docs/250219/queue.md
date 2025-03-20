@@ -25,6 +25,18 @@ bereits programmierter Klassen umgesetzt werden. Um die Daten abzuspeichern,
 können wir Nodes verwenden und für die Struktur zum Erhalt der Reihenfolge die
 Linke List.
 
+```{dropdown} Linked List
+Die Linked List ist eine Datenstruktur, die aus einer Anzahl von Nodes
+besteht. Jeder Node hat einen Bezug auf den nächsten Node in der Liste.
+Damit ist es möglich, die Nodes in einer bestimmten Reihenfolge
+abzuspeichern.  
+Im Node selber gibt es ein Datenfeld `key` für die Bezeichnung des Nodes,
+eines `value` für die Daten, die gespeichert werden sollen
+sowie ein solches für den Verweis auf den nächsten Node. Die Datenstruktur 
+Linked List stellt in erster Linie den Verweis auf den zuletzt eingefügten
+Node zur Verfügung.
+```
+
 In der aktuellen Implementation der Linked List gibt es nur einen Positionsbezug
 auf das letzte eingefügte Element (`self.root`). Damit die Linked List als Queue
 verwendet werden kann, muss auch ein Bezug auf das erste eingefügte Element
