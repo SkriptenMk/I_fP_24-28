@@ -2,7 +2,13 @@
 
 Queues sind Datenstrukturen, welche Daten speichern und grundsätzlich in der
 Reihenfolge, in der sie abgespeichert worden sind, wieder zurückgeben (First In
-\- First Out, FIFO). Eine Queue ist eine derart fundamentale Datenstruktur, dass
+\- First Out, FIFO).  
+Eine Queue funktioniert damit wie eine Warteschlange an einer Kasse: Wenn eine
+neue Person ankommt, stellt sie sich hinten an. Wenn sie die Kasse erreicht
+(nachdem alle, die vorher angestanden sind, bedient worden sind),
+verlässt sie die Schlange wieder.
+
+Eine Queue ist eine derart fundamentale Datenstruktur, dass
 Python sie als [Library](https://docs.python.org/3/library/queue.html) zur
 Verfügung stellt.
 
