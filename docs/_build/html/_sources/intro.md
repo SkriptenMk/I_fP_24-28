@@ -1,4 +1,4 @@
-# Obligatorische Fach Informatik (1fP)
+# Obligatorisches Fach Informatik (1fP)
 
 In diesem Repository sollen die Unterlagen für das obligatorische Fach Informatik zusammengetragen werden.
 
