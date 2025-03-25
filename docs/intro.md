@@ -34,14 +34,9 @@ Das Programm entspricht dem aktuellen Stand der Planung. Es kann zu
 
 ## Hilfsmittel für den Unterricht
 
-Der Unterricht findet über weite Strecken am Computer statt. Hier finden
-sich die Anleitungen für 
-die [Installation von Python](https://i-fp-24-28.github.io/Skript/anleitungen/python.html)
-bzw.
-[Jupyter Notebooks](https://i-fp-24-28.github.io/Skript/anleitungen/jupyter.html).  
-Eine weitere Hilfestellung für den Umgang mit Jupyter Notebooks findet sich hier
-zum 
-[Download](https://github.com/I-fP-24-28/Skript/blob/main/docs/anleitungen/jupyter_cheat_sheet.pdf).
+Der Unterricht findet über weite Strecken am Computer statt. Die Anleitungen
+für die Installation von Python bzw. der Jupyter Notebooks sind in der
+Seitenliste aufrufbar.
 
 
 ## Beurteilung
