@@ -1,0 +1,34 @@
+\documentclass{standalone}
+\usepackage[scaled=0.95]{helvet}  % Load Helvetica font, slightly scaled for better appearance
+\usepackage[T1]{fontenc}         % Ensure proper font encoding
+\renewcommand{\familydefault}{\sfdefault}  % Set Helvetica as the default font
+
+\usepackage[table,xcdraw]{xcolor} % Lädt xcolor mit der table-Option
+\usepackage{colortbl}             % Für den \rowcolor Befehl
+
+
+\begin{document}
+\begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0} \textbf{Fach}} \\
+    \textit{\underline{Fach ID}}&
+    \textit{Stundendotation}&
+    \textit{Spezialzimmer} \\ \hline
+    Deutsch&4&---\\
+    Französisch&4&---\\
+    Englisch&4&---\\
+    Mathe&4&---\\
+    Biologie&2&Praktikumszimmer B\\
+    Physik&2&Praktikumszimmer P\\
+    Chemie&2&Chemielabor\\
+    Geographie&2&---\\
+    Geschichte&2&---\\
+    Informatik&2&---\\
+    WR&4&---\\
+    PPP&4&---\\
+    BG&2&Zeichensaal\\
+    Musik&2&---\\
+    Sport&3&Turnhalle\\
+    \hline
+    \end{tabular}
+\end{document}

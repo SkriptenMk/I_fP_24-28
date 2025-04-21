@@ -4,7 +4,15 @@
 format: jb-book
 root: intro.md
 parts:
-  - caption: Aktuelle Inhalte
+  - caption: Datenbanken
+    chapters:
+      - file: 250416/datenbank.md
+        title: Einführung
+      - file: 250507/sql.md
+        title: SQL Abfragen
+      - file: 250521/lernziele.md
+        title: Lernziele
+  - caption: Datenstrukturen und Codierung
     chapters:
         - file: 250122/speicherstrukturen.md
           title: Speicherstrukturen
