@@ -1,9 +1,9 @@
 # Das Binärsystem
 
-Wir sind es gehwont uns im Dezimalsystem zu bewegen. Das bedeutet, dass wir
+Wir sind es gewohnt uns im Dezimalsystem zu bewegen. Das bedeutet, dass wir
 Zahlen in der Basis 10 darstellen. Wir verwenden dazu 10 verschiedene
 Ziffern, nämlich die Ziffern 0 bis 9.  
-Um Zahlen darzustellen, welche grösser sind als 9 darzustellen, verwednen wir
+Um Zahlen darzustellen, welche grösser sind als 9 darzustellen, verwenden wir
 die Zehnerpotenzen. Das heisst, dass die Ziffern von rechts nach links
 gelesen, die Zehnerpotenzen von 0 an aufsteigend sind. Die Zahl 123 entspricht
 also der Rechnung $1 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0$.

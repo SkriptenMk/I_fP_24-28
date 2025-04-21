@@ -21,7 +21,7 @@ Das Programm entspricht dem aktuellen Stand der Planung. Es kann zu
 | 09.04.2025 | Datenbanken |
 | 16.04.2025 | Datenbanken |
 | 07.05.2025 | Datenbanken |
-| 14.05.2025 | Datenbanken |
+| 14.05.2025 | Datenbanken: [Übungen](https://sql-island.informatik.uni-kl.de/) |
 | 21.05.2025 | Test (Datenbanken) |
 | 28.05.2025 | Datenvisualisierung mit Python |
 | 04.06.2025 | Datenvisualisierung mit Python |

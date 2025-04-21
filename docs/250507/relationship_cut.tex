@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage[scaled=0.95]{helvet}  % Load Helvetica font, slightly scaled for better appearance
+\usepackage[T1]{fontenc}         % Ensure proper font encoding
+\renewcommand{\familydefault}{\sfdefault}  % Set Helvetica as the default font
+
+\usepackage[table,xcdraw]{xcolor} % Lädt xcolor mit der table-Option
+\usepackage{colortbl}             % Für den \rowcolor Befehl
+
+
+\begin{document}
+\begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{3}{c}{\cellcolor[HTML]{C0C0C0} \textbf{erhält Unterricht in/von}} \\
+    \textit{\underline{Fach ID}}&
+    \textit{\underline{Klassen ID}}&
+    \textit{\underline{Personalnummer}} \\ \hline
+    Deutsch&aW\_24-28&0001\\
+    Deutsch&bW\_24-28&0001\\
+    Deutsch&cW\_24-28&0001\\
+    Deutsch&dP\_24-28&0001\\
+    Deutsch&eW\_24-28&0001\\
+    Deutsch&fP\_24-28&0001\\
+    Französisch&aW\_24-28&0002\\
+    ...&...&...\\
+    \hline
+    \end{tabular}
+\end{document}

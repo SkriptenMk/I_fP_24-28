@@ -23,7 +23,7 @@ festhält, muss ausserdem in der Lage sein, neue Daten abzuspeichern und bereits
 abgespeicherte Daten wieder zurückzugeben. Diese Anforderungen können mit Hilfe
 bereits programmierter Klassen umgesetzt werden. Um die Daten abzuspeichern,
 können wir Nodes verwenden und für die Struktur zum Erhalt der Reihenfolge die
-Linke List.
+Linked List.
 
 ```{dropdown} Linked List
 Die Linked List ist eine Datenstruktur, die aus einer Anzahl von Nodes
