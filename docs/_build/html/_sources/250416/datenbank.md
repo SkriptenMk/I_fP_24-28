@@ -65,10 +65,8 @@ Attribut (den Primärschlüssel).
 Etwas umfangreicher sind die Tabellen `Fach` und `Lehrer`. Sie enthalten jeweils
 drei bzw. vier Attribute.
 
-<div style="display: flex; justify-content: space-between;align-items: flex-start;">
-    <img src="entity_subject.svg" alt="Tabelle Fach" style="width: 45%;">
-    <img src="entity_teacher.svg" alt="Tabelle Lehrer" style="width: 45%;">
-</div>
+| ![Fach](entity_subject.svg) | ![Lehrer](entity_teacher.svg) |
+|-----------------------------|-------------------------------|
 
 Im Folgenden Abschnitt sollen die Daten aus den Tabellen mit Hilfe von SQL
 Statements abgefragt werden.
