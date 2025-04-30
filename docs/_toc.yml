@@ -10,6 +10,8 @@ parts:
         title: Einführung
       - file: 250507/sql.md
         title: SQL Abfragen
+      - url: https://sql-island.informatik.uni-kl.de/
+        title: SQL Übungen
       - file: 250521/lernziele.md
         title: Lernziele
   - caption: Datenstrukturen und Codierung
