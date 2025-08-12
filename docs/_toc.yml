@@ -8,6 +8,8 @@ parts:
     chapters:
       - file: 250822/netzwerke.md
         title: Grundlagen
+      - file: 250822/tcpip.md
+        title: IP-Adressen
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
