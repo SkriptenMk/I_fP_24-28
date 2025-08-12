@@ -1,4 +1,4 @@
-# Obligatorisches Fach Informatik (1fP)
+# Obligatorisches Fach Informatik (2fP)
 
 In diesem Repository sollen die Unterlagen für das obligatorische Fach Informatik zusammengetragen werden.
 
@@ -11,25 +11,22 @@ Das Programm entspricht dem aktuellen Stand der Planung. Es kann zu
 
 | Datum | Thema |
 | ----- | ----- |
-| 19.02.2025 | Queues Implementieren in Python |
-| 26.02.2025 | BST Implementieren in Python |
-| 05.03.2025 | BST Implementieren in Python |
-| 12.03.2025 | Binärsystem |
-| 19.03.2025 | Base64 Codierung |
-| 26.03.2025 | Test (Datenstrukturen & Datencodierung) |
-| 02.04.2025 | Datenbanken |
-| 09.04.2025 | Datenbanken |
-| 16.04.2025 | Datenbanken |
-| 07.05.2025 | Datenbanken |
-| 14.05.2025 | Datenbanken: [Übungen](https://sql-island.informatik.uni-kl.de/) |
-| 21.05.2025 | Test (Datenbanken) |
-| 28.05.2025 | Datenvisualisierung mit Python |
-| 04.06.2025 | Datenvisualisierung mit Python |
-| 11.06.2025 | Datenvisualisierung mit Python |
-| 18.06.2025 | Datenvisualisierung mit Python |
-| 25.06.2025 | Datenvisualisierung mit Python |
-| 02.07.2025 | Datenvisualisierung mit Python |
-| 09.07.2025 | Datenvisualisierung mit Python |
+| 22.08.2025 | Netzwerke: TCP/IP |
+| 29.08.2025 | Netzwerke: Beobachtung von Netzwerkverbindungen |
+| 05.09.2025 | Netzwerke: Anwendungsübung |
+| 12.09.2025 | Kryptologie: Caesar |
+| 19.09.2025 | Kryptologie: Vigenère Chiffre |
+| 26.09.2025 | Kryptologie: Vigenère Brechen |
+| 24.10.2025 | Test |
+| 31.10.2025 | Kryptologie: Public Key Kryptographie (Graphengestützt) |
+| 07.11.2025 | Kryptologie: RSA |
+| 14.11.2025 | Kryptologie: digitale Signaturen |
+| 21.11.2025 | KI: Versuch einer Definition |
+| 28.11.2025 | KI |
+| 05.12.2025 | Test |
+| 12.12.2025 | KI |
+| 19.12.2025 | KI |
+| 09.01.2026 | KI |
 
 
 ## Hilfsmittel für den Unterricht
