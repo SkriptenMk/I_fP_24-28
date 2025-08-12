@@ -38,4 +38,8 @@ parts:
           title: Anleitung Python Virtual Environment
         - file: anleitungen/jupyter.md
           title: Anleitung Jupyter Notebook
+  - caption: Alte Programme
+    chapters:
+        - file: archiv/fs25.md
+          title: Programm FS 2025
 

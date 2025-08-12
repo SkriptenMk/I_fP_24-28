@@ -18,7 +18,7 @@ FROM <Tabelle>
 WHERE <Bedingung>;
 ```
 
-Das Schlüsselwort `SELECT` gibt an, welche Spalten aus der Tabelle ausgeben
+Das Schlüsselwort `SELECT` gibt an, welche Spalte(n) aus der Tabelle ausgegeben
 werden soll(en). Das Schlüsselwort `FROM` gibt an, aus welcher Tabelle die
 Daten ausgelesen werden. Das Schlüsselwort `WHERE` gibt die Bedingung an, die
 erfüllt sein muss, damit die Daten angezeigt werden. Dass die Schlüsselwörter
@@ -130,7 +130,7 @@ ausgegeben werden. In diesem Beispiel wäre dies nicht nötig, da es nur einen
 Lehrer gibt, der Deutsch unterrichtet.  
 Unter dem Schlüsselwort `FROM` wird die Tabelle `Lehrer` mit dem Alias `l`
 angegeben. Der Alias wird verwendet, um die Abfrage leserlicher zu machen. Wenn
-mehrere Tabellen abgefragt werden, muss jede Spalte die Ausgeben werden soll,
+mehrere Tabellen abgefragt werden, muss jede Spalte, die ausgeben werden soll,
 mit der Tabelle, aus der sie stammt, angegeben werden. Mit dem Alias kann dies
 abgekürzt werden. Das Schlüsselwort `AS` für den Alias ist nicht nötig, dient
 aber der besseren Lesbarkeit.  
