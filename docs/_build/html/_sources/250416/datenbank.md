@@ -57,7 +57,7 @@ werden die Primärschlüssel unterstrichen. Die Primärschlüssel sind in der Re
 die ersten Spalten der Tabellen. Für das Beispiel
 werden Tabellen für die Entitäten `Klasse`, `Fach` und `Lehrer` erstellt.	
 
-Die Einfachste Tabelle ist die Tabelle `Klasse`. Sie enthält lediglich ein
+Die einfachste Tabelle ist die Tabelle `Klasse`. Sie enthält lediglich ein
 Attribut (den Primärschlüssel).
 
 ![Klasse](entity_class.svg)
