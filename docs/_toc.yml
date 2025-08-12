@@ -4,6 +4,10 @@
 format: jb-book
 root: intro.md
 parts:
+  - caption: Computernetzwerke
+    chapters:
+      - file: 250822/netzwerke.md
+        title: Grundlagen
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
