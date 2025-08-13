@@ -1,0 +1,40 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep}
+
+\begin{document}
+\section*{2fP, 22. August 2025, IP-Adressierung}
+\begin{longtable}{p{1.5cm}>{\RaggedRight}p{7.5cm}p{2.5cm}}
+    \toprule
+    \emph{Zeit}&\emph{Inhalt}&\emph{Methode}\\
+    \midrule
+    \endhead
+
+    \midrule
+    \multicolumn{3}{c}{\begin{tiny}\textit{to be continued}\end{tiny}}\\
+    \midrule
+    \endfoot
+
+    \bottomrule
+    \endlastfoot
+
+    1325&Semestertermine&\\ [5pt]
+
+    1330&Was geschieht beim Aufruf einer Internetadresse?&Lehrgespräch\\
+        &Übersetzung Domain Name in IP-Adresse&\\
+        &nslookup www.nzz.ch (auf dem default DNS Server)&\\
+        &nslookup www.nzz.ch 1.1.1.1&\\
+        &nslookup www.nzz.ch 9.9.9.9&\\
+        &Vergleich der Resultate&\\ [5pt]
+
+    1345&IPv4 im Vergleich zu IPv6&Lehrgespräch\\
+
+
+\end{longtable}
+\end{document}
