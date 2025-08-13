@@ -26,9 +26,15 @@ einem Domainnamen ist das Domain Name System (DNS) verantwortlich.
 
 ### Funktionsweise
 
-1. **Anfrage:** Wenn ein Benutzer eine Website besucht, sendet der Browser eine DNS-Anfrage an einen DNS-Server, um die IP-Adresse der gewünschten Domain zu ermitteln.
-2. **Auflösung:** Der DNS-Server überprüft seinen Cache auf eine vorhandene Zuordnung. Wenn keine Zuordnung gefunden wird, leitet der Server die Anfrage an andere DNS-Server weiter, bis die IP-Adresse ermittelt wird.
-3. **Antwort:** Der DNS-Server sendet die gefundene IP-Adresse zurück an den Browser, der dann eine Verbindung zur Website herstellen kann.
+1. **Anfrage:** Wenn ein Benutzer eine Website besucht, sendet der
+   Browser eine DNS-Anfrage an einen DNS-Server, um die IP-Adresse der
+   gewünschten Domain zu ermitteln. 
+2. **Auflösung:** Der DNS-Server überprüft seinen Cache auf eine
+   vorhandene Zuordnung. Wenn keine Zuordnung gefunden wird, leitet der
+   Server die Anfrage an andere DNS-Server weiter, bis die IP-Adresse
+   ermittelt wird. 
+3. **Antwort:** Der DNS-Server sendet die gefundene IP-Adresse zurück an
+   den Browser, der dann eine Verbindung zur Website herstellen kann. 
 
 ### Typen von DNS-Einträgen
 
@@ -39,4 +45,8 @@ einem Domainnamen ist das Domain Name System (DNS) verantwortlich.
 
 ### Bedeutung
 
-Der DNS ist entscheidend für die Benutzerfreundlichkeit des Internets, da er es ermöglicht, Websites über leicht merkbare Namen anstelle von numerischen IP-Adressen zu erreichen. Ohne DNS müssten Benutzer die IP-Adressen aller Websites kennen, die sie besuchen möchten.
+Der Domainname ist entscheidend für die Benutzerfreundlichkeit des
+Internets, da er es ermöglicht, Websites über leicht merkbare Namen
+anstelle von numerischen IP-Adressen zu erreichen. Ohne DNS müssten
+Benutzer die IP-Adressen aller Websites kennen, die sie besuchen
+möchten. 
