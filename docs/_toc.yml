@@ -4,6 +4,16 @@
 format: jb-book
 root: intro.md
 parts:
+  - caption: Computernetzwerke
+    chapters:
+      - file: 250822/netzwerke.md
+        title: Grundlagen
+      - file: 250822/tcpip.md
+        title: IP-Adressen
+      - file: 250822/nat.md
+        title: Network Address Translation (NAT)
+      - file: 250822/tld.md
+        title: Top Level Domains (TLDs)
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
