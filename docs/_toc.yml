@@ -10,6 +10,8 @@ parts:
         title: Grundlagen
       - file: 250822/tcpip.md
         title: IP-Adressen
+      - file: 250822/nat.md
+        title: Network Address Translation (NAT)
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
