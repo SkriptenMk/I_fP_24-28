@@ -12,6 +12,8 @@ parts:
         title: IP-Adressen
       - file: 250822/nat.md
         title: Network Address Translation (NAT)
+      - file: 250822/tld.md
+        title: Top Level Domains (TLDs)
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
