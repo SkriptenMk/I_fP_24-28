@@ -1,10 +1,3 @@
-Jacques Mock Schindler  
-jacques.mock_schindler@schindler-mock.ch  
-August 13, 2025
-
-
-# Bitte den Text entsprechend der Vorschläge umfromulieren.
-
 # Computernetzwerke
 
 Computernetzwerke sind Systeme, die es Computern und anderen Geräten ermöglichen, miteinander zu kommunizieren. Ursprünglich ging es vor allem um den Austausch von Nachrichten. Heute ermöglichen Netzwerke zusätzlich die gemeinsame Nutzung von Ressourcen wie Druckern, Dateien oder Internetzugängen. Sie bilden die Grundlage für viele alltägliche Anwendungen – von E-Mails über Videokonferenzen bis hin zu Cloud-Diensten.
@@ -73,10 +66,6 @@ Das TCP/IP-Modell besteht aus vier Schichten, die Funktionen des OSI-Modells zus
 - Beispiele: HTTP/HTTPS, SMTP, DNS. Verschlüsselung wie TLS liegt typischerweise oberhalb des Transports und wird Anwendungen zugeordnet.
 
 Das TCP/IP-Modell ist heute die Grundlage für die Kommunikation im Internet und in den meisten Computernetzwerken.
-
-Hinweis zu Geräten und Schichten
-- Switches (Layer 2) arbeiten auf der Frame-Ebene innerhalb eines lokalen Netzes.
-- Router (Layer 3) verbinden Netzwerke und leiten IP-Pakete zwischen ihnen weiter.
 
 ## Analogie zur Kapselung in der objektorientierten Programmierung (OOP)
 
