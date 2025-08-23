@@ -88,10 +88,10 @@ ausgewählten Paketes. Das bildet auch das TCP/IP Schichtenmodell ab.
 
 Die Detailansicht kann durch einen Klick auf die Dreiecke am Anfang der
 einzelnen Protokoll-Header-Felder erweitert werden. Dadurch werden
-weitere Informationen zu den jeweiligen Feldern angezeigt. 
+weitere Informationen zu den jeweiligen Feldern angezeigt. Hier werden
+jedoch nur die Zusammenfassungen der Header-Felder erläutert.
 
-Im Beispiel wird als erstes der Inhalt des Internetlayers detailliert
-angezeigt. 
+Im Beispiel wird als erstes der Inhalt des Headers des Internetlayers erläutert. 
 
 ```text
 
@@ -99,8 +99,8 @@ Internet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1
 
 ```
 
-Bereits in der Zeile mit der Zusammenfassung sehen wir die Quell- und
-Ziel-Adressen des IP-Pakets. Im vorliegenden Fall sind das jeweils die
+In der Zusammenfassung werden die die Quell- und
+Ziel-Adressen des IP-Pakets angezeigt. Im vorliegenden Fall sind das jeweils die
 Privaten IP-Adressen 192.168.1.108 und 192.168.1.1. 192.168.1.108
 ist die Quell-Adresse, erkennbar an der Abkürzung "Src" und 192.168.1.1
 die Ziel-Adresse, erkennbar an der Abkürzung "Dst". Beide Geräte
