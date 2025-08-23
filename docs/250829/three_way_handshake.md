@@ -25,8 +25,38 @@ Haifischflossen-Symbol in der Symbolleiste. Die Auszeichnung startet
 umgehend. Angehalten wird die Aufzeichnung mit einem Klick auf das
 rote Quadrat-Symbol in der Symbolleiste. Die Aufzeichnung kann entweder
 über das Menü Datei > Speichern, durch einen Klick auf das Dateisymbol
-oder durch die Tastenkombination Strg + S gespeichert werden.
+oder durch die Tastenkombination `Strg + S` gespeichert werden.
 
 ## Beobachten der DNS-Anfragen
 
-Um DNS-Anfragen zu beobachten, kann Wireshark verwendet werden, um den Netzwerkverkehr zu filtern und die entsprechenden Pakete anzuzeigen. Dazu kann der Filter "dns" in Wireshark eingegeben werden, um nur die DNS-Pakete anzuzeigen. Dies ermöglicht eine detaillierte Analyse der DNS-Anfragen und -Antworten, die zwischen Clients und DNS-Servern ausgetauscht werden.
+Um die DNS-Anfragen zu beobachten, wird bei laufender Wireshark
+Aufzeichnung eine beliebige Website aufgerufen. Dadurch werden die
+entsprechenden DNS-Anfragen erfasst und können in Wireshark
+analysiert werden. Nach dem Aufruf der Website kann die Aufzeichnung
+angehalten und die erfassten Pakete analysiert werden (wenn die
+Aufzeichnung weiterläuft, bewegen sich die Pakete im Anzeigefenster
+ständig weiter).
+
+Damit die relevanten Datenpakete angezeigt werden, kann der
+aufgezeichnete Datenverkehr gefiltert werden. Der Filter wird in der
+Eingabefeld für "Anzeigefilter" eingegeben.
+
+![Wireshark Anzeigefilter](ws_anzeigefilter.png)
+
+Der entsprechende Filter für DNS-Anfragen zu einer gegebenen Website
+lautet 
+
+```txt
+dns.qry.name == "www.example.com"
+```
+
+Sofern die Seite während der Aufzeichnung genau einmal aufgerufen wurde,
+wird der Filter zwei Pakete anzeigen: eine DNS-Anfrage und eine
+DNS-Antwort.
+
+![Gefilterte Wireshark-Pakete](ws_dns_query.png)
+
+Das Bild zeigt als erstes Paket die DNS-Anfrage für
+www.deutschegrammaphon.com und als zweites Paket die entsprechende
+Antwort.
+
