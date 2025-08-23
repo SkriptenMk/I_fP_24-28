@@ -50,9 +50,18 @@ lautet
 dns.qry.name == "www.example.com"
 ```
 
-Sofern die Seite während der Aufzeichnung genau einmal aufgerufen wurde,
-wird der Filter zwei Pakete anzeigen: eine DNS-Anfrage und eine
-DNS-Antwort.
+Der angewendete Filterbefehl ist relativ einfach nachzuvollziehen.
+An erster Stelle steht hier das Protokoll nach dem gefiltert wird. Weil
+nach den DNS-Anfragen gefiltert wird, ist das hier `dns`. `dns` alleine
+wäre bereits ein gültiger Filter. Allerdings werden dann alle DNS-Pakete
+angezeigt. Der Filter wird daher zu `dns.qry.name` ergänzt Dabei steht
+`qry` als Abkürzung für query - Anfrage. Die Ergänzung `name` steht für den Domain Name,
+der Abgefragt wird. `==` ist die logische Verknüpfung, nach der gefiltert wird
+und bedeutet hier "ist gleich". Zwischen den Anführungszeichen steht der
+String, nach dem gesucht wird.  
+Sofern die Seite während der Aufzeichnung genau
+einmal aufgerufen wurde, wird der Filter zwei Pakete anzeigen: eine
+DNS-Anfrage und eine DNS-Antwort.
 
 ![Gefilterte Wireshark-Pakete](ws_dns_query.png)
 
@@ -60,3 +69,15 @@ Das Bild zeigt als erstes Paket die DNS-Anfrage für
 www.deutschegrammaphon.com und als zweites Paket die entsprechende
 Antwort.
 
+Für eine genaue Analyse der Kommunikation kann ein einzelnes Paket
+durch anklicken ausgewählt werden. Dadurch wird das Paket im unteren
+Bereich von Wireshark detailliert angezeigt und kann genauer
+untersucht werden.
+
+![Inhalt des Ausgewählten Pakets](ws_selected_package.png)
+
+Dass es sich hier im Bild um die Details des ausgewählten Paketes
+handelt, ist an der übereinstimmenden Paketnummer zu erkennen (Spalte
+"No." oben bzw. "Frame nr" in der Detailansicht). Die Zeilen in der
+Detailansicht entsprechen den einzelnen Protokoll-Header-Feldern des
+ausgewählten Paketes. Das bildet auch das TCP/IP Schichtenmodell ab.
