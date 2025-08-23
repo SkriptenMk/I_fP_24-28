@@ -49,5 +49,7 @@ GitHub-Logo
 in der Kopfzeile) eingebracht wird, mit Maximal einem
 Notenpunkt auf die jeweils thematisch passende Prüfung angerechnet.
 
-Falls jemand eine persönliche Besprechung wünscht, [kann er sich hier für
-eine Sprechstunde anmelden](https://calendar.app.google/kPthfpWed3uPP1cC6).
+Falls jemand eine persönliche Besprechung wünscht, 
+<a href="https://calendar.app.google/TBieKp3kHCLc9tQDA" target="_blank">
+kann hier einen Termin für eine Sprechstunde reservieren
+(Rent-A-Mock)</a>.
