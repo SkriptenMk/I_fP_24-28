@@ -108,7 +108,25 @@ befinden sich damit im gleichen LAN. Der Rechner mit der IP-Adresse
 192.168.1.1 ist der Router. Dieses Gerät stellt die Internetverbindung
 her und kann DNS-Anfragen aus seinem Cache beantworten.
 
+Im Header für das User Datagram Protocol (UDP) werden die Quell- und
+Ziel-Ports angezeigt. 
 
+```text
+User Datagram Protocol, Src Port: 53586, Dst Port: 53
+```
+Der Quellport wurde mit 53586 automatisch und weit oberhalb der sog.
+"Well-Known Ports" (0-1023) gewählt. Die "Well-Known Ports" sind Ports,
+die von bestimmten Anwendungen oder Diensten standardmässig verwendet
+werden. Entsprechend wurde der Zielport auf 53 gewählt, da dies der
+standardmässige Port für DNS-Anfragen ist. Eine Liste der "Well-Known Ports"
+findet sich in der 
+<a
+href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+target="_blank">
+offiziellen IANA-Portdatenbank</a>. Der Quellport ermöglicht es dem
+Zielsystem, die Antwort an den korrekten Absender zurückzusenden.
+[NAT](../250822/nat.md)-Geräte nutzen diese Port-Informationen zusätzlich für die Zuordnung
+zwischen privaten und öffentlichen Adressen. 
 
 Im Beispiel werden die Layer 2 (Data Link), Layer 3 (Network) und Layer
 4 (Transport) des TCP/IP Schichtenmodells angezeigt. 
