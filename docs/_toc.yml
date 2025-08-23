@@ -14,6 +14,8 @@ parts:
         title: Network Address Translation (NAT)
       - file: 250822/tld.md
         title: Top Level Domains (TLDs)
+      - file: 250829/three_way_handshake.md
+        title: TCP Verbindungsaufbau
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
