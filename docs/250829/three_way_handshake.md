@@ -179,3 +179,73 @@ Das Paket wiederholt die Frage und liefert die Antwort des DNS-Servers.
 Der Domainname `www.deutschegrammophon.com` ist mit der IPv4-Adresse
 `85.236.46.65` verknüpft. 
 
+Damit kann die Verbindung zur Website `www.deutschegrammophon.com`
+hergestellt werden. 
+
+## Beobachtung des Verbindungsaufbaus
+
+Der Verbindungsaufbau zwischen Client (lokaler Rechner) und Server
+(Rechner im Internet) erfolgt in mehreren 
+Schritten, die im sogenannten "Three-Way Handshake" zusammengefasst
+werden. Dieser Prozess stellt sicher, dass beide Seiten bereit sind,
+Daten zu senden und zu empfangen. Die folgende Abbildung zeigt eine
+schematische Darstellung des "Three-Way Handshake".
+
+![Schema Three-Way Handshake](schema_three-way-handshake.png)
+
+Der Client sendet ein SYN-Paket an den Server, um eine Verbindung
+anzufordern. Dieser Antwortet mit einem SYN-ACK-Paket. Das heisst, er
+bestätigt die Anfrage mit einem ACK-Paket und fragt seinerseits mit
+einem SYN-Paket nach, ob der Client (immer noch) bereit ist, die
+Verbindung aufzubauen.
+
+Dieser Vorgang kann mit Wireshark beobachtet werden. Dafür braucht es
+einen kombinierten Wireshark Anzeigefilter. Als Beispiel wird der
+Verbindungsaufbau zwischen dem lokalen Rechner und der Website von
+www.deutschegrammophon.com betrachtet. Der erste Teil des Filters soll
+nur jene Pakete anzeigen, welche mit der IP-Adresse des Servers von
+www.deutschegrammophon.com (85.236.46.65) kommunizieren. Dieser Filter lautet
+
+```wireshark
+ip.addr == 85.236.46.65
+```
+
+Dieser Filter alleine zeigt jedoch noch zu viele Pakete an.
+
+![ip.addr Filter](ws_ip-addr-Filter.png)
+
+Um die Resultate weiter einzuschränken sollen nur jene Pakete angezeigt
+werden, welche entweder das SYN-Flag oder das ACK-Flag (oder beides)
+gesetzt haben. Dies kann mit folgendem Filter erreicht werden:
+
+```wireshark
+ip.addr == 85.236.46.65 and ( (tcp.flags.syn == 1 and tcp.flags.ack == 0) or (tcp.flags.syn == 1 and tcp.flags.ack == 1) or (tcp.flags.syn == 0 and tcp.flags.ack == 1) )
+```
+
+Das sind allerdings immer noch zu viele Pakete. Daher sollen nur jene
+Pakete angezeigt werden, welche die Antworten auf eine SYN-Anfrage sind.
+Das kann erreicht werden, in dem ein Paket mit dem SYN-Flag mit der
+rechten Maustaste angeklickt wird und die Option "Follow" > "TCP Stream"
+ausgewählt wird. Dadurch wird der gesamte TCP-Stream, in dem dieses
+Paket steht, (die aufeinanderfolgenden Pakete) angezeigt. Der Filter
+wird automatisch angepasst.
+
+Das folgende Listing zeigt den ganzen Filterbefehl für die Anzeige der
+Pakete, die zu diesem TCP-Stream gehören:
+
+```wireshark
+ip.addr == 85.236.46.65 and ( (tcp.flags.syn == 1 and tcp.flags.ack == 0) or (tcp.flags.syn == 1 and tcp.flags.ack == 1) or (tcp.flags.syn == 0 and tcp.flags.ack == 1) )
+ and !(tcp.stream eq 8)
+```
+
+![Three-Way Handshake Pakete](ws_three-way-handshake.png)
+
+Dass die Pakte die Kommunikationsfolge des Three-Way Handshakes zeigen,
+ist an den gesetzten Flags zu erkennen. Im ersten Schritt sendet der
+Client ein SYN-Paket, worauf der Server mit einem SYN-ACK-Paket
+antwortet. Der Client bestätigt dies mit einem ACK-Paket. Diese drei
+Schritte sind im Wireshark-Filter sichtbar. Gut zu erkennen sind die
+jeweiligen Portnummern, die in den TCP-Paketen verwendet werden.
+
+Anschliessend an diesen "Three-Way Handshake" kann der Client mit dem
+Server kommunizieren.
