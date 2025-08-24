@@ -158,57 +158,24 @@ für das Internet. Obwohl heute fast ausschliesslich das Internet als
 Netzwerktyp verwendet wird, ist das Feld für die Klasse (IN) aus
 historischen Gründen weiterhin Teil jeder DNS-Anfrage. 
 
-Im Beispiel werden die Layer 2 (Data Link), Layer 3 (Network) und Layer
-4 (Transport) des TCP/IP Schichtenmodells angezeigt. 
+Der entsprechende Inhalt der Antwort sieht folgendermassen aus:
 
 ```text
-Frame 697: 86 bytes on wire (688 bits), 86 bytes captured (688 bits) on interface \Device\NPF_{409C3DA7-1C42-4AAD-97D5-B53FE093890C}, id 0
-Ethernet II, Src: Intel_e8:b0:93 (04:56:e5:e8:b0:93), Dst: Arcadyan_a6:82:80 (a0:b5:49:a6:82:80)
-Internet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1
-    0100 .... = Version: 4
-    .... 0101 = Header Length: 20 bytes (5)
-    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
-    Total Length: 72
-    Identification: 0xa19b (41371)
-    000. .... = Flags: 0x0
-    ...0 0000 0000 0000 = Fragment Offset: 0
-    Time to Live: 128
-    Protocol: UDP (17)
-    Header Checksum: 0x0000 [validation disabled]
-    [Header checksum status: Unverified]
-    Source Address: 192.168.1.108
-    Destination Address: 192.168.1.1
-    [Stream index: 9]
-User Datagram Protocol, Src Port: 53586, Dst Port: 53
-    Source Port: 53586
-    Destination Port: 53
-    Length: 52
-    Checksum: 0x8403 [unverified]
-    [Checksum Status: Unverified]
-    [Stream index: 6]
-    [Stream Packet Number: 1]
-    [Timestamps]
-    UDP payload (44 bytes)
-Domain Name System (query)
+Domain Name System (response)
     Transaction ID: 0x1f7a
-    Flags: 0x0100 Standard query
-        0... .... .... .... = Response: Message is a query
-        .000 0... .... .... = Opcode: Standard query (0)
-        .... ..0. .... .... = Truncated: Message is not truncated
-        .... ...1 .... .... = Recursion desired: Do query recursively
-        .... .... .0.. .... = Z: reserved (0)
-        .... .... ...0 .... = Non-authenticated data: Unacceptable
+    Flags: 0x8180 Standard query response, No error
     Questions: 1
-    Answer RRs: 0
+    Answer RRs: 1
     Authority RRs: 0
     Additional RRs: 0
     Queries
         www.deutschegrammophon.com: type A, class IN
-            Name: www.deutschegrammophon.com
-            [Name Length: 26]
-            [Label Count: 3]
-            Type: A (1) (Host Address)
-            Class: IN (0x0001)
-    [Response In: 723]
+    Answers
+        www.deutschegrammophon.com: type A, class IN, addr 85.236.46.65
 
 ```
+
+Das Paket wiederholt die Frage und liefert die Antwort des DNS-Servers.
+Der Domainname `www.deutschegrammophon.com` ist mit der IPv4-Adresse
+`85.236.46.65` verknüpft. 
+
