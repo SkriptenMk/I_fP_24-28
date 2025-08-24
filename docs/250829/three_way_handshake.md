@@ -195,9 +195,12 @@ schematische Darstellung des "Three-Way Handshake".
 
 Der Client sendet ein SYN-Paket an den Server, um eine Verbindung
 anzufordern. Dieser Antwortet mit einem SYN-ACK-Paket. Das heisst, er
-bestätigt die Anfrage mit einem ACK-Paket und fragt seinerseits mit
-einem SYN-Paket nach, ob der Client (immer noch) bereit ist, die
-Verbindung aufzubauen.
+bestätigt die Anfrage mit einem ACK und fragt seinerseits mit
+einem SYN nach, ob der Client (immer noch) bereit ist, die
+Verbindung aufzubauen. Damit klar ist, dass sich das ACK im
+SYN-ACK-Paket auf das ursprüngliche SYN-Paket bezieht, werden die
+einzelnen Pakete mit einer Sequenznummer (Sequence Number) versehen. Das
+ACK gibt die Sequenznummer des SYN-Paketes plus eins zurück.
 
 Dieser Vorgang kann mit Wireshark beobachtet werden. Dafür braucht es
 einen kombinierten Wireshark Anzeigefilter. Als Beispiel wird der
