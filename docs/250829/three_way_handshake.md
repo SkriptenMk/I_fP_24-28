@@ -130,6 +130,34 @@ NAT-Geräte (vgl.
 nutzen diese Port-Informationen zusätzlich für die Zuordnung
 zwischen privaten und öffentlichen Adressen. 
 
+Der zuunterst dargestellte Layer in der Detailansicht, beinhaltet die
+eigentliche Anfrage für die Übersetzung des Domainnamens in eine
+IP-Adresse.
+
+```text
+Domain Name System (query)
+    Transaction ID: 0x1f7a
+    Flags: 0x0100 Standard query
+    Questions: 1
+    Answer RRs: 0
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        www.deutschegrammophon.com: type A, class IN
+    [Response In: 723]
+```
+
+Aus diesem Grund wird dieser Teil der Analyse hier auch aufgefaltet
+dargestellt.  
+Unter dem Stichwort `Queries` wird die gesuchte Adresse
+`www.deutschegrammophon.com` angezeigt. Das Stichwort `type A` zeigt an,
+dass es sich hier um eine Anfrage nach einer IPv4-Adresse handelt.
+IPv4-Adressen werden mit `A` bezeichnet, IPv6 mit `AAAA`. Das letzte
+Element in dieser Zeile ist die Klasse der Anfrage, in diesem Fall `IN`
+für das Internet. Obwohl heute fast ausschliesslich das Internet als
+Netzwerktyp verwendet wird, ist das Feld für die Klasse (IN) aus
+historischen Gründen weiterhin Teil jeder DNS-Anfrage. 
+
 Im Beispiel werden die Layer 2 (Data Link), Layer 3 (Network) und Layer
 4 (Transport) des TCP/IP Schichtenmodells angezeigt. 
 
