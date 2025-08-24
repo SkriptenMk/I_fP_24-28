@@ -222,7 +222,7 @@ werden, welche entweder das SYN-Flag oder das ACK-Flag (oder beides)
 gesetzt haben. Dies kann mit folgendem Filter erreicht werden:
 
 ```wireshark
-ip.addr == 85.236.46.65 and ( (tcp.flags.syn == 1 and tcp.flags.ack == 0) or (tcp.flags.syn == 1 and tcp.flags.ack == 1) or (tcp.flags.syn == 0 and tcp.flags.ack == 1) )
+ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1 )
 ```
 
 Das sind allerdings immer noch zu viele Pakete. Daher sollen nur jene
@@ -237,8 +237,7 @@ Das folgende Listing zeigt den ganzen Filterbefehl für die Anzeige der
 Pakete, die zu diesem TCP-Stream gehören:
 
 ```wireshark
-ip.addr == 85.236.46.65 and ( (tcp.flags.syn == 1 and tcp.flags.ack == 0) or (tcp.flags.syn == 1 and tcp.flags.ack == 1) or (tcp.flags.syn == 0 and tcp.flags.ack == 1) )
- and !(tcp.stream eq 8)
+ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1) and !(tcp.stream eq 8)
 ```
 
 ![Three-Way Handshake Pakete](ws_three-way-handshake.png)
