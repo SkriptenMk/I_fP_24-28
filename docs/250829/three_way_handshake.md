@@ -125,7 +125,9 @@ href="https://www.iana.org/assignments/service-names-port-numbers/service-names-
 target="_blank">
 offiziellen IANA-Portdatenbank</a>. Der Quellport ermöglicht es dem
 Zielsystem, die Antwort an den korrekten Absender zurückzusenden.
-[NAT](../250822/nat.md)-Geräte nutzen diese Port-Informationen zusätzlich für die Zuordnung
+NAT-Geräte (vgl. 
+[Abschnitt Network Address Translation (NAT)](../250822/nat.md))
+nutzen diese Port-Informationen zusätzlich für die Zuordnung
 zwischen privaten und öffentlichen Adressen. 
 
 Im Beispiel werden die Layer 2 (Data Link), Layer 3 (Network) und Layer
