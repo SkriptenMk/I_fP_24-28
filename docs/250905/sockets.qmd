@@ -1,34 +1,35 @@
 ---
-title: "6 Python Sockets: A Simple Client-Server Example"
+title: "6 Python Sockets: Ein Einfaches Client-Server Beispiel"
 date: 2025-09-03
 date-format: DD.MM.YYYY
 author: "Jacques Mock Schindler"
 ---
 
-In this section, we explore how to create a simple client-server
-application using Python sockets. This example will demonstrate the 
-basic concepts of socket programming, including how to establish a
-connection and send and receive data.
+In diesem Abschnitt untersuchen wir, wie man eine einfache
+Client-Server-Anwendung mit Python-Sockets erstellt. Dieses Beispiel
+wird die grundlegenden Konzepte der Socket-Programmierung demonstrieren,
+einschliesslich der Herstellung einer Verbindung sowie des Sendens und
+Empfangens von Daten. 
 
 :::{.callout-note title="Network Socket" appearance="simple"}
-A network socket is an endpoint within a host used to send and receive
-data over a network. 
+Ein Netzwerk-Socket ist ein Endpunkt innerhalb eines Hosts, der zum
+Senden und Empfangen von Daten über ein Netzwerk verwendet wird.
 :::
 
 ## Communication Structure
 
-The example will consist of a server that listens for incoming
-connections and a client that connects to the server. We will model the
-communication as a simple chat service. 
+Das Beispiel besteht aus einem Server, der auf eingehende Verbindungen
+wartet, und einem Client, der sich mit dem Server verbindet. Wir werden
+die Kommunikation als einfachen Chatdienst modellieren. 
 
 ## Server Code
 
-You don't need a virtual environment. The example uses only the Python
-standard library.   
-Below is the working code example for the
+Sie benötigen keine virtuelle Umgebung. Das Beispiel verwendet nur die
+Python-Standardbibliothek.  
+Unten ist das funktionierende Codebeispiel für den
 <a
 href="https://github.com/SkriptenMk/I_eW_24-28/blob/main/files/lektionen_hs25/250903/socket_server.py"
-download="socket_server.py" target="_blank">socket server</a>:
+download="socket_server.py" target="_blank">Socket-Server</a>:
 
 ```python
 # socket_server.py
@@ -74,21 +75,21 @@ if __name__ == '__main__':
     server_program()
 ```
 
-To run the script directly, open a terminal in the directory where the
-script is located and run the following command: 
+Um das Skript direkt auszuführen, öffnen Sie ein Terminal im Verzeichnis, in dem sich das Skript befindet, und führen Sie den folgenden Befehl aus:
 
 ```{bash}
 python socket_server.py
 ```
 
-What happens when you do so is explained in the following sections.
+Was geschieht, wenn das Skript ausgeführt wird, wird in den folgenden Abschnitten erläutert.
 
-The code consists of two main parts: the `server_program` function and
-the `if __name__ == '__main__'` block. The `server_program` function
-contains the main logic for the server, while the `if` block is used to
-execute the server code when the script is run directly.
+Der Code besteht aus zwei Hauptteilen: der Funktion `server_program` und
+dem Block `if __name__ == '__main__'`. Die Funktion `server_program`
+enthält die Hauptlogik für den Server, während der `if`-Block verwendet
+wird, um den Servercode auszuführen, wenn das Skript direkt ausgeführt
+wird. 
 
-When you run the script, Python first imports the `socket` module.
+Wenn Sie das Skript ausführen, importiert Python zuerst das `socket`-Modul.
 
 ```{python}
 #| code-line-numbers: false
@@ -96,13 +97,13 @@ When you run the script, Python first imports the `socket` module.
 import socket
 ```
 
-Next, the `server_program` function is called. Inside this function, the
-first thing that happens is the definition of the host address and the
-port number. `localhost` is a special address that refers to the local
-machine. `localhost` is equivalent to the IPv4 address `127.0.0.1`.
-This means that the server will only accept connections from
-clients running on the same machine. This is a simulation of a network
-on the local machine.  
+Als nächstes wird die Funktion `server_program` aufgerufen. Innerhalb
+dieser Funktion wird als erstes die Hostadresse und der Portnummer
+definiert. `localhost` ist eine spezielle Adresse, die auf die lokale
+Maschine verweist. `localhost` entspricht der IPv4-Adresse
+`127.0.0.1`. Das bedeutet, dass der Server nur Verbindungen von Clients
+akzeptiert, die auf derselben Maschine ausgeführt werden. Dies ist eine
+Simulation eines Netzwerks. 
 
 ```{python}
 #| code-line-numbers: false
@@ -113,8 +114,8 @@ def server_program():
     port = 5000           # use a port number above 1024
 ```
 
-Below, the `server_socket` is created using the `socket.socket()`
-function, which creates a new socket object. 
+Im nächsten Code-Snippet wird der `server_socket` mit der Funktion
+`socket.socket()` erstellt, die ein neues Socket-Objekt erzeugt. 
 
 ```{python}
 #| code-line-numbers: false
@@ -122,10 +123,7 @@ function, which creates a new socket object.
 server_socket = socket.socket()
 ```
 
-This socket will be used
-to listen for incoming connections from clients. To make the connection
-work, the `server_socket` must be bound to the host and port using the
-`bind()`.
+Dieses Socket wird verwendet, um auf eingehende Verbindungen von Clients zu hören. Damit die Verbindung funktioniert, muss der `server_socket` mit der Host- und Portnummer über die `bind()`-Methode verbunden werden.
 
 ```{python}
 #| code-line-numbers: false
@@ -133,8 +131,7 @@ work, the `server_socket` must be bound to the host and port using the
 server_socket.bind((host, port))
 ```
 
-Next, the server is set to listen for
-incoming connections with the `listen()` method.
+Als nächstes wird der Server so eingestellt, dass er mit der `listen()`-Methode auf eingehende Verbindungen wartet.
 
 ```{python}
 #| code-line-numbers: false
@@ -144,17 +141,17 @@ server_socket.listen(2) # start listening
                         # (max queued connections)
 ```
 
-The server
-sets a backlog of 2 pending connections. The code, however, accepts
-exactly one client connection (accept() is called once). To handle
-multiple clients, call accept() in a loop and use threads or asyncio.
-This limit is set to prevent the server from being overwhelmed by too
-many connections at once. The `accept()` method is used to accept a new
-connection from a client. This method returns a tuple containing two
-items: conn, a new socket object for client communication, and address,
-the client's address. The next chunk shows, how a message is printed to show the
-address of the
-connected client.   
+Der Server erstellt ein backlog von 2 ausstehenden Verbindungen. Der
+Code akzeptiert jedoch genau eine Client-Verbindung (accept() wird
+einmal aufgerufen). Um mehrere Clients zu verarbeiten, rufen Sie
+accept() in einer Schleife auf und verwenden Sie Threads oder asyncio.
+Dieses Limit wird festgelegt, um zu verhindern, dass der Server von zu
+vielen Verbindungen auf einmal überwältigt wird. Die `accept()`-Methode
+wird verwendet, um eine neue Verbindung von einem Client zu akzeptieren.
+Diese Methode gibt ein Tupel mit zwei Elementen zurück: conn, ein neues
+Socket-Objekt für die Kommunikation mit dem Client, und address, die
+Adresse des Clients. Der nächste Abschnitt zeigt, wie eine Nachricht
+ausgegeben wird, um die Adresse des verbundenen Clients anzuzeigen.
 
 ```{python}
 #| code-line-numbers: false
@@ -163,11 +160,12 @@ conn, address = server_socket.accept()
 print("Connection from: " + str(address))
 ```
 
-The while loop lets the server wait for data from the
-client. The `recv()` method is used to receive data from the client.
-Each `recv()` call reads up to 1024 bytes; additional data remains in the
-buffer and can be read by subsequent calls. If no data is
-received, the server breaks out of the loop and closes the connection.
+Die while-Schleife ermöglicht es dem Server, auf Daten vom Client zu
+warten. Die `recv()`-Methode wird verwendet, um Daten vom Client zu
+empfangen. Jeder `recv()`-Aufruf liest bis zu 1024 Bytes; zusätzliche
+Daten bleiben im Puffer und können durch nachfolgende Aufrufe gelesen
+werden. Wenn keine Daten empfangen werden, bricht der Server die
+Schleife ab und schliesst die Verbindung. 
 
 ```{python}
 #| code-line-numbers: false
@@ -181,9 +179,9 @@ while True:
         
 ```
 
-If the server receives data, it prints the data to the console and then
-prompts the user to enter a response. The response is sent
-back to the client using the `send()` method.
+Wenn der Server Daten empfängt, gibt er die Daten in der Konsole aus und
+fordert den Benutzer auf, eine Antwort einzugeben. Die Antwort wird mit
+der `send()`-Methode an den Client zurückgesendet. 
 
 ```{python}
 #| code-line-numbers: false
@@ -197,9 +195,9 @@ print("Received from connected client: " + str(data))
 
 ## Client Code
 
-Below is the working code of the
+Unten ist der funktionierende Code des
 <a href="https://github.com/SkriptenMk/I_eW_24-28/blob/main/files/lektionen_hs25/250903/socket_client.py">
-client example</a>:
+Client-Beispiels</a>:
 
 ```python
 # socket_client.py
@@ -241,62 +239,40 @@ if __name__ == '__main__':
     client_program()
 ```
 
-To run this script, follow the same steps as for the server script.
-Open a terminal in the directory where the script is located and run the
-following command: 
+Um dieses Skript auszuführen, befolgen Sie die gleichen Schritte wie für das Server-Skript. Öffnen Sie ein Terminal im Verzeichnis, in dem sich das Skript befindet, und führen Sie den folgenden Befehl aus:
 
 ```bash
 python socket_client.py
 ```
 
-Start the server before the client. If the server is not running,
-client_socket.connect(...) will raise a ConnectionRefusedError. 
+Starten Sie den Server, bevor Sie den Client starten. Wenn der Server nicht läuft, wird client_socket.connect(...) einen ConnectionRefusedError auslösen.
 
-When you run the script, Python first imports the `socket` module.
+Wenn Sie das Skript ausführen, importiert Python zuerst das Modul `socket`.
 
-Next, the `client_program` function is called. Inside this function, the
-first thing that happens is the definition of the host address and the
-port number. Here, the host address and the port number have to be the
-ones defined in the server script.
+Als nächstes wird die Funktion `client_program` aufgerufen. Innerhalb dieser Funktion wird die erste Aktion die Definition der Hostadresse und der Portnummer. Hier müssen die Hostadresse und die Portnummer mit denen im Server-Skript übereinstimmen.
 
-After defining the host and port, the client creates a socket object
-using the `socket.socket()` function. This socket will be used to
-connect to the server. The `connect()` method is called on the socket
-object to establish a connection to the server.
+Nachdem die Host- und Portinformationen definiert sind, erstellt der Client ein Socket-Objekt mit der Funktion `socket.socket()`. Dieses Socket wird verwendet, um eine Verbindung zum Server herzustellen. Die Methode `connect()` wird auf dem Socket-Objekt aufgerufen, um eine Verbindung zum Server herzustellen.
 
-Once the connection is established, the client enters a loop where it
-can send messages to the server and receive responses. The client
-prompts the user to enter a message, which is then sent to the server
-using the `send()` method. The client also waits for a response from
-the server using the `recv()` method.
+Sobald die Verbindung hergestellt ist, betritt der Client eine Schleife,
+in der er Nachrichten an den Server senden und Antworten empfangen kann.
+Der Client fordert den Benutzer auf, eine Nachricht einzugeben, die dann
+mit der Methode `send()` an den Server gesendet wird. Der Client wartet
+auch auf eine Antwort vom Server, indem er die Methode `recv()`
+verwendet. 
 
-If the user enters `bye`, the client will exit the loop and close the
-connection to the server.
+Wenn der Benutzer `bye` eingibt, verlässt der Client die Schleife und
+schliesst die Verbindung zum Server.
 
 
 ## Conclusion
 
-The presented code examples illustrate how Python's built-in socket
-module (standard library) enables straightforward implementation of
-networked applications without requiring external dependencies. The
-tutorial's focus on localhost communication provides a safe, controlled
-environment for experimentation and learning, while the bidirectional
-message exchange demonstrates real-world communication patterns found
-in production systems.
+Die vorgestellten Codebeispiele veranschaulichen, wie Pythons integriertes Socket-Modul (Standardbibliothek) eine unkomplizierte Implementierung von netzwerkbasierten Anwendungen ermöglicht, ohne externe Abhängigkeiten zu erfordern. Der Fokus des Tutorials auf die Kommunikation über localhost bietet eine sichere, kontrollierte Umgebung für Experimente und Lernen, während der bidirektionale Nachrichtenaustausch reale Kommunikationsmuster demonstriert, die in Produktionssystemen zu finden sind.
 
-Key achievements of this implementation include:
+Zu den wichtigsten Erfolgen dieser Implementierung gehören:
 
-* Successful establishment of TCP socket connections between separate
-  processes
-* Implementation of message-based communication with proper
-  encoding/decoding
-* Demonstration of connection lifecycle management from establishment to
-  termination
-* Creation of a simple command-line interface for both server and client
-  applications
+* Erfolgreiche Herstellung von TCP-Socket-Verbindungen zwischen separaten Prozessen
+* Implementierung einer nachrichtenbasierten Kommunikation mit ordnungsgemässer Kodierung/Dekodierung
+* Demonstration des Verbindungslebenszyklusmanagements von der Herstellung bis zur Beendigung
+* Erstellung einer einfachen Befehlszeilenschnittstelle für sowohl Server- als auch Clientanwendungen
 
-The knowledge gained from this tutorial serves as a solid foundation for
-developing more sophisticated networked applications. Future
-enhancements could include implementing multithreading for concurrent
-client handling, adding error handling and reconnection logic, or
-expanding the communication protocol to support structured data formats. 
+Das Wissen, das aus diesem Tutorial gewonnen wurde, dient als solide Grundlage für die Entwicklung anspruchsvollerer netzwerkbasierter Anwendungen. Zukünftige Verbesserungen könnten die Implementierung von Multithreading für die gleichzeitige Verarbeitung mehrerer Clients, die Hinzufügung von Fehlerbehandlungs- und Wiederverbindungslogik oder die Erweiterung des Kommunikationsprotokolls zur Unterstützung strukturierter Datenformate umfassen.
