@@ -24,7 +24,7 @@ Sie benötigen keine virtuelle Umgebung. Das Beispiel verwendet nur die
 Python-Standardbibliothek.  
 Unten ist das funktionierende Codebeispiel für den
 <a
-href="https://github.com/SkriptenMk/I_eW_24-28/blob/main/files/lektionen_hs25/250903/socket_server.py"
+href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_server.py"
 download="socket_server.py" target="_blank">Socket-Server</a>:
 
 ```{code-block} python
@@ -184,7 +184,7 @@ print("Received from connected client: " + str(data))
 ## Client Code
 
 Unten ist der funktionierende Code des
-<a href="https://github.com/SkriptenMk/I_eW_24-28/blob/main/files/lektionen_hs25/250903/socket_client.py">
+<a href="https://github.com/SkriptenMk/I_fP_24-28/blob/250905/docs/main/socket_client.py">
 Client-Beispiels</a>:
 
 ```{code-block} python
