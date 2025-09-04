@@ -16,6 +16,8 @@ parts:
         title: Top Level Domains (TLDs)
       - file: 250829/three_way_handshake.md
         title: TCP Verbindungsaufbau
+      - file: 250905/sockets.md
+        title: Socket Programmierung in Python
   - caption: Datenbanken
     chapters:
       - file: 250416/datenbank.md
