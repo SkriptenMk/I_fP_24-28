@@ -264,6 +264,31 @@ verwendet.
 Wenn der Benutzer `bye` eingibt, verlässt der Client die Schleife und
 schliesst die Verbindung zum Server.
 
+## Verbindung im LAN
+
+Um die beiden Skripte im lokalen Netzwerk (LAN) zu verwenden, muss in
+beiden Skripten die IPv4-Adresse des Servers anstelle von `localhost`
+verwendet werden.  
+Die IPv4-Adresse des Servers kann durch Ausführen des folgenden Befehls
+im Terminal des Servers ermittelt werden:
+
+```bash
+C:\Users\username>ipconfig
+Windows IP Configuration
+...
+Wireless LAN adapter Wi-Fi:
+   Connection-specific DNS Suffix  . . :
+   IPv4 Address . . . . . . . . . . . . .: 192.168.1.2
+   Subnet Mask . . . . . . . . . . . . . : 255.255.255.255
+   Default Gateway . . . . . . . . . . . : 192.168.1.1
+...
+```
+Die IPv4-Adresse des Servers ist in diesem Fall `192.168.1.2`.
+
+Diese Adresse muss in beiden Skripten anstelle von `localhost` verwendet
+werden. Dann kann innerhalb des lokalen Netzwerks eine Verbindung
+hergestellt werden.
+
 
 ## Fazit
 
