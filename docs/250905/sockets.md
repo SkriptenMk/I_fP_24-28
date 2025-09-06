@@ -277,16 +277,20 @@ C:\Users\username>ipconfig
 Windows IP Configuration
 ...
 Wireless LAN adapter Wi-Fi:
-   Connection-specific DNS Suffix  . . :
+   Connection-specific DNS Suffix  . . . :
    IPv4 Address . . . . . . . . . . . . .: 192.168.1.2
    Subnet Mask . . . . . . . . . . . . . : 255.255.255.255
    Default Gateway . . . . . . . . . . . : 192.168.1.1
 ...
 ```
+
+Die Ausgabe des Befehls `ipconfig` zeigt alle Netzwerkadapter des
+entsprechenden Computers an. Die dargestellte Ausgabe hier im Beispiel
+wurde gekürzt.  
 Die IPv4-Adresse des Servers ist in diesem Fall `192.168.1.2`.
 
-Diese Adresse muss in beiden Skripten anstelle von `localhost` verwendet
-werden. Dann kann innerhalb des lokalen Netzwerks eine Verbindung
+Diese ist die Adresse, welche in beiden Skripten anstelle von `localhost` verwendet
+werden muss. Dann kann innerhalb des lokalen Netzwerks eine Verbindung
 hergestellt werden.
 
 
