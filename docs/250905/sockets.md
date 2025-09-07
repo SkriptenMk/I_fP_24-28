@@ -25,7 +25,7 @@ Python-Standardbibliothek.
 Unten ist das funktionierende Codebeispiel für den
 <a
 href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_server.py"
-download="socket_server.py" target="_blank">Socket-Server</a>:
+download="socket_server.py">Socket-Server</a>:
 
 ```{code-block} python
 :linenos:
@@ -184,7 +184,9 @@ print("Received from connected client: " + str(data))
 ## Client Code
 
 Unten ist der funktionierende Code des
-<a href="https://github.com/SkriptenMk/I_fP_24-28/blob/250905/docs/main/socket_client.py">
+<a
+href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_client.py"
+download="socket_client.py">
 Client-Beispiels</a>:
 
 ```{code-block} python
