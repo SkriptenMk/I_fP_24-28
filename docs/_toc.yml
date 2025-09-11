@@ -5,9 +5,11 @@ format: jb-book
 root: intro.md
 parts:
   - caption: Kryptologie
-    chatpters:
-      -file: 250912/caesar.ipynb
-       title: Caesar Chiffre
+    chapters:
+      - file: 250912/files.ipynb
+        title: File Handling in Python
+      - file: 250912/caesar.ipynb
+        title: Caesar Chiffre
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
