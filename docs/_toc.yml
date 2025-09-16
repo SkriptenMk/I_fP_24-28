@@ -10,6 +10,8 @@ parts:
         title: File Handling in Python
       - file: 250912/caesar.ipynb
         title: Caesar Chiffre
+      - file: 250919_vigenere/vigenere.ipynb
+        title: Polyalphabetische Chiffren
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
