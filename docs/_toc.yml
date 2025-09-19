@@ -12,6 +12,8 @@ parts:
         title: Caesar Chiffre
       - file: 250919_vigenere/vigenere.ipynb
         title: Polyalphabetische Chiffren
+      - file: 250918_implementation/250918_python_implementation.ipynb
+        title: Vigenère Chiffre in Python
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
