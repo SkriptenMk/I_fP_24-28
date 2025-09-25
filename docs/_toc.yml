@@ -14,6 +14,8 @@ parts:
         title: Polyalphabetische Chiffren
       - file: 250918_implementation/250918_python_implementation.ipynb
         title: Vigenère Chiffre in Python
+      - file: 250926_break_vigenere/break.ipynb
+        title: Vigenère knacken
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
