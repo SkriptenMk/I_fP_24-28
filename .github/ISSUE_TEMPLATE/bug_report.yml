@@ -25,7 +25,10 @@ body:
     attributes:
       label: Beschreiben Sie bitte den Fehler
       description: Halten Sie sich bitte an die folgende Checkliste.
-      description: Halten Sie sich bitte an die folgende Checkliste.
+                   Sie können die Elemente in der Chckliste entweder mit
+                   `[x]` als erledgit markieren oder einfach
+                   überschreiben. Falls nötig, können Sie auch ein File
+                   anhängen (vlg. Büroklammer unter der Textbox).
       placeholder: Kopieren Sie bitte die Adresse der Seite in dieses Feld.
       value: "- [ ] genaue Angabe, wo sich der Fehler befindet
       
