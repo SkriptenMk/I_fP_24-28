@@ -27,9 +27,9 @@ body:
       description: Halten Sie sich bitte an die folgende Checkliste.
       description: Halten Sie sich bitte an die folgende Checkliste.
       placeholder: Kopieren Sie bitte die Adresse der Seite in dieses Feld.
-      value: "[ ] genaue Angabe, wo sich der Fehler befindet
+      value: "- [ ] genaue Angabe, wo sich der Fehler befindet
       
-              [ ] genaue Beschreibung des Fehlers"
+              - [ ] genaue Beschreibung des Fehlers"
     validations:
       required: true
   - type: input
