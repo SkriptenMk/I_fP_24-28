@@ -1,5 +1,6 @@
 name: Fehlermeldung
-description: Melden Sie einen Fehler.
+description: Ist Ihnen ein Fehler im Skript aufgefallen? Zögern Sie
+             nicht, den Fehler mit diesem Formular zu melden.
 title: "[Fehler]: "
 labels: ["fehler", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
