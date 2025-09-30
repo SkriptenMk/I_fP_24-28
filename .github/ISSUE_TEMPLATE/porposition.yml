@@ -1,0 +1,44 @@
+name: Verbesserungsvorschlag
+description: Machen Sie einen konkreten Vorschlag zur Verbesserung des
+             Skripts. 
+title: "[Vorschlag]: "
+labels: ["proposition", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - Jacques-Mock-Schindler
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke, dass Sie sich die Zeit nehmen, einen konkreten Vorschlag
+        zu formulieren.
+  - type: checkboxes
+    id: propostion_type
+    attributes:
+      label: Welche Art Vorschlag machen Sie?
+      options:
+        - label: Formulierung
+        - label: Illustration
+        - label: Beispielcode 
+    validations:
+        required: false     
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Konkreter Vorschlag
+      description: Formulieren Sie in der folgenden Textbox Ihren
+                   Vorschlag. Für Grafiken oder .py-Files können Sie die
+                   Upload Funktion verwenden.
+      placeholder: Vorschlag
+      value: "Vorschlag"
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Kontaktangaben
+      description: Wie kann ich Sie erreichen, wenn ich zusätzliche 
+                   Informationen brauche?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
