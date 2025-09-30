@@ -24,10 +24,10 @@ body:
     id: where
     attributes:
       label: Beschreiben Sie bitte den Fehler
-      description: Ersetzen Sie im folgenden Textfeld die Vorlage durch
-                   Ihre Angaben.
+      description: Halten Sie sich bitte an die folgende Checkliste.
       placeholder: Kopieren Sie bitte die Adresse der Seite in dieses Feld.
-      value: "Adresse der Seite: Beschreibung des Fehlers."
+      value: "[ ] genaue Angabe, wo sich der Fehler befindet
+              [ ] genaue Beschreibung des Fehlers"
     validations:
       required: true
   - type: input
