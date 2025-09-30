@@ -13,7 +13,7 @@ body:
   - type: input
     id: contact
     attributes:
-      label: Contact Details
+      label: Kontaktangaben
       description: Wie kann ich Sie erreichen, wenn ich zusätzliche 
                    Informationen brauche?
       placeholder: ex. email@example.com
@@ -22,10 +22,11 @@ body:
   - type: textarea
     id: where
     attributes:
-      label: Wo befindet sich der Fehler?
-      description: Auf welcher Seite findet sich der Fehler?
+      label: Beschreiben Sie bitte den Fehler
+      description: Ersetzen Sie im folgenden Textfeld die Vorlage durch
+                   Ihre Angaben.
       placeholder: Kopieren Sie bitte die Adresse der Seite in dieses Feld.
-      value: "A bug happened!"
+      value: "Adresse der Seite: Beschreibung des Fehlers."
     validations:
       required: true
   - type: dropdown
