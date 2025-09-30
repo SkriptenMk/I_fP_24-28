@@ -1,6 +1,8 @@
 name: Optimierung
-description: Machen Sie einen konkreten Vorschlag zur Verbesserung des
-             Skripts. 
+description: Wenn Sie eine Idee für eine verständlichere Erklärung oder
+             für eine anschauliche Grafik haben, zögern Sie nicht,
+             Ihren Vorschlag mit diesem Forumlar einzubringen.
+             Anschauliche Code Beispiele sind ebenso willkommen.
 title: "[Vorschlag]: "
 labels: ["proposition", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
