@@ -18,7 +18,7 @@ body:
         - Tippfehler
         - Unversständliche Formulierung
         - Beispielcode funktioniert nicht   
-      validations:
+    validations:
         required: false     
   - type: textarea
     id: where
