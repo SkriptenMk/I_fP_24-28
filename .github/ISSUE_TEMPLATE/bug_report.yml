@@ -12,10 +12,14 @@ body:
         Danke, dass Sie sich die Zeit nehmen, einen Fehler zu melden.
   - type: dropdown
     id: error_type
-    options:
-      - Tippfehler
-      - Unversständliche Formulierung
-      - Beispielcode funktioniert nicht        
+    attributes:
+      label: Welche Art Fehler möchten Sie melden?
+      options:
+        - Tippfehler
+        - Unversständliche Formulierung
+        - Beispielcode funktioniert nicht   
+      validations:
+        required: false     
   - type: textarea
     id: where
     attributes:
