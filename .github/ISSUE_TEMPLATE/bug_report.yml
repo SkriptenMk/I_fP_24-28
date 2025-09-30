@@ -15,9 +15,9 @@ body:
     attributes:
       label: Welche Art Fehler möchten Sie melden?
       options:
-        - Tippfehler
-        - Unversständliche Formulierung
-        - Beispielcode funktioniert nicht   
+        - label: Tippfehler
+        - label: Unversständliche Formulierung
+        - label: Beispielcode funktioniert nicht   
     validations:
         required: false     
   - type: textarea
