@@ -4,7 +4,7 @@
 
 Bereits im 9. Jahrhundert wurde im islamischen Raum die grosse Schwachstelle
 monoalphabetischer Chiffren (Caesar-Chiffre) erkannt. Die Verteilung der
-Buchstaben folgt in jeder Sprache einem spezifischen aber konstanten Muster. Für
+Buchstaben folgt in jeder Sprache einem spezifischen, aber konstanten Muster. Für
 die deutsche Sprache ist die Verteilung der folgenden Tabelle zu entnehmen.
 
 | Buchstabe | relative Häufigkeit | Buchstabe | relative Häufigkeit | Buchstabe | relative Häufigkeit |
