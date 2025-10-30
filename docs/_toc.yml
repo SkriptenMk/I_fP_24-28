@@ -16,6 +16,8 @@ parts:
         title: Vigenère Chiffre in Python
       - file: 250926_break_vigenere/break.ipynb
         title: Vigenère knacken
+      - file: 251031/asymmetrie.md
+        title: Asymetrische Verschlüsselung
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
