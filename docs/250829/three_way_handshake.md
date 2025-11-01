@@ -1,7 +1,7 @@
 # Beobachten von Internetverbindungen
 
 Die folgenden Ausführungen basieren auf der Analyse von Netzwerkpaketen,
-welch mit Wireshark aufgezeichnet wurden. Dafür ist die Installation von
+welche mit Wireshark aufgezeichnet wurden. Dafür ist die Installation von
 Wireshark erforderlich. Die 
 <a href="https://www.wireshark.org/#download" target="_blank">
 Website von Wireshark</a> stellt dazu den
@@ -21,7 +21,7 @@ Schule wird die Verbindung zum Internet per WLAN hergestellt.
 Entsprechend ist der WLAN-Adapter auszuwählen. Sobald der entsprechende
 Adapter ausgewählt ist, kann die Aufzeichnung gestartet werden.
 Gestartet wird die Aufzeichnung durch einen Klick auf das blaue
-Haifischflossen-Symbol in der Symbolleiste. Die Auszeichnung startet
+Haifischflossen-Symbol in der Symbolleiste. Die Aufzeichnung startet
 umgehend. Angehalten wird die Aufzeichnung mit einem Klick auf das
 rote Quadrat-Symbol in der Symbolleiste. Die Aufzeichnung kann entweder
 über das Menü Datei > Speichern, durch einen Klick auf das Dateisymbol
@@ -53,7 +53,7 @@ dns.qry.name == "www.example.com"
 ```
 
 Der angewendete Filterbefehl ist relativ einfach nachzuvollziehen.
-An erster Stelle steht hier das Protokoll nach dem gefiltert wird. Weil
+An erster Stelle steht hier das Protokoll, nach dem gefiltert wird. Weil
 nach den DNS-Anfragen gefiltert wird, ist das hier `dns`. `dns` alleine
 wäre bereits ein gültiger Filter. Allerdings werden dann alle DNS-Pakete
 angezeigt. Der Filter wird daher zu `dns.qry.name` ergänzt Dabei steht
@@ -99,7 +99,7 @@ Internet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1
 
 ```
 
-In der Zusammenfassung werden die die Quell- und
+In der Zusammenfassung werden die Quell- und
 Ziel-Adressen des IP-Pakets angezeigt. Im vorliegenden Fall sind das jeweils die
 Privaten IP-Adressen 192.168.1.108 und 192.168.1.1. 192.168.1.108
 ist die Quell-Adresse, erkennbar an der Abkürzung "Src" und 192.168.1.1
@@ -194,7 +194,7 @@ schematische Darstellung des "Three-Way Handshake".
 ![Schema Three-Way Handshake](schema_three-way-handshake.png)
 
 Der Client sendet ein SYN-Paket an den Server, um eine Verbindung
-anzufordern. Dieser Antwortet mit einem SYN-ACK-Paket. Das heisst, er
+anzufordern. Dieser atwortet mit einem SYN-ACK-Paket. Das heisst, er
 bestätigt die Anfrage mit einem ACK und fragt seinerseits mit
 einem SYN nach, ob der Client (immer noch) bereit ist, die
 Verbindung aufzubauen. Damit klar ist, dass sich das ACK im
