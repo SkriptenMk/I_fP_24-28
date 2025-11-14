@@ -50,10 +50,9 @@ sphinx:
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
         processEscapes: true
         processEnvironments: true
+        packages: {'[+]': ['ams']}
       options:
         ignoreHtmlClass: 'tex2jax_ignore|mathjax_ignore'
         processHtmlClass: 'tex2jax_process|mathjax_process'
       loader:
         load: ['[tex]/ams']
-      tex:
-        packages: {'[+]': ['ams']}
