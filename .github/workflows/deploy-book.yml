@@ -43,7 +43,7 @@ jobs:
     - name: Build book
       run: |
         cd docs
-        jupyter-book build .
+        jupyter-book build
         touch _build/html/.nojekyll
         
     - name: Setup Pages
