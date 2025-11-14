@@ -18,6 +18,8 @@ parts:
         title: Vigenère knacken
       - file: 251031/asymmetrie.md
         title: Asymetrische Verschlüsselung
+      - file: 251114_rsa/rsa.md
+        title: RSA
   - caption: Computernetzwerke
     chapters:
       - file: 250822/netzwerke.md
