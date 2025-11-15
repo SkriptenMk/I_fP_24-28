@@ -88,7 +88,7 @@ Dies so, dass innerhalb des Subgraphen die untereinander verbundenen Knoten mit 
 
 ## Definition Dominierende Menge
 
-```{toggle}
+```{dropdown} Definition Dominierende Menge
 Eine dominierende Menge in einem Graphen ist eine Teilmenge von Knoten mit
 einer besonderen Eigenschaft: Jeder Knoten des Graphen, der nicht zu dieser
 Teilmenge gehört, ist mit mindestens einem Knoten aus dieser Teilmenge

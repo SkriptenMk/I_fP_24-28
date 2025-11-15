@@ -7,7 +7,7 @@ wird die grundlegenden Konzepte der Socket-Programmierung demonstrieren,
 einschliesslich der Herstellung einer Verbindung sowie des Sendens und
 Empfangens von Daten. 
 
-:::{.callout-note title="Network Socket" appearance="simple"}
+:::{note} Network Socket
 Ein Netzwerk-Socket ist ein Endpunkt innerhalb eines Hosts, der zum
 Senden und Empfangen von Daten über ein Netzwerk verwendet wird.
 :::
@@ -76,7 +76,7 @@ Um das Skript direkt auszuführen, öffnen Sie ein Terminal im
 Verzeichnis, in dem sich das Skript befindet, und führen Sie den
 folgenden Befehl aus: 
 
-```{bash}
+```bash
 python socket_server.py
 ```
 
