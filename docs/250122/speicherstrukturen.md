@@ -17,11 +17,10 @@ Rechenoperationen in einem Programm abzubilden.
 
 
 ```{figure} brotstapel.png
----
-width= 300px
-name: brotstapel
-alt: Brotstapel
----
+:alt: Brotstapel
+:width: 300px
+:name: brotstapel
+
 Martin Mayer mit einem Stapel Brot (Quelle: Sasa Noël und Heike Grein, Brothandwerk, Aarau und München, 2021, Seite 50.)
 ```
 

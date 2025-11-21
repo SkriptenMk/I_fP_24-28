@@ -1,7 +1,7 @@
 # Book settings
 title: Unterlagen für den Informatikunterricht in der Klasse 1fP
 author: Jacques Mock Schindler
-logo: logo.png
+logo: rb_notebook.svg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -30,8 +30,8 @@ html:
   use_issues_button: true
   issues_url: "https://github.com/SkriptenMk/I_fP_24-28/issues/new/choose"
   use_repository_button: true
-  extra_css:
-    - _static/custom.css  # Optional path to a custom CSS file
+  # extra_css:
+  #   - _static/custom.css  # Optional path to a custom CSS file
 
 parse:
   myst_enable_extensions:
