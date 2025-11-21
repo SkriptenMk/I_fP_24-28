@@ -60,6 +60,12 @@ parts:
           title: Base64 Codierung  
         - file: 250326/lernziele.md
           title: Lernziele   
+  - caption: Künstliche Inteligenz
+    chapters:
+        - file: 251107/soziale_medien.md
+          title: The Social Dilemma
+        - file: 251128/ki_beispiel.md
+          title: Einstieg in die KI
   - caption: Anleitungen
     chapters:
         - file: anleitungen/python.md

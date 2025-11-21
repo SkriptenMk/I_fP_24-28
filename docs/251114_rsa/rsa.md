@@ -11,8 +11,8 @@ neueren Systemen abgelöst.
 2.  Sie wissen, auf welcher mathematischen Schwierigkeit RSA beruht.
     Anders ausgedrückt: Was muss man machen, um vom öffentlichen auf den
     privaten Schlüssel zu kommen.
-3.  Sie erklären das Prinzip der Signatur und berechnen eine RSA
-    Signatur.
+3.  Sie erklären das Prinzip der Signatur. Sie berechnen eine RSA
+    Signatur. Sie überprüfen, ob eine Nachricht zur RSA Signatur passt.
 
 ## Die Mathematik hinter RSA
 
@@ -58,17 +58,17 @@ Mallory darf den öffentlichen Schlüssel auch kennen. Der private
 Schlüssel kennt nur Alice.
 
 Was Alice macht, ist sie Gibt die Stunde bekannt: Sie kommt um 15 Uhr
-an. Nun berechnet Alice zusätzlich \$ 15\^e ~mod~ n = 15\^{17} ~mod~ 143
-= 71 \$. Sie legt diese Zahl 71 als Signatur bei.
+an. Nun berechnet Alice zusätzlich $$ 15^d ~mod~ n = 15^{113} ~mod~ 143
+= 97 $$. Sie legt diese Zahl 97 als Signatur bei.
 
-Wenn Mallory nichts ändert, bekommt Bob "Uhrzeit 15, Signatur 71". Bob
-kann nun den Inhalt überprüfen, indem er \$ signatur \^ d ~mod~ n = 71
-\^{113} ~mod~ 143 = 15 \$ berechnet. Er merkt, die Zahl stimmt überein.
+Wenn Mallory nichts ändert, bekommt Bob "Uhrzeit 15, Signatur 97". Bob
+kann nun den Inhalt überprüfen, indem er $$ signatur ^ e ~mod~ n = 97
+^{17} ~mod~ 143 = 15 $$ berechnet. Er merkt, die Zahl stimmt überein.
 
 Wenn Mallory eine falsche Zeit an Bob geben möchte und die Zeit zu 14
 anpasst, merkt Alice, dass die Zeit nicht mit der Signatur über
 einpasst. Wenn Mallory die Signatur auch anpassen möchte, müsste sie die
-Signatur finden, sodass \$ x = 14\^e ~mod~n\$ was genau so schwierig ist
+Signatur finden, sodass $$ x = 14^e ~mod~n. $$ Dies ist genau so schwierig,
 wie das Entschlüsseln der Nachricht.
 
 :::{tip} Aufgabe
@@ -85,15 +85,3 @@ wie das Entschlüsseln der Nachricht.
 6.  Testen Sie die Tupel, welches stimmt.
 
 :::
-
-## GPG4win / Kleopatra
-
-In diesem Teil der Lektion verwenden wir die echte Verschlüsselung.
-GnuPG ist eine Software, welche RSA und modernere Kryptografie-Systeme
-implementiert hat.
-
-Befolgen Sie die Schritte 1-3 von Anleitung hier:[https://www.german-privacy-fund.de/dateien-verschlusseln-mit-kleopatra-windows/](https://www.german-privacy-fund.de/dateien-verschlusseln-mit-kleopatra-windows/)
-
-1.   Verwenden Sie ihre KBW Mailadresse um ein Schlüsselpaar zu erstellen
-2.   Laden Sie Ihren public key (Nicht den SECRET Key!) auf den Kanal _Kleopatra_ in den Ordner _public_key_ hoch.
-3.   Spielen Sie mit dem Notzikblock von Kleopatra, bis die ganze Klasse soweit ist.
