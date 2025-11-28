@@ -8,3 +8,15 @@ was ein Modell ist.
 Nehmen Sie Kopfhörer nach vorne und absolvieren Sie selbständig diesen Kurs:
 [https://studio.code.org/courses/oceans/units/1/lessons/1/levels/1](https://studio.code.org/courses/oceans/units/1/lessons/1/levels/1)
 
+# Maschinelles Lernen: Punkt- und Linienklassifikatoren
+
+Besuchen Sie die Seite
+[https://ricardoheinzmann.com/ml-class/level-selection](https://ricardoheinzmann.com/ml-class/level-selection).
+
+Spielen Sie in forlgender Reihenfolge:
+
+1.   [Linien-Klassifizieren mit 2D-Daten](https://ricardoheinzmann.com/ml-class/level/linien-klassifizieren-2D)
+2.   [Punkt-Klassifizieren mit 2D-Daten](https://ricardoheinzmann.com/ml-class/level/punkt-klassifizieren-2D)
+3.   [Punkt-Klassifizieren mit 3D-Daten](https://ricardoheinzmann.com/ml-class/level/punkt-klassifizieren-3D)
+<!-- https://abz.inf.ethz.ch/umgebungen/maschinelles-lernen-punkt-und-linienklassifikatoren/ -->
+<!-- https://github.com/lukas/ml-class -->
