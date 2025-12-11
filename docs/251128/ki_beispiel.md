@@ -5,7 +5,7 @@ Wir werden zuerst K.I. anschauen, die keinen Inhalt generieren,
 sondern Entscheidungen fällen. Dies ist zu Beginn einfacher nachzuvollziehen,
 was ein Modell ist.
 
-Nehmen Sie Kopfhörer nach vorne und absolvieren Sie selbständig diesen Kurs:
+Nehmen Sie Kopfhörer nach vorne und absolvieren Sie selbstständig diesen Kurs:
 [https://studio.code.org/courses/oceans/units/1/lessons/1/levels/1](https://studio.code.org/courses/oceans/units/1/lessons/1/levels/1)
 
 # Maschinelles Lernen: Punkt- und Linienklassifikatoren
@@ -13,7 +13,7 @@ Nehmen Sie Kopfhörer nach vorne und absolvieren Sie selbständig diesen Kurs:
 Besuchen Sie die Seite
 [https://ricardoheinzmann.com/ml-class/level-selection](https://ricardoheinzmann.com/ml-class/level-selection).
 
-Spielen Sie in forlgender Reihenfolge:
+Spielen Sie in folgender Reihenfolge:
 
 1.   [Linien-Klassifizieren mit 2D-Daten](https://ricardoheinzmann.com/ml-class/level/linien-klassifizieren-2D)
 2.   [Punkt-Klassifizieren mit 2D-Daten](https://ricardoheinzmann.com/ml-class/level/punkt-klassifizieren-2D)

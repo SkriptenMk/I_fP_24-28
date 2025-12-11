@@ -60,7 +60,7 @@ parts:
           title: Base64 Codierung  
         - file: 250326/lernziele.md
           title: Lernziele   
-  - caption: Künstliche Inteligenz
+  - caption: Künstliche Intelligenz
     chapters:
         - file: 251107/soziale_medien.md
           title: The Social Dilemma
