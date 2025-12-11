@@ -20,3 +20,16 @@ Spielen Sie in forlgender Reihenfolge:
 3.   [Punkt-Klassifizieren mit 3D-Daten](https://ricardoheinzmann.com/ml-class/level/punkt-klassifizieren-3D)
 <!-- https://abz.inf.ethz.ch/umgebungen/maschinelles-lernen-punkt-und-linienklassifikatoren/ -->
 <!-- https://github.com/lukas/ml-class -->
+
+# Maschinelles Lernen: Gewinnstrategie
+
+Spielen Sie das Spiel und entdecken Sie den Lernalgorithmus.
+
+Bedienung:
+
+-   Klicken Sie auf einen blauen Spielstein, nachher auf das gefärbte Feld eins weiter unten.
+
+https://aieducation.computatrum.ch/
+
+Nach der "Übung 1: Lernalgorithmus in Aktion - Einfach" dürfen Sie selber entscheiden,
+ob Sie die selbe Übung mit einem *Mittel* schweren Spiel machen möchten, oder zur Übung 2 gehen.

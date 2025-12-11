@@ -21,8 +21,8 @@ Das Programm entspricht dem aktuellen Stand der Planung. Es kann zu
 | 31.10.2025 | Kryptologie: Public Key Kryptographie (Graphengestützt) |
 | 07.11.2025 | [KI: The Social Dilemma](soziale-medien) |
 | 14.11.2025 | Kryptologie: Dominante Graphen |
-| 21.11.2025 | [Kryptologie: RSA und Signaturen](http://localhost:3000/rsa) |
-| 28.11.2025 | [KI: Definition](http://localhost:3000/ki-beispiel) |
+| 21.11.2025 | [Kryptologie: RSA und Signaturen](rsa) |
+| 28.11.2025 | [KI: Definition](ki-beispiel) |
 | 05.12.2025 | Test |
 | 12.12.2025 | KI |
 | 19.12.2025 | KI |
