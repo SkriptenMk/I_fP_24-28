@@ -43,11 +43,11 @@ jobs:
         
     - name: Install dependencies
       run: pip install -r requirements.txt
-        
+
     - name: Build book
       run: |
         cd docs
-        jupyter-book build --html
+        myst build --html
         touch _build/html/.nojekyll
         
     - name: Setup Pages
