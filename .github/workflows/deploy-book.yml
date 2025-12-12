@@ -47,7 +47,7 @@ jobs:
     - name: Build book
       run: |
         cd docs
-        myst build --html
+        jupyter-book build --html
         touch _build/html/.nojekyll
         
     - name: Setup Pages
