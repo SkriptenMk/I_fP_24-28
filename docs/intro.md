@@ -50,6 +50,6 @@ in der Kopfzeile) eingebracht wird, mit Maximal einem
 Notenpunkt auf die jeweils thematisch passende Prüfung angerechnet.
 
 Falls jemand eine persönliche Besprechung wünscht, 
-<a href="https://calendar.app.google/TBieKp3kHCLc9tQDA" target="_blank">
+<a href="https://calendar.app.google/UynTL5ttVPHhK1Hc8" target="_blank">
 kann hier einen Termin für eine Sprechstunde reservieren
 (Rent-A-Mock)</a>.
