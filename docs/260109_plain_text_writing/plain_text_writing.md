@@ -14,7 +14,7 @@ solchen Dateien erfolgen durch Steuerzeichen
 (vgl. z.B. ASCII-Tabelle, dort insbesondere die Beispiele der Zeichen 9
 für einen horizontalen Tabulatoren oder Zeichen 10 für den
 Zeilenumbruch) und durch Konventionen (vgl. z.B. die Formatierungen in
-Markdown oder \LaTeX{}).
+Markdown oder LaTeX).
 Entsprechend können sie in beliebigen Texteditoren gelesen werden. 
 
 Im Gegensatz dazu sind Binärdateien für ihre Erstellung, Bearbeitung und
@@ -38,13 +38,13 @@ geführt. Dazu gehören zum Beispiel HTML-Dateien (`.html` oder `.htm`:
 **H**yper **T**ext **M**arkup **L**anguage).
 Dieses Format wurde ursprünglich unter anderem auch dazu geschaffen,
 Text formatiert am Bildschirm darzustellen. Ein anderes Beispiel ist
-\LaTeX{}. Auch \LaTeX{} ist eine sogenannte Auszeichnungssprache (Markup
-Language). Allerdings ist das Zielmedium von \LaTeX{} weniger der
+LaTeX. Auch LaTeX ist eine sogenannte Auszeichnungssprache (Markup
+Language). Allerdings ist das Zielmedium von LaTeX weniger der
 Bildschirm sondern eher der Druck, heute vor allem das Portable Document
 Format (PDF), welches sich zum Quasi-Standard entwickelt hat.
 
 Allerdings ist der Umfang der Formatierungsmöglichkeiten sowohl in HTML
-wie auch in \LaTeX{} so umfangreich, dass die Hürde für deren Verwendung
+wie auch in LaTeX so umfangreich, dass die Hürde für deren Verwendung
 relativ hoch ist.
 
 Vor diesem Hintergrund ist eine eher minimalistische
@@ -52,13 +52,13 @@ Auszeichnungssprache, Markdown (`.md`) geschaffen worden. Diese stellt
 alle wesentlichen Formatierungsmöglichkeiten, wie zum Beispiel
 hierarchische Überschriften oder das setzen von kursivem Text, direkt
 zur Verfügung. Dort wo die Formatierungsmöglichkeiten den Bedürfnissen
-nicht genügen, kann in vielen Fällen auf HTML oder \LaTeX{}
+nicht genügen, kann in vielen Fällen auf HTML oder LaTeX
 Auszeichnungen zurückgegriffen werden.
 
 Eine Übersicht über die Formatierungsbefehle in Markdown findet sich auf
 der Website [Markdown Cheat
 Sheet](https://www.markdownguide.org/cheat-sheet/). Wichtige
-Formatierungen in \LaTeX{} (mathematische Formeln) werden auf der
+Formatierungen in LaTeX (mathematische Formeln) werden auf der
 Website [Wikibooks
 LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
 erklärt.
@@ -86,10 +86,10 @@ Vorgehensweise wird im Folgenden Schritt für Schritt erläutert.
    Das heruntergeladene Installationsprogramm kann anschliessend mit
    einem Doppelklick für die Installation ausgeführt werden.
 
-2. \LaTeX{} installieren
+2. LaTeX installieren
 
     Damit Pandoc ein Markdown Dokument in ein PDF Konvertieren kann,
-    braucht es auf dem Rechner eine Installation von \LaTeX{}. \LaTeX{}
+    braucht es auf dem Rechner eine Installation von LaTeX. LaTeX
     gibt es für Windows in verschiedenen Varianten. Die einfachste
     Installation erfolgt in der Variante von MiKTeX. Das entsprechende
     Installationspaket kann von der Website von
@@ -140,20 +140,37 @@ weiteren Angaben. Was die einzelnen Einträge bedeuten, ist weitestgehend
 selbsterklärend. 
 
 ```yaml
-from: markdown                        
-to: pdf                               
-standalone: true                      
-pdf-engine: xelatex
-output-file: output.pdf
-toc: true
-number-sections: true
-metadata:
-  title: "Anleitung"
-  author: "Jacques Mock Schindler"
-  lang: de-CH
-  fontsize: 11pt
-  geometry: left=2.5cm, right=3cm
-  date: "9. Januar 2026"
-  header-indludes:
-    \usepackage{amsmath}
+from: markdown                     # Ausgangsformat 
+to: pdf                            # Zielformat
+standalone: true                   # Erzwingt eigenständiges Dokument
+pdf-engine: xelatex                # Wählt eine spezifische pdf-engine
+output-file: output.pdf            # Name des Ausgabedokuments
+metadata:                          # Dokumentspezifische Angaben
+  title: "Anleitung"               # Titel
+  author: "Jacques Mock Schindler" # Verfasser
+  lang: de-CH                      # Sprache des Dokuments
+  fontsize: 11pt                   # Schriftgrösse
+  geometry: left=2.5cm, right=3cm  # Seitenränder
+  date: "9. Januar 2026"           # Datum
+  toc: true                        # Erstellt ein Inhaltsverzeichnis
+  number-sections: true            # Nummeriert die Titel
 ```
+
+Wenn die Datei `format.yaml` das Format des PDF steuern soll, lautet der
+Befehl für die Konvertierung des Markdown Dokuments in ein PDF
+
+```bash
+pandoc --defaults=format.yaml input.md
+```
+
+Falls der Name des neu erstellten PDF Dokuments bei jedem Befehlsaufruf
+individuell festgelegt werden soll, kann die Zeile `output-file:
+output.pdf` in der YAML Datei auch weggelassen werden. Dann lautet der
+Befehl für die Konvertierung
+
+```bash
+pandoc --defaults=format.yaml -o output.pdf input.md
+```
+
+Falls für komplexe Formatierungen auf externe LaTeX Pakete abgestellt
+werden muss, werden diese über ein separates Dokument geladen.
