@@ -74,6 +74,8 @@ parts:
           title: Anleitung Python Virtual Environment
         - file: anleitungen/jupyter.md
           title: Anleitung Jupyter Notebook
+        - file: 260109_plain_text_writing/plain_text_writing.md
+          title: Plain Text Writing 
   - caption: Alte Programme
     chapters:
         - file: archiv/fs25.md
