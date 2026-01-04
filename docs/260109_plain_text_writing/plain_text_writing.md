@@ -156,6 +156,9 @@ metadata:                          # Dokumentspezifische Angaben
   number-sections: true            # Nummeriert die Titel
 ```
 
+Die Einrückung ist für die Syntax im YAML Dokument wichtig. Sie beträgt
+zwei Leerzeichen.
+
 Wenn die Datei `format.yaml` das Format des PDF steuern soll, lautet der
 Befehl für die Konvertierung des Markdown Dokuments in ein PDF
 
@@ -173,4 +176,21 @@ pandoc --defaults=format.yaml -o output.pdf input.md
 ```
 
 Falls für komplexe Formatierungen auf externe LaTeX Pakete abgestellt
-werden muss, werden diese über ein separates Dokument geladen.
+werden muss, werden diese über ein separates `.tex` Dokument geladen.
+Auch dieses Dokument kann grundsätzlich beliebig benannt werden. Für das
+Beispiel hier wird die Datei als `header.tex` bezeichnet. Der Inhalt
+dieser Datei ist folgendermassen zu formatieren:
+
+```tex
+\usepackage{caption}
+```
+
+Der Befehl für die Konvertierung lautet jetzt
+
+```bash
+pandox --defaults=format.yaml -H header.tex input.md
+```
+
+Die Website 
+[CTAN Comprehensive TeX Archive Network](https://ctan.org/)
+gibt Auskunft darüber, was für LaTeX Pakete zur Verfügung stehen.
