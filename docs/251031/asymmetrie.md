@@ -3,7 +3,7 @@
 Obwohl das One-Time-Pad theoretisch eine absolut sichere Verschlüsselung
 ermöglicht, ist es in der Praxis kaum praktikabel. Neben der Tatsache,
 dass der Schlüssel mindestens so lang sein
-muss, wie die Nachricht selbst, braucht es ein Verfahren den, bzw. die Schlüssel
+muss, wie die Nachricht selbst, braucht es ein Verfahren den bzw. die Schlüssel
 sicher zwischen Sender und Empfänger zu teilen.
 
 Um das Problem des Schlüsselaustausches zu lösen, verwendet man spezielle
