@@ -29,6 +29,9 @@ Im Gegensatz dazu erfordern Binärdateien in der Regel spezielle
 Programme, die das jeweilige Dateiformat interpretieren können, was zu
 einer gewissen Abhängigkeit von entsprechender Software führen kann. 
 
+Weiterführende Überlegungen zum Verfassen von Texten in Plain Text
+können den hier angeführten Texten entnommen werden.
+
 ## Plain Text Formate für die Textredaktion
 
 Die einfachste Form eines Textfiles ist eine `.txt` Datei. Dabei handelt
