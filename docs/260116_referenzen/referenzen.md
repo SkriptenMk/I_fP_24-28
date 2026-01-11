@@ -112,5 +112,46 @@ Konfigurationsdatei:
 Weitere Konfigurationsmöglichkeiten für die Konvertierung in ein PDF
 finden sich [Pandoc User Guide](https://pandoc.org/MANUAL.html).
 
+## Bibliographische Angaben
 
+Das Dokument mit den bibliographischen Angaben kann Zotero automatisch
+erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem
+Dokument erklärt. Das Dokument für das Beispiel heist
+`bibliography.bib`.
 
+```bib
+@book{healy2020,
+  title = {The {{Plain Person}}'s {{Guide}} to {{Plain Text Social Science}}},
+  author = {Healy, Kieran},
+  year = 2020,
+  }
+```
+
+Der Eintrag bezieht sich auf ein Buch (`@book`). Unmittelbar auf diesen
+Identifikator folgt nach der geschweiften Klammer der Zitierschlüssel
+(`healy2020`). Dieser wird von Zotero grundsätzlich automatisch
+vergeben, kann aber auch manuell festgelegt werden. Anschliessend folgen
+Zeile für Zeile die notwendigen bibliographischen Angaben als Schlüssel
+\- Werte Paare.
+
+## Zitierstil
+
+Der Zitierstil wird in einem Dokument mit der Endung `.csl` definiert.
+Die Abkürzung csl steht für Citation Style Language und ist eine Form
+von [xml](https://de.wikipedia.org/wiki/Extensible_Markup_Language).
+Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das
+[Zotero Style Repository](https://www.zotero.org/styles) stellt jedoch
+die gängigsten Zitierstile zur Verfügung. 
+
+## Einfügen von Referenzen in Markdown
+
+Um Referenzen aus dem Bibliographie Dokument in den Markdown Text zu
+übernehmen, verwendet man den Zitierschlüssel. Eingefügt wird er mit
+`[@zitierschlüssel]`. Soll die Referenz mit einer Seitenzahl versehen
+werden, wird der Eintrag folgendermassen ergänzt: `[@zitierschlüssel,
+25]`. Sollen in der gleichen Referenz mehrere Belege angeführt werden,
+sieht die Syntax folgendermassen aus : `[@zitierschlüssel1, 25;
+@zitierschlüssel2, 33]`.
+
+Die Zitierschlüssel braucht man nicht auswendig zu wissen. Die Zotero
+Einträge zeigen sie als obersten Eintrag zu jedem erfassten Werk an.
