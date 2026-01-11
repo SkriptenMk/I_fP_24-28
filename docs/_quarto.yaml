@@ -62,6 +62,7 @@ book:
         - anleitungen/kurzanleitung_venv.md
         - anleitungen/jupyter.md
         - 260109_plain_text_writing/plain_text_writing.md
+        - 260116_referenzen/referenzen.md
         - 260116_referenzen/zotero.md
 
     - part: "Alte Programme"
@@ -73,7 +74,7 @@ book:
   repo-actions: [edit, issue]
 
 bibliography: references.bib
-csl: chicago-notes-bibliography-subsequent-author-classic.csl
+csl: chicago-notes-bibliography-access-dates.csl
 
 execute:
   freeze: false
@@ -84,6 +85,7 @@ format:
     code-copy: true
     toc: true
   pdf:
+    pdf-engine: lualatex
     documentclass: scrreprt
     papersize: a4
     number-sections: true
