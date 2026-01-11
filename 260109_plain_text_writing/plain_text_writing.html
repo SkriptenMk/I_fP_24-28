@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plain Text Writing &#8212; Unterlagen für den Informatikunterricht in der Klasse 1fP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '260109_plain_text_writing/plain_text_writing';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Programm im Frühlingssemester 2025" href="../archiv/fs25.html" />
+    <link rel="prev" title="Jupyter Notebook" href="../anleitungen/jupyter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/rb_notebook.svg" class="logo__image only-light" alt="Unterlagen für den Informatikunterricht in der Klasse 1fP - Home"/>
+    <script>document.write(`<img src="../_static/rb_notebook.svg" class="logo__image only-dark" alt="Unterlagen für den Informatikunterricht in der Klasse 1fP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Obligatorisches Fach Informatik (2fP)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kryptologie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250912/files.html">File Handling in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250912/caesar.html">Caesar Chiffre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250919_vigenere/vigenere.html">Polyalphabetische Chiffren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250918_implementation/250918_python_implementation.html">Vigenère Chiffre in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250926_break_vigenere/break.html">Vigenère knacken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251031/asymmetrie.html">Asymetrische Verschlüsselung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251114_rsa/rsa.html">RSA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computernetzwerke</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250822/netzwerke.html">Grundlagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/tcpip.html">IP-Adressen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/nat.html">Network Address Translation (NAT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/tld.html">Top Level Domains (TLDs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250829/three_way_handshake.html">TCP Verbindungsaufbau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250905/sockets.html">Socket Programmierung in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datenbanken</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250416/datenbank.html">Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250507/sql.html">SQL Abfragen</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://sql-island.informatik.uni-kl.de/">SQL Übungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250521/lernziele.html">Lernziele</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datenstrukturen und Codierung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250122/speicherstrukturen.html">Speicherstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250219/queue.html">Queues in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250305/bst.html">Binary Search Tree</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../250312/binaersystem.html">Das Binärsystem</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../250312/umrechnungen.html">Anwendungsübung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../250312/muloe_umrechnungen.html">Musterlösungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../250319/base64.html">Base64 Codierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250326/lernziele.html">Lernziele</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Künstliche Intelligenz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../251107/soziale_medien.html">The Social Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251128/ki_beispiel.html">Was ist eine Künstliche Intelligenz?</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anleitungen</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/python.html">Python Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/kurzanleitung_venv.html">Anleitung Python Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/jupyter.html">Anleitung Jupyter Notebook</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plain Text Writing</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alte Programme</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../archiv/fs25.html">Programm FS 2025</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SkriptenMk/I_fP_24-28" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new?title=Issue%20on%20page%20%2F260109_plain_text_writing/plain_text_writing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/260109_plain_text_writing/plain_text_writing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plain Text Writing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plain Text Writing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-und-binardateien">Text- und Binärdateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-formate-fur-die-textredaktion">Plain Text Formate für die Textredaktion</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konvertierung-von-markdown-in-pdf">Konvertierung von Markdown in PDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-konvertierung">Vorbereitung der Konvertierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spezifische-formatierung-der-ausgabe">Spezifische Formatierung der Ausgabe</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plain-text-writing">
+<h1>Plain Text Writing<a class="headerlink" href="#plain-text-writing" title="Link to this heading">#</a></h1>
+<p>In diesem Abschnitt geht es um einen Aspekt der digitalen
+Nachhaltigkeit. Digitale Nachhaltigkeit wird hier so verstanden, dass
+digitale Produkte unabhängig von konkreten Herstellern dargestellt
+werden können.<br />
+Um zu erklären, wo das Problem liegt, muss zuerst zwischen den zwei
+Dateitypen Textdateien und Binärdateien unterscheiden werden.</p>
+<section id="text-und-binardateien">
+<h2>Text- und Binärdateien<a class="headerlink" href="#text-und-binardateien" title="Link to this heading">#</a></h2>
+<p>Textdateien speichern ihren Inhalt als reinen Text. Formatierung in
+solchen Dateien erfolgen durch Steuerzeichen
+(vgl. z.B. ASCII-Tabelle, dort insbesondere die Beispiele der Zeichen 9
+für einen horizontalen Tabulatoren oder Zeichen 10 für den
+Zeilenumbruch) und durch Konventionen (vgl. z.B. die Formatierungen in
+Markdown oder LaTeX).
+Entsprechend können sie in beliebigen Texteditoren gelesen werden.</p>
+<p>Im Gegensatz dazu sind Binärdateien für ihre Erstellung, Bearbeitung und
+Darstellung grundsätzlich an Programme gebunden, welche ihren Standard
+lesen können. Ihre Inhalte
+werden als eine Folge von Bytes gespeichert. Ein Beispiel für eine
+Binärdatei ist ein in MS Word erstelltes Dokument.</p>
+<p>Diese Unterscheidung zeigt, dass Textdateien grundsätzlich auf jedem
+funktionierenden Computer mit einem Texteditor angezeigt werden können.
+Im Gegensatz dazu erfordern Binärdateien in der Regel spezielle
+Programme, die das jeweilige Dateiformat interpretieren können, was zu
+einer gewissen Abhängigkeit von entsprechender Software führen kann.</p>
+</section>
+<section id="plain-text-formate-fur-die-textredaktion">
+<h2>Plain Text Formate für die Textredaktion<a class="headerlink" href="#plain-text-formate-fur-die-textredaktion" title="Link to this heading">#</a></h2>
+<p>Die einfachste Form eines Textfiles ist eine <code class="docutils literal notranslate"><span class="pre">.txt</span></code> Datei. Dabei handelt
+es sich in der Regel um reinen Text ohne Formatierungen. Das Bedürfnis
+nach formatierten Textdarstellungen hat zu verschiedenen Dateiformaten
+geführt. Dazu gehören zum Beispiel HTML-Dateien (<code class="docutils literal notranslate"><span class="pre">.html</span></code> oder <code class="docutils literal notranslate"><span class="pre">.htm</span></code>:
+<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage).
+Dieses Format wurde ursprünglich unter anderem auch dazu geschaffen,
+Text formatiert am Bildschirm darzustellen. Ein anderes Beispiel ist
+LaTeX. Auch LaTeX ist eine sogenannte Auszeichnungssprache (Markup
+Language). Allerdings ist das Zielmedium von LaTeX weniger der
+Bildschirm sondern eher der Druck, heute vor allem das Portable Document
+Format (PDF), welches sich zum Quasi-Standard entwickelt hat.</p>
+<p>Allerdings ist der Umfang der Formatierungsmöglichkeiten sowohl in HTML
+wie auch in LaTeX so umfangreich, dass die Hürde für deren Verwendung
+relativ hoch ist.</p>
+<p>Vor diesem Hintergrund ist eine eher minimalistische
+Auszeichnungssprache, Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>) geschaffen worden. Diese stellt
+alle wesentlichen Formatierungsmöglichkeiten, wie zum Beispiel
+hierarchische Überschriften oder das setzen von kursivem Text, direkt
+zur Verfügung. Dort wo die Formatierungsmöglichkeiten den Bedürfnissen
+nicht genügen, kann in vielen Fällen auf HTML oder LaTeX
+Auszeichnungen zurückgegriffen werden.</p>
+<p>Eine Übersicht über die Formatierungsbefehle in Markdown findet sich auf
+der Website <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheat
+Sheet</a>. Wichtige
+Formatierungen in LaTeX (mathematische Formeln) werden auf der
+Website <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">Wikibooks
+LaTeX/Mathematics</a>
+erklärt.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="konvertierung-von-markdown-in-pdf">
+<h1>Konvertierung von Markdown in PDF<a class="headerlink" href="#konvertierung-von-markdown-in-pdf" title="Link to this heading">#</a></h1>
+<p>Markdown hat den klaren Vorzug, in jedem Texteditor gelesen werden zu
+können. Leider ist reines Markdown nicht sehr ästhetisch. Zudem müssen
+die meisten Texte zu Handen des Empfängers in ein PDF konvertiert
+werden.</p>
+<section id="vorbereitung-der-konvertierung">
+<h2>Vorbereitung der Konvertierung<a class="headerlink" href="#vorbereitung-der-konvertierung" title="Link to this heading">#</a></h2>
+<p>Für diese Konvertierung kann das Programm Pandoc verwendet werden.
+Pandoc kann Markdown in unzählige Formate Konvertieren. Die genaue
+Vorgehensweise wird im Folgenden Schritt für Schritt erläutert.</p>
+<ol class="arabic">
+<li><p>Pandoc installieren</p>
+<p>Das Installationsprogramm für Pandoc kann auf der Website von
+<a class="reference external" href="https://pandoc.org/installing.html">Pandoc heruntergeladen</a> werden.
+Dazu ist dem Link “Download the latest Installer” zu folgen. Für
+Windows ist die Datei mit der Endung <code class="docutils literal notranslate"><span class="pre">.msi</span></code> herunterzuladen.</p>
+<p>Das heruntergeladene Installationsprogramm kann anschliessend mit
+einem Doppelklick für die Installation ausgeführt werden.</p>
+</li>
+<li><p>LaTeX installieren</p>
+<p>Damit Pandoc ein Markdown Dokument in ein PDF Konvertieren kann,
+braucht es auf dem Rechner eine Installation von LaTeX. LaTeX
+gibt es für Windows in verschiedenen Varianten. Die einfachste
+Installation erfolgt in der Variante von MiKTeX. Das entsprechende
+Installationspaket kann von der Website von
+<a class="reference external" href="https://miktex.org/download">MiKTeX</a>
+heruntergeladen werden.</p>
+<p>Das heruntergeladene Installationsprogramm kann anschliessend mit
+einem Doppelklick für die Installation ausgeführt werden.</p>
+</li>
+<li><p>Pandoc verwenden</p>
+<p>Pandoc ist ein Programm für die Kommandozeile. Das heisst, es gibt
+keine grafische Oberfläche für die Verwendung von Pandoc. Am
+einfachsten kann Pandoc verwendet werden, wenn im Ordner, in dem sich
+das zu konvertierende File befindet, ein Terminal geöffnet wird.</p>
+<p>Die Konvertierung erfolgt mit folgendem Befehl:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc<span class="w"> </span>-o<span class="w"> </span>output.pdf<span class="w"> </span>input.md
+</pre></div>
+</div>
+<p>Output.pdf und input.md muss an die eigenen Dateinamen angepasst
+werden. Alternativ können auch andere Dateiformate, wie <code class="docutils literal notranslate"><span class="pre">.docx</span></code> oder
+<code class="docutils literal notranslate"><span class="pre">.html</span></code> als Zielformate gewählt werden. Für eine
+abschliessende Liste aller möglichen Zielformate sei auf die Website
+von Pandoc verwiesen.</p>
+</li>
+</ol>
+</section>
+<section id="spezifische-formatierung-der-ausgabe">
+<h2>Spezifische Formatierung der Ausgabe<a class="headerlink" href="#spezifische-formatierung-der-ausgabe" title="Link to this heading">#</a></h2>
+<p>Die oben dargestellte Version führt zu einem sauber strukturierten PDF.
+Allerdings fehlen wesentliche Dokumentteile wie Deckblatt oder
+Inhaltsverzeichnis.</p>
+<p>Für diese weiterführenden Formatierungen werden dem Dokument die
+erforderlichen Informationen entweder in einem speziellen Header
+vorangestellt oder in einem separaten Dokument dem Befehl für die
+Konvertierung übergeben. Hier soll die zweite Variante dargestellt
+werden.</p>
+<p>Das Dokument mit den Informationen für die Formatierung ist ein
+sogenanntes YAML-Dokument <code class="docutils literal notranslate"><span class="pre">.yaml</span></code>. YAML steht dabei für <strong>Y</strong>et <strong>A</strong>nother
+<strong>M</strong>arkup <strong>L</strong>language. Das Dokument kann einen beliebigen Namen
+haben. Hier im Beispiel wird es <code class="docutils literal notranslate"><span class="pre">format.yaml</span></code> genannt. Das folgende
+Listing zeigt eine Formatierung mit dem Namen des Authors, dem Titel und
+weiteren Angaben. Was die einzelnen Einträge bedeuten, ist weitestgehend
+selbsterklärend.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">markdown</span><span class="w">                     </span><span class="c1"># Ausgangsformat </span>
+<span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pdf</span><span class="w">                            </span><span class="c1"># Zielformat</span>
+<span class="nt">standalone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                   </span><span class="c1"># Erzwingt eigenständiges Dokument</span>
+<span class="nt">pdf-engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xelatex</span><span class="w">                </span><span class="c1"># Wählt eine spezifische pdf-engine</span>
+<span class="nt">output-file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output.pdf</span><span class="w">            </span><span class="c1"># Name des Ausgabedokuments</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w">                          </span><span class="c1"># Dokumentspezifische Angaben</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Anleitung&quot;</span><span class="w">               </span><span class="c1"># Titel</span>
+<span class="w">  </span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Jacques</span><span class="nv"> </span><span class="s">Mock</span><span class="nv"> </span><span class="s">Schindler&quot;</span><span class="w"> </span><span class="c1"># Verfasser</span>
+<span class="w">  </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de-CH</span><span class="w">                      </span><span class="c1"># Sprache des Dokuments</span>
+<span class="w">  </span><span class="nt">fontsize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">11pt</span><span class="w">                   </span><span class="c1"># Schriftgrösse</span>
+<span class="w">  </span><span class="nt">geometry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">left=2.5cm, right=3cm</span><span class="w">  </span><span class="c1"># Seitenränder</span>
+<span class="w">  </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9.</span><span class="nv"> </span><span class="s">Januar</span><span class="nv"> </span><span class="s">2026&quot;</span><span class="w">           </span><span class="c1"># Datum</span>
+<span class="w">  </span><span class="nt">toc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                        </span><span class="c1"># Erstellt ein Inhaltsverzeichnis</span>
+<span class="w">  </span><span class="nt">number-sections</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">            </span><span class="c1"># Nummeriert die Titel</span>
+</pre></div>
+</div>
+<p>Die Einrückung ist für die Syntax im YAML Dokument wichtig. Sie beträgt
+zwei Leerzeichen.</p>
+<p>Wenn die Datei <code class="docutils literal notranslate"><span class="pre">format.yaml</span></code> das Format des PDF steuern soll, lautet der
+Befehl für die Konvertierung des Markdown Dokuments in ein PDF</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc<span class="w"> </span>--defaults<span class="o">=</span>format.yaml<span class="w"> </span>input.md
+</pre></div>
+</div>
+<p>Falls der Name des neu erstellten PDF Dokuments bei jedem Befehlsaufruf
+individuell festgelegt werden soll, kann die Zeile <code class="docutils literal notranslate"><span class="pre">output-file:</span> <span class="pre">output.pdf</span></code> in der YAML Datei auch weggelassen werden. Dann lautet der
+Befehl für die Konvertierung</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc<span class="w"> </span>--defaults<span class="o">=</span>format.yaml<span class="w"> </span>-o<span class="w"> </span>output.pdf<span class="w"> </span>input.md
+</pre></div>
+</div>
+<p>Falls für komplexe Formatierungen auf externe LaTeX Pakete abgestellt
+werden muss, werden diese über ein separates <code class="docutils literal notranslate"><span class="pre">.tex</span></code> Dokument geladen.
+Auch dieses Dokument kann grundsätzlich beliebig benannt werden. Für das
+Beispiel hier wird die Datei als <code class="docutils literal notranslate"><span class="pre">header.tex</span></code> bezeichnet. Der Inhalt
+dieser Datei ist folgendermassen zu formatieren:</p>
+<div class="highlight-tex notranslate"><div class="highlight"><pre><span></span><span class="k">\usepackage</span><span class="nb">{</span>caption<span class="nb">}</span>
+</pre></div>
+</div>
+<p>Der Befehl für die Konvertierung lautet jetzt</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandox<span class="w"> </span>--defaults<span class="o">=</span>format.yaml<span class="w"> </span>-H<span class="w"> </span>header.tex<span class="w"> </span>input.md
+</pre></div>
+</div>
+<p>Die Website
+<a class="reference external" href="https://ctan.org/">CTAN Comprehensive TeX Archive Network</a>
+gibt Auskunft darüber, was für LaTeX Pakete zur Verfügung stehen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./260109_plain_text_writing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../anleitungen/jupyter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Jupyter Notebook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../archiv/fs25.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Programm im Frühlingssemester 2025</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plain Text Writing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-und-binardateien">Text- und Binärdateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-formate-fur-die-textredaktion">Plain Text Formate für die Textredaktion</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konvertierung-von-markdown-in-pdf">Konvertierung von Markdown in PDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-konvertierung">Vorbereitung der Konvertierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spezifische-formatierung-der-ausgabe">Spezifische Formatierung der Ausgabe</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacques Mock Schindler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

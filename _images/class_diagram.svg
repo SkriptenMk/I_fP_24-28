@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="25cm" height="15cm" viewBox="348 92 495 284" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="349.5" y="93" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="93" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="446.9" y="112">Node</text>
+    <rect style="fill: #ffffff" x="349.5" y="121" width="194.8" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="121" width="194.8" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="135">-value</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="151">-connections: Dictionary</text>
+    <rect style="fill: #ffffff" x="349.5" y="157" width="194.8" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="157" width="194.8" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="171">+set_next(next:Node)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="349.5" y="283.5" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="283.5" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="446.9" y="302.5">DNode</text>
+    <rect style="fill: #ffffff" x="349.5" y="311.5" width="194.8" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="311.5" width="194.8" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="325.5">-value</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="341.5">-connections: Dictionary</text>
+    <rect style="fill: #ffffff" x="349.5" y="347.5" width="194.8" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="349.5" y="347.5" width="194.8" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="361.5">+set_previous(prev:Node)</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="446.9,195.741 446.9,194.505 446.9,281.995 446.9,282.995 "/>
+    <polygon style="fill: #ffffff" points="454.9,195.741 446.9,179.741 438.9,195.741 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="454.9,195.741 446.9,179.741 438.9,195.741 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="671" y="275.5" width="171.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="671" y="275.5" width="171.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="756.85" y="294.5">Queue</text>
+    <rect style="fill: #ffffff" x="671" y="303.5" width="171.7" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="671" y="303.5" width="171.7" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="673.5" y="317.5">-root</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="673.5" y="333.5">-head</text>
+    <rect style="fill: #ffffff" x="671" y="339.5" width="171.7" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="671" y="339.5" width="171.7" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="673.5" y="353.5">+enqueue(value:DNode)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="673.5" y="369.5">+dequeue()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="645.323,325.5 655.495,325.5 545.806,325.5 544.806,325.5 "/>
+    <polygon style="fill: #ffffff" points="670.495,325.5 656.495,330.3 642.495,325.5 656.495,320.7 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="670.495,325.5 656.495,330.3 642.495,325.5 656.495,320.7 "/>
+  </g>
+</svg>

@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python Sockets: Ein Einfaches Client-Server Beispiel &#8212; Unterlagen für den Informatikunterricht in der Klasse 1fP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '250905/sockets';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Einführung in Datenbanken" href="../250416/datenbank.html" />
+    <link rel="prev" title="Beobachten von Internetverbindungen" href="../250829/three_way_handshake.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/rb_notebook.svg" class="logo__image only-light" alt="Unterlagen für den Informatikunterricht in der Klasse 1fP - Home"/>
+    <script>document.write(`<img src="../_static/rb_notebook.svg" class="logo__image only-dark" alt="Unterlagen für den Informatikunterricht in der Klasse 1fP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Obligatorisches Fach Informatik (2fP)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kryptologie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250912/files.html">File Handling in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250912/caesar.html">Caesar Chiffre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250919_vigenere/vigenere.html">Polyalphabetische Chiffren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250918_implementation/250918_python_implementation.html">Vigenère Chiffre in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250926_break_vigenere/break.html">Vigenère knacken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251031/asymmetrie.html">Asymetrische Verschlüsselung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251114_rsa/rsa.html">RSA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computernetzwerke</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250822/netzwerke.html">Grundlagen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/tcpip.html">IP-Adressen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/nat.html">Network Address Translation (NAT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250822/tld.html">Top Level Domains (TLDs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250829/three_way_handshake.html">TCP Verbindungsaufbau</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Socket Programmierung in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datenbanken</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250416/datenbank.html">Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250507/sql.html">SQL Abfragen</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://sql-island.informatik.uni-kl.de/">SQL Übungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250521/lernziele.html">Lernziele</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datenstrukturen und Codierung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../250122/speicherstrukturen.html">Speicherstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250219/queue.html">Queues in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250305/bst.html">Binary Search Tree</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../250312/binaersystem.html">Das Binärsystem</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../250312/umrechnungen.html">Anwendungsübung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../250312/muloe_umrechnungen.html">Musterlösungen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../250319/base64.html">Base64 Codierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../250326/lernziele.html">Lernziele</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Künstliche Intelligenz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../251107/soziale_medien.html">The Social Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../251128/ki_beispiel.html">Was ist eine Künstliche Intelligenz?</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anleitungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/python.html">Python Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/kurzanleitung_venv.html">Anleitung Python Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anleitungen/jupyter.html">Anleitung Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../260109_plain_text_writing/plain_text_writing.html">Plain Text Writing</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alte Programme</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../archiv/fs25.html">Programm FS 2025</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SkriptenMk/I_fP_24-28" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new?title=Issue%20on%20page%20%2F250905/sockets.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/250905/sockets.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python Sockets: Ein Einfaches Client-Server Beispiel</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-der-verbindung">Struktur der Verbindung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-code">Server Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-code">Client Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verbindung-im-lan">Verbindung im LAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit">Fazit</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-sockets-ein-einfaches-client-server-beispiel">
+<h1>Python Sockets: Ein Einfaches Client-Server Beispiel<a class="headerlink" href="#python-sockets-ein-einfaches-client-server-beispiel" title="Link to this heading">#</a></h1>
+<p>In diesem Abschnitt untersuchen wir, wie man eine einfache
+Client-Server-Anwendung mit Python-Sockets erstellt. Dieses Beispiel
+wird die grundlegenden Konzepte der Socket-Programmierung demonstrieren,
+einschliesslich der Herstellung einer Verbindung sowie des Sendens und
+Empfangens von Daten.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Network Socket
+Ein Netzwerk-Socket ist ein Endpunkt innerhalb eines Hosts, der zum
+Senden und Empfangen von Daten über ein Netzwerk verwendet wird.</p>
+</div>
+<section id="struktur-der-verbindung">
+<h2>Struktur der Verbindung<a class="headerlink" href="#struktur-der-verbindung" title="Link to this heading">#</a></h2>
+<p>Das Beispiel besteht aus einem Server, der auf eingehende Verbindungen
+wartet, und einem Client, der sich mit dem Server verbindet. Wir werden
+die Kommunikation als einfachen Chatdienst modellieren.</p>
+</section>
+<section id="server-code">
+<h2>Server Code<a class="headerlink" href="#server-code" title="Link to this heading">#</a></h2>
+<p>Sie benötigen keine virtuelle Umgebung. Das Beispiel verwendet nur die
+Python-Standardbibliothek.<br />
+Unten ist das funktionierende Codebeispiel für den
+<a
+href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_server.py"
+download="socket_server.py">Socket-Server</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># socket_server.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span> <span class="nf">server_program</span><span class="p">():</span>
+<span class="linenos"> 6</span>    <span class="c1"># define host name and port</span>
+<span class="linenos"> 7</span>    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>    <span class="c1"># for communication on the local machine</span>
+<span class="linenos"> 8</span>    <span class="n">port</span> <span class="o">=</span> <span class="mi">5000</span>           <span class="c1"># use a port number above 1024</span>
+<span class="linenos"> 9</span>    
+<span class="linenos">10</span>    <span class="c1"># create socket</span>
+<span class="linenos">11</span>    <span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="linenos">12</span>    
+<span class="linenos">13</span>    <span class="c1"># bind the socket to the host and port</span>
+<span class="linenos">14</span>    <span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="linenos">15</span>    
+<span class="linenos">16</span>    <span class="c1"># set the server to listen for connections</span>
+<span class="linenos">17</span>    <span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># start listening </span>
+<span class="linenos">18</span>                            <span class="c1"># with a backlog of 2 </span>
+<span class="linenos">19</span>                            <span class="c1"># (max queued connections)</span>
+<span class="linenos">20</span>    
+<span class="linenos">21</span>    <span class="c1"># accept new connection from client</span>
+<span class="linenos">22</span>    <span class="n">conn</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+<span class="linenos">23</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection from: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
+<span class="linenos">24</span>    
+<span class="linenos">25</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="c1"># receive up to 1024 bytes per call</span>
+<span class="linenos">27</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="linenos">28</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="linenos">29</span>            <span class="c1"># if no data is received, break</span>
+<span class="linenos">30</span>            <span class="k">break</span>
+<span class="linenos">31</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received from connected client: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="linenos">32</span>        <span class="c1"># prompt the user to enter a message</span>
+<span class="linenos">33</span>        <span class="n">data</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39; -&gt; &#39;</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="c1"># send data to the client as bytes</span>
+<span class="linenos">35</span>        <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="linenos">36</span>        
+<span class="linenos">37</span>    <span class="c1"># close the connection</span>
+<span class="linenos">38</span>    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">39</span>    
+<span class="linenos">40</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">41</span>    <span class="n">server_program</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Um das Skript direkt auszuführen, öffnen Sie ein Terminal im
+Verzeichnis, in dem sich das Skript befindet, und führen Sie den
+folgenden Befehl aus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>socket_server.py
+</pre></div>
+</div>
+<p>Was geschieht, wenn das Skript ausgeführt wird, wird in den folgenden
+Abschnitten erläutert.</p>
+<p>Der Code besteht aus zwei Hauptteilen: der Funktion <code class="docutils literal notranslate"><span class="pre">server_program</span></code> und
+dem Block <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code>. Die Funktion <code class="docutils literal notranslate"><span class="pre">server_program</span></code>
+enthält die Hauptlogik für den Server, während der <code class="docutils literal notranslate"><span class="pre">if</span></code>-Block verwendet
+wird, um den Servercode auszuführen, wenn das Skript direkt ausgeführt
+wird.</p>
+<p>Wenn Sie das Skript ausführen, importiert Python zuerst das
+<code class="docutils literal notranslate"><span class="pre">socket</span></code>-Modul.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+</pre></div>
+</div>
+<p>Als nächstes wird die Funktion <code class="docutils literal notranslate"><span class="pre">server_program</span></code> aufgerufen. Innerhalb
+dieser Funktion wird als erstes die Hostadresse und der Portnummer
+definiert. <code class="docutils literal notranslate"><span class="pre">localhost</span></code> ist eine spezielle Adresse, die auf die lokale
+Maschine verweist. <code class="docutils literal notranslate"><span class="pre">localhost</span></code> entspricht der IPv4-Adresse
+<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>. Das bedeutet, dass der Server nur Verbindungen von Clients
+akzeptiert, die auf derselben Maschine ausgeführt werden. Dies ist eine
+Simulation eines Netzwerks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">server_program</span><span class="p">():</span>
+    <span class="c1"># define host name and port</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>    <span class="c1"># for communication on the local machine</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="mi">5000</span>           <span class="c1"># use a port number above 1024</span>
+</pre></div>
+</div>
+<p>Im nächsten Code-Snippet wird der <code class="docutils literal notranslate"><span class="pre">server_socket</span></code> mit der Funktion
+<code class="docutils literal notranslate"><span class="pre">socket.socket()</span></code> erstellt, die ein neues Socket-Objekt erzeugt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dieses Socket wird verwendet, um auf eingehende Verbindungen von Clients
+zu hören. Damit die Verbindung funktioniert, muss der <code class="docutils literal notranslate"><span class="pre">server_socket</span></code>
+mit der Host- und Portnummer über die <code class="docutils literal notranslate"><span class="pre">bind()</span></code>-Methode verbunden werden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Als nächstes wird der Server so eingestellt, dass er mit der
+<code class="docutils literal notranslate"><span class="pre">listen()</span></code>-Methode auf eingehende Verbindungen wartet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># start listening </span>
+                        <span class="c1"># with a backlog of 2 </span>
+                        <span class="c1"># (max queued connections)</span>
+</pre></div>
+</div>
+<p>Der Server erstellt ein backlog von 2 ausstehenden Verbindungen. Der
+Code akzeptiert jedoch genau eine Client-Verbindung (accept() wird
+einmal aufgerufen). Um mehrere Clients zu verarbeiten, rufen Sie
+accept() in einer Schleife auf und verwenden Sie Threads oder asyncio.
+Dieses Limit wird festgelegt, um zu verhindern, dass der Server von zu
+vielen Verbindungen auf einmal überwältigt wird. Die <code class="docutils literal notranslate"><span class="pre">accept()</span></code>-Methode
+wird verwendet, um eine neue Verbindung von einem Client zu akzeptieren.
+Diese Methode gibt ein Tupel mit zwei Elementen zurück: <code class="docutils literal notranslate"><span class="pre">conn</span></code>, ein neues
+Socket-Objekt für die Kommunikation mit dem Client, und <code class="docutils literal notranslate"><span class="pre">address</span></code>, die
+Adresse des Clients. Der nächste Abschnitt zeigt, wie eine Nachricht
+ausgegeben wird, um die Adresse des verbundenen Clients anzuzeigen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection from: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Die while-Schleife ermöglicht es dem Server, auf Daten vom Client zu
+warten. Die <code class="docutils literal notranslate"><span class="pre">recv()</span></code>-Methode wird verwendet, um Daten vom Client zu
+empfangen. Jeder <code class="docutils literal notranslate"><span class="pre">recv()</span></code>-Aufruf liest bis zu 1024 Bytes; zusätzliche
+Daten bleiben im Puffer und können durch nachfolgende Aufrufe gelesen
+werden. Wenn keine Daten empfangen werden, bricht der Server die
+Schleife ab und schliesst die Verbindung.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># receive up to 1024 bytes per call</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+            <span class="c1"># if no data is received, break</span>
+            <span class="k">break</span>
+        
+</pre></div>
+</div>
+<p>Wenn der Server Daten empfängt, gibt er die Daten in der Konsole aus und
+fordert den Benutzer auf, eine Antwort einzugeben. Die Antwort wird mit
+der <code class="docutils literal notranslate"><span class="pre">send()</span></code>-Methode an den Client zurückgesendet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received from connected client: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="c1"># prompt the user to enter a message</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39; -&gt; &#39;</span><span class="p">)</span>
+        <span class="c1"># send data to the client as bytes</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="client-code">
+<h2>Client Code<a class="headerlink" href="#client-code" title="Link to this heading">#</a></h2>
+<p>Unten ist der funktionierende Code des
+<a
+href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_client.py"
+download="socket_client.py">
+Client-Beispiels</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># socket_client.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span> <span class="nf">client_program</span><span class="p">():</span>
+<span class="linenos"> 6</span>    <span class="c1"># define host name and port (of the server to connect to)</span>
+<span class="linenos"> 7</span>    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>  <span class="c1"># as both pieces of code are </span>
+<span class="linenos"> 8</span>                        <span class="c1"># running on the same machine</span>
+<span class="linenos"> 9</span>    <span class="n">port</span> <span class="o">=</span> <span class="mi">5000</span>         <span class="c1"># socket server port number</span>
+<span class="linenos">10</span>    
+<span class="linenos">11</span>    <span class="c1"># create socket</span>
+<span class="linenos">12</span>    <span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="linenos">13</span>    
+<span class="linenos">14</span>    <span class="c1"># connect to the server</span>
+<span class="linenos">15</span>    <span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+<span class="linenos">16</span>    
+<span class="linenos">17</span>    <span class="c1"># prompt the user to enter a message</span>
+<span class="linenos">18</span>    <span class="n">message</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>  <span class="c1"># take input</span>
+<span class="linenos">19</span>    
+<span class="linenos">20</span>    <span class="c1"># message loop</span>
+<span class="linenos">21</span>    <span class="k">while</span> <span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;bye&#39;</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="c1"># send message to the server as bytes</span>
+<span class="linenos">23</span>        <span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="linenos">24</span>        
+<span class="linenos">25</span>        <span class="c1"># receive response from the server</span>
+<span class="linenos">26</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="linenos">27</span>        
+<span class="linenos">28</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Received from server: &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+<span class="linenos">29</span>        
+<span class="linenos">30</span>        <span class="c1"># prompt the user to enter a new message</span>
+<span class="linenos">31</span>        <span class="n">message</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>  <span class="c1"># take new input</span>
+<span class="linenos">32</span>        
+<span class="linenos">33</span>    <span class="c1"># close the connection</span>
+<span class="linenos">34</span>    <span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">35</span>    
+<span class="linenos">36</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">37</span>    <span class="n">client_program</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Um dieses Skript auszuführen, befolgen Sie die gleichen Schritte wie für
+das Server-Skript. Öffnen Sie ein Terminal im Verzeichnis, in dem sich
+das Skript befindet, und führen Sie den folgenden Befehl aus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>socket_client.py
+</pre></div>
+</div>
+<p>Starten Sie den Server, bevor Sie den Client starten. Wenn der Server
+nicht läuft, wird client_socket.connect(…) einen
+ConnectionRefusedError auslösen.</p>
+<p>Wenn Sie das Skript ausführen, importiert Python zuerst das Modul
+<code class="docutils literal notranslate"><span class="pre">socket</span></code>.</p>
+<p>Als nächstes wird die Funktion <code class="docutils literal notranslate"><span class="pre">client_program</span></code> aufgerufen. Innerhalb
+dieser Funktion wird die erste Aktion die Definition der Hostadresse und
+der Portnummer. Hier müssen die Hostadresse und die Portnummer mit denen
+im Server-Skript übereinstimmen.</p>
+<p>Nachdem die Host- und Portinformationen definiert sind, erstellt der
+Client ein Socket-Objekt mit der Funktion <code class="docutils literal notranslate"><span class="pre">socket.socket()</span></code>. Dieses
+Socket wird verwendet, um eine Verbindung zum Server herzustellen. Die
+Methode <code class="docutils literal notranslate"><span class="pre">connect()</span></code> wird auf dem Socket-Objekt aufgerufen, um eine
+Verbindung zum Server herzustellen.</p>
+<p>Sobald die Verbindung hergestellt ist, betritt der Client eine Schleife,
+in der er Nachrichten an den Server senden und Antworten empfangen kann.
+Der Client fordert den Benutzer auf, eine Nachricht einzugeben, die dann
+mit der Methode <code class="docutils literal notranslate"><span class="pre">send()</span></code> an den Server gesendet wird. Der Client wartet
+auch auf eine Antwort vom Server, indem er die Methode <code class="docutils literal notranslate"><span class="pre">recv()</span></code>
+verwendet.</p>
+<p>Wenn der Benutzer <code class="docutils literal notranslate"><span class="pre">bye</span></code> eingibt, verlässt der Client die Schleife und
+schliesst die Verbindung zum Server.</p>
+</section>
+<section id="verbindung-im-lan">
+<h2>Verbindung im LAN<a class="headerlink" href="#verbindung-im-lan" title="Link to this heading">#</a></h2>
+<p>Um die beiden Skripte im lokalen Netzwerk (LAN) zu verwenden, muss in
+beiden Skripten die IPv4-Adresse des Servers anstelle von <code class="docutils literal notranslate"><span class="pre">localhost</span></code>
+verwendet werden.<br />
+Die IPv4-Adresse des Servers kann durch Ausführen des folgenden Befehls
+im Terminal des Servers ermittelt werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\u</span>sername&gt;ipconfig
+Windows<span class="w"> </span>IP<span class="w"> </span>Configuration
+...
+Wireless<span class="w"> </span>LAN<span class="w"> </span>adapter<span class="w"> </span>Wi-Fi:
+<span class="w">   </span>Connection-specific<span class="w"> </span>DNS<span class="w"> </span>Suffix<span class="w">  </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>:
+<span class="w">   </span>IPv4<span class="w"> </span>Address<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.:<span class="w"> </span><span class="m">192</span>.168.1.2
+<span class="w">   </span>Subnet<span class="w"> </span>Mask<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>:<span class="w"> </span><span class="m">255</span>.255.255.255
+<span class="w">   </span>Default<span class="w"> </span>Gateway<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>:<span class="w"> </span><span class="m">192</span>.168.1.1
+...
+</pre></div>
+</div>
+<p>Die Ausgabe des Befehls <code class="docutils literal notranslate"><span class="pre">ipconfig</span></code> zeigt alle Netzwerkadapter des
+entsprechenden Computers an. Die dargestellte Ausgabe hier im Beispiel
+wurde gekürzt.<br />
+Die IPv4-Adresse des Servers ist in diesem Fall <code class="docutils literal notranslate"><span class="pre">192.168.1.2</span></code>.</p>
+<p>Diese ist die Adresse, welche in beiden Skripten anstelle von <code class="docutils literal notranslate"><span class="pre">localhost</span></code> verwendet
+werden muss. Dann kann innerhalb des lokalen Netzwerks eine Verbindung
+hergestellt werden.</p>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">#</a></h2>
+<p>Die vorgestellten Codebeispiele veranschaulichen, wie Pythons
+integriertes Socket-Modul (Standardbibliothek) eine unkomplizierte
+Implementierung von netzwerkbasierten Anwendungen ermöglicht, ohne
+externe Abhängigkeiten zu erfordern. Der Fokus des Tutorials auf die
+Kommunikation über localhost bietet eine sichere, kontrollierte Umgebung
+für Experimente und Lernen, während der bidirektionale
+Nachrichtenaustausch reale Kommunikationsmuster demonstriert, die in
+Produktionssystemen zu finden sind.</p>
+<p>Zu den wichtigsten Erfolgen dieser Implementierung gehören:</p>
+<ul class="simple">
+<li><p>Erfolgreiche Herstellung von TCP-Socket-Verbindungen zwischen
+separaten Prozessen</p></li>
+<li><p>Implementierung einer nachrichtenbasierten Kommunikation mit
+ordnungsgemässer Kodierung/Dekodierung</p></li>
+<li><p>Demonstration des Verbindungslebenszyklusmanagements von der
+Herstellung bis zur Beendigung</p></li>
+<li><p>Erstellung einer einfachen Befehlszeilenschnittstelle für sowohl
+Server- als auch Clientanwendungen</p></li>
+</ul>
+<p>Das Wissen, das aus diesem Tutorial gewonnen wurde, dient als solide
+Grundlage für die Entwicklung anspruchsvollerer netzwerkbasierter
+Anwendungen. Zukünftige Verbesserungen könnten die Implementierung von
+Multithreading für die gleichzeitige Verarbeitung mehrerer Clients, die
+Hinzufügung von Fehlerbehandlungs- und Wiederverbindungslogik oder die
+Erweiterung des Kommunikationsprotokolls zur Unterstützung
+strukturierter Datenformate umfassen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./250905"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../250829/three_way_handshake.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Beobachten von Internetverbindungen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../250416/datenbank.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Einführung in Datenbanken</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-der-verbindung">Struktur der Verbindung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-code">Server Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-code">Client Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verbindung-im-lan">Verbindung im LAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit">Fazit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacques Mock Schindler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
