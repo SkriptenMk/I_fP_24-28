@@ -30,7 +30,7 @@ Programme, die das jeweilige Dateiformat interpretieren können, was zu
 einer gewissen Abhängigkeit von entsprechender Software führen kann. 
 
 Weiterführende Überlegungen zum Verfassen von Texten in Plain Text
-können den hier angeführten Texten entnommen werden.
+können den hier angeführten Texten entnommen werden[@healy2020; @fix2020].
 
 ## Plain Text Formate für die Textredaktion
 

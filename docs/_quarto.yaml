@@ -62,6 +62,7 @@ book:
         - anleitungen/kurzanleitung_venv.md
         - anleitungen/jupyter.md
         - 260109_plain_text_writing/plain_text_writing.md
+        - 260116_referenzen/zotero.md
 
     - part: "Alte Programme"
       chapters:
@@ -72,6 +73,7 @@ book:
   repo-actions: [edit, issue]
 
 bibliography: references.bib
+csl: chicago-notes-bibliography-subsequent-author-classic.csl
 
 execute:
   freeze: false
