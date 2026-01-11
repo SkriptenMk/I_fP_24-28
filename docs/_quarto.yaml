@@ -3,13 +3,16 @@ project:
   output-dir: ../_book
 
 book:
-  title: "Unterlagen für den Informatikunterricht in der Klasse 1fP"
+  title: "Unterlagen für den Informatikunterricht in der Klasse 2fP"
   author: "Jacques Mock Schindler"
   date: last-modified
   search: true
   
   chapters:
-    - index.md
+    # index.md ist nun Teil eines eigenen Parts, damit die Struktur einheitlich ist
+    - part: "Start"
+      chapters:
+        - index.md
     
     - part: "Kryptologie"
       chapters:
@@ -34,8 +37,7 @@ book:
       chapters:
         - 250416/datenbank.md
         - 250507/sql.md
-        # Externe Links wie "SQL Übungen" funktionieren hier nicht direkt als Kapitel.
-        # Am besten erstellen Sie dafür eine kleine .md Datei mit dem Link.
+        # Externe Links funktionieren am besten als .md Datei mit Link
         - 250521/lernziele.md
 
     - part: "Datenstrukturen und Codierung"
@@ -43,7 +45,6 @@ book:
         - 250122/speicherstrukturen.md
         - 250219/queue.md
         - 250305/bst.ipynb
-        # Verschachtelung 'section' entfernt -> flache Liste für stabiles Rendering
         - 250312/binaersystem.md
         - 250312/umrechnungen.ipynb
         - 250312/muloe_umrechnungen.ipynb
