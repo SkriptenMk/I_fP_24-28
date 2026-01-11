@@ -1,9 +1,9 @@
 # Public-Key-Kryptographie
 
-Obwohl es grundsätzlich möglich ist, mit dem One-Time-Pad eine sichere
-Verschlüsselung zu realisieren, ist dieses Verfahren in der Realität kaum
-praktikabel. Neben der Tatsache, dass der Schlüssel mindestens so lang sein
-muss, wie die Nachricht selbst, braucht es ein Verfahren den, bzw. die Schlüssel
+Obwohl das One-Time-Pad theoretisch eine absolut sichere Verschlüsselung
+ermöglicht, ist es in der Praxis kaum praktikabel. Neben der Tatsache,
+dass der Schlüssel mindestens so lang sein
+muss, wie die Nachricht selbst, braucht es ein Verfahren den bzw. die Schlüssel
 sicher zwischen Sender und Empfänger zu teilen.
 
 Um das Problem des Schlüsselaustausches zu lösen, verwendet man spezielle
@@ -18,15 +18,19 @@ Hilfe eine Botschaft verschlüsseln kann. Nur der Empfänger ist dann noch in de
 Lage, die Botschaft mit wenig Aufwand zu entschlüsseln. Allfällige 'Lauscher'
 können die Umkehrfunktion nicht innert nützlicher Frist berechnen.
 
-Weil Text als Zahlenfolge dargestellt werden kann, eignen sich mathematische
-Funktionen besonders gut für die Verschlüsselung von Texten. Im folgenden soll
+Um ein Beispiel einer solchen Einwegfunktion zu zeigen, wird der Umstand
+genutzt, dass Text als Zahlenfolge dargestellt werden kann. Ein als
+Zahlenfolge dargestellter Text kann dann mit Hilfe einer mathematischen
+Funktion verschlüsselt werden. Im folgenden soll
 ein Modell für ein solches Verschlüsselungsverfahren vorgestellt werden.
+In diesem Modell werden Graphen für die Modellierung einer
+Einwegfunktion verwendet.
 
 ## Verschlüsselung mit Hilfe eines Graphen
 
 Ein Graph besteht aus Knoten und Kanten. Die Knoten sind durch Kanten
 miteinander verbunden. Damit die Verschlüsselung mit Hilfe eines Graphen
-erfolgen kann, muss der Graph öffentlich bekannt und die Knoten Nummeriert sein.
+erfolgen kann, muss der Graph öffentlich bekannt und die Knoten nummeriert sein.
 Die Verschlüsselung erfolgt in den unten dargestellten Schritten.
 
 1. Der Klartext wird als Folge von Zahlen dargestellt, welche folgendermassen
@@ -54,7 +58,7 @@ Die Summanden werden folgendermassen in den Graphen eingetragen:
 
 ![](graph1.svg)
 
-Nach der Addition der Nachbarn, stellt sich der Graph folgendermassen dar:
+Nach der Addition der Nachbarn stellt sich der Graph folgendermassen dar:
 
 ![](graph2.svg)
 
@@ -83,7 +87,9 @@ Knoten darstellt. Dieses Gleichungssystem ist noch innerhalb nützlicher Frist
 lösbar. Wenn der Graph aber grösser wird, stösst man bald an zeitliche Grenzen.
 
 Viel einfacher ist die Lösung, wenn man den Graphen in seine dominierende
-Menge zerlegt. Eine dominierende Menge unterteilt den Graphen in Subgraphen.
+Menge zerlegt. Eine dominierende Menge ist eine Auswahl von Knoten,
+sodass jeder andere Knoten entweder in dieser Menge liegt oder einen
+Nachbarn darin hat. 
 Dies so, dass innerhalb des Subgraphen die untereinander verbundenen Knoten mit einem einzigen Knoten verbunden sind.
 
 ## Definition Dominierende Menge
