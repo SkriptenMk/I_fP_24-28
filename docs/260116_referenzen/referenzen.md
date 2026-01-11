@@ -155,3 +155,14 @@ sieht die Syntax folgendermassen aus : `[@zitierschlüssel1, 25;
 
 Die Zitierschlüssel braucht man nicht auswendig zu wissen. Die Zotero
 Einträge zeigen sie als obersten Eintrag zu jedem erfassten Werk an.
+
+## Erstellen des PDF mit Referenzen
+
+Sofern ein entsprechendes Konfigurationsdokument (`.yaml`) erstellt
+worden ist, kann das PDF mit dem Aufruf
+
+```bash
+pandoc -d format.yaml
+```
+
+erstellt werden.
