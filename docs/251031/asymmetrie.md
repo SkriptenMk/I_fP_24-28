@@ -58,7 +58,7 @@ Die Summanden werden folgendermassen in den Graphen eingetragen:
 
 ![](graph1.svg)
 
-Nach der Addition der Nachbarn, stellt sich der Graph folgendermassen dar:
+Nach der Addition der Nachbarn stellt sich der Graph folgendermassen dar:
 
 ![](graph2.svg)
 
