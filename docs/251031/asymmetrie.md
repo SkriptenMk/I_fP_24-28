@@ -26,7 +26,7 @@ ein Modell für ein solches Verschlüsselungsverfahren vorgestellt werden.
 
 Ein Graph besteht aus Knoten und Kanten. Die Knoten sind durch Kanten
 miteinander verbunden. Damit die Verschlüsselung mit Hilfe eines Graphen
-erfolgen kann, muss der Graph öffentlich bekannt und die Knoten Nummeriert sein.
+erfolgen kann, muss der Graph öffentlich bekannt und die Knoten nummeriert sein.
 Die Verschlüsselung erfolgt in den unten dargestellten Schritten.
 
 1. Der Klartext wird als Folge von Zahlen dargestellt, welche folgendermassen
