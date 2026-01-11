@@ -18,9 +18,13 @@ Hilfe eine Botschaft verschlüsseln kann. Nur der Empfänger ist dann noch in de
 Lage, die Botschaft mit wenig Aufwand zu entschlüsseln. Allfällige 'Lauscher'
 können die Umkehrfunktion nicht innert nützlicher Frist berechnen.
 
-Weil Text als Zahlenfolge dargestellt werden kann, eignen sich mathematische
-Funktionen besonders gut für die Verschlüsselung von Texten. Im folgenden soll
+Um ein Beispiel einer solchen Einwegfunktion zu zeigen, wird der Umstand
+genutzt, dass Text als Zahlenfolge dargestellt werden kann. Ein als
+Zahlenfolge dargestellter Text kann dann mit Hilfe einer mathematischen
+Funktion verschlüsselt werden. Im folgenden soll
 ein Modell für ein solches Verschlüsselungsverfahren vorgestellt werden.
+In diesem Modell werden Graphen für die Modellierung einer
+Einwegfunktion verwendet.
 
 ## Verschlüsselung mit Hilfe eines Graphen
 
@@ -83,7 +87,9 @@ Knoten darstellt. Dieses Gleichungssystem ist noch innerhalb nützlicher Frist
 lösbar. Wenn der Graph aber grösser wird, stösst man bald an zeitliche Grenzen.
 
 Viel einfacher ist die Lösung, wenn man den Graphen in seine dominierende
-Menge zerlegt. Eine dominierende Menge unterteilt den Graphen in Subgraphen.
+Menge zerlegt. Eine dominierende Menge ist eine Auswahl von Knoten,
+sodass jeder andere Knoten entweder in dieser Menge liegt oder einen
+Nachbarn darin hat. 
 Dies so, dass innerhalb des Subgraphen die untereinander verbundenen Knoten mit einem einzigen Knoten verbunden sind.
 
 ## Definition Dominierende Menge
