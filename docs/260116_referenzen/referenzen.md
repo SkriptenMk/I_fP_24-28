@@ -67,5 +67,50 @@ metadata:
 Hier die Erklärungen zu den einzelnen Einträgen in dieser
 Konfigurationsdatei:
 
+* `input-files` Hier werden alle Dateien erfasst, welche in das finale
+  Ausgabedokument einfliessen sollen. Die einzelnen Dateien werden wie
+  in der Vorlage angedeutet untereinander als Aufzählung aufgelistet.
+* `output-file` Mit diesem Schlüssel wird der Pfad zur Ausgabedatei
+  mit deren Namen erfasst.
+* `from` ist der Schlüssel für das Format der `input-files`.
+* `to` ist der Schlüssel für das Format des `output-file`.
+* `pdf-engine` legt fest, mit welchem Programm das Markdown Dokument in
+  eine PDF Datei umgewandelt wird. Aktuell ist `lualatex` die modernste
+  Variante. `lualatex` unterstützt Schweizerische Umlaute und Akzente
+  sehr gut. Aus diesem Grund wurde hier `lualatex` ausgewählt.
+* `citeproc` ist das Programm, dass für die Übernahme der
+  bibliographischen Angaben verantwortlich ist. Mit dem Wert `true` wird
+  dessen Verwendung aktiviert.
+* `table-of-contents` aktiviert, wenn der Wert `true` ist, die
+  Erstellung eines Inhaltsverzeichnisses.
+* `variables` stellt die Details für die Darstellung des
+  Ausgabedokuments zur Verfügung.
+* `lang` ist die Variabel zur Speicherung der Sprache des
+  Ausgabedokuments. Indem sie hier auf `de-CH` gesetzt wird, werden die
+  typographischen Besonderheiten der Deutschschweiz berücksichtigt.
+* `lof` erstellt ein Abbildungsverzeichnis.
+* `lot` erstellt ein Tabellenverzeichnis.
+* `number-sections` nummeriert die Titel ihrer Hierarchiestufe gemäss.
+* `header-includes` ermöglicht es, LaTeX Formatierungsbefehle zu
+  verwenden. 
+* `- \setcounter{secnumdepth}{3}` ist eine LaTeX Formatierung, die dafür
+  sorgt, dass Titel nur über drei Hierarchieebenen hinweg nummeriert
+  werden. 
+* `- \setcounter{tocdepth}{3}` ist eine LaTeX Formatierung, welche nur
+  Titel bis zur dritten Hierarchieebene ins Inhaltsverzeichnis
+  aufgenommen werden.
+* `metadata` speichert die inhaltlichen Eckwerte für das Dokument.
+* `title` ist jener Titel, der auf dem Deckblatt abgedruckt wird.
+* `author` ist der Name des Autors.
+* `date` ist das Datum. Für Dokumente, welche ein PDF als Ausgabeformat
+  haben, kann auch der Befehl \today verwendet werden. Dieser liest bei
+  der Konvertierung von Markdown zu PDF das aktuelle Systemdatum aus.
+* `bibliography` gibt den Pfad zur Datei mit den bibliographischen
+  Angaben an.
+* `csl` gibt den Pfad zur Datei mit dem gewählten Zitierstil an.
+
+Weitere Konfigurationsmöglichkeiten für die Konvertierung in ein PDF
+finden sich [Pandoc User Guide](https://pandoc.org/MANUAL.html).
+
 
 
