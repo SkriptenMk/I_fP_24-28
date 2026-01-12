@@ -1,8 +1,11 @@
 # I_fP_24-28
 
 
-## Contribute
+## Publikation
 
-Die Unterlagen direkt in [docs](docs) geschrieben.
-`jupyter-book` baut dann die Webseite.
-Die Anweisungen dazu können im [Makefile](Makefile) nachgelesen werden.
+Der Befehl für die Publikation des Skripts muss im Ordner `files`
+ausgeführt werden. Er lautet
+
+```bash
+quarto publish gh-pages
+```
