@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: ../_book
+  resources: 
+    - "**/*.ipynb"
 
 book:
   title: "Unterlagen für den Informatikunterricht in der Klasse 2fP"
@@ -81,6 +83,8 @@ execute:
 
 format:
   html:
+    code-tools: 
+      source: repo
     theme: cosmo
     code-copy: true
     toc: true

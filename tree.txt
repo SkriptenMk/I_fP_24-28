@@ -1,0 +1,1034 @@
+Folder PATH listing for volume Windows
+Volume serial number is 1668-A306
+C:.
+¦   .gitignore
+¦   .nojekyll
+¦   chicago-notes-bibliography-access-dates.csl
+¦   chicago-notes-bibliography-archive-place-first.csl
+¦   chicago-notes-bibliography-subsequent-author-classic.csl
+¦   index.md
+¦   intro.md
+¦   logo.png
+¦   myst.yml
+¦   octocat.png
+¦   octocat_klein.png
+¦   rb_notebook.ico
+¦   rb_notebook.svg
+¦   references.bib
+¦   _config.yml
+¦   _quarto.yaml
+¦   _toc.yml
+¦   
++---.quarto
+¦   +---cites
+¦   ¦       index.json
+¦   ¦       
+¦   +---idx
+¦   ¦   ¦   index.md.json
+¦   ¦   ¦   
+¦   ¦   +---250122
+¦   ¦   ¦       speicherstrukturen.md.json
+¦   ¦   ¦       
+¦   ¦   +---250219
+¦   ¦   ¦       queue.md.json
+¦   ¦   ¦       
+¦   ¦   +---250305
+¦   ¦   ¦       bst.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---250312
+¦   ¦   ¦       binaersystem.md.json
+¦   ¦   ¦       muloe_umrechnungen.ipynb.json
+¦   ¦   ¦       umrechnungen.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---250319
+¦   ¦   ¦       base64.md.json
+¦   ¦   ¦       
+¦   ¦   +---250326
+¦   ¦   ¦       lernziele.md.json
+¦   ¦   ¦       
+¦   ¦   +---250416
+¦   ¦   ¦       datenbank.md.json
+¦   ¦   ¦       
+¦   ¦   +---250507
+¦   ¦   ¦       sql.md.json
+¦   ¦   ¦       
+¦   ¦   +---250521
+¦   ¦   ¦       lernziele.md.json
+¦   ¦   ¦       
+¦   ¦   +---250822
+¦   ¦   ¦       nat.md.json
+¦   ¦   ¦       netzwerke.md.json
+¦   ¦   ¦       tcpip.md.json
+¦   ¦   ¦       tld.md.json
+¦   ¦   ¦       
+¦   ¦   +---250829
+¦   ¦   ¦       three_way_handshake.md.json
+¦   ¦   ¦       
+¦   ¦   +---250905
+¦   ¦   ¦       sockets.md.json
+¦   ¦   ¦       
+¦   ¦   +---250912
+¦   ¦   ¦       caesar.ipynb.json
+¦   ¦   ¦       files.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---250918_implementation
+¦   ¦   ¦       250918_python_implementation.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---250919_vigenere
+¦   ¦   ¦       vigenere.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---250926_break_vigenere
+¦   ¦   ¦       break.ipynb.json
+¦   ¦   ¦       
+¦   ¦   +---251031
+¦   ¦   ¦       asymmetrie.md.json
+¦   ¦   ¦       
+¦   ¦   +---251107
+¦   ¦   ¦       soziale_medien.md.json
+¦   ¦   ¦       
+¦   ¦   +---251114_rsa
+¦   ¦   ¦       rsa.md.json
+¦   ¦   ¦       
+¦   ¦   +---251128
+¦   ¦   ¦       ki_beispiel.md.json
+¦   ¦   ¦       
+¦   ¦   +---260109_plain_text_writing
+¦   ¦   ¦       plain_text_writing.md.json
+¦   ¦   ¦       
+¦   ¦   +---260116_referenzen
+¦   ¦   ¦       referenzen.md.json
+¦   ¦   ¦       zotero.md.json
+¦   ¦   ¦       
+¦   ¦   +---anleitungen
+¦   ¦   ¦       jupyter.md.json
+¦   ¦   ¦       kurzanleitung_venv.md.json
+¦   ¦   ¦       python.md.json
+¦   ¦   ¦       
+¦   ¦   +---archiv
+¦   ¦           fs25.md.json
+¦   ¦           
+¦   +---preview
+¦   +---project-cache
+¦   ¦       deno-kv-file
+¦   ¦       efb0c620c38ca7c31075f463c90f647b
+¦   ¦       
+¦   +---xref
+¦           0990ab03
+¦           0b389bb0
+¦           108e6b37
+¦           15a37b53
+¦           15e8f6c7
+¦           259e9e31
+¦           25d80534
+¦           2fce13c7
+¦           3254fda3
+¦           3fb96f15
+¦           451cce9d
+¦           590584fb
+¦           59bd9417
+¦           6445917b
+¦           6af39412
+¦           772214a0
+¦           87216130
+¦           8b8d7667
+¦           8c07d61e
+¦           a3106994
+¦           a333d771
+¦           a5825013
+¦           a7dbf7d4
+¦           ae6bee12
+¦           af706876
+¦           bb0649c2
+¦           be6e526f
+¦           cadd8b4b
+¦           d9cad1c5
+¦           db2d8023
+¦           e44f97d7
+¦           e82f8447
+¦           efa3634d
+¦           fa53a232
+¦           INDEX
+¦           
++---250115
+¦   +---sequenzen
+¦           linked_list.py
+¦           nodes.py
+¦           
++---250122
+¦   ¦   brotstapel.png
+¦   ¦   speicherstrukturen.md
+¦   ¦   unemployment_line.jpg
+¦   ¦   
+¦   +---src
+¦       ¦   linked_list.py
+¦       ¦   nodes.py
+¦       ¦   Sandbox.ipynb
+¦       ¦   
+¦       +---__pycache__
+¦               linked_list.cpython-313.pyc
+¦               nodes.cpython-313.pyc
+¦               
++---250129
+¦   +---src
+¦           linked_list.py
+¦           nodes.py
+¦           
++---250219
+¦   ¦   class_diagram.svg
+¦   ¦   queue.md
+¦   ¦   
+¦   +---src
+¦           linked_list.py
+¦           muloe_linked_list.py
+¦           muloe_nodes.py
+¦           nodes.py
+¦           sandbox.ipynb
+¦           
++---250226
+¦       bst.ipynb
+¦       
++---250305
+¦       bst.ipynb
+¦       
++---250312
+¦       binaersystem.md
+¦       muloe_umrechnungen.ipynb
+¦       muloe_umrechnungen_partiell.ipynb
+¦       umrechnungen.ipynb
+¦       
++---250319
+¦       base64.md
+¦       tabelle.svg
+¦       tabelle.tex
+¦       
++---250326
+¦       lernziele.md
+¦       
++---250416
+¦       datenbank.md
+¦       entity_class.svg
+¦       entity_class.tex
+¦       entity_subject.svg
+¦       entity_subject.tex
+¦       entity_teacher.svg
+¦       entity_teacher.tex
+¦       er_example_gross.fdb_latexmk
+¦       er_example_gross.fls
+¦       er_example_gross.svg
+¦       er_example_gross.synctex(busy).gz
+¦       er_example_gross.tex
+¦       er_example_klein.fdb_latexmk
+¦       er_example_klein.fls
+¦       er_example_klein.svg
+¦       er_example_klein.tex
+¦       tikz-er2.sty
+¦       
++---250507
+¦       feedback_sql.md
+¦       relationship_cut.svg
+¦       relationship_cut.tex
+¦       relationship_teaches.svg
+¦       relationship_teaches.tex
+¦       sql.md
+¦       
++---250521
+¦       lernziele.md
+¦       
++---250822
+¦       nat.md
+¦       netzwerke.md
+¦       tcpip.md
+¦       tld.md
+¦       
++---250829
+¦       schema_three-way-handshake.png
+¦       three_way_handshake.md
+¦       ws_anzeigefilter.png
+¦       ws_dns_query.png
+¦       ws_ip-addr-Filter.png
+¦       ws_selected_package.png
+¦       ws_start_window.png
+¦       ws_three-way-handshake.png
+¦       
++---250905
+¦       sockets.md
+¦       socket_client.py
+¦       socket_server.py
+¦       
++---250912
+¦       caesar.ipynb
+¦       ciphertext.txt
+¦       files.ipynb
+¦       haeufigkeit.csv
+¦       input.txt
+¦       
++---250918_implementation
+¦       250918_python_implementation.ipynb
+¦       text.txt
+¦       
++---250919_vigenere
+¦   ¦   cipher.svg
+¦   ¦   main.md
+¦   ¦   Mann_1989_Der Zauberberg - Roman.pdf
+¦   ¦   plain.svg
+¦   ¦   vigenere.ipynb
+¦   ¦   vigenere.svg
+¦   ¦   vigenere_square_shading.svg
+¦   ¦   zauberberg.txt
+¦   ¦   zauberberg_bereinigt.txt
+¦   ¦   
+¦   +---.ipynb_checkpoints
+¦           vigenere-checkpoint.ipynb
+¦           
++---250926_break_vigenere
+¦   ¦   break.ipynb
+¦   ¦   economist.pdf
+¦   ¦   economist_cipher.txt
+¦   ¦   economist_clean.txt
+¦   ¦   kasiski.py
+¦   ¦   kasisky.ipynb
+¦   ¦   
+¦   +---.ipynb_checkpoints
+¦           economist-checkpoint.pdf
+¦           kasisky-checkpoint.ipynb
+¦           
++---251031
+¦       asymmetrie.md
+¦       chiffre_text.txt
+¦       graph0.svg
+¦       graph0.tex
+¦       graph1.svg
+¦       graph1.tex
+¦       graph2.fdb_latexmk
+¦       graph2.fls
+¦       graph2.svg
+¦       graph2.tex
+¦       graph_d.svg
+¦       graph_d.tex
+¦       input.txt
+¦       onetimepad.md
+¦       prompts.txt
+¦       text.txt
+¦       viginere_brechen.ipynb
+¦       
++---251107
+¦       soziale_medien.md
+¦       
++---251114_rsa
+¦       rsa.md
+¦       
++---251128
+¦       ki_beispiel.md
+¦       
++---260109_plain_text_writing
+¦       plain_text_writing.md
+¦       
++---260116_referenzen
+¦       referenzen.md
+¦       zotero.md
+¦       
++---anleitungen
+¦       anleitung_venv.md
+¦       jupyter.md
+¦       kurzanleitung_venv.md
+¦       python.md
+¦       startsequenz.svg
+¦       vs_code.md
+¦       
++---archiv
+¦       fs25.md
+¦       
++---_build
+    +---.doctrees
+    ¦   ¦   environment.pickle
+    ¦   ¦   intro.doctree
+    ¦   ¦   
+    ¦   +---250122
+    ¦   ¦   ¦   speicherstrukturen.doctree
+    ¦   ¦   ¦   
+    ¦   ¦   +---src
+    ¦   ¦           Sandbox.doctree
+    ¦   ¦           
+    ¦   +---250219
+    ¦   ¦   ¦   queue.doctree
+    ¦   ¦   ¦   
+    ¦   ¦   +---src
+    ¦   ¦           sandbox.doctree
+    ¦   ¦           
+    ¦   +---250226
+    ¦   ¦       bst.doctree
+    ¦   ¦       
+    ¦   +---250305
+    ¦   ¦       bst.doctree
+    ¦   ¦       
+    ¦   +---250312
+    ¦   ¦       binaersystem.doctree
+    ¦   ¦       muloe_umrechnungen.doctree
+    ¦   ¦       muloe_umrechnungen_partiell.doctree
+    ¦   ¦       umrechnungen.doctree
+    ¦   ¦       
+    ¦   +---250319
+    ¦   ¦       base64.doctree
+    ¦   ¦       
+    ¦   +---250326
+    ¦   ¦       lernziele.doctree
+    ¦   ¦       
+    ¦   +---250416
+    ¦   ¦       datenbank.doctree
+    ¦   ¦       
+    ¦   +---250507
+    ¦   ¦       feedback_sql.doctree
+    ¦   ¦       sql.doctree
+    ¦   ¦       
+    ¦   +---250521
+    ¦   ¦       lernziele.doctree
+    ¦   ¦       
+    ¦   +---250822
+    ¦   ¦       nat.doctree
+    ¦   ¦       netzwerke.doctree
+    ¦   ¦       tcpip.doctree
+    ¦   ¦       tld.doctree
+    ¦   ¦       
+    ¦   +---250829
+    ¦   ¦       three_way_handshake.doctree
+    ¦   ¦       
+    ¦   +---250905
+    ¦   ¦       sockets.doctree
+    ¦   ¦       
+    ¦   +---250912
+    ¦   ¦       caesar.doctree
+    ¦   ¦       files.doctree
+    ¦   ¦       
+    ¦   +---250918_implementation
+    ¦   ¦       250918_python_implementation.doctree
+    ¦   ¦       
+    ¦   +---250919_vigenere
+    ¦   ¦       main.doctree
+    ¦   ¦       vigenere.doctree
+    ¦   ¦       
+    ¦   +---250926_break_vigenere
+    ¦   ¦       break.doctree
+    ¦   ¦       kasisky.doctree
+    ¦   ¦       
+    ¦   +---251031
+    ¦   ¦       asymmetrie.doctree
+    ¦   ¦       onetimepad.doctree
+    ¦   ¦       viginere_brechen.doctree
+    ¦   ¦       
+    ¦   +---251107
+    ¦   ¦       soziale_medien.doctree
+    ¦   ¦       
+    ¦   +---251114_rsa
+    ¦   ¦       rsa.doctree
+    ¦   ¦       
+    ¦   +---251128
+    ¦   ¦       ki_beispiel.doctree
+    ¦   ¦       
+    ¦   +---260109_plain_text_writing
+    ¦   ¦       plain_text_writing.doctree
+    ¦   ¦       
+    ¦   +---anleitungen
+    ¦   ¦       anleitung_venv.doctree
+    ¦   ¦       jupyter.doctree
+    ¦   ¦       kurzanleitung_venv.doctree
+    ¦   ¦       python.doctree
+    ¦   ¦       vs_code.doctree
+    ¦   ¦       
+    ¦   +---archiv
+    ¦           fs25.doctree
+    ¦           
+    +---html
+    ¦   ¦   .buildinfo
+    ¦   ¦   genindex.html
+    ¦   ¦   index.html
+    ¦   ¦   intro.html
+    ¦   ¦   objects.inv
+    ¦   ¦   search.html
+    ¦   ¦   searchindex.js
+    ¦   ¦   
+    ¦   +---250122
+    ¦   ¦   ¦   speicherstrukturen.html
+    ¦   ¦   ¦   
+    ¦   ¦   +---src
+    ¦   ¦           Sandbox.html
+    ¦   ¦           
+    ¦   +---250219
+    ¦   ¦   ¦   queue.html
+    ¦   ¦   ¦   
+    ¦   ¦   +---src
+    ¦   ¦           sandbox.html
+    ¦   ¦           
+    ¦   +---250226
+    ¦   ¦       bst.html
+    ¦   ¦       
+    ¦   +---250305
+    ¦   ¦       bst.html
+    ¦   ¦       
+    ¦   +---250312
+    ¦   ¦       binaersystem.html
+    ¦   ¦       muloe_umrechnungen.html
+    ¦   ¦       muloe_umrechnungen_partiell.html
+    ¦   ¦       umrechnungen.html
+    ¦   ¦       
+    ¦   +---250319
+    ¦   ¦       base64.html
+    ¦   ¦       
+    ¦   +---250326
+    ¦   ¦       lernziele.html
+    ¦   ¦       
+    ¦   +---250416
+    ¦   ¦       datenbank.html
+    ¦   ¦       
+    ¦   +---250507
+    ¦   ¦       feedback_sql.html
+    ¦   ¦       sql.html
+    ¦   ¦       
+    ¦   +---250521
+    ¦   ¦       lernziele.html
+    ¦   ¦       
+    ¦   +---250822
+    ¦   ¦       nat.html
+    ¦   ¦       netzwerke.html
+    ¦   ¦       tcpip.html
+    ¦   ¦       tld.html
+    ¦   ¦       
+    ¦   +---250829
+    ¦   ¦       three_way_handshake.html
+    ¦   ¦       
+    ¦   +---250905
+    ¦   ¦       sockets.html
+    ¦   ¦       
+    ¦   +---250912
+    ¦   ¦       caesar.html
+    ¦   ¦       files.html
+    ¦   ¦       
+    ¦   +---250918_implementation
+    ¦   ¦       250918_python_implementation.html
+    ¦   ¦       
+    ¦   +---250919_vigenere
+    ¦   ¦       main.html
+    ¦   ¦       vigenere.html
+    ¦   ¦       
+    ¦   +---250926_break_vigenere
+    ¦   ¦       break.html
+    ¦   ¦       kasisky.html
+    ¦   ¦       
+    ¦   +---251031
+    ¦   ¦       asymmetrie.html
+    ¦   ¦       onetimepad.html
+    ¦   ¦       viginere_brechen.html
+    ¦   ¦       
+    ¦   +---251107
+    ¦   ¦       soziale_medien.html
+    ¦   ¦       
+    ¦   +---251114_rsa
+    ¦   ¦       rsa.html
+    ¦   ¦       
+    ¦   +---251128
+    ¦   ¦       ki_beispiel.html
+    ¦   ¦       
+    ¦   +---260109_plain_text_writing
+    ¦   ¦       plain_text_writing.html
+    ¦   ¦       
+    ¦   +---anleitungen
+    ¦   ¦       anleitung_venv.html
+    ¦   ¦       jupyter.html
+    ¦   ¦       kurzanleitung_venv.html
+    ¦   ¦       python.html
+    ¦   ¦       vs_code.html
+    ¦   ¦       
+    ¦   +---archiv
+    ¦   ¦       fs25.html
+    ¦   ¦       
+    ¦   +---reports
+    ¦   ¦   +---250219
+    ¦   ¦       +---src
+    ¦   ¦               sandbox.err.log
+    ¦   ¦               
+    ¦   +---_downloads
+    ¦   ¦   +---479244c8a4eef86a21b19b253a5828f7
+    ¦   ¦   ¦       nodes.py
+    ¦   ¦   ¦       
+    ¦   ¦   +---84de61355e85a7caae9c5e44dfef396e
+    ¦   ¦   ¦       linked_list.py
+    ¦   ¦   ¦       
+    ¦   ¦   +---bd0d6e7e99bf5718d885ecf1ad7634b2
+    ¦   ¦   ¦       nodes.py
+    ¦   ¦   ¦       
+    ¦   ¦   +---c3f46ec2a595aa218d28828bcd870e8e
+    ¦   ¦           linked_list.py
+    ¦   ¦           
+    ¦   +---_images
+    ¦   ¦       3284449d87de9db78b48f5e0f14dd64e90a520e5c01df29526dd13565c05edcd.png
+    ¦   ¦       bbffd95d5dd52c075154349d113165b624850c13bea5bb0b790e8df52c45be46.png
+    ¦   ¦       brotstapel.png
+    ¦   ¦       c14baa7756f4666a038a648f51397b49c154c8f6873ce23d9aba5ff3f0287ce9.png
+    ¦   ¦       cipher.svg
+    ¦   ¦       class_diagram.svg
+    ¦   ¦       entity_class.svg
+    ¦   ¦       entity_subject.svg
+    ¦   ¦       entity_teacher.svg
+    ¦   ¦       er_example_gross.svg
+    ¦   ¦       er_example_klein.svg
+    ¦   ¦       graph0.svg
+    ¦   ¦       graph1.svg
+    ¦   ¦       graph2.svg
+    ¦   ¦       graph_d.svg
+    ¦   ¦       octocat_klein.png
+    ¦   ¦       plain.svg
+    ¦   ¦       relationship_cut.svg
+    ¦   ¦       schema_three-way-handshake.png
+    ¦   ¦       tabelle.svg
+    ¦   ¦       unemployment_line.jpg
+    ¦   ¦       vigenere.svg
+    ¦   ¦       vigenere_square_shading.svg
+    ¦   ¦       ws_anzeigefilter.png
+    ¦   ¦       ws_dns_query.png
+    ¦   ¦       ws_ip-addr-Filter.png
+    ¦   ¦       ws_selected_package.png
+    ¦   ¦       ws_start_window.png
+    ¦   ¦       ws_three-way-handshake.png
+    ¦   ¦       
+    ¦   +---_sources
+    ¦   ¦   ¦   intro.md
+    ¦   ¦   ¦   
+    ¦   ¦   +---250122
+    ¦   ¦   ¦   ¦   speicherstrukturen.md
+    ¦   ¦   ¦   ¦   
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦           Sandbox.ipynb
+    ¦   ¦   ¦           
+    ¦   ¦   +---250219
+    ¦   ¦   ¦   ¦   queue.md
+    ¦   ¦   ¦   ¦   
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦           sandbox.ipynb
+    ¦   ¦   ¦           
+    ¦   ¦   +---250226
+    ¦   ¦   ¦       bst.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250305
+    ¦   ¦   ¦       bst.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250312
+    ¦   ¦   ¦       binaersystem.md
+    ¦   ¦   ¦       muloe_umrechnungen.ipynb
+    ¦   ¦   ¦       muloe_umrechnungen_partiell.ipynb
+    ¦   ¦   ¦       umrechnungen.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250319
+    ¦   ¦   ¦       base64.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250326
+    ¦   ¦   ¦       lernziele.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250416
+    ¦   ¦   ¦       datenbank.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250507
+    ¦   ¦   ¦       feedback_sql.md
+    ¦   ¦   ¦       sql.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250521
+    ¦   ¦   ¦       lernziele.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250822
+    ¦   ¦   ¦       nat.md
+    ¦   ¦   ¦       netzwerke.md
+    ¦   ¦   ¦       tcpip.md
+    ¦   ¦   ¦       tld.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250829
+    ¦   ¦   ¦       three_way_handshake.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250905
+    ¦   ¦   ¦       sockets.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---250912
+    ¦   ¦   ¦       caesar.ipynb
+    ¦   ¦   ¦       files.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250918_implementation
+    ¦   ¦   ¦       250918_python_implementation.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250919_vigenere
+    ¦   ¦   ¦       main.md
+    ¦   ¦   ¦       vigenere.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---250926_break_vigenere
+    ¦   ¦   ¦       break.ipynb
+    ¦   ¦   ¦       kasisky.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---251031
+    ¦   ¦   ¦       asymmetrie.md
+    ¦   ¦   ¦       onetimepad.md
+    ¦   ¦   ¦       viginere_brechen.ipynb
+    ¦   ¦   ¦       
+    ¦   ¦   +---251107
+    ¦   ¦   ¦       soziale_medien.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---251114_rsa
+    ¦   ¦   ¦       rsa.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---251128
+    ¦   ¦   ¦       ki_beispiel.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---260109_plain_text_writing
+    ¦   ¦   ¦       plain_text_writing.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---anleitungen
+    ¦   ¦   ¦       anleitung_venv.md
+    ¦   ¦   ¦       jupyter.md
+    ¦   ¦   ¦       kurzanleitung_venv.md
+    ¦   ¦   ¦       python.md
+    ¦   ¦   ¦       vs_code.md
+    ¦   ¦   ¦       
+    ¦   ¦   +---archiv
+    ¦   ¦           fs25.md
+    ¦   ¦           
+    ¦   +---_sphinx_design_static
+    ¦   ¦       design-tabs.js
+    ¦   ¦       sphinx-design.min.css
+    ¦   ¦       
+    ¦   +---_static
+    ¦       ¦   basic.css
+    ¦       ¦   check-solid.svg
+    ¦       ¦   clipboard.min.js
+    ¦       ¦   copy-button.svg
+    ¦       ¦   copybutton.css
+    ¦       ¦   copybutton.js
+    ¦       ¦   copybutton_funcs.js
+    ¦       ¦   design-tabs.js
+    ¦       ¦   doctools.js
+    ¦       ¦   documentation_options.js
+    ¦       ¦   file.png
+    ¦       ¦   language_data.js
+    ¦       ¦   minus.png
+    ¦       ¦   mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css
+    ¦       ¦   play-solid.svg
+    ¦       ¦   plus.png
+    ¦       ¦   pygments.css
+    ¦       ¦   rb_notebook.svg
+    ¦       ¦   sbt-webpack-macros.html
+    ¦       ¦   searchtools.js
+    ¦       ¦   sphinx-design.min.css
+    ¦       ¦   sphinx-thebe.css
+    ¦       ¦   sphinx-thebe.js
+    ¦       ¦   sphinx_highlight.js
+    ¦       ¦   togglebutton.css
+    ¦       ¦   togglebutton.js
+    ¦       ¦   webpack-macros.html
+    ¦       ¦   
+    ¦       +---images
+    ¦       ¦       logo_binder.svg
+    ¦       ¦       logo_colab.png
+    ¦       ¦       logo_deepnote.svg
+    ¦       ¦       logo_jupyterhub.svg
+    ¦       ¦       
+    ¦       +---locales
+    ¦       ¦   +---ar
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---bg
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---bn
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ca
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---cs
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---da
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---de
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---el
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---eo
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---es
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---et
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---fi
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---fr
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---hr
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---id
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---it
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---iw
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ja
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ko
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---lt
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---lv
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ml
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---mr
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ms
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---nl
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---no
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---pl
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---pt
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ro
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ru
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---sk
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---sl
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---sr
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---sv
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ta
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---te
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---tg
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---th
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---tl
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---tr
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---uk
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---ur
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---vi
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---zh_CN
+    ¦       ¦   ¦   +---LC_MESSAGES
+    ¦       ¦   ¦           booktheme.mo
+    ¦       ¦   ¦           booktheme.po
+    ¦       ¦   ¦           
+    ¦       ¦   +---zh_TW
+    ¦       ¦       +---LC_MESSAGES
+    ¦       ¦               booktheme.mo
+    ¦       ¦               booktheme.po
+    ¦       ¦               
+    ¦       +---scripts
+    ¦       ¦       bootstrap.js
+    ¦       ¦       bootstrap.js.LICENSE.txt
+    ¦       ¦       bootstrap.js.map
+    ¦       ¦       pydata-sphinx-theme.js
+    ¦       ¦       pydata-sphinx-theme.js.map
+    ¦       ¦       sphinx-book-theme.js
+    ¦       ¦       sphinx-book-theme.js.map
+    ¦       ¦       
+    ¦       +---styles
+    ¦       ¦       bootstrap.css
+    ¦       ¦       bootstrap.css.map
+    ¦       ¦       pydata-sphinx-theme.css
+    ¦       ¦       pydata-sphinx-theme.css.map
+    ¦       ¦       sphinx-book-theme.css
+    ¦       ¦       sphinx-book-theme.css.map
+    ¦       ¦       theme.css
+    ¦       ¦       
+    ¦       +---vendor
+    ¦           +---fontawesome
+    ¦               +---6.5.2
+    ¦                   ¦   LICENSE.txt
+    ¦                   ¦   
+    ¦                   +---css
+    ¦                   ¦       all.min.css
+    ¦                   ¦       
+    ¦                   +---js
+    ¦                   ¦       all.min.js
+    ¦                   ¦       all.min.js.LICENSE.txt
+    ¦                   ¦       
+    ¦                   +---webfonts
+    ¦                           fa-brands-400.ttf
+    ¦                           fa-brands-400.woff2
+    ¦                           fa-regular-400.ttf
+    ¦                           fa-regular-400.woff2
+    ¦                           fa-solid-900.ttf
+    ¦                           fa-solid-900.woff2
+    ¦                           fa-v4compatibility.ttf
+    ¦                           fa-v4compatibility.woff2
+    ¦                           
+    +---jupyter_execute
+        ¦   3284449d87de9db78b48f5e0f14dd64e90a520e5c01df29526dd13565c05edcd.png
+        ¦   bbffd95d5dd52c075154349d113165b624850c13bea5bb0b790e8df52c45be46.png
+        ¦   c14baa7756f4666a038a648f51397b49c154c8f6873ce23d9aba5ff3f0287ce9.png
+        ¦   
+        +---250122
+        ¦   +---src
+        ¦           Sandbox.ipynb
+        ¦           
+        +---250219
+        ¦   +---src
+        ¦           sandbox.ipynb
+        ¦           
+        +---250226
+        ¦       bst.ipynb
+        ¦       
+        +---250305
+        ¦       bst.ipynb
+        ¦       
+        +---250312
+        ¦       muloe_umrechnungen.ipynb
+        ¦       muloe_umrechnungen_partiell.ipynb
+        ¦       umrechnungen.ipynb
+        ¦       
+        +---250912
+        ¦       caesar.ipynb
+        ¦       files.ipynb
+        ¦       
+        +---250918_implementation
+        ¦       250918_python_implementation.ipynb
+        ¦       
+        +---250919_vigenere
+        ¦       vigenere.ipynb
+        ¦       
+        +---250926_break_vigenere
+        ¦       break.ipynb
+        ¦       kasisky.ipynb
+        ¦       
+        +---251031
+                viginere_brechen.ipynb
+                
