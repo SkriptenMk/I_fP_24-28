@@ -33,14 +33,14 @@ print(c)
 ```
 
 :::{.callout-note collapse="true"} 
-Zusätzlicher Hintergrund zum Rechnen
+## Zusätzlicher Hintergrund zum Rechnen
 
-Python kann
-`88000**80021` nicht ausrechnen, aber `88000**80021 % 89911` schon.
+Python kann $88000^{80021} nicht ausrechnen. Im Gegensatz dazu ist die
+Berechnung von $88000^{80021} \mod 89911$ möglich.
 
-$88000 \cdot 80021$ ist zu gross für den Speicher. Python berechnet vor
-zu den Rest und braucht damit nicht nur weniger Speicher, sondern
-rechnet auch viel schneller.
+$88000^{80021}$ ist zu gross für den Speicher. In der zweiten Berechnung
+berechnet Python immer wieder den Rest. Das braucht viel weniger
+Speicher und geht erst noch schneller.
 
 :::
 
