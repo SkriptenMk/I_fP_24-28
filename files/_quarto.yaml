@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../docs
+  output-dir: ../_book
   resources: 
     - "**/*.ipynb"
 
@@ -94,3 +94,4 @@ format:
     papersize: a4
     number-sections: true
     colorlinks: true
+    code-overflow: wrap
