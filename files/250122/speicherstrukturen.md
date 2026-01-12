@@ -9,7 +9,7 @@ In einem Stack werden die gespeicherten Werte *gestapelt*. Wie in einem Stapel
 in der realen Welt, wird der letzte gespeicherte Wert zuoberst auf den Stapel
 gelegt. Ebenso wie in einem realen Stapel, können die gespeicherten Werte nur in
 umgekehrter Reihenfolge zu ihrer Speicherung wieder abgerufen werden (last in -
-first out; LIFO). Mit Bezug auf das untenstehende Bild bedeutet dies, dass
+first out; LIFO). Mit Bezug auf @fig-brotstapel bedeutet dies, dass
 der letzte Brotlaib, der auf den Stapel gelegt wurde, auch der erste ist, der wieder
 vom Stapel weggenommen werden kann.   
 Ein Stack kann dazu verwendet werden, um die Verarbeitungsreihenfolge von
