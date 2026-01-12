@@ -32,7 +32,8 @@ print(c)
 # 121
 ```
 
-:::{dropdown} Zusätzlicher Hintergrund zum Rechnen
+:::{.callout-note collapse="true"} 
+Zusätzlicher Hintergrund zum Rechnen
 
 Python kann
 `88000**80021` nicht ausrechnen, aber `88000**80021 % 89911` schon.
@@ -71,7 +72,8 @@ einpasst. Wenn Mallory die Signatur auch anpassen möchte, müsste sie die
 Signatur finden, sodass $$ x = 14^e ~mod~n. $$ Dies ist genau so schwierig,
 wie das Entschlüsseln der Nachricht.
 
-:::{tip} Aufgabe
+:::{.callout-tip} 
+## Aufgabe
 
 1.  Erstellen Sie auf der [bekannten cryptool
     Seite](https://www.cryptool.org/de/cto/rsa-step-by-step/) ein

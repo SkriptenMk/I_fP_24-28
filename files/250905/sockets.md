@@ -7,7 +7,9 @@ wird die grundlegenden Konzepte der Socket-Programmierung demonstrieren,
 einschliesslich der Herstellung einer Verbindung sowie des Sendens und
 Empfangens von Daten. 
 
-:::{note} Network Socket
+:::{.callout-note} 
+## Network Socket
+
 Ein Netzwerk-Socket ist ein Endpunkt innerhalb eines Hosts, der zum
 Senden und Empfangen von Daten über ein Netzwerk verwendet wird.
 :::
@@ -27,7 +29,7 @@ Unten ist das funktionierende Codebeispiel für den
 href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_server.py"
 download="socket_server.py">Socket-Server</a>:
 
-```{code-block} python
+```python
 :linenos:
 # socket_server.py
 
@@ -189,7 +191,7 @@ href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_clie
 download="socket_client.py">
 Client-Beispiels</a>:
 
-```{code-block} python
+```python
 :linenos:
 # socket_client.py
 

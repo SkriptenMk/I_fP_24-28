@@ -27,7 +27,7 @@ Unten ist das funktionierende Codebeispiel für den
 href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_server.py"
 download="socket_server.py">Socket-Server</a>:
 
-```{code-block} python
+```python
 :linenos:
 # socket_server.py
 
@@ -189,7 +189,7 @@ href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_clie
 download="socket_client.py">
 Client-Beispiels</a>:
 
-```{code-block} python
+```python
 :linenos:
 # socket_client.py
 

@@ -88,10 +88,12 @@ format:
     theme: cosmo
     code-copy: true
     toc: true
+    code-line-numbers: true
   pdf:
     pdf-engine: lualatex
     documentclass: scrreprt
     papersize: a4
     number-sections: true
     colorlinks: true
+    code-line-numbers: true
     include-in-header: preamble.tex
