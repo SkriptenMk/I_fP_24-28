@@ -16,13 +16,9 @@ Ein Stack kann dazu verwendet werden, um die Verarbeitungsreihenfolge von
 Rechenoperationen in einem Programm abzubilden.
 
 
-```{figure} brotstapel.png
-:alt: Brotstapel
-:width: 300px
-:name: brotstapel
-
-Martin Mayer mit einem Stapel Brot (Quelle: Sasa Noël und Heike Grein, Brothandwerk, Aarau und München, 2021, Seite 50.)
-```
+![Martin Mayer mit einem Stapel Brot (Quelle: Sasa Noël und Heike Grein,
+Brothandwerk, Aarau und München, 2021, Seite
+50.)](brotstapel.png){#fig-brotstapel width=300px} 
 
 
 
@@ -33,13 +29,10 @@ der zuerst gespeicherte Wert zuerst verarbeitet (first in - first out; FIFO).
 Eine Queue kann dazu verwendet werden, eine Warteschlange abzubilden wie sie in
 Netzwerken für die Übermittlung von Datenpaketen gebraucht wird.
 
-```{figure} unemployment_line.jpg
----
-height: 300px
-name: unemployment-line
----
-Dole Queue Great Depression (Quelle: https://view.genially.com/609aac10d34c960d5992809a/interactive-content-great-depression-breakout, besucht am 22.01.15).
-```	
+![Dole Queue Great Depression (Quelle:
+https://view.genially.com/609aac10d34c960d5992809a/interactive-content-great-depression-breakout,
+besucht am 22.01.15).](unemployment_line.jpg){#fig-unempoyment-line height=300px}
+	
 
 Für die Übungen finden Sie hier eine
 [Klasse Node](src/nodes.py) 
