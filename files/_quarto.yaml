@@ -94,4 +94,4 @@ format:
     papersize: a4
     number-sections: true
     colorlinks: true
-    code-overflow: wrap
+    include-in-header: preamble.tex
