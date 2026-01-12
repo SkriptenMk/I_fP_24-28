@@ -94,7 +94,9 @@ Dies so, dass innerhalb des Subgraphen die untereinander verbundenen Knoten mit 
 
 ## Definition Dominierende Menge
 
-```{dropdown} Definition Dominierende Menge
+::: {.callout-note collapse="true"}
+## Definition Dominierende Menge
+
 Eine dominierende Menge in einem Graphen ist eine Teilmenge von Knoten mit
 einer besonderen Eigenschaft: Jeder Knoten des Graphen, der nicht zu dieser
 Teilmenge gehört, ist mit mindestens einem Knoten aus dieser Teilmenge
@@ -102,7 +104,8 @@ verbunden. Anders ausgedrückt: Von den Knoten der dominierenden Menge aus kann
 man jeden anderen Knoten des Graphen mit genau einem Schritt erreichen. 
 
 ![](graph_d.svg)
-```
+:::
+
 
 Die Kenntnis der dominierenden Menge stellt in unserem Verschlüsselungsverfahren
 die "Hintertür" dar. Wer diese Menge kennt, kann das komplizierte
