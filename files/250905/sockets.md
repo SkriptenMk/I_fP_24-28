@@ -30,7 +30,6 @@ href="https://github.com/SkriptenMk/I_fP_24-28/blob/main/docs/250905/socket_serv
 download="socket_server.py">Socket-Server</a>:
 
 ```python
-:linenos:
 # socket_server.py
 
 import socket
@@ -192,7 +191,6 @@ download="socket_client.py">
 Client-Beispiels</a>:
 
 ```python
-:linenos:
 # socket_client.py
 
 import socket
