@@ -108,13 +108,14 @@ Einige TLDs haben spezielle Registrierungsbedingungen:
 
 Seit 2010 sind TLDs in nicht-lateinischen Schriften möglich:
 
-- **.中国** (China)
-- **.рф** (Russland)
-- **.ελ** (Griechenland)
+- China: .中国
+- Russland: .рф
+- Griechenland: .ελ
 
 ## Statistische Betrachtung
 
 Stand 2025 gibt es:
+
 - **Aktive TLDs:** ~1'500
 - **Registrierte Domains weltweit:** ~370 Millionen
 - **Grösste TLD:** .com mit ~160 Millionen Domains

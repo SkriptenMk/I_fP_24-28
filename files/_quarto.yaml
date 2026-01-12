@@ -99,3 +99,6 @@ format:
     colorlinks: true
     code-line-numbers: true
     include-in-header: preamble.tex
+    mainfont: "Times New Roman"
+    CJKmainfont: "Microsoft YaHei"
+    monofont: "Consolas"
