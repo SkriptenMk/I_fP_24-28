@@ -23,7 +23,8 @@ Brothandwerk, Aarau und München, 2021, Seite
 
 
 In einer Queue werden die gespeicherten Werte in einer Warteschlange
-*eingereiht*. Wie in einer Warteschlange in der realen Welt, wird jeder neu
+*eingereiht*. Wie in einer Warteschlange in der realen Welt (vgl.
+@fig-unemployment_line), wird jeder neu 
 gespeicherte Wert hinten eingereiht. Beim Abrufen der gespeicherten Werte wird
 der zuerst gespeicherte Wert zuerst verarbeitet (first in - first out; FIFO).  
 Eine Queue kann dazu verwendet werden, eine Warteschlange abzubilden wie sie in
@@ -31,7 +32,7 @@ Netzwerken für die Übermittlung von Datenpaketen gebraucht wird.
 
 ![Dole Queue Great Depression (Quelle:
 https://view.genially.com/609aac10d34c960d5992809a/interactive-content-great-depression-breakout,
-besucht am 22.01.15).](unemployment_line.jpg){#fig-unempoyment-line height=300px}
+besucht am 22.01.15).](unemployment_line.jpg){#fig-unemployment_line height=300px}
 	
 
 Für die Übungen finden Sie hier eine

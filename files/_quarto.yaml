@@ -4,6 +4,8 @@ project:
   resources: 
     - "**/*.ipynb"
 
+lang: de-CH
+
 book:
   title: "Unterlagen für den Informatikunterricht in der Klasse 2fP"
   author: "Jacques Mock Schindler"
