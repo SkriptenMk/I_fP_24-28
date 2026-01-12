@@ -1,0 +1,1212 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Unterlagen für den Informatikunterricht in der Klasse 2fP",
+    "section": "",
+    "text": "1 Obligatorisches Fach Informatik (2fP)\nIn diesem Repository sollen die Unterlagen für das obligatorische Fach Informatik zusammengetragen werden.",
+    "crumbs": [
+      "Start",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Obligatorisches Fach Informatik (2fP)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#programm",
+    "href": "index.html#programm",
+    "title": "Unterlagen für den Informatikunterricht in der Klasse 2fP",
+    "section": "1.1 Programm",
+    "text": "1.1 Programm\nDas Programm entspricht dem aktuellen Stand der Planung. Es kann zu Änderungen kommen. Das bisherige Skript findet sich hier.\n\n\n\nDatum\nThema\n\n\n\n\n22.08.2025\nNetzwerke: TCP/IP\n\n\n29.08.2025\nNetzwerke: Beobachtung von Netzwerkverbindungen\n\n\n05.09.2025\nNetzwerke: Anwendungsübung\n\n\n12.09.2025\nKryptologie: Caesar\n\n\n19.09.2025\nKryptologie: Vigenère Chiffre\n\n\n26.09.2025\nKryptologie: Vigenère Brechen\n\n\n24.10.2025\nTest\n\n\n31.10.2025\nKryptologie: Public Key Kryptographie (Graphengestützt)\n\n\n07.11.2025\nKI: The Social Dilemma\n\n\n14.11.2025\nKryptologie: Dominante Graphen\n\n\n21.11.2025\nKryptologie: RSA und Signaturen\n\n\n28.11.2025\nKI: Definition\n\n\n05.12.2025\nTest\n\n\n12.12.2025\nKI\n\n\n19.12.2025\nKI\n\n\n09.01.2026\nKI",
+    "crumbs": [
+      "Start",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Obligatorisches Fach Informatik (2fP)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#hilfsmittel-für-den-unterricht",
+    "href": "index.html#hilfsmittel-für-den-unterricht",
+    "title": "Unterlagen für den Informatikunterricht in der Klasse 2fP",
+    "section": "1.2 Hilfsmittel für den Unterricht",
+    "text": "1.2 Hilfsmittel für den Unterricht\nDer Unterricht findet über weite Strecken am Computer statt. Die Anleitungen für die Installation von Python bzw. der Jupyter Notebooks sind in der Seitenliste aufrufbar.",
+    "crumbs": [
+      "Start",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Obligatorisches Fach Informatik (2fP)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#beurteilung",
+    "href": "index.html#beurteilung",
+    "title": "Unterlagen für den Informatikunterricht in der Klasse 2fP",
+    "section": "1.3 Beurteilung",
+    "text": "1.3 Beurteilung\nDie Note wird aus dem Durchschnitt der beiden schriftlichen Prüfungen sowie der Benotung der mündlichen Beteiligung berechnet. Der Durchschnitt der Prüfungen zählt zu 90%, die mündliche Beteiligung zu 10%.\nAb dem zweiten Semester wird konstruktive Kritik an den Unterlagen, welche durch ein mir zugewiesenes Issue (der Zugang findet sich unter dem GitHub-Logo  in der Kopfzeile) eingebracht wird, mit Maximal einem Notenpunkt auf die jeweils thematisch passende Prüfung angerechnet.\nFalls jemand eine persönliche Besprechung wünscht,  kann hier einen Termin für eine Sprechstunde reservieren (Rent-A-Mock).",
+    "crumbs": [
+      "Start",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Obligatorisches Fach Informatik (2fP)</span>"
+    ]
+  },
+  {
+    "objectID": "250912/files.html",
+    "href": "250912/files.html",
+    "title": "2  File Handling in Python",
+    "section": "",
+    "text": "Um Textdateien in Python zu bearbeiten, schreiben wir eine Funktion, mit welcher der Inhalt einer Datei einer Variabel als String zugewiesen wird.\n\ndef file_reader(path : str) -&gt; str:\n\n    with open(path, mode='r', encoding='utf-8') as f:\n        text = f.read()\n\n    return text\n\nUm ver- oder entschlüsselte Texte in eine Datei zu schreiben, schreiben wir eine Funktion, die einen String in eine Datei schreibt.\n\ndef file_writer(path : str, text : str) -&gt; None:\n    i = 0\n    grouped_text = \"\"\n    for c in text:\n        i += 1\n        if i % 50 == 0:\n            grouped_text += c + \"\\n\"\n        elif i % 5 == 0:\n            grouped_text += c + \" \"\n        else:\n            grouped_text += c\n        \n    with open(path, mode='w', encoding='utf-8') as f:\n        f.write(grouped_text)\n\nDamit Texte ausschliesslich aus ASCII Grossbuchstaben bestehen, schreiben wir eine Funktion, die alle Kleinbuchstaben in Grossbuchstaben umwandelt und alle Umlaute in ihre aequivalenten Buchstaben umwandelt. Alle anderen Zeichen werden entfernt.\nDamit alle Methoden für die Bearbeitung von Strings zur Verfügung stehen, muss das String-Modul importiert werden.\n\nimport string\n\n\ndef text_cleaning(text : str) -&gt; str:\n    clean = text.upper() \\\n                .replace('Ä', 'AE') \\\n                .replace('Ö', 'OE') \\\n                .replace('Ü', 'UE') \\\n                .replace('ß', 'SS') \\\n                .replace(' ', '') \\\n\n    cleaned_text = ''\n\n    for c in clean:\n        if c.isalpha():\n            cleaned_text += c\n    \n    return cleaned_text",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>File Handling in Python</span>"
+    ]
+  },
+  {
+    "objectID": "250912/caesar.html",
+    "href": "250912/caesar.html",
+    "title": "3  Caesar Chiffre",
+    "section": "",
+    "text": "3.1 Python Implementation\nIn der Kryptologie wird mit Verschlüsselung jener Prozess beschrieben, der eine Nachricht so transformiert, dass sie idealerweise nur von autorisierten Parteien gelesen werden kann. Dieser Prozess wandelt die ursprüngliche Darstellung der Informationen, bekannt als Klartext, in eine alternative Form, bekannt als Chiffretext, um. Trotz seines Ziels verhindert die Verschlüsselung nicht selbst die Interferenz, sondern verweigert dem potenziellen Abhörer den verständlichen Inhalt.\nAus Wikipedia\nDas erste Beispiel für eine Chiffre, das wir uns ansehen werden, ist die Caesar-Chiffre.\nDie Caesar-Chiffre ist eine einfache Substitutionsverschlüsselungstechnik, bei der jeder Buchstabe des zu verschlüsselnden Textes durch einen Buchstaben ersetzt wird, der sich um eine feste Anzahl von Positionen im Alphabet verschiebt. Zum Beispiel würde bei einer Verschiebung um vier Positionen nach rechts A durch E ersetzt werden, und das Wort CIPHER würde zu GMTLIV. Die Technik ist nach Julius Caesar benannt, der sie in seinen Briefen verwendete. Die Einfachheit der Caesar-Chiffre macht sie zu einer beliebten Quelle für Freizeit-Kryptogramme.\nAus Encyclopedia Britannica\nUm die Caesar-Chiffre in Python zu implementieren, bauen wir auf den von Python angebotenen String-Methoden auf. Die Funktion ord gibt den  Unicode-Codepunkt für ein gegebenes Zeichen zurück, und die Funktion chr gibt das Zeichen zurück, das dem gegebenen Unicode-Codepunkt entspricht.\n# Was ist der Unicode Wert des Buchstabens 'A'?",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Caesar Chiffre</span>"
+    ]
+  },
+  {
+    "objectID": "250912/caesar.html#python-implementation",
+    "href": "250912/caesar.html#python-implementation",
+    "title": "3  Caesar Chiffre",
+    "section": "",
+    "text": "3.1.1 Simple (naive) Implementation\nAls erstes definieren wir eine Funktion, die einen gegebenen Klartext verschlüsselt, indem sie jeden Buchstaben um eine bestimmte Anzahl von Positionen im Alphabet verschiebt.\n\nplain = \"CIPHER\"\nshift = 4\n\n\ndef caesar_encode(plain, shift):\n    cipher = \"\"\n    \n    for char in plain:\n        shifted = ord(char) + shift\n        cipher += chr(shifted)\n        \n    return cipher\n\n\n\n3.1.2 Verbesserte Implementation\nWas geschieht aber, wenn wir das Ende des Alphabets erreichen? Zum Beispiel, wenn wir Z um 4 Positionen verschieben, würden wir über Z hinausgehen. Um dies zu handhaben, können wir den Modulo-Operator % verwenden, um im Alphabet von vorne zu beginnen. Der Modulo-Operator gibt den Rest einer Division zurück, was es uns ermöglicht, wieder bei Null zu beginnen, wenn wir die Länge des Alphabets überschreiten. Im Fall der Caesar-Chiffre können wir ihn verwenden, um sicherzustellen, dass unsere verschobenen Positionen innerhalb der Grenzen des Alphabets bleiben.\nDaher verwenden wir modulo 26 (die Anzahl der Buchstaben im lateinischen Alphabet), um sicherzustellen, dass unsere verschobenen Positionen korrekt “herumwickeln”. Wenn wir Z um 4 Positionen verschieben, landen wir bei D. Dieses Wickelverhalten ist für die Funktionsweise der Caesar-Chiffre von entscheidender Bedeutung. Die Berechnung der neuen Position eines Buchstabens kann wie folgt ausgedrückt werden:\n\\[\nx' = (x + n) \\mod 26\n\\]\noder in einer kompakteren Form mit dem Modulo-Additionsoperator:\n\\[\nx' = x \\oplus_{26} n\n\\]\nIn Python können wir dies wie folgt implementieren:\n\ndef caesar_encrypt_mod(plain, shift):\n    cipher = \"\"\n    \n    for char in plain:\n        shifted = (ord(char) - ord('A') + shift) % 26 + ord('A')\n        cipher += chr(shifted)\n        \n    return cipher\n\nWeil\nord('A')\n65 zurückgibt, müssen wir 65 von dem Ergebnis von ord('A') subtrahieren, um 0 zu erhalten. Dies gibt uns den 0-basierten Index des Buchstabens im Alphabet, der für unsere Berechnungen nützlich ist.\nDaher die oben gezeigte Berechnung.\nFür die Entschlüsselung können wir einfach den Verschiebungswert subtrahieren anstatt ihn zu addieren:\n\ndef caesar_decrypt_mod(plain, shift):\n    cipher = \"\"\n    \n    for char in plain:\n        shifted = (ord(char) - ord('A') - shift) % 26 + ord('A')\n        cipher += chr(shifted)\n        \n    return cipher\n\nFür die Bequemlichkeit implementieren wir eine Funktion die sowohl ver- als auch entschlüsselt.\n\ndef caesar(text : str, shift : int, encrypt=True) -&gt; str:\n    text = text.upper()\n    result = \"\"\n    \n    if encrypt:\n        for char in text:\n            shifted = (ord(char) - ord('A') + shift) % 26 + ord('A')\n            result += chr(shifted)\n    else:\n        for char in text:\n            shifted = (ord(char) - ord('A') - shift) % 26 + ord('A')\n            result += chr(shifted)\n            \n    return result",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Caesar Chiffre</span>"
+    ]
+  },
+  {
+    "objectID": "250912/caesar.html#caesar-chiffre-brechen",
+    "href": "250912/caesar.html#caesar-chiffre-brechen",
+    "title": "3  Caesar Chiffre",
+    "section": "3.2 Caesar Chiffre brechen",
+    "text": "3.2 Caesar Chiffre brechen\nEs gibt zwei Hauptmethoden, um eine Caesar-Chiffre zu brechen:\n\nBrute Force Attack: Versuchen Sie alle möglichen Verschiebungen (1-25) und sehen Sie, welche eine sinnvolle Ausgabe erzeugt.\nFrequency Analysis: Analysieren Sie die Häufigkeit von Buchstaben im Chiffretext und vergleichen Sie sie mit der erwarteten Häufigkeit von Buchstaben in der Sprache.\n\n\n3.2.1 Brute Force Attack\n\ndef caesar_bruteforce(ciphertext: str) -&gt; None:\n    for shift in range(1, 26):\n        decrypted_text = caesar(ciphertext, shift, encrypt=False)\n        print(f\"Shift {shift}: {decrypted_text}\")\n\n\n\n3.2.2 Häufigkeitsanalyse\nIn der deutschen Sprache erscheinen bestimmte Buchstaben häufiger als andere. Zum Beispiel ist der Buchstabe ‘E’ der häufigste Buchstabe in deutschen Texten, gefolgt von ‘N’, ‘I’, ‘S’, ‘R’ und ‘A’. Durch die Analyse der Häufigkeit von Buchstaben im Chiffretext können wir fundierte Vermutungen darüber anstellen, welche Buchstaben im Klartext welchen im Chiffretext entsprechen.\nFür eine genauere Analyse siehe die folgende Häufigkeitstabelle:\n\n\n\nPlatz\nBuchstabe\nRelative Häufigkeit\n\n\n\n\n1.\nE\n17,40 %\n\n\n2.\nN\n9,78 %\n\n\n3.\nI\n7,55 %\n\n\n4.\nS\n7,27 %\n\n\n5.\nR\n7,00 %\n\n\n6.\nA\n6,51 %\n\n\n7.\nT\n6,15 %\n\n\n8.\nD\n5,08 %\n\n\n9.\nH\n4,76 %\n\n\n10.\nU\n4,35 %\n\n\n11.\nL\n3,44 %\n\n\n12.\nC\n3,06 %\n\n\n13.\nG\n3,01 %\n\n\n14.\nM\n2,53 %\n\n\n15.\nO\n2,51 %\n\n\n16.\nB\n1,89 %\n\n\n17.\nW\n1,89 %\n\n\n18.\nF\n1,66 %\n\n\n19.\nK\n1,21 %\n\n\n20.\nZ\n1,13 %\n\n\n21.\nP\n0,79 %\n\n\n22.\nV\n0,67 %\n\n\n23.\nJ\n0,27 %\n\n\n24.\nY\n0,04 %\n\n\n25.\nX\n0,03 %\n\n\n26.\nQ\n0,02 %\n\n\n\nQuelle: Wikipedia\nWir brauchen also eine Funktion, die die Häufigkeit jedes Buchstabens im Chiffretext zählt. Das Ergebnis sollte ein Dictionary sein, bei dem die Schlüssel die Buchstaben und die Werte die Zählungen jedes Buchstabens sind. Oder noch besser, die Häufigkeiten in Prozent.\nUm die Sache einfach zu halten, nehmen wir an, dass der Eingabetext nur Großbuchstaben von A bis Z und keine Leerzeichen oder Satzzeichen enthält.\n\ndef letter_frequency(text: str) -&gt; dict:\n    frequency = {}\n    total_letters = 0\n    \n    for char in text:\n        if char not in frequency:\n            frequency[char] = 1\n        else:\n            frequency[char] += 1\n        total_letters += 1\n        \n    for key, value in frequency.items():\n        frequency[key] = (value / total_letters) * 100\n        \n           \n    return frequency\n\nNachdem wir den häufigsten Buchstaben im Chiffretext gefunden haben, können wir annehmen, dass er dem Buchstaben ‘E’ im Klartext entspricht. Indem wir die Verschiebung berechnen, die erforderlich ist, um den häufigsten Buchstaben in ‘E’ zu verwandeln, können wir dann den gesamten Chiffretext mit diesem Verschiebungswert entschlüsseln.\n\ndef find_shift(char: str, e = 'E') -&gt; int:\n    return (ord(char) - ord(e)) % 26",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Caesar Chiffre</span>"
+    ]
+  },
+  {
+    "objectID": "250919_vigenere/vigenere.html",
+    "href": "250919_vigenere/vigenere.html",
+    "title": "4  Polyalphabetische Chiffren",
+    "section": "",
+    "text": "4.1 Vigenère Chiffre\n(Vigenère Chiffre)\nBereits im 9. Jahrhundert wurde im islamischen Raum die grosse Schwachstelle monoalphabetischer Chiffren (Caesar-Chiffre) erkannt. Die Verteilung der Buchstaben folgt in jeder Sprache einem spezifischen aber konstanten Muster. Für die deutsche Sprache ist die Verteilung der folgenden Tabelle zu entnehmen.\nUm zu zeigen, dass dies sich mit (längeren) Texten deckt, wurde ein Kapitel aus dem Roman ‘Der Zauberberg’ von Thomas Mann ausgewertet. Die sich aus dieser Auswertung ergebende Verteilung wird in der folgenden Grafik der Verteilung aus der Tabelle gegenübergestellt.\nDie Grafik zeigt, dass bei einer Textlänge von 51’396 Buchstaben die Verteilung in einem literarischen Text nahezu identisch ist mit der allgemeinen Häufigkeitsverteilung in der deutschen Sprache.\nDie nächste Grafik zeigt, was mit der Verteilung der Buchstaben geschieht, wenn der gleiche Text mit einer Caesar-Chiffre verschlüsselt worden ist.\nEs ist deutlich zu erkennen, dass die Verteilung dem gleichen Muster folgt - verschoben um elf Positionen. Diese Auswertung ermöglicht die Entschlüsselung des Textes, ohne alle möglichen Schlüsselalphabete durchzuprobieren.\nBei der Vigenère Chiffre handelt es sich um eine polyalphabetische Chiffre. Das Verfahren ist nach Blaise de Vigenère (1523 - 1596) benannt. Polyalphabetisch heisst, dass zur Verschlüsselung nicht eine Verschiebung vorgenommen wird, sondern - nach jedem Buchstaben wechselnd - mehrere Verschiebungen vorgenommen werden.\nUm das zu erreichen, verwendet man ein sogenanntes Vigenère-Quadrat wie unten abgebildet.\nFür die Verschlüsselung eines Klartextes braucht das Vigenère Verfahren ein Schlüsselwort. Das Schlüsselwort sollte möglichst lang sein. Das folgende Beispiel soll zeigen, wie das Vigenère Verfahren funktioniert. Der zu verschlüsselnde Klartext lautet ‘Kryptologie ist spannend’ und der Schlüssel ‘Buelrain’. Als Hilfestellung werden Text und Schlüssel in einer Tabelle dargestellt.\nDer Schlüssel wird dabei ohne Wortabstand so oft wiederholt, bis die Buchstabenfolge des Schlüssels gleich lang ist, wie die Buchstabenfolge, welche zu verschlüsseln ist.\nAls nächstes wird der zu verschlüsselnde Buchstabe in der Kopfzeile des Vigenère Quadrates gesucht. Damit wird die Spalte mit dem verschobenen Alphabet identifiziert. Der chiffrierte Buchstabe ergibt sich, indem in der Spalte mit den Zeilenköpfen der unter dem zu chiffrierenden Buchstaben befindliche Buchstabe des Schlüssels gesucht wird. Der Schnittpunkt der Zeile mit der vorher gefundenen Spalte entspricht dem chiffrierten Buchstaben.\nAlternativ kann eine Verschlüsselung mit der Vigenère Chiffre auch mit modularer Arithmetik umgesetzt werden. Dazu wird jedem Buchstaben ein Zahlenwert nach dem Muster \\(a = 0, b = 1, ... , z = 25\\) zugewiesen. Die Verschlüsselung erfolgt anschliessend nach der ‘Formel’ \\(C_i = (P_i + K_i)\\ mod\\ 26\\) Wobei die Buchstaben \\(C\\) für den chiffrierten Text, \\(P\\) für den Klartext (Englisch plain text) und \\(K\\) für den Schlüssel (Englisch key) stehen. Der Index \\(_i\\) steht für den \\(i\\)-ten Buchstaben in der Textfolge.\nDas obige Beispiel stellt sich dann folgendermassen dar:\nFür die Entschlüsselung wird die ‘Formel’ folgendermassen umgekehrt: \\(P_i = (C_i - K_i + 26)\\ mod\\ 26\\). Die Addition von 26 in der Klammer erfolgt, um negative Zahlen zu vermeiden.\nWie sich die Vigenère Verschlüsselung auf die Verteilung der Buchstaben auswirkt, kann untenstehender Grafik entnommen werden.\ndef vigenere_chiffre(text: str, key: str, encrypt=True) -&gt; str:\n    \"\"\"\n    Implementiert die Vigenère-Verschlüsselung für einen gegebenen Klartext und\n    Schlüssel.\n    \n    Args:\n        klartext (str): Der zu verschlüsselnde Text schluessel (str): Das\n        Schlüsselwort für die Verschlüsselung\n    \n    Returns:\n        str: Der verschlüsselte Text\n    \"\"\"\n    \n    # initialisiere den resultierenden Text\n    resulting_text = ''\n    \n    # bestimme die Schlüssellänge für die anschliessende Modulo-Operation\n    key_length = len(key)\n    \n    # itererie über den Eingabetext unter gleichzeitiger Erfassung des Index\n    for i, char in enumerate(text):\n        # berechne den Zahlwert des Buchstabens aus der ascii Tabelle\n        char_no = ord(char) - 97\n        key_no = ord(key[i % key_length]) - 97\n        \n        if encrypt == True:\n            # berechne den Zahlwert des verschlüsselten Buchstabens\n            ciph_no = (char_no + key_no) % 26\n        else:\n            # berechne den Zahlwert des entschlüsselten Buchstabens\n            ciph_no = (char_no + (26 - key_no)) % 26\n            \n         # übernehme das Zeichen aufgrund seines Zahlwertes aus der ascii Tabelle  \n        ciph = chr(ciph_no + 97)\n        \n        # füge den Buchstaben am resultierenden Text an\n        resulting_text += ciph\n    return resulting_text\n\nzauberberg_vigenere = vigenere_chiffre(zauberberg.lower(), 'buelrain', encrypt=True)\n\nzauberberg_vigenere_frequency = letter_frequency(zauberberg_vigenere.upper())\ndft['Zauberberg Frequency Vigenere'] = pd.Series(zauberberg_vigenere_frequency)\n\n# --- Erstellen Sie das Side-by-Side-Balkendiagramm ---\n# Legen Sie die Breite der Balken fest\nbar_width = 0.35\n\n# Verwenden Sie den Index des transponierten DataFrames (dft)\nx = np.arange(len(dft.index))\n\nfig, ax = plt.subplots(figsize=(12, 7))\n\n# Zeichnen Sie die Balken für die beiden Spalten aus dft\nax.bar(x - bar_width/2, dft['Standard Frequency'], bar_width, label='Standardhäufigkeit')\nax.bar(x + bar_width/2, dft['Zauberberg Frequency Vigenere'], bar_width, label='Häufigkeit Zauberberg Vigenère')\n\nax.set_xticks(x)\nax.set_xticklabels(dft.index)\n\nax.set_xlabel('Buchstaben')\nax.set_ylabel('Häufigkeit (%)')\nax.set_title('Vergleich der Buchstabenhäufigkeit im Vigenère verschlüsselten Text')\nax.legend()\nplt.tight_layout()\n\nplt.show()\nWie unschwer zu erkennen ist, stellt sich die Verteilung der Buchstaben in einem polyalphabetisch verschlüsselten Text deutlich anders dar, als dies in normalen Text der Fall ist. Die Vigenère Chiffre galt daher während ungefähr 300 Jahren als ‘la chiffre indéchiffrable’.\nEin Spezialfall der Vigenère-Chiffre lässt sich tatsächlich nicht entschlüsseln. Das ist dann der Fall, wenn der Schlüssel länger ist als der Klartext. Man spricht in diesem Fall vom One-Time Pad.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Polyalphabetische Chiffren</span>"
+    ]
+  },
+  {
+    "objectID": "250919_vigenere/vigenere.html#vigenère-chiffre",
+    "href": "250919_vigenere/vigenere.html#vigenère-chiffre",
+    "title": "4  Polyalphabetische Chiffren",
+    "section": "",
+    "text": "kryptologieistspannend\nbuelrainbuelrainbuelra\n\nkryptologieistspannend\nbuelrainbuelrainbuelra\n\nLLCAKOTBHCITJTACBHRPED\n\n\n k  r  y  p  t  o  l  o  g  i  e  i  s  t  s  p  a  n  n  e  n  d\n10 17 24 15 19 14 11 14 06 08 04 08 18 19 18 15 00 13 13 04 13 03\n b  u  e  l  r  a  i  n  b  u  e  l  r  a  i  n  b  u  e  l  r  a\n01 20 04 11 17 00 08 13 01 20 04 11 17 00 08 13 01 20 04 11 17 00\n\n11 37 28 26 36 14 19 27 07 28 08 19 35 19 26 28 01 33 17 15 30 03\n\n11 11 02 00 10 14 19 01 07 02 08 19 09 19 00 02 01 07 17 15 04 03\n L  L  C  A  K  O  T  B  H  C  I  T  J  T  A  C  B  H  R  P  E  D",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Polyalphabetische Chiffren</span>"
+    ]
+  },
+  {
+    "objectID": "250918_implementation/250918_python_implementation.html",
+    "href": "250918_implementation/250918_python_implementation.html",
+    "title": "5  Vigenère Chiffre Implementierung in Python",
+    "section": "",
+    "text": "In diesem Notebook wird eine mögliche Implementierung der Vigenère Chiffre in Python vorgestellt.\n\ndef vigenere(text: str, key: str, mode: str) -&gt; str:\n    \"\"\"Encrypts or decrypts a given text using the Vigenère cipher.\n\n    The function processes a string of uppercase alphabetic characters\n    using a provided key for encryption or decryption.\n\n    Args:\n        text: The string to be encrypted or decrypted. It should only contain\n              uppercase alphabetic characters (A-Z).\n        key: The key for the cipher. It should also only contain\n             uppercase alphabetic characters (A-Z).\n        mode: The operation to perform, must be 'encrypt' or 'decrypt'.\n\n    Returns:\n        The resulting ciphertext or plaintext.\n\n    Raises:\n        ValueError: If the mode is not 'encrypt' or 'decrypt'.\n    \"\"\"\n\n    # Ensure the mode is valid before proceeding.\n    if mode not in ['encrypt', 'decrypt']:\n        raise ValueError(\"Mode must be 'encrypt' or 'decrypt'\")\n    \n    key_length = len(key)\n    \n    if mode == 'encrypt':\n       cipher = ''\n       # Iterate through each character of the input text.\n       for i, char in enumerate(text):\n           # Convert the current text character and the corresponding key \n           # character to a number (0-25).\n           # The key character is determined using modulo to cycle through \n           # the key.\n           char_num = ord(char) - ord('A')\n           key_num = ord(key[i % key_length]) - ord('A')\n           \n           # Calculate the new character's number using the Vigenère encryption formula.\n           # The modulo operator ensures the result stays within the range 0-25.\n           cipher_num = (char_num + key_num) % 26\n           \n           # Convert the resulting number back to an uppercase character and append it.\n           cipher += chr(cipher_num + ord('A'))\n       return cipher  \n    else:  # mode == 'decrypt'\n        plain = ''\n        # Iterate through each character of the input text.\n        for i, char in enumerate(text):\n            # Convert the current text character and the corresponding key \n            # character to a number (0-25).\n            char_num = ord(char) - ord('A')\n            key_num = ord(key[i % key_length]) - ord('A')\n            \n            # Calculate the new character's number using the Vigenère \n            # decryption formula.\n            # The modulo operator handles negative results, ensuring the \n            # result is correct.\n            plain_num = (char_num - key_num) % 26\n            \n            # Convert the resulting number back to an uppercase \n            # character and append it.\n            plain += chr(plain_num + ord('A'))\n        return plain\n\nDie Funktion vigenere() wird im Folgenden detailliert erklärt.\nDie Signatur der Funktion\ndef vigenere(text: str, key: str, mode: str) -&gt; str:\nzeigt, dass die Funktion drei Parameter erwartet: * text: Der zu verschlüsselnde oder zu entschlüsselnde Text als String. * key: Der Schlüssel zur Verschlüsselung oder Entschlüsselung als String. * mode: Der Modus, der angibt, ob der Text verschlüsselt oder entschlüsselt werden soll. Mögliche Werte sind 'encrypt' für Verschlüsselung und 'decrypt' für Entschlüsselung (dies ist allerdings nicht direkt aus der Signatur ersichtlich).\nAnschliessend an die Signatur folgt ein ausführlicher Docstring, der die Funktion und ihre Parameter beschreibt. Dieser ist - obwohl in Englisch abgefasst - aus sich selber heraus verständlich.\nDer Docstring wird gefolgt durch die Prüfung, ob zulässige Werte für den mode-Parameter übergeben wurden. Ist dies nicht der Fall, wird eine ValueError-Exception ausgelöst.\nif mode not in ['encrypt', 'decrypt']:\n    raise ValueError(\"Mode must be 'encrypt' or 'decrypt'\")\nUm diese Prüfung durchzuführen, werden die zulässigen Werte in einer Liste zur Verfügung gestellt. Geprüft wird dann, ob der mode zugewiesene Wert in der Liste enthalten ist. Falls dies nicht der Fall ist, wird eine Fehlermeldung ausgegeben und die Ausführung der Funktion abgebrochen.\nSofern der mode-Parameter einen zulässigen Wert enthält, beginnt die eigentliche Funktionslogik zu spielen.\nAls erstes wird die Länge des Schlüssels in\nkey_length = len(key)\nder Variablen key_length zugewiesen. Diese Information wird weiter unten benötigt, um in einer besonderen Art von Schlaufe über den Text des Schlüssels zu iterieren.\nNach dieser Zuweisung teilt sich die Funktion in die Zweige Ver- bzw. Entschlüsselung.\nZuerst wird die Verschlüsselung - eingeleitet mit if mode == 'encrypt': - betrachtet.\nInnerhalb dieses Blocks wird als erstes ein leerer String cipher initialisiert, der später die verschlüsselten Zeichen aufnehmen wird.\nAnschliessend wird mit einer for-Schlaufe über den zu verschlüsselnden Text iteriert.\nfor i, char in enumerate(text):\nIn dieser Schlaufe wird die Funktion enumerate() verwendet. Diese Funktion liefert ein Tupel aus Index und dem jeweiligen Element der Struktur, über die iteriert wird. Die Werte des Tupels werden den Variablen i und char zugewiesen.\nDie Variabeln i und char werden innerhalb der Schlaufe verwendet, um die einzelnen Zeichen des Textes in eine Zahl umzuwandeln.\n    char_num = ord(char) - ord('A')\n    key_num = ord(key[i % key_length]) - ord('A')\nDie Funktion ord() wandelt einen Buchstaben in die entsprechende Zahl aus der ASCII-Tabelle um. Damit die Zahlen im Bereich von 0 bis 25 liegen, wird der ASCII-Wert des Buchstabens ‘A’ abgezogen. Der Buchstabe ‘A’ wird verwendet, da die zu verschlüsselnden Zeichen in Grossbuchstaben vorgegeben sind.\nDa der Schlüssel kürzer als der zu verschlüsselnde Text sein kann, wird mit i % key_length über den Schlüssel iteriert. Der Modulo-Operator % sorgt dafür, dass der Index Wert des verwendeten Index immer zwischen 0 und der Länge des Schlüssels key_length bleibt. Dadurch wird sichergestellt, dass der Schlüssel wieder von vorne begonnen wird, sobald das Ende des Schlüssels erreicht ist. Anschliessend wird mit den einzelnen Buchstaben des Schlüssels genauso verfahren wie mit den Buchstaben des Textes.\nNachdem die Buchstaben des Textes sowie des Schlüssels in Zahlen umgewandelt wurden, wird die eigentliche Verschlüsselung gemäss der Formel \\(C_i = (P_i + K_i)\\ mod\\ 26\\) durchgeführt.\n    cipher_num = (char_num + key_num) % 26\nDie Zahlenwerte des verschlüsselten Textes werden anschliessend wieder in Buchstaben umgewandelt und an den String cipher angehängt. Dazu wird die Funktion chr() verwendet, die eine Zahl in den entsprechenden Buchstaben der ASCII-Tabelle umwandelt. Da die Zahlenwerte im Bereich von 0 bis 25 liegen, wird der ASCII-Wert des Buchstabens ‘A’ addiert.\n    cipher += chr(cipher_num + ord('A'))\nDer unter cipher abgelegte String wird am Ende des Blocks zurückgegeben.\nIm zweiten Block wird die Entschlüsselung - eingeleitet mit else: - durchgeführt. Der Prozess ist dem der Verschlüsselung sehr ähnlich, jedoch wird hier die umgekehrte Formel (\\(P_i = (C_i - K_i + 26)\\ mod\\\n26\\)) verwendet.\n    plain_num = (char_num - key_num + 26) % 26\n    plain += chr(plain_num + ord('A'))\nAlles andere entspricht dem Vorgehen bei der Verschlüsselung.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Vigenère Chiffre Implementierung in Python</span>"
+    ]
+  },
+  {
+    "objectID": "250926_break_vigenere/break.html",
+    "href": "250926_break_vigenere/break.html",
+    "title": "6  Die Vigenère-Verschlüsselung brechen",
+    "section": "",
+    "text": "6.1 Die Kasiski-Methode – Zusammenfassung\nDie entscheidende Schwäche der Vigenère-Verschlüsselung wurde Mitte des 19. Jahrhunderts von zwei Männern unabhängig voneinander entdeckt. Einer von ihnen war Charles Babbage, ein britischer Universalgelehrter. Er entdeckte die Schwachstelle, um eine Wette zu gewinnen. Der andere war Friedrich Wilhelm Kasiski, ein pensionierter Major der preußischen Armee, der nach seiner Pensionierung seine Zeit mit Schreiben verbrachte. Die Methode zum Brechen der Vigenère-Verschlüsselung ist nach dem preußischen Major Kasiski benannt.\nDie Kasiski-Methode ist eine Technik zum Brechen der Vigenère-Verschlüsselung, bei der wiederholte Muster im Geheimtext ausgenutzt werden. So funktioniert sie:",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Die Vigenère-Verschlüsselung brechen</span>"
+    ]
+  },
+  {
+    "objectID": "250926_break_vigenere/break.html#die-kasiski-methode-zusammenfassung",
+    "href": "250926_break_vigenere/break.html#die-kasiski-methode-zusammenfassung",
+    "title": "6  Die Vigenère-Verschlüsselung brechen",
+    "section": "",
+    "text": "6.1.1 Grundprinzip\nWenn dieselbe Klartextsequenz mit demselben Teil des Schlüssels verschlüsselt wird, entstehen identische Geheimtextsequenzen. Indem wir diese Wiederholungen finden, können wir die Schlüssellänge bestimmen.\n\n\n6.1.2 Schritt-für-Schritt-Anleitung\n\nWiederholte Sequenzen finden\n\nDen Geheimtext nach identischen Sequenzen von 3+ Zeichen durchsuchen.\nDie Positionen aufzeichnen, an denen diese Sequenzen auftreten.\n\nAbstände berechnen\n\nDen Abstand zwischen wiederholten Sequenzen messen.\nDie Schlüssellänge muss ein Teiler dieser Abstände sein.\n\nSchlüssellänge bestimmen\n\nDen größten gemeinsamen Teiler (ggT) aller Abstände finden.\nOder nach dem häufigsten gemeinsamen Teiler suchen.\nDies ergibt die wahrscheinliche Schlüssellänge.\n\nHäufigkeitsanalyse\n\nDen Geheimtext basierend auf der Schlüssellänge in Gruppen aufteilen.\nJede Gruppe wurde mit demselben Schlüsselzeichen verschlüsselt.\nEine Häufigkeitsanalyse auf jede Gruppe separat anwenden.\nDie Buchstabenhäufigkeiten mit den erwarteten Mustern der Sprache abgleichen.\n\n\n\n\n6.1.3 Beispiel\nWenn „THE“ mehrmals im Klartext an Positionen erscheint, an denen sich der Schlüssel wiederholt, sind die entsprechenden Geheimtextsequenzen identisch. Wenn diese Sequenzen 10 Positionen voneinander entfernt sind, ist die Schlüssellänge wahrscheinlich ein Teiler von 10 (1, 2, 5 oder 10).\nFür ein konstruiertes Beispiel, wenn der Klartext „the codes in the word and the message“ lautet und der Schlüssel „crypt“ ist, erhalten wir den folgenden Geheimtext.\np: t h e c o d e s i n t h e w o r d a n d t h e m\nk: c r y p t c r y p t c r y p t c r y p t c r y p\nc: V Y C r h f v q x g V Y C l h t u y c w V Y C b\nBeachten Sie, dass das Geheimtextmuster VYC dreimal im Geheimtext vorkommt und jedes Mal ein Abstand von 10 Buchstaben zwischen dem Anfang eines VYC und dem nächsten liegt. Dies geschieht, weil dasselbe Klartextmuster, „the“, jedes Mal auf denselben Teil des Schlüssels, „cry“, trifft, was zum selben Geheimtext führt. Die Wiederholung des Schlüsselworts ist hier die Schwachstelle. Die Duplikate im Geheimtext sind alle 10 Buchstaben voneinander entfernt. Babbage und Kasiski schlussfolgerten, dass dies bedeutet, dass die Länge des Schlüssels ein Teiler von 10 ist. Die Teiler von 10 sind 10, 5 und 2. Man könnte argumentieren, dass ein Schlüssel der Länge 2 zu kurz ist, um viel Sicherheit zu bieten, sodass ein Schlüssel der Länge 5 oder 10 wahrscheinlicher ist. Ein Schlüssel der Länge 10 hätte in einem so kurzen Geheimtext wahrscheinlich nicht so viele Wiederholungen, daher wird der Kryptoanalytiker seine Arbeit mit einer angenommenen Schlüssellänge von 5 beginnen.\nEine Schlüssellänge von 5 bedeutet, dass der 1., 6., 11., 16. usw. Buchstabe alle mit demselben Schlüsselbuchstaben und somit mit demselben Alphabet aus der Vigenère-Tabelle verschlüsselt werden. In ähnlicher Weise werden der 2., 7., 12., 17. usw. Buchstabe alle mit dem nächsten Schlüsselalphabet verschlüsselt. Wenn wir also das Kryptogramm in 5 Buchstabengruppen aufteilen, haben wir 5 monoalphabetische Substitutions-Geheimtexte. Wir können dann eine Häufigkeitsanalyse jeder Gruppe durchführen und jede Gruppe separat lösen. Und in einem standardmäßig verschobenen Alphabet wie in der normalen Vigenère-Tabelle haben wir, wenn wir einen einzigen Geheimtext-Alphabetbuchstaben finden können, das gesamte Alphabet.1\n\n\n6.1.4 Warum es funktioniert\nDie Schwäche der Vigenère-Verschlüsselung liegt in der Wiederholung des Schlüssels. Sobald die Schlüssellänge bekannt ist, wird die Verschlüsselung zu mehreren einfachen Caesar-Verschlüsselungen, die mittels Häufigkeitsanalyse gebrochen werden können.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Die Vigenère-Verschlüsselung brechen</span>"
+    ]
+  },
+  {
+    "objectID": "250926_break_vigenere/break.html#footnotes",
+    "href": "250926_break_vigenere/break.html#footnotes",
+    "title": "6  Die Vigenère-Verschlüsselung brechen",
+    "section": "",
+    "text": "Dooley, John F. History of Cryptography and Cryptanalysis: Codes, Ciphers, and Their Algorithms. History of Computing. Cham: Springer International Publishing, 2024. https://doi.org/10.1007/978-3-031-67485-3. S. 76.↩︎",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Die Vigenère-Verschlüsselung brechen</span>"
+    ]
+  },
+  {
+    "objectID": "251031/asymmetrie.html",
+    "href": "251031/asymmetrie.html",
+    "title": "7  Public-Key-Kryptographie",
+    "section": "",
+    "text": "7.1 Verschlüsselung mit Hilfe eines Graphen\nObwohl das One-Time-Pad theoretisch eine absolut sichere Verschlüsselung ermöglicht, ist es in der Praxis kaum praktikabel. Neben der Tatsache, dass der Schlüssel mindestens so lang sein muss, wie die Nachricht selbst, braucht es ein Verfahren den bzw. die Schlüssel sicher zwischen Sender und Empfänger zu teilen.\nUm das Problem des Schlüsselaustausches zu lösen, verwendet man spezielle mathematische Funktionen. Diese Funktionen nennt man “Einwegfunktionen mit Hintertüren”. Eine Einwegfunktion \\(f(x) = x'\\) lässt sich leicht berechnen, aber ihre Umkehrung \\(f^{-1}(x') = x\\) ist sehr schwierig zu berechnen. Die “Hintertür” ist ein Geheimwissen, mit dem die Umkehrfunktion dann doch einfach berechnet werden kann.\nDie Einwegfunktion kann veröffentlicht werden, damit ein Absender mit deren Hilfe eine Botschaft verschlüsseln kann. Nur der Empfänger ist dann noch in der Lage, die Botschaft mit wenig Aufwand zu entschlüsseln. Allfällige ‘Lauscher’ können die Umkehrfunktion nicht innert nützlicher Frist berechnen.\nUm ein Beispiel einer solchen Einwegfunktion zu zeigen, wird der Umstand genutzt, dass Text als Zahlenfolge dargestellt werden kann. Ein als Zahlenfolge dargestellter Text kann dann mit Hilfe einer mathematischen Funktion verschlüsselt werden. Im folgenden soll ein Modell für ein solches Verschlüsselungsverfahren vorgestellt werden. In diesem Modell werden Graphen für die Modellierung einer Einwegfunktion verwendet.\nEin Graph besteht aus Knoten und Kanten. Die Knoten sind durch Kanten miteinander verbunden. Damit die Verschlüsselung mit Hilfe eines Graphen erfolgen kann, muss der Graph öffentlich bekannt und die Knoten nummeriert sein. Die Verschlüsselung erfolgt in den unten dargestellten Schritten.\nDas Vorgehen soll an einem Beispiel verdeutlicht werden. Dem Beispiel liegt der folgende Graph zu Grunde.\nIn diesem Graphen wird die Zahl 999 verschlüsselt. Die Aufteilung in Summanden sieht folgendermassen aus:\n\\[\n999 = 0 + 77 + 39 + 123 + 264 + 96 + 133 + 67 + 200\n\\]\nDie Summanden werden folgendermassen in den Graphen eingetragen:\nNach der Addition der Nachbarn stellt sich der Graph folgendermassen dar:\nDer verschlüsselte Wert kann jetzt als Zahlenfolge 123/570/229/426/827/770/306/370/627 übermittelt werden.\nUm die ursprüngliche Zahl zu rekonstruieren, muss ein unberechtigter Lauscher das folgende Gleichungssystem lösen:\n\\[\n\\begin{aligned}\nc_1 &= v_1 + v_4 \\\\\nc_2 &= v_2 + v_5 + v_6 + v_7\\\\\nc_3 &= v_3 + v_4 + v_8\\\\\nc_4 &= v_1 + v_3 + v_4 + v_5\\\\\nc_5 &= v_2+ v_4 + v_5 + v_6 + v_8 + v_9\\\\\nc_6 &= v_2 + v_5 + v_6 + v_7 + v_9\\\\\nc_7 &= v_2 + v_6 + v_7\\\\\nc_8 &= v_3 + v_5 + v_8\\\\\nc_9 &= v_5 + v_6 + v_8 + v_9\\\\\n\\end{aligned}\n\\]\nWobei \\(c_n\\) die jeweilige übermittelte Zahl und \\(v_n\\) der Summand im jeweiligen Knoten darstellt. Dieses Gleichungssystem ist noch innerhalb nützlicher Frist lösbar. Wenn der Graph aber grösser wird, stösst man bald an zeitliche Grenzen.\nViel einfacher ist die Lösung, wenn man den Graphen in seine dominierende Menge zerlegt. Eine dominierende Menge ist eine Auswahl von Knoten, sodass jeder andere Knoten entweder in dieser Menge liegt oder einen Nachbarn darin hat. Dies so, dass innerhalb des Subgraphen die untereinander verbundenen Knoten mit einem einzigen Knoten verbunden sind.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Public-Key-Kryptographie</span>"
+    ]
+  },
+  {
+    "objectID": "251031/asymmetrie.html#verschlüsselung-mit-hilfe-eines-graphen",
+    "href": "251031/asymmetrie.html#verschlüsselung-mit-hilfe-eines-graphen",
+    "title": "7  Public-Key-Kryptographie",
+    "section": "",
+    "text": "Der Klartext wird als Folge von Zahlen dargestellt, welche folgendermassen verschlüsselt werden:\nDie einzelnen Zahlen der Zahlenfolge werden in Summanden zerlegt. Die Zahl der Summanden entspricht der Anzahl der Knoten im Graphen.\nJeder Summand wird einem Knoten zugeordnet.\nDer ‘Wert’ eines Knotens berechnet sich als Summe des dem Knoten zugeordneten Summanden und allen Summanden der Nachbarknoten.\nDer verschlüsselte Wert der Zahl ist die Folge der Werte der Knoten.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Public-Key-Kryptographie</span>"
+    ]
+  },
+  {
+    "objectID": "251031/asymmetrie.html#definition-dominierende-menge",
+    "href": "251031/asymmetrie.html#definition-dominierende-menge",
+    "title": "7  Public-Key-Kryptographie",
+    "section": "7.2 Definition Dominierende Menge",
+    "text": "7.2 Definition Dominierende Menge\n```wogeujolpb Definition Dominierende Menge Eine dominierende Menge in einem Graphen ist eine Teilmenge von Knoten mit einer besonderen Eigenschaft: Jeder Knoten des Graphen, der nicht zu dieser Teilmenge gehört, ist mit mindestens einem Knoten aus dieser Teilmenge verbunden. Anders ausgedrückt: Von den Knoten der dominierenden Menge aus kann man jeden anderen Knoten des Graphen mit genau einem Schritt erreichen.\n ```\nDie Kenntnis der dominierenden Menge stellt in unserem Verschlüsselungsverfahren die “Hintertür” dar. Wer diese Menge kennt, kann das komplizierte Gleichungssystem umgehen und die ursprünglichen Werte deutlich einfacher rekonstruieren.\nIn den Knoten \\(v_1\\), \\(v_7\\) und \\(v_8\\) sind alle Summanden enthalten. Um die ursprüngliche Zahl zu rekonstruieren, reicht es also, die Werte dieser drei Knoten zu summieren. Das finden der dominierenden Menge ist aber ein schwierig zu lösendes Problem und stellt daher für den Lauscher eine unüberwindbare Schranke dar1.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Public-Key-Kryptographie</span>"
+    ]
+  },
+  {
+    "objectID": "251031/asymmetrie.html#footnotes",
+    "href": "251031/asymmetrie.html#footnotes",
+    "title": "7  Public-Key-Kryptographie",
+    "section": "",
+    "text": "Das Beispiel stammt aus dem Buch Freiermuth, Karin. Einführung in die Kryptologie: Lehrbuch für Unterricht und Selbststudium. 2., Überarb. Aufl. Einführung in die Kryptologie. Wiesbaden: Vieweg, 2014, Kapitel 9.↩︎",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Public-Key-Kryptographie</span>"
+    ]
+  },
+  {
+    "objectID": "251114_rsa/rsa.html",
+    "href": "251114_rsa/rsa.html",
+    "title": "8  RSA",
+    "section": "",
+    "text": "8.1 Lernziele\nRSA ist ein Kryptografie-System für asymmetrische Verschlüsselung und Signatur. Es wurde Jahrzehnte lang verwendet und wird nun stetig von neueren Systemen abgelöst.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>RSA</span>"
+    ]
+  },
+  {
+    "objectID": "251114_rsa/rsa.html#lernziele",
+    "href": "251114_rsa/rsa.html#lernziele",
+    "title": "8  RSA",
+    "section": "",
+    "text": "Sie entschlüsseln und verschlüsseln eine Zahl mit dem gegebenen öffentlichen, beziehungsweise mit dem privaten Schlüssel.\nSie wissen, auf welcher mathematischen Schwierigkeit RSA beruht. Anders ausgedrückt: Was muss man machen, um vom öffentlichen auf den privaten Schlüssel zu kommen.\nSie erklären das Prinzip der Signatur. Sie berechnen eine RSA Signatur. Sie überprüfen, ob eine Nachricht zur RSA Signatur passt.",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>RSA</span>"
+    ]
+  },
+  {
+    "objectID": "251114_rsa/rsa.html#die-mathematik-hinter-rsa",
+    "href": "251114_rsa/rsa.html#die-mathematik-hinter-rsa",
+    "title": "8  RSA",
+    "section": "8.2 Die Mathematik hinter RSA",
+    "text": "8.2 Die Mathematik hinter RSA\nWie RSA funktioniert, betrachten wir mit dieser interaktiven Webseite www.cryptool.org/de/cto/rsa-step-by-step/.\n\n8.2.1 Tipps\nDer Taschenrechner kann nicht gut modulo mit grossen Zahlen rechnen.\nPython ist da besser geeignet. Wenn Sie \\(c=88^{17} ~mod~ 143\\) rechnen möchten, können Sie es in Python wie folgt berechnen:\nc = 88**17 % 143\nprint(c)\n# 121\n:::{dropdown} Zusätzlicher Hintergrund zum Rechnen\nPython kann 88000**80021 nicht ausrechnen, aber 88000**80021 % 89911 schon.\n\\(88000 \\cdot 80021\\) ist zu gross für den Speicher. Python berechnet vor zu den Rest und braucht damit nicht nur weniger Speicher, sondern rechnet auch viel schneller.\n:::\n\n\n8.2.2 Signieren\nBetrachten wir die Situation, dass Alice mitteilen möchte, wann Sie am Bahnhof ankommt. Sie kann es nicht direkt an Bob schreiben, sondern Mallory. Sie möchte nicht, dass Bob zu einer falschen Uhrzeit am Bahnhof wartet. Alice hat Bob deshalb im Vorfeld ihren öffentlichen Schlüssel geteilt.\n\nPrivater Schlüssel: \\((n=143, d=113)\\)\nÖffentlicher Schlüssel: \\((n=143,e=17)\\)\n\nMallory darf den öffentlichen Schlüssel auch kennen. Der private Schlüssel kennt nur Alice.\nWas Alice macht, ist sie Gibt die Stunde bekannt: Sie kommt um 15 Uhr an. Nun berechnet Alice zusätzlich \\[ 15^d ~mod~ n = 15^{113} ~mod~ 143\n= 97 \\]. Sie legt diese Zahl 97 als Signatur bei.\nWenn Mallory nichts ändert, bekommt Bob “Uhrzeit 15, Signatur 97”. Bob kann nun den Inhalt überprüfen, indem er \\[ signatur ^ e ~mod~ n = 97\n^{17} ~mod~ 143 = 15 \\] berechnet. Er merkt, die Zahl stimmt überein.\nWenn Mallory eine falsche Zeit an Bob geben möchte und die Zeit zu 14 anpasst, merkt Alice, dass die Zeit nicht mit der Signatur über einpasst. Wenn Mallory die Signatur auch anpassen möchte, müsste sie die Signatur finden, sodass \\[ x = 14^e ~mod~n. \\] Dies ist genau so schwierig, wie das Entschlüsseln der Nachricht.\n:::{tip} Aufgabe\n\nErstellen Sie auf der bekannten cryptool Seite ein Schlüsselpaar.\nWählen Sie (zufällig) 3 Zahlen.\nErstellen Sie zu jeder Zahl die Signatur.\nVerändern Sie bei einem Tupel die Zahl, bei einem anderen die Signatur.\nTauschen Sie den öffentlichen Schlüssel mit den 3 Tupeln mit Ihrem Nachbar aus.\nTesten Sie die Tupel, welches stimmt.\n\n:::",
+    "crumbs": [
+      "Kryptologie",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>RSA</span>"
+    ]
+  },
+  {
+    "objectID": "250822/netzwerke.html",
+    "href": "250822/netzwerke.html",
+    "title": "9  Computernetzwerke",
+    "section": "",
+    "text": "9.1 Das OSI- bzw. TCP/IP-Modell\nComputernetzwerke sind Systeme, die es Computern und anderen Geräten ermöglichen, miteinander zu kommunizieren. Ursprünglich ging es vor allem um den Austausch von Nachrichten. Heute ermöglichen Netzwerke zusätzlich die gemeinsame Nutzung von Ressourcen wie Druckern, Dateien oder Internetzugängen. Sie bilden die Grundlage für viele alltägliche Anwendungen – von E-Mails über Videokonferenzen bis hin zu Cloud-Diensten.\nEin Computernetzwerk besteht aus mehreren miteinander verbundenen Geräten (z. B. Computer, Smartphones, Server), die über verschiedene Übertragungsmedien wie Kabel oder Funk kommunizieren. Wichtige Ziele eines Netzwerks sind: - effiziente Kommunikation - zuverlässige Verfügbarkeit von Informationen - Sicherheit der Datenübertragung (in der Praxis meist durch Verfahren auf höheren Schichten, z. B. Verschlüsselung über TLS)\nUm die Kommunikation zu ermöglichen, werden in Netzwerken Regeln und Protokolle verwendet. Ein bekanntes Referenzmodell zur Beschreibung dieser Abläufe ist das OSI-Schichtenmodell. Es unterteilt die Netzwerkkommunikation in sieben aufeinander aufbauende Schichten – von der physischen Übertragung der Daten bis hin zur Anwendungsebene, auf der Programme wie Webbrowser oder E-Mail-Clients arbeiten.\nDas OSI-Modell (Open Systems Interconnection Model) ist ein Referenzmodell. Es hilft, die komplexen Abläufe der Datenübertragung zu strukturieren und zu verstehen. Die sieben Schichten (mit typischen Dateneinheiten, sogenannten PDUs) im Überblick:\nDas OSI-Schichtenmodell wurde in seiner reinen Form nicht als Protokollstapel umgesetzt. In der Praxis hat sich das TCP/IP-Modell durchgesetzt (TCP = Transmission Control Protocol, IP = Internet Protocol).\nDas TCP/IP-Modell besteht aus vier Schichten, die Funktionen des OSI-Modells zusammenfassen:\nDas TCP/IP-Modell ist heute die Grundlage für die Kommunikation im Internet und in den meisten Computernetzwerken.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Computernetzwerke</span>"
+    ]
+  },
+  {
+    "objectID": "250822/netzwerke.html#das-osi--bzw.-tcpip-modell",
+    "href": "250822/netzwerke.html#das-osi--bzw.-tcpip-modell",
+    "title": "9  Computernetzwerke",
+    "section": "",
+    "text": "Physical Layer\n\n\nÜberträgt einzelne Bits als elektrische, optische oder Funksignale über das Übertragungsmedium (z. B. Kabel, Funk).\nPDU: Bits\n\n\nData Link Layer\n\n\nSorgt für lokale, rahmenbasierte Übertragung zwischen direkt verbundenen Geräten; regelt den Zugriff auf das Medium (MAC).\nBietet Fehlererkennung (z. B. CRC) und – je nach Technik – ggf. einfache Fehlerbehandlung/Wiederholungen (z. B. bei WLAN).\nPDU: Frames/Rahmen\n\n\nNetwork Layer\n\n\nLeitet Pakete über mehrere Netzwerke hinweg weiter (Routing); Adressierung auf Netzwerkebene (z. B. IP-Adressen).\nBeispielprotokoll: Internet Protocol (IP).\nPDU: Packets/Pakete\n\n\nTransport Layer\n\n\nStellt Ende-zu-Ende-Transport zwischen Anwendungen bereit. Unterschiedliche Protokolle bieten unterschiedliche Dienste:\n\nTCP: zuverlässig, geordnet, verbindungsorientiert; inkl. Fluss- und Staukontrolle.\nUDP: verbindungslos, ohne Garantie für Zuverlässigkeit oder Reihenfolge.\n\nPDU: Segmente (TCP) bzw. Datagramme (UDP)\n\n\nSession Layer\n\n\nBaut Sitzungen zwischen Anwendungen auf, verwaltet und beendet sie (z. B. Sitzungsverwaltung, Dialogsteuerung).\n\n\nPresentation Layer\n\n\nÜbersetzt Daten zwischen Darstellungsformaten (z. B. Zeichencodierung, Serialisierung) und kann Daten komprimieren/verschlüsseln.\n\n\nApplication Layer\n\n\nStellt die Schnittstelle zu Anwendungsprogrammen und Anwendungsprotokollen bereit (z. B. HTTP, SMTP, DNS).\n\n\n\n\nNetzwerkzugangsschicht (Link/Network Access)\n\n\nEntspricht OSI Physical + Data Link (Schichten 1 und 2).\nBeispiele: Ethernet, WLAN; MAC-Adressen; Switches arbeiten typischerweise hier.\nPDU: Frames/Rahmen\n\n\nInternetschicht\n\n\nEntspricht OSI Network Layer (Schicht 3).\nBeispiele: IP, Routing; Router arbeiten hier; IP-Adressen.\nPDU: Packets/Pakete\n\n\nTransportschicht\n\n\nEntspricht OSI Transport Layer (Schicht 4).\nBeispiele: TCP (zuverlässig, geordnet), UDP (verbindungslos); Ports identifizieren Dienste.\nPDU: Segmente (TCP) / Datagramme (UDP)\n\n\nAnwendungsschicht\n\n\nFasst OSI Session, Presentation und Application (Schichten 5–7) zusammen.\nBeispiele: HTTP/HTTPS, SMTP, DNS. Verschlüsselung wie TLS liegt typischerweise oberhalb des Transports und wird Anwendungen zugeordnet.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Computernetzwerke</span>"
+    ]
+  },
+  {
+    "objectID": "250822/netzwerke.html#analogie-zur-kapselung-in-der-objektorientierten-programmierung-oop",
+    "href": "250822/netzwerke.html#analogie-zur-kapselung-in-der-objektorientierten-programmierung-oop",
+    "title": "9  Computernetzwerke",
+    "section": "9.2 Analogie zur Kapselung in der objektorientierten Programmierung (OOP)",
+    "text": "9.2 Analogie zur Kapselung in der objektorientierten Programmierung (OOP)\nDas Schichtenmodell in der Netzwerktechnik lässt sich gut mit dem Prinzip der Kapselung in der objektorientierten Programmierung vergleichen. In beiden Fällen werden komplexe Aufgaben in klar abgegrenzte, eigenständige Einheiten (Schichten bzw. Klassen) unterteilt. Jede Schicht im Netzwerkmodell hat eine genau definierte Aufgabe und kommuniziert nur mit der direkt darüber- oder darunterliegenden Schicht – ähnlich wie eine Klasse in der OOP ihre inneren Details verbirgt und nur über definierte Schnittstellen mit anderen Klassen interagiert.\nDurch diese Kapselung wird die Komplexität reduziert, Änderungen können leichter vorgenommen werden und die einzelnen Komponenten bleiben unabhängig voneinander wartbar. So wie in der OOP eine Klasse ihre Daten und Methoden kapselt, kapselt im Schichtenmodell jede Ebene die Details ihrer Funktion und stellt nur die notwendigen Dienste für die nächste Schicht bereit.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Computernetzwerke</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tcpip.html",
+    "href": "250822/tcpip.html",
+    "title": "10  IP Adressen und DNS",
+    "section": "",
+    "text": "10.1 IP Adressen\nDamit Computer in einem Netzwerk erreichbar sind, benötigen sie eine eindeutige Adresse. Diese Adresse wird als IP-Adresse (Internet Protocol Address) bezeichnet. Aktuell - das heisst seit ungefähr zwei Jahrzehnten - wird nach und nach vom IPv4 System auf IPv6 umgestellt.\nIPv4 sind 32-Bit-Adressen, die in vier Oktetten dargestellt werden (z.B. 192.0.2.1). Eine Länge von 32 Bit ergibt \\(2^{32}\\), das heisst etwas mehr als 4.29 Milliarden mögliche Adressen. Das zeigt, dass IPv4-Adressen begrenzt sind. Diese Begrenztheit hat zur Entwicklung von IPv6 geführt.\nIPv6 Adressen sind 128 Bit lang. Sie werden in Hexadezimaldarstellung angezeigt, wobei acht Gruppen von vier hexadezimalen Ziffern (z.B. 2001:0db8:85a3:0000:0000:8a2e:0370:7334) verwendet werden. Die Länge von 128 Bit ermöglicht \\(2^{128}\\) Adressen, was in dezimaler Schreibweise \\(3.4\n\\cdot 10^{38}\\), einer Zahl mit 39 Stellen, entspricht. Auf jeden Quadratmeter der Erdoberfläche kämen etwa \\(6.7 \\cdot 10^{23}\\) IPv6‑Adressen – das ist ungefähr eine  Avogadro‑Zahl pro Quadratmeter.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>IP Adressen und DNS</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tcpip.html#dns-lookup",
+    "href": "250822/tcpip.html#dns-lookup",
+    "title": "10  IP Adressen und DNS",
+    "section": "10.2 DNS Lookup",
+    "text": "10.2 DNS Lookup\nMenschen können sich IP-Adressen nur schwer merken. Daher wurden Domainnamen eingeführt, die leichter zu erinnern sind. Ein Beispiel für einen Domainnamen ist www.google.com. Eine mögliche IP-Adresse für den Domainname von Google ist 172.217.168.68; oft bestehen mehrere IP-Adressen für einen Domainnamen. Für die “Übersetzung” eines Domainname in eine IP-Adresse ist das Domain Name System (DNS) verantwortlich.\n\n10.2.1 Funktionsweise\n\nAnfrage: Wenn ein Benutzer eine Website besucht, sendet der Browser eine DNS-Anfrage an einen DNS-Server, um die IP-Adresse der gewünschten Domain zu ermitteln.\nAuflösung: Der DNS-Server überprüft seinen Cache auf eine vorhandene Zuordnung. Wenn keine Zuordnung gefunden wird, leitet der Server die Anfrage an andere DNS-Server weiter, bis die IP-Adresse ermittelt wird.\nAntwort: Der DNS-Server sendet die gefundene IP-Adresse zurück an den Browser, der dann eine Verbindung zur Website herstellen kann.\n\n\n\n10.2.2 Typen von DNS-Einträgen\n\nA-Record: Verknüpft einen Domainnamen mit einer IPv4-Adresse.\nAAAA-Record: Verknüpft einen Domainnamen mit einer IPv6-Adresse.\nCNAME-Record: Alias für einen anderen Domainnamen.\nMX-Record: Gibt den Mailserver für eine Domain an.\n\n\n\n10.2.3 Bedeutung\nDer Domainname ist entscheidend für die Benutzerfreundlichkeit des Internets, da er es ermöglicht, Websites über leicht merkbare Namen anstelle von numerischen IP-Adressen zu erreichen. Ohne DNS müssten Benutzer die IP-Adressen aller Websites kennen, die sie besuchen möchten.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>IP Adressen und DNS</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html",
+    "href": "250822/nat.html",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "",
+    "text": "11.1 Was ist NAT?\nNetwork Address Translation (NAT) ist ein Verfahren zur automatischen und transparenten Übersetzung von IP-Adressen in Datenpaketen. NAT ermöglicht es, dass mehrere Geräte in einem privaten Netzwerk über eine einzige öffentliche IP-Adresse mit dem Internet kommunizieren können. Diese Technik wurde entwickelt, um die Knappheit von IPv4-Adressen zu bewältigen und gleichzeitig die Sicherheit privater Netzwerke zu erhöhen.\nIn der Praxis bedeutet dies: Wenn Sie zu Hause mehrere Geräte (Laptop, Smartphone, Smart-TV) mit dem Internet verbinden, teilen sich alle diese Geräte eine einzige öffentliche IP-Adresse, die Ihnen von Ihrem Internetanbieter zugewiesen wurde.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#funktionsweise-von-nat",
+    "href": "250822/nat.html#funktionsweise-von-nat",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.2 Funktionsweise von NAT",
+    "text": "11.2 Funktionsweise von NAT\n\n11.2.1 Grundprinzip\nNAT arbeitet auf der Schicht 3 des OSI-Modells und ändert die Adressen im IP-Header von Datenpaketen. Der Prozess läuft folgendermassen ab:\n\nAusgehende Verbindung: Ein Gerät im privaten Netzwerk (z.B. 192.168.1.10) sendet eine Anfrage an einen Server im Internet.\nAdressübersetzung: Der NAT-Router ersetzt die private Quell-IP-Adresse durch seine öffentliche IP-Adresse (z.B. 203.0.113.5).\nTabelleneintrag: Der Router speichert die Zuordnung in einer NAT-Tabelle.\nAntwort: Wenn der Server antwortet, verwendet der Router die NAT-Tabelle, um die Antwort an das richtige Gerät im privaten Netzwerk weiterzuleiten.\n\n\n\n11.2.2 NAT-Tabelle\nDie NAT-Tabelle ist das Herzstück des Verfahrens. Sie enthält folgende Informationen:\n\nPrivate IP-Adresse (z.B. 192.168.1.10)\nPrivater Port (z.B. 54321)\nÖffentliche IP-Adresse (z.B. 203.0.113.5)\nÖffentlicher Port (z.B. 12345)\nZiel-IP-Adresse (z.B. 93.184.216.34)\nZiel-Port (z.B. 80)",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#private-ip-adressbereiche",
+    "href": "250822/nat.html#private-ip-adressbereiche",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.3 Private IP-Adressbereiche",
+    "text": "11.3 Private IP-Adressbereiche\nFür private Netzwerke sind spezielle IP-Adressbereiche reserviert, die nicht im öffentlichen Internet geroutet werden:\n\n10.0.0.0 bis 10.255.255.255 (10.0.0.0/8) – 16’777’216 Adressen\n172.16.0.0 bis 172.31.255.255 (172.16.0.0/12) – 1’048’576 Adressen\n\n192.168.0.0 bis 192.168.255.255 (192.168.0.0/16) – 65’536 Adressen\n\nDiese Bereiche können in privaten Netzwerken beliebig oft wiederverwendet werden, da sie nur lokal gültig sind.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#arten-von-nat",
+    "href": "250822/nat.html#arten-von-nat",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.4 Arten von NAT",
+    "text": "11.4 Arten von NAT\n\n11.4.1 1. Static NAT (One-to-One NAT)\nBei Static NAT wird eine private IP-Adresse fest einer öffentlichen IP-Adresse zugeordnet. Dies wird verwendet, wenn ein Server im privaten Netzwerk dauerhaft aus dem Internet erreichbar sein soll.\nBeispiel: - Privat: 192.168.1.100 ↔︎ Öffentlich: 203.0.113.10\n\n\n11.4.2 2. Dynamic NAT\nDynamic NAT ordnet private IP-Adressen dynamisch aus einem Pool öffentlicher IP-Adressen zu. Die Zuordnung erfolgt bei Bedarf und wird nach einer gewissen Zeit wieder freigegeben.\n\n\n11.4.3 3. Port Address Translation (PAT)\n\n11.4.3.1 Was ist ein Port?\nUm zu verstehen, wie PAT funktioniert, müssen wir zuerst das Konzept der Ports verstehen. Eine IP-Adresse identifiziert einen Computer im Netzwerk – aber auf einem Computer laufen gleichzeitig viele Programme, die alle Netzwerkverbindungen nutzen möchten.\nAnalogie: Stellen Sie sich die IP-Adresse als Postadresse eines Hochhauses vor. Die Portnummer entspricht dann der Wohnungsnummer. So wie die Post weiss, in welche Wohnung ein Brief gehört, weiss der Computer durch die Portnummer, an welches Programm die Daten geliefert werden sollen.\nPorts sind 16-Bit-Zahlen (0 bis 65’535) und werden in drei Kategorien unterteilt: - Well-known Ports (0-1023): Reserviert für Standarddienste - Port 80: HTTP (Webseiten) - Port 443: HTTPS (verschlüsselte Webseiten) - Port 22: SSH (sichere Verbindung) - Port 25: SMTP (E-Mail-Versand) - Registered Ports (1024-49’151): Für registrierte Dienste - Dynamic/Private Ports (49’152-65’535): Frei verwendbar\n\n\n11.4.3.2 Funktionsweise von PAT\nPAT, auch NAT-Overload genannt, ist die häufigste Form von NAT. Hier teilen sich viele private IP-Adressen eine einzige öffentliche IP-Adresse, wobei die Unterscheidung über Portnummern erfolgt.\nDer Router merkt sich nicht nur, welche private IP-Adresse eine Verbindung aufgebaut hat, sondern auch über welchen Port. Dadurch können mehrere Geräte gleichzeitig über dieselbe öffentliche IP-Adresse kommunizieren.\nRechenbeispiel: Mit 16-Bit-Portnummern stehen theoretisch \\(2^{16} = 65'536\\) Ports zur Verfügung. Abzüglich der reservierten Ports (0-1023) bleiben etwa 64’512 nutzbare Ports für gleichzeitige Verbindungen. In der Praxis bedeutet dies, dass ein Heimrouter theoretisch über 64’000 gleichzeitige Verbindungen verwalten könnte.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#vorteile-und-nachteile",
+    "href": "250822/nat.html#vorteile-und-nachteile",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.5 Vorteile und Nachteile",
+    "text": "11.5 Vorteile und Nachteile\n\n11.5.1 Vorteile\n\nIP-Adressen-Einsparung: Ein Haushalt mit 20 Geräten benötigt nur eine öffentliche IP-Adresse\nSicherheit: Private IP-Adressen sind von aussen nicht direkt erreichbar\nFlexibilität: Interne Netzwerkstruktur kann geändert werden, ohne die öffentliche Adresse zu beeinflussen\n\n\n\n11.5.2 Nachteile\n\nEnde-zu-Ende-Konnektivität: Direktverbindungen zwischen Geräten werden erschwert\nKomplexität: Bestimmte Anwendungen (z.B. VoIP, Online-Gaming) benötigen spezielle Konfigurationen\nPerformance: Die Adressübersetzung benötigt Rechenleistung und kann zu Verzögerungen führen",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#praktisches-beispiel",
+    "href": "250822/nat.html#praktisches-beispiel",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.6 Praktisches Beispiel",
+    "text": "11.6 Praktisches Beispiel\nBetrachten wir einen typischen Heimrouter:\n\nIhr Laptop (192.168.1.15) öffnet die Webseite www.example.com\nHTTP-Anfrage:\n\nQuelle: 192.168.1.15:45678\nZiel: 93.184.216.34:80\n\nNAT-Router übersetzt:\n\nQuelle: 85.5.123.45:23456 (öffentliche IP)\nZiel: 93.184.216.34:80\n\nServer antwortet:\n\nQuelle: 93.184.216.34:80\nZiel: 85.5.123.45:23456\n\nRouter übersetzt zurück:\n\nQuelle: 93.184.216.34:80\nZiel: 192.168.1.15:45678",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/nat.html#bedeutung-für-die-zukunft",
+    "href": "250822/nat.html#bedeutung-für-die-zukunft",
+    "title": "11  Network Address Translation (NAT)",
+    "section": "11.7 Bedeutung für die Zukunft",
+    "text": "11.7 Bedeutung für die Zukunft\nMit der Einführung von IPv6 und seinen \\(2^{128}\\) möglichen Adressen wird NAT theoretisch überflüssig. In der Praxis wird NAT jedoch weiterhin verwendet werden, da:\n\nViele Netzwerke noch auf IPv4 basieren\nNAT zusätzliche Sicherheit bietet\nDie Umstellung auf IPv6 schrittweise erfolgt\n\nNAT bleibt somit eine wichtige Technologie für das moderne Internet, die sowohl die Adressknappheit löst als auch zur Netzwerksicherheit beiträgt.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Network Address Translation (NAT)</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html",
+    "href": "250822/tld.html",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "",
+    "text": "12.1 Was sind Top Level Domains?\nTop Level Domains (TLDs) sind der letzte Teil eines Domainnamens – der Teil nach dem letzten Punkt. Bei der Adresse www.example.com ist “.com” die Top Level Domain. TLDs bilden die oberste Hierarchieebene im Domain Name System (DNS) und sind essentiell für die Organisation des Internets.\nJeder Domainname folgt einer hierarchischen Struktur, die von rechts nach links gelesen wird: - www.kbw.ch - TLD: .ch (Schweiz) - Second Level Domain: kbw - Subdomain: www",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#arten-von-top-level-domains",
+    "href": "250822/tld.html#arten-von-top-level-domains",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.2 Arten von Top Level Domains",
+    "text": "12.2 Arten von Top Level Domains\n\n12.2.1 1. Generic Top Level Domains (gTLDs)\nDie generischen TLDs sind nicht länderspezifisch und können weltweit registriert werden:\n\n.com – Commercial (ursprünglich für Unternehmen)\n.org – Organization (für Organisationen)\n.net – Network (ursprünglich für Netzwerkanbieter)\n.edu – Education (nur für akkreditierte Bildungseinrichtungen)\n.gov – Government (nur für US-Regierungsstellen)\n.mil – Military (nur für US-Militär)\n\n\n\n12.2.2 2. Country Code Top Level Domains (ccTLDs)\nJedes Land erhält einen zweistelligen Code nach ISO 3166-1:\n\n.ch – Schweiz (Confoederatio Helvetica)\n.de – Deutschland\n.fr – Frankreich\n.uk – Vereinigtes Königreich\n.us – Vereinigte Staaten\n\nInsgesamt existieren 249 ccTLDs für Länder und Territorien.\n\n\n12.2.3 3. New Generic Top Level Domains (ngTLDs)\nSeit 2013 wurden über 1’200 neue TLDs eingeführt:\n\n.shop, .blog, .app\n.berlin, .paris, .swiss\n.google, .apple (Marken-TLDs)",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#die-vergabestelle-icann-und-iana",
+    "href": "250822/tld.html#die-vergabestelle-icann-und-iana",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.3 Die Vergabestelle: ICANN und IANA",
+    "text": "12.3 Die Vergabestelle: ICANN und IANA\nDie Internet Corporation for Assigned Names and Numbers (ICANN) ist die zentrale Organisation für die Verwaltung des Domain Name Systems. Sie wurde 1998 gegründet und hat ihren Hauptsitz in Los Angeles, USA.\nDie Internet Assigned Numbers Authority (IANA), eine Abteilung von ICANN, verwaltet die Root Zone des DNS. Diese enthält alle TLDs und ihre zugehörigen Nameserver.\n\n12.3.1 Hierarchie der Vergabe\n\nICANN/IANA → Verwaltet alle TLDs\nRegistry → Betreibt eine spezifische TLD (z.B. SWITCH für .ch)\nRegistrar → Verkauft Domains an Endkunden\nRegistrant → Der Domaininhaber",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#der-vergabeprozess-für-neue-gtlds",
+    "href": "250822/tld.html#der-vergabeprozess-für-neue-gtlds",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.4 Der Vergabeprozess für neue gTLDs",
+    "text": "12.4 Der Vergabeprozess für neue gTLDs\n\n12.4.1 Phase 1: Bewerbung\nOrganisationen können sich bei ICANN um neue TLDs bewerben. Die letzte grosse Bewerbungsrunde war 2012:\n\nBewerbungsgebühr: 185’000 US-Dollar\nBewerbungszeitraum: 4 Monate\nEingegangene Bewerbungen: 1’930\n\n\n\n12.4.2 Phase 2: Evaluation\nICANN prüft jede Bewerbung auf: - Technische Kompetenz - Finanzielle Stabilität - Keine Markenrechtsverletzungen - Öffentliches Interesse\n\n\n12.4.3 Phase 3: Delegation\nNach erfolgreicher Prüfung wird die TLD in die Root Zone eingetragen. Der gesamte Prozess dauert typischerweise 18-24 Monate.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#kosten-und-gebühren",
+    "href": "250822/tld.html#kosten-und-gebühren",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.5 Kosten und Gebühren",
+    "text": "12.5 Kosten und Gebühren\n\n12.5.1 Für Registry-Betreiber\n\nJährliche ICANN-Gebühr: 25’000 US-Dollar pro TLD\nTransaktionsgebühr: 0.25 US-Dollar pro Domainregistrierung\nBetriebskosten: Technische Infrastruktur, Personal, Marketing\n\n\n\n12.5.2 Für Endkunden (Beispiele)\n\n.ch Domain: CHF 10-20 pro Jahr\n.com Domain: CHF 15-25 pro Jahr\nPremium ngTLDs: CHF 50-500+ pro Jahr",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#besondere-regelungen",
+    "href": "250822/tld.html#besondere-regelungen",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.6 Besondere Regelungen",
+    "text": "12.6 Besondere Regelungen\n\n12.6.1 Restricted TLDs\nEinige TLDs haben spezielle Registrierungsbedingungen:\n\n.edu – Nur für akkreditierte US-Hochschulen\n.museum – Nur für Museen\n.aero – Nur für die Luftfahrtindustrie\n.swiss – Verbindung zur Schweiz erforderlich\n\n\n\n12.6.2 Internationalized Domain Names (IDN)\nSeit 2010 sind TLDs in nicht-lateinischen Schriften möglich:\n\n.中国 (China)\n.рф (Russland)\n.ελ (Griechenland)",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#statistische-betrachtung",
+    "href": "250822/tld.html#statistische-betrachtung",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.7 Statistische Betrachtung",
+    "text": "12.7 Statistische Betrachtung\nStand 2025 gibt es: - Aktive TLDs: ~1’500 - Registrierte Domains weltweit: ~370 Millionen - Grösste TLD: .com mit ~160 Millionen Domains - Schweizer .ch Domains: ~2.5 Millionen\nDie Verteilung folgt einem Potenzgesetz: Die 10 grössten TLDs beherbergen etwa 75% aller Domains.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250822/tld.html#bedeutung-und-ausblick",
+    "href": "250822/tld.html#bedeutung-und-ausblick",
+    "title": "12  Top Level Domains und ihre Vergabe",
+    "section": "12.8 Bedeutung und Ausblick",
+    "text": "12.8 Bedeutung und Ausblick\nTop Level Domains sind mehr als technische Bezeichnungen – sie sind digitale Identitäten. Eine .ch-Domain signalisiert Schweizer Herkunft, eine .edu-Domain steht für Bildung. Mit der kontinuierlichen Expansion des Internets wächst auch die Bedeutung einer durchdachten TLD-Struktur.\nDie nächste ICANN-Bewerbungsrunde für neue gTLDs ist für 2026 geplant. Experten erwarten weitere 500-1’000 neue TLDs, darunter vermehrt Städte- und Markennamen. Die Herausforderung wird sein, die Balance zwischen Innovation und Übersichtlichkeit zu wahren.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Top Level Domains und ihre Vergabe</span>"
+    ]
+  },
+  {
+    "objectID": "250829/three_way_handshake.html",
+    "href": "250829/three_way_handshake.html",
+    "title": "13  Beobachten von Internetverbindungen",
+    "section": "",
+    "text": "13.1 Aufzeichnen von Netzwerkpaketen\nDie folgenden Ausführungen basieren auf der Analyse von Netzwerkpaketen, welche mit Wireshark aufgezeichnet wurden. Dafür ist die Installation von Wireshark erforderlich. Die  Website von Wireshark stellt dazu den entsprechenden Download zur Verfügung.\nUm Netzwerkpakete aufzuzeichnen, wird Wireshark gestartet. Das Startfenster von Wireshark stellt sich folgendermassen dar:\nUnter dem Titel “Aufzeichnen” kann der gewünschte Netzwerkadapter ausgewählt und die Aufzeichnung gestartet werden. Die erfassten Pakete werden in Echtzeit angezeigt und können später analysiert werden. In der Schule wird die Verbindung zum Internet per WLAN hergestellt. Entsprechend ist der WLAN-Adapter auszuwählen. Sobald der entsprechende Adapter ausgewählt ist, kann die Aufzeichnung gestartet werden. Gestartet wird die Aufzeichnung durch einen Klick auf das blaue Haifischflossen-Symbol in der Symbolleiste. Die Aufzeichnung startet umgehend. Angehalten wird die Aufzeichnung mit einem Klick auf das rote Quadrat-Symbol in der Symbolleiste. Die Aufzeichnung kann entweder über das Menü Datei &gt; Speichern, durch einen Klick auf das Dateisymbol oder durch die Tastenkombination Strg + S gespeichert werden.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Beobachten von Internetverbindungen</span>"
+    ]
+  },
+  {
+    "objectID": "250829/three_way_handshake.html#aufzeichnen-von-netzwerkpaketen",
+    "href": "250829/three_way_handshake.html#aufzeichnen-von-netzwerkpaketen",
+    "title": "13  Beobachten von Internetverbindungen",
+    "section": "",
+    "text": "Wireshark Startfenster",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Beobachten von Internetverbindungen</span>"
+    ]
+  },
+  {
+    "objectID": "250829/three_way_handshake.html#beobachten-der-dns-anfragen",
+    "href": "250829/three_way_handshake.html#beobachten-der-dns-anfragen",
+    "title": "13  Beobachten von Internetverbindungen",
+    "section": "13.2 Beobachten der DNS-Anfragen",
+    "text": "13.2 Beobachten der DNS-Anfragen\n\n13.2.1 Filtern der Aufzeichnung\nUm die DNS-Anfragen zu beobachten, wird bei laufender Wireshark Aufzeichnung eine beliebige Website aufgerufen. Dadurch werden die entsprechenden DNS-Anfragen erfasst und können in Wireshark analysiert werden. Nach dem Aufruf der Website kann die Aufzeichnung angehalten und die erfassten Pakete analysiert werden (wenn die Aufzeichnung weiterläuft, bewegen sich die Pakete im Anzeigefenster ständig weiter).\nDamit die relevanten Datenpakete angezeigt werden, kann der aufgezeichnete Datenverkehr gefiltert werden. Der Filter wird in der Eingabefeld für “Anzeigefilter” eingegeben.\n\n\n\nWireshark Anzeigefilter\n\n\nDer entsprechende Filter für DNS-Anfragen zu einer gegebenen Website lautet\ndns.qry.name == \"www.example.com\"\nDer angewendete Filterbefehl ist relativ einfach nachzuvollziehen. An erster Stelle steht hier das Protokoll, nach dem gefiltert wird. Weil nach den DNS-Anfragen gefiltert wird, ist das hier dns. dns alleine wäre bereits ein gültiger Filter. Allerdings werden dann alle DNS-Pakete angezeigt. Der Filter wird daher zu dns.qry.name ergänzt Dabei steht qry als Abkürzung für query - Anfrage. Die Ergänzung name steht für den Domain Name, der Abgefragt wird. == ist die logische Verknüpfung, nach der gefiltert wird und bedeutet hier “ist gleich”. Zwischen den Anführungszeichen steht der String, nach dem gesucht wird.\nSofern die Seite während der Aufzeichnung genau einmal aufgerufen wurde, wird der Filter zwei Pakete anzeigen: eine DNS-Anfrage und eine DNS-Antwort.\n\n\n\nGefilterte Wireshark-Pakete\n\n\nDas Bild zeigt als erstes Paket die DNS-Anfrage für www.deutschegrammaphon.com und als zweites Paket die entsprechende Antwort.\n\n\n13.2.2 Analyse der gefilterten Pakete\nFür eine genaue Analyse der Kommunikation kann ein einzelnes Paket durch anklicken ausgewählt werden. Dadurch wird das Paket im unteren Bereich von Wireshark detailliert angezeigt und kann genauer untersucht werden.\n\n\n\nInhalt des Ausgewählten Pakets\n\n\nDass es sich hier im Bild um die Details des ausgewählten Paketes handelt, ist an der übereinstimmenden Paketnummer zu erkennen. Die Zeilen in der Detailansicht entsprechen den einzelnen Protokoll-Header-Feldern des ausgewählten Paketes. Das bildet auch das TCP/IP Schichtenmodell ab.\nDie Detailansicht kann durch einen Klick auf die Dreiecke am Anfang der einzelnen Protokoll-Header-Felder erweitert werden. Dadurch werden weitere Informationen zu den jeweiligen Feldern angezeigt. Hier werden jedoch nur die Zusammenfassungen der Header-Felder erläutert.\nIm Beispiel wird als erstes der Inhalt des Headers des Internetlayers erläutert.\n\nInternet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1\n\nIn der Zusammenfassung werden die Quell- und Ziel-Adressen des IP-Pakets angezeigt. Im vorliegenden Fall sind das jeweils die Privaten IP-Adressen 192.168.1.108 und 192.168.1.1. 192.168.1.108 ist die Quell-Adresse, erkennbar an der Abkürzung “Src” und 192.168.1.1 die Ziel-Adresse, erkennbar an der Abkürzung “Dst”. Beide Geräte befinden sich damit im gleichen LAN. Der Rechner mit der IP-Adresse 192.168.1.1 ist der Router. Dieses Gerät stellt die Internetverbindung her und kann DNS-Anfragen aus seinem Cache beantworten.\nIm Header für das User Datagram Protocol (UDP) werden die Quell- und Ziel-Ports angezeigt.\nUser Datagram Protocol, Src Port: 53586, Dst Port: 53\nDer Quellport wurde mit 53586 automatisch und weit oberhalb der sog. “Well-Known Ports” (0-1023) gewählt. Die “Well-Known Ports” sind Ports, die von bestimmten Anwendungen oder Diensten standardmässig verwendet werden. Entsprechend wurde der Zielport auf 53 gewählt, da dies der standardmässige Port für DNS-Anfragen ist. Eine Liste der “Well-Known Ports” findet sich in der  offiziellen IANA-Portdatenbank. Der Quellport ermöglicht es dem Zielsystem, die Antwort an den korrekten Absender zurückzusenden. NAT-Geräte (vgl. Abschnitt Network Address Translation (NAT)) nutzen diese Port-Informationen zusätzlich für die Zuordnung zwischen privaten und öffentlichen Adressen.\nDer zuunterst dargestellte Layer in der Detailansicht, beinhaltet die eigentliche Anfrage für die Übersetzung des Domainnamens in eine IP-Adresse.\nDomain Name System (query)\n    Transaction ID: 0x1f7a\n    Flags: 0x0100 Standard query\n    Questions: 1\n    Answer RRs: 0\n    Authority RRs: 0\n    Additional RRs: 0\n    Queries\n        www.deutschegrammophon.com: type A, class IN\n    [Response In: 723]\nAus diesem Grund wird dieser Teil der Analyse hier auch aufgefaltet dargestellt.\nUnter dem Stichwort Queries wird die gesuchte Adresse www.deutschegrammophon.com angezeigt. Das Stichwort type A zeigt an, dass es sich hier um eine Anfrage nach einer IPv4-Adresse handelt. IPv4-Adressen werden mit A bezeichnet, IPv6 mit AAAA. Das letzte Element in dieser Zeile ist die Klasse der Anfrage, in diesem Fall IN für das Internet. Obwohl heute fast ausschliesslich das Internet als Netzwerktyp verwendet wird, ist das Feld für die Klasse (IN) aus historischen Gründen weiterhin Teil jeder DNS-Anfrage.\nDer entsprechende Inhalt der Antwort sieht folgendermassen aus:\nDomain Name System (response)\n    Transaction ID: 0x1f7a\n    Flags: 0x8180 Standard query response, No error\n    Questions: 1\n    Answer RRs: 1\n    Authority RRs: 0\n    Additional RRs: 0\n    Queries\n        www.deutschegrammophon.com: type A, class IN\n    Answers\n        www.deutschegrammophon.com: type A, class IN, addr 85.236.46.65\n\nDas Paket wiederholt die Frage und liefert die Antwort des DNS-Servers. Der Domainname www.deutschegrammophon.com ist mit der IPv4-Adresse 85.236.46.65 verknüpft.\nDamit kann die Verbindung zur Website www.deutschegrammophon.com hergestellt werden.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Beobachten von Internetverbindungen</span>"
+    ]
+  },
+  {
+    "objectID": "250829/three_way_handshake.html#beobachtung-des-verbindungsaufbaus",
+    "href": "250829/three_way_handshake.html#beobachtung-des-verbindungsaufbaus",
+    "title": "13  Beobachten von Internetverbindungen",
+    "section": "13.3 Beobachtung des Verbindungsaufbaus",
+    "text": "13.3 Beobachtung des Verbindungsaufbaus\nDer Verbindungsaufbau zwischen Client (lokaler Rechner) und Server (Rechner im Internet) erfolgt in mehreren Schritten, die im sogenannten “Three-Way Handshake” zusammengefasst werden. Dieser Prozess stellt sicher, dass beide Seiten bereit sind, Daten zu senden und zu empfangen. Die folgende Abbildung zeigt eine schematische Darstellung des “Three-Way Handshake”.\n\n\n\nSchema Three-Way Handshake\n\n\nDer Client sendet ein SYN-Paket an den Server, um eine Verbindung anzufordern. Dieser atwortet mit einem SYN-ACK-Paket. Das heisst, er bestätigt die Anfrage mit einem ACK und fragt seinerseits mit einem SYN nach, ob der Client (immer noch) bereit ist, die Verbindung aufzubauen. Damit klar ist, dass sich das ACK im SYN-ACK-Paket auf das ursprüngliche SYN-Paket bezieht, werden die einzelnen Pakete mit einer Sequenznummer (Sequence Number) versehen. Das ACK gibt die Sequenznummer des SYN-Paketes plus eins zurück.\nDieser Vorgang kann mit Wireshark beobachtet werden. Dafür braucht es einen kombinierten Wireshark Anzeigefilter. Als Beispiel wird der Verbindungsaufbau zwischen dem lokalen Rechner und der Website von www.deutschegrammophon.com betrachtet. Der erste Teil des Filters soll nur jene Pakete anzeigen, welche mit der IP-Adresse des Servers von www.deutschegrammophon.com (85.236.46.65) kommunizieren. Dieser Filter lautet\nip.addr == 85.236.46.65\nDieser Filter alleine zeigt jedoch noch zu viele Pakete an.\n\n\n\nip.addr Filter\n\n\nUm die Resultate weiter einzuschränken sollen nur jene Pakete angezeigt werden, welche entweder das SYN-Flag oder das ACK-Flag (oder beides) gesetzt haben. Dies kann mit folgendem Filter erreicht werden:\nip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1 )\nDas sind allerdings immer noch zu viele Pakete. Daher sollen nur jene Pakete angezeigt werden, welche die Antworten auf eine SYN-Anfrage sind. Das kann erreicht werden, in dem ein Paket mit dem SYN-Flag mit der rechten Maustaste angeklickt wird und die Option “Follow” &gt; “TCP Stream” ausgewählt wird. Dadurch wird der gesamte TCP-Stream, in dem dieses Paket steht, (die aufeinanderfolgenden Pakete) angezeigt. Der Filter wird automatisch angepasst.\nDas folgende Listing zeigt den ganzen Filterbefehl für die Anzeige der Pakete, die zu diesem TCP-Stream gehören:\nip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1) and !(tcp.stream eq 8)\n\n\n\nThree-Way Handshake Pakete\n\n\nDass die Pakte die Kommunikationsfolge des Three-Way Handshakes zeigen, ist an den gesetzten Flags zu erkennen. Im ersten Schritt sendet der Client ein SYN-Paket, worauf der Server mit einem SYN-ACK-Paket antwortet. Der Client bestätigt dies mit einem ACK-Paket. Diese drei Schritte sind im Wireshark-Filter sichtbar. Gut zu erkennen sind die jeweiligen Portnummern, die in den TCP-Paketen verwendet werden.\nAnschliessend an diesen “Three-Way Handshake” kann der Client mit dem Server kommunizieren.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Beobachten von Internetverbindungen</span>"
+    ]
+  },
+  {
+    "objectID": "250905/sockets.html",
+    "href": "250905/sockets.html",
+    "title": "14  Python Sockets: Ein Einfaches Client-Server Beispiel",
+    "section": "",
+    "text": "14.1 Struktur der Verbindung\nIn diesem Abschnitt untersuchen wir, wie man eine einfache Client-Server-Anwendung mit Python-Sockets erstellt. Dieses Beispiel wird die grundlegenden Konzepte der Socket-Programmierung demonstrieren, einschliesslich der Herstellung einer Verbindung sowie des Sendens und Empfangens von Daten.\n:::{note} Network Socket Ein Netzwerk-Socket ist ein Endpunkt innerhalb eines Hosts, der zum Senden und Empfangen von Daten über ein Netzwerk verwendet wird. :::\nDas Beispiel besteht aus einem Server, der auf eingehende Verbindungen wartet, und einem Client, der sich mit dem Server verbindet. Wir werden die Kommunikation als einfachen Chatdienst modellieren.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Python Sockets: Ein Einfaches Client-Server Beispiel</span>"
+    ]
+  },
+  {
+    "objectID": "250905/sockets.html#server-code",
+    "href": "250905/sockets.html#server-code",
+    "title": "14  Python Sockets: Ein Einfaches Client-Server Beispiel",
+    "section": "14.2 Server Code",
+    "text": "14.2 Server Code\nSie benötigen keine virtuelle Umgebung. Das Beispiel verwendet nur die Python-Standardbibliothek.\nUnten ist das funktionierende Codebeispiel für den Socket-Server:\n```mhnwrxotokgv python :linenos: # socket_server.py\nimport socket\ndef server_program(): # define host name and port host = ‘localhost’ # for communication on the local machine port = 5000 # use a port number above 1024\n# create socket\nserver_socket = socket.socket()\n\n# bind the socket to the host and port\nserver_socket.bind((host, port))\n\n# set the server to listen for connections\nserver_socket.listen(2) # start listening \n                        # with a backlog of 2 \n                        # (max queued connections)\n\n# accept new connection from client\nconn, address = server_socket.accept()\nprint(\"Connection from: \" + str(address))\n\nwhile True:\n    # receive up to 1024 bytes per call\n    data = conn.recv(1024).decode()\n    if not data:\n        # if no data is received, break\n        break\n    print(\"Received from connected client: \" + str(data))\n    # prompt the user to enter a message\n    data = input(' -&gt; ')\n    # send data to the client as bytes\n    conn.send(data.encode())\n    \n# close the connection\nconn.close()\nif name == ‘main’: server_program()\n\nUm das Skript direkt auszuführen, öffnen Sie ein Terminal im\nVerzeichnis, in dem sich das Skript befindet, und führen Sie den\nfolgenden Befehl aus: \n\n```bash\npython socket_server.py\nWas geschieht, wenn das Skript ausgeführt wird, wird in den folgenden Abschnitten erläutert.\nDer Code besteht aus zwei Hauptteilen: der Funktion server_program und dem Block if __name__ == '__main__'. Die Funktion server_program enthält die Hauptlogik für den Server, während der if-Block verwendet wird, um den Servercode auszuführen, wenn das Skript direkt ausgeführt wird.\nWenn Sie das Skript ausführen, importiert Python zuerst das socket-Modul.\nimport socket\nAls nächstes wird die Funktion server_program aufgerufen. Innerhalb dieser Funktion wird als erstes die Hostadresse und der Portnummer definiert. localhost ist eine spezielle Adresse, die auf die lokale Maschine verweist. localhost entspricht der IPv4-Adresse 127.0.0.1. Das bedeutet, dass der Server nur Verbindungen von Clients akzeptiert, die auf derselben Maschine ausgeführt werden. Dies ist eine Simulation eines Netzwerks.\ndef server_program():\n    # define host name and port\n    host = 'localhost'    # for communication on the local machine\n    port = 5000           # use a port number above 1024\nIm nächsten Code-Snippet wird der server_socket mit der Funktion socket.socket() erstellt, die ein neues Socket-Objekt erzeugt.\nserver_socket = socket.socket()\nDieses Socket wird verwendet, um auf eingehende Verbindungen von Clients zu hören. Damit die Verbindung funktioniert, muss der server_socket mit der Host- und Portnummer über die bind()-Methode verbunden werden.\nserver_socket.bind((host, port))\nAls nächstes wird der Server so eingestellt, dass er mit der listen()-Methode auf eingehende Verbindungen wartet.\nserver_socket.listen(2) # start listening \n                        # with a backlog of 2 \n                        # (max queued connections)\nDer Server erstellt ein backlog von 2 ausstehenden Verbindungen. Der Code akzeptiert jedoch genau eine Client-Verbindung (accept() wird einmal aufgerufen). Um mehrere Clients zu verarbeiten, rufen Sie accept() in einer Schleife auf und verwenden Sie Threads oder asyncio. Dieses Limit wird festgelegt, um zu verhindern, dass der Server von zu vielen Verbindungen auf einmal überwältigt wird. Die accept()-Methode wird verwendet, um eine neue Verbindung von einem Client zu akzeptieren. Diese Methode gibt ein Tupel mit zwei Elementen zurück: conn, ein neues Socket-Objekt für die Kommunikation mit dem Client, und address, die Adresse des Clients. Der nächste Abschnitt zeigt, wie eine Nachricht ausgegeben wird, um die Adresse des verbundenen Clients anzuzeigen.\nconn, address = server_socket.accept()\nprint(\"Connection from: \" + str(address))\nDie while-Schleife ermöglicht es dem Server, auf Daten vom Client zu warten. Die recv()-Methode wird verwendet, um Daten vom Client zu empfangen. Jeder recv()-Aufruf liest bis zu 1024 Bytes; zusätzliche Daten bleiben im Puffer und können durch nachfolgende Aufrufe gelesen werden. Wenn keine Daten empfangen werden, bricht der Server die Schleife ab und schliesst die Verbindung.\nwhile True:\n        # receive up to 1024 bytes per call\n        data = conn.recv(1024).decode()\n        if not data:\n            # if no data is received, break\n            break\n        \nWenn der Server Daten empfängt, gibt er die Daten in der Konsole aus und fordert den Benutzer auf, eine Antwort einzugeben. Die Antwort wird mit der send()-Methode an den Client zurückgesendet.\nprint(\"Received from connected client: \" + str(data))\n        # prompt the user to enter a message\n        data = input(' -&gt; ')\n        # send data to the client as bytes\n        conn.send(data.encode())",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Python Sockets: Ein Einfaches Client-Server Beispiel</span>"
+    ]
+  },
+  {
+    "objectID": "250905/sockets.html#client-code",
+    "href": "250905/sockets.html#client-code",
+    "title": "14  Python Sockets: Ein Einfaches Client-Server Beispiel",
+    "section": "14.3 Client Code",
+    "text": "14.3 Client Code\nUnten ist der funktionierende Code des  Client-Beispiels:\n```mhnwrxotokgv python :linenos: # socket_client.py\nimport socket\ndef client_program(): # define host name and port (of the server to connect to) host = ‘localhost’ # as both pieces of code are # running on the same machine port = 5000 # socket server port number\n# create socket\nclient_socket = socket.socket()\n\n# connect to the server\nclient_socket.connect((host, port))\n\n# prompt the user to enter a message\nmessage = input(\" -&gt; \")  # take input\n\n# message loop\nwhile message.lower().strip() != 'bye':\n    # send message to the server as bytes\n    client_socket.send(message.encode())\n    \n    # receive response from the server\n    data = client_socket.recv(1024).decode()\n    \n    print('Received from server: ' + data)\n    \n    # prompt the user to enter a new message\n    message = input(\" -&gt; \")  # take new input\n    \n# close the connection\nclient_socket.close()\nif name == ‘main’: client_program()\n\nUm dieses Skript auszuführen, befolgen Sie die gleichen Schritte wie für\ndas Server-Skript. Öffnen Sie ein Terminal im Verzeichnis, in dem sich\ndas Skript befindet, und führen Sie den folgenden Befehl aus: \n\n```bash\npython socket_client.py\nStarten Sie den Server, bevor Sie den Client starten. Wenn der Server nicht läuft, wird client_socket.connect(…) einen ConnectionRefusedError auslösen.\nWenn Sie das Skript ausführen, importiert Python zuerst das Modul socket.\nAls nächstes wird die Funktion client_program aufgerufen. Innerhalb dieser Funktion wird die erste Aktion die Definition der Hostadresse und der Portnummer. Hier müssen die Hostadresse und die Portnummer mit denen im Server-Skript übereinstimmen.\nNachdem die Host- und Portinformationen definiert sind, erstellt der Client ein Socket-Objekt mit der Funktion socket.socket(). Dieses Socket wird verwendet, um eine Verbindung zum Server herzustellen. Die Methode connect() wird auf dem Socket-Objekt aufgerufen, um eine Verbindung zum Server herzustellen.\nSobald die Verbindung hergestellt ist, betritt der Client eine Schleife, in der er Nachrichten an den Server senden und Antworten empfangen kann. Der Client fordert den Benutzer auf, eine Nachricht einzugeben, die dann mit der Methode send() an den Server gesendet wird. Der Client wartet auch auf eine Antwort vom Server, indem er die Methode recv() verwendet.\nWenn der Benutzer bye eingibt, verlässt der Client die Schleife und schliesst die Verbindung zum Server.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Python Sockets: Ein Einfaches Client-Server Beispiel</span>"
+    ]
+  },
+  {
+    "objectID": "250905/sockets.html#verbindung-im-lan",
+    "href": "250905/sockets.html#verbindung-im-lan",
+    "title": "14  Python Sockets: Ein Einfaches Client-Server Beispiel",
+    "section": "14.4 Verbindung im LAN",
+    "text": "14.4 Verbindung im LAN\nUm die beiden Skripte im lokalen Netzwerk (LAN) zu verwenden, muss in beiden Skripten die IPv4-Adresse des Servers anstelle von localhost verwendet werden.\nDie IPv4-Adresse des Servers kann durch Ausführen des folgenden Befehls im Terminal des Servers ermittelt werden:\nC:\\Users\\username&gt;ipconfig\nWindows IP Configuration\n...\nWireless LAN adapter Wi-Fi:\n   Connection-specific DNS Suffix  . . . :\n   IPv4 Address . . . . . . . . . . . . .: 192.168.1.2\n   Subnet Mask . . . . . . . . . . . . . : 255.255.255.255\n   Default Gateway . . . . . . . . . . . : 192.168.1.1\n...\nDie Ausgabe des Befehls ipconfig zeigt alle Netzwerkadapter des entsprechenden Computers an. Die dargestellte Ausgabe hier im Beispiel wurde gekürzt.\nDie IPv4-Adresse des Servers ist in diesem Fall 192.168.1.2.\nDiese ist die Adresse, welche in beiden Skripten anstelle von localhost verwendet werden muss. Dann kann innerhalb des lokalen Netzwerks eine Verbindung hergestellt werden.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Python Sockets: Ein Einfaches Client-Server Beispiel</span>"
+    ]
+  },
+  {
+    "objectID": "250905/sockets.html#fazit",
+    "href": "250905/sockets.html#fazit",
+    "title": "14  Python Sockets: Ein Einfaches Client-Server Beispiel",
+    "section": "14.5 Fazit",
+    "text": "14.5 Fazit\nDie vorgestellten Codebeispiele veranschaulichen, wie Pythons integriertes Socket-Modul (Standardbibliothek) eine unkomplizierte Implementierung von netzwerkbasierten Anwendungen ermöglicht, ohne externe Abhängigkeiten zu erfordern. Der Fokus des Tutorials auf die Kommunikation über localhost bietet eine sichere, kontrollierte Umgebung für Experimente und Lernen, während der bidirektionale Nachrichtenaustausch reale Kommunikationsmuster demonstriert, die in Produktionssystemen zu finden sind.\nZu den wichtigsten Erfolgen dieser Implementierung gehören:\n\nErfolgreiche Herstellung von TCP-Socket-Verbindungen zwischen separaten Prozessen\nImplementierung einer nachrichtenbasierten Kommunikation mit ordnungsgemässer Kodierung/Dekodierung\nDemonstration des Verbindungslebenszyklusmanagements von der Herstellung bis zur Beendigung\nErstellung einer einfachen Befehlszeilenschnittstelle für sowohl Server- als auch Clientanwendungen\n\nDas Wissen, das aus diesem Tutorial gewonnen wurde, dient als solide Grundlage für die Entwicklung anspruchsvollerer netzwerkbasierter Anwendungen. Zukünftige Verbesserungen könnten die Implementierung von Multithreading für die gleichzeitige Verarbeitung mehrerer Clients, die Hinzufügung von Fehlerbehandlungs- und Wiederverbindungslogik oder die Erweiterung des Kommunikationsprotokolls zur Unterstützung strukturierter Datenformate umfassen.",
+    "crumbs": [
+      "Computernetzwerke",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Python Sockets: Ein Einfaches Client-Server Beispiel</span>"
+    ]
+  },
+  {
+    "objectID": "250416/datenbank.html",
+    "href": "250416/datenbank.html",
+    "title": "15  Einführung in Datenbanken",
+    "section": "",
+    "text": "15.1 Einführung\nDie Einführung in Datenbanken basiert auf dem Einführungskapitel aus dem Buch Abraham Silberschatz, Henry F. Korth und S. Sudarshan; Database system concepts; Seventh edition; New York 2020.\nDie bisher besprochenen Datenstrukturen Dictionary, Stack, Queue und Binary Search Tree dienen der Bearbeitung von Daten im Arbeitsspeicher. Sie sind daher auf einen beschränkten Umfang von Datensätzen ausgelegt. Ausserdem dienen sie nicht der permanenten Ablage von Daten.\nIm Gegensatz dazu dienen Datenbanken der dauerhaften Ablage grosser Datensätze. Darüber hinaus sollen sie die effiziente Verfügbarkeit und die Integrität der Daten sicherstellen.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Einführung in Datenbanken</span>"
+    ]
+  },
+  {
+    "objectID": "250416/datenbank.html#charakteristika-von-datenbanken",
+    "href": "250416/datenbank.html#charakteristika-von-datenbanken",
+    "title": "15  Einführung in Datenbanken",
+    "section": "15.2 Charakteristika von Datenbanken",
+    "text": "15.2 Charakteristika von Datenbanken\nEin wichtiges Merkmal von Datenbanken ist es, dass die gespeicherten Daten nur einmal abgelegt werden. Damit kann verhindert werden, dass mehrfach abgespeicherte Daten (redundante Daten) lediglich an einer Stelle modifiziert werden und damit Widersprüche entstehen. Der Entwurf von Datenbanken muss dem Rechnung tragen. Ein Hilfsmittel für den Entwurf von Datenbanken ist das ER-Diagramm (Entity-Relationship-Diagramm). Das ER-Diagramm ist eine grafische Darstellung der Datenbankstruktur. Es zeigt die Entitäten (durch die Datenbank modellierte Dinge der realen Welt), die in der Datenbank gespeichert werden, mit ihren Attributen (Eigenschaften der modellierten Dinge) sowie die Beziehungen (Relationship) zwischen den Entitäten.\nUm einen Eintrag in der Datenbank eindeutig identifizieren zu können, wird jedem Eintrag ein Primärschlüssel zugeordnet. Der Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die den Eintrag eindeutig identifiziert.\nIn den Beziehungen werden die Primärschlüssel der Entitäten als Fremdschlüssel verwendet. Ein Fremdschlüssel ist ein Attribut oder eine Kombination von Attributen, die auf den Primärschlüssel einer anderen Entität verweisen. So kann eine Beziehung zwischen zwei Entitäten hergestellt werden.\nDie untenstehende Graphik zeigt eine Skizze eines ER-Diagramms, in welchem die Beziehungen zwischen Schülern, Klassen und Lehrern dargestellt wird. Ausserdem wird gezeigt, welche Attribute als Primär- bzw. Fremdschlüssel verwendet werden.\n\n\n\nER-Diagramm\n\n\nJede Datenbank ist immer eine Vereinfachung der Wirklichkeit und daher immer unvollständig bzw. erweiterbar. Das obige ER-Diagramm kann daher um eine zusätzliche Entität Fach erweitert werden und sieht dann folgendermassen aus:\n\n\n\nER-Diagramm\n\n\nDiese Grafiken können in Datenbanktabellen übersetzt werden. In den Tabellen werden die Primärschlüssel unterstrichen. Die Primärschlüssel sind in der Regel die ersten Spalten der Tabellen. Für das Beispiel werden Tabellen für die Entitäten Klasse, Fach und Lehrer erstellt.\nDie einfachste Tabelle ist die Tabelle Klasse. Sie enthält lediglich ein Attribut (den Primärschlüssel).\n\n\n\nKlasse\n\n\nEtwas umfangreicher sind die Tabellen Fach und Lehrer. Sie enthalten jeweils drei bzw. vier Attribute.\n\n\n\n\n\n\n\n\n\n\nIm Folgenden Abschnitt sollen die Daten aus den Tabellen mit Hilfe von SQL Statements abgefragt werden.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Einführung in Datenbanken</span>"
+    ]
+  },
+  {
+    "objectID": "250507/sql.html",
+    "href": "250507/sql.html",
+    "title": "16  Abfrage von Daten",
+    "section": "",
+    "text": "16.1 Grundstruktur einer SQL Abfrage\nDatenbanken werden mit einer spezifischen Datenbanksprache angesprochen. Im Gegensatz zur bisher im Unterricht verwendeten Programmiersprache Python ist die Datenbanksprache SQL (Structured Query Language) eine deklarative Sprache. In Python werden die Befehle grundsätzlich der Reihe nach abgearbeitet. In SQL wird das gewünschte Resultat beschrieben. Wie diese Beschreibung abgearbeitet wird, ist in den Grundlagen der Datenbank programmiert.\nDie Grundstruktur einer SQL Abfrage ist im untenstehenden Code Snippet dargestellt.\nDas Schlüsselwort SELECT gibt an, welche Spalte(n) aus der Tabelle ausgegeben werden soll(en). Das Schlüsselwort FROM gibt an, aus welcher Tabelle die Daten ausgelesen werden. Das Schlüsselwort WHERE gibt die Bedingung an, die erfüllt sein muss, damit die Daten angezeigt werden. Dass die Schlüsselwörter in Grossbuchstaben geschrieben werden, ist technisch nicht nötig, entspricht aber der Konvention. Die Abfrage wird mit einem Semikolon abgeschlossen.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Abfrage von Daten</span>"
+    ]
+  },
+  {
+    "objectID": "250507/sql.html#grundstruktur-einer-sql-abfrage",
+    "href": "250507/sql.html#grundstruktur-einer-sql-abfrage",
+    "title": "16  Abfrage von Daten",
+    "section": "",
+    "text": "SELECT &lt;Spalten&gt; \nFROM &lt;Tabelle&gt; \nWHERE &lt;Bedingung&gt;;\n\n\n16.1.1 Einfache Abfrage\nIn einem ersten Beispiel sollen alle Vornamen aller Lehrer aus der Tabelle Lehrer aus dem vergangenen Abschnitt angezeigt werden:\nSELECT Vorname\nFROM Lehrer;\nIn diesem Beispiel wurde auf die Formulierung einer Bedingung verzichtet. Wenn die Ausgabe zusätzlich eine Bedingung erfüllen soll, wird diese mit dem Schlüsselwort WHERE angegeben. Im folgenden Beispiel sollen nur die Vornamen der Lehrer angezeigt werden, die vor dem Jahr 1800 geboren sind.\n\n\n16.1.2 Abfrage mit Bedingung\nSELECT Vorname\nFROM Lehrer\nWHERE Geburtsdatum &lt; '1800-01-01';\nDiese Abfrage führt zu folgendem Ergebnis:\n\n\n\nVorname\n\n\n\n\nFriedrich\n\n\nHonore de\n\n\nJohann Carl Friedrich\n\n\nGuillaume-Henri\n\n\n\n\n\n16.1.3 Sortierung der Ausgabe\nFalls die Ausgabe nicht nur die Vornamen, sondern auch die Nachnamen und das Geburtsdatum enthalten soll und die Ausgabe nach dem Geburtsdatum aufsteigend sortiert werden soll, wird die Abfrage entsprechend angepasst:\nSELECT Name, Vorname, Geburtsdatum\nFROM Lehrer\nWHERE Geburtsdatum &lt; '1800-01-01'\nORDER BY Geburtsdatum;\nDiese Abfrage führt zu folgendem Ergebnis:\n\n\n\nName\nVorname\nGeburtsdatum\n\n\n\n\nSchiller\nFriedrich\n10.11.1759\n\n\nGauss\nJohann Carl Friedrich\n30.04.1777\n\n\nDufour\nGuillaume-Henri\n15.09.1787\n\n\nBalzac\nHonoré de\n20.05.1799\n\n\n\nEs können dem Schlüsselwort SELECT mehrere Spalten übergeben werden. Zusätzlich wurde in der Anfrage das Schlüsselwort ORDER BY verwendet. Mit diesem kann angegeben werden, nach welchem Kriterium die Ausgabe sortiert werden soll. Standardmässig wird aufsteigend sortiert. Mit dem Schlüsselwort DESC kann die Sortierung absteigend erfolgen. Die Abfrage sieht dann folgendermassen aus:\nSELECT Name, Vorname, Geburtsdatum\nFROM Lehrer\nWHERE Geburtsdatum &lt; '1800-01-01'\nORDER BY Geburtsdatum DESC;\nDie Sortierreihenfolge wird hinter das Kriterium geschrieben. Wenn nach mehreren Kriterien sortiert werden soll, werden die zusätzlichen Kriterien mit einem Komma an das erste Kriterium angehängt.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Abfrage von Daten</span>"
+    ]
+  },
+  {
+    "objectID": "250507/sql.html#abfrage-aus-mehreren-tabellen",
+    "href": "250507/sql.html#abfrage-aus-mehreren-tabellen",
+    "title": "16  Abfrage von Daten",
+    "section": "16.2 Abfrage aus mehreren Tabellen",
+    "text": "16.2 Abfrage aus mehreren Tabellen\nInteressanter, als die Abfrage von Daten aus einer einzigen Tabelle, ist die Abfrage aus mehreren Tabellen. So ist es im Beispiel möglich, Abzufragen, wer Deutsch unterrichtet. Aus diesem Grund wurde die Tabelle erhält Unterricht in/von angelegt.\n\n\n\nerhält Unterricht in/von\n\n\nUm abzufragen, wer Deutsch unterrichtet, müssen die Daten aus den Tabellen Lehrer, Fach und erhält Unterricht in/von zusammengeführt werden. Dies geschieht mit dem Schlüsselwort JOIN. Das Schlüsselwort JOIN kann unterschiedlich verwendet werden. Im vorliegenden Beispiel wird die Variante INNER JOIN verwendet.\nSELECT DISTINCT l.Name, l.Vorname\nFROM Lehrer AS l\nINNER JOIN erhält_Unterricht_in AS u ON l.Personalnummer = u.Personalnummer\nWHERE u.Fach_ID = 'Deutsch';\nDas Resultat dieser Abfrage sieht wie folgt aus:\n\n\n\nName\nVorname\n\n\n\n\nSchiller\nFriedrich\n\n\n\nIn Ergänzung zu den bisherigen Abfragen, kommt neu das Schlüsselwort DISTINCT zum Einsatz. Dieses bewirkt, dass Daten, die mehrfach vorkommen, nur einmal ausgegeben werden. In diesem Beispiel wäre dies nicht nötig, da es nur einen Lehrer gibt, der Deutsch unterrichtet.\nUnter dem Schlüsselwort FROM wird die Tabelle Lehrer mit dem Alias l angegeben. Der Alias wird verwendet, um die Abfrage leserlicher zu machen. Wenn mehrere Tabellen abgefragt werden, muss jede Spalte, die ausgeben werden soll, mit der Tabelle, aus der sie stammt, angegeben werden. Mit dem Alias kann dies abgekürzt werden. Das Schlüsselwort AS für den Alias ist nicht nötig, dient aber der besseren Lesbarkeit.\nMit dem Schlüsselwort INNER JOIN werden die Datensätze aus den beiden Tabellen Lehrer und erhält_Unterricht_in basierend auf übereinstimmenden Werten in der Spalte Personalnummer miteinander verbunden. Dabei entsteht eine neue Ergebnismenge, die alle Spalten beider Tabellen enthält, jedoch nur für diejenigen Zeilen, bei denen die Personalnummer in beiden Tabellen übereinstimmt.\nAus dieser Schnittmenge werden aus der Tabelle erhält Unterricht in/von die Lehrer ausgewählt, die Deutsch unterrichten. Dies geschieht mit dem Schlüsselwort WHERE und dem Kriterium u.Fach_ID = 'Deutsch'.\nDie Abfrage, wer die Klasse fP_24-28 in PPP unterrichtet, sieht wie folgt aus:\nSELECT l.Name, l.Vorname\nFROM Lehrer AS l\nINNER JOIN erhält_Unterricht_in AS u ON l.Personalnummer = u.Personalnummer\nWHERE u.Fach_ID = 'PPP' \nAND u.Klassen_ID = 'fP_24-28';\nDie Abfrage gibt folgendes Resultat zurück:\n\n\n\nName\nVorname\n\n\n\n\nPiaget\nJean\n\n\n\nGegenüber der Abfrage, wer Deutsch unterrichtet, wurde mit dem Schlüsselwort AND die zusätzliche Bedingung u.Klassen_ID = 'fP_24-28' hinzugefügt.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Abfrage von Daten</span>"
+    ]
+  },
+  {
+    "objectID": "250507/sql.html#ausblick",
+    "href": "250507/sql.html#ausblick",
+    "title": "16  Abfrage von Daten",
+    "section": "16.3 Ausblick",
+    "text": "16.3 Ausblick\nDer nächste Abschnitt dient dazu, SQL zu üben. Als Übungsplattform wird SQL Island genutzt. Diese Plattform ist unter sql-island.informatik.uni-kl.de zu finden.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Abfrage von Daten</span>"
+    ]
+  },
+  {
+    "objectID": "250521/lernziele.html",
+    "href": "250521/lernziele.html",
+    "title": "17  Lernziele für die Prüfung vom 21. Mai 2025",
+    "section": "",
+    "text": "Ich erwarte, dass Sie in der Lage sind\n\ndie grundsätzlichen Unterschiede zwischen Python und SQL zu erklären;\ndie Aufgaben einer Datenbank aufzuzählen;\ndie Elemente einer grundlegenden SQL Abfrage aufzuzählen sowie\neine SQL Abfrage in umgangssprachliches Deutsch zu übersetzen.\n\nFür Fragen stehe ich Ihnen im Kanal Allgemein zur Verfügung.",
+    "crumbs": [
+      "Datenbanken",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Lernziele für die Prüfung vom 21. Mai 2025</span>"
+    ]
+  },
+  {
+    "objectID": "250122/speicherstrukturen.html",
+    "href": "250122/speicherstrukturen.html",
+    "title": "18  Datenstrukturen Stack und Queue",
+    "section": "",
+    "text": "Zwei wichtige Datenstrukturen zur Lösung alltäglicher Probleme sind der Stack (Stapelspeicher) und Queue (Warteschlange). In beiden Datenstrukturen können mehrere Werte zwischengespeichert werden. Die beiden Speicherformen sollen hier kurz erläutert werden.\nIn einem Stack werden die gespeicherten Werte gestapelt. Wie in einem Stapel in der realen Welt, wird der letzte gespeicherte Wert zuoberst auf den Stapel gelegt. Ebenso wie in einem realen Stapel, können die gespeicherten Werte nur in umgekehrter Reihenfolge zu ihrer Speicherung wieder abgerufen werden (last in - first out; LIFO). Mit Bezug auf das untenstehende Bild bedeutet dies, dass der letzte Brotlaib, der auf den Stapel gelegt wurde, auch der erste ist, der wieder vom Stapel weggenommen werden kann.\nEin Stack kann dazu verwendet werden, um die Verarbeitungsreihenfolge von Rechenoperationen in einem Programm abzubilden.\n```tffeosth brotstapel.png :alt: Brotstapel :width: 300px :name: brotstapel\nMartin Mayer mit einem Stapel Brot (Quelle: Sasa Noël und Heike Grein, Brothandwerk, Aarau und München, 2021, Seite 50.)\n\n\n\nIn einer Queue werden die gespeicherten Werte in einer Warteschlange\n*eingereiht*. Wie in einer Warteschlange in der realen Welt, wird jeder neu\ngespeicherte Wert hinten eingereiht. Beim Abrufen der gespeicherten Werte wird\nder zuerst gespeicherte Wert zuerst verarbeitet (first in - first out; FIFO).  \nEine Queue kann dazu verwendet werden, eine Warteschlange abzubilden wie sie in\nNetzwerken für die Übermittlung von Datenpaketen gebraucht wird.\n\n```{figure} unemployment_line.jpg\n---\nheight: 300px\nname: unemployment-line\n---\nDole Queue Great Depression (Quelle: https://view.genially.com/609aac10d34c960d5992809a/interactive-content-great-depression-breakout, besucht am 22.01.15).\nFür die Übungen finden Sie hier eine Klasse Node und eine Klasse Linked List zum Download.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Datenstrukturen Stack und Queue</span>"
+    ]
+  },
+  {
+    "objectID": "250219/queue.html",
+    "href": "250219/queue.html",
+    "title": "19  Queues in Python",
+    "section": "",
+    "text": "Queues sind Datenstrukturen, welche Daten speichern und grundsätzlich in der Reihenfolge, in der sie abgespeichert worden sind, wieder zurückgeben (First In - First Out, FIFO).\nEine Queue funktioniert damit wie eine Warteschlange an einer Kasse: Wenn eine neue Person ankommt, stellt sie sich hinten an. Wenn sie die Kasse erreicht (nachdem alle, die vorher angestanden sind, bedient worden sind), verlässt sie die Schlange wieder.\nEine Queue ist eine derart fundamentale Datenstruktur, dass Python sie als Library zur Verfügung stellt.\nUm zu verstehen, wie eine Queue funktioniert, geht es im folgenden darum, eine eigene Klasse Queue in Python zu implementieren.\nZu Beginn ist zu überlegen, welche Eigenschaften, die Queue aufweisen muss. Sie muss Daten abspeichern und diese in der gleichen Reihenfolge wieder ausgeben können. Wir brauchen also eine Struktur für die Daten und eine Struktur, welche die Reihenfolge der Speicherung festhält. Die Struktur, welche die Reihenfolge festhält, muss ausserdem in der Lage sein, neue Daten abzuspeichern und bereits abgespeicherte Daten wieder zurückzugeben. Diese Anforderungen können mit Hilfe bereits programmierter Klassen umgesetzt werden. Um die Daten abzuspeichern, können wir Nodes verwenden und für die Struktur zum Erhalt der Reihenfolge die Linked List.\nuuauvachwz Linked List Die Linked List ist eine Datenstruktur, die aus einer Anzahl von Nodes besteht. Jeder Node hat einen Bezug auf den nächsten Node in der Liste. Damit ist es möglich, die Nodes in einer bestimmten Reihenfolge abzuspeichern.   Im Node selber gibt es ein Datenfeld `key` für die Bezeichnung des Nodes, eines `value` für die Daten, die gespeichert werden sollen sowie ein solches für den Verweis auf den nächsten Node. Die Datenstruktur  Linked List stellt in erster Linie den Verweis auf den zuletzt eingefügten Node zur Verfügung.\nIn der aktuellen Implementation der Linked List gibt es nur einen Positionsbezug auf das letzte eingefügte Element (self.root). Damit die Linked List als Queue verwendet werden kann, muss auch ein Bezug auf das erste eingefügte Element angelegt werden (self.head). Für das Erste überhaupt in die Datenstruktur eingefügte Element ist dies kein Problem. Wenn aber weitere Elemente eingefügt oder entfernt werden, dann muss in den einzelnen Nodes nicht nur ein Bezug auf das folgende Element (self.connections['next']) sondern auch einer auf das Vorangehende Element (self.connections['previous']). Entsprechend müssen die beiden Klassen Node und Linked List angepasst werden.\nDas kann umgesetzt werden, in dem basierend auf den bereits existierenden Klassen abgeleitete Klassen implementiert werden. Als UML-Klassendiagramm sieht das folgendermassen aus:\n\nFür die Umsetzung der obigen Ausführungen stehen hier zwei Module (linked_list.py und nodes.py) zur Verfügung.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Queues in Python</span>"
+    ]
+  },
+  {
+    "objectID": "250305/bst.html",
+    "href": "250305/bst.html",
+    "title": "20  Binary Search Tree",
+    "section": "",
+    "text": "20.1 Klasse BSTNode\nEin binärer Suchbaum (Binary Search Tree, BST) ist eine Datenstruktur, die es ermöglicht, Daten in einer hierarchischen Struktur zu speichern. Jeder Knoten im Baum hat maximal zwei Kinder, wobei das linke Kind kleiner und das rechte Kind grösser als der Knoten selbst ist. Dies ermöglicht das effiziente Suchen, Einfügen und Löschen von Elementen.\nSollen beispielsweise die Zahlen 42, 23, 17, 34, 56, 78 und 12 der Reihe nach in einen binären Suchbaum eingefügt werden, geschieht dies wie folgt:\nUm einen Knoten zu löschen, gibt es drei Fälle zu beachten: 1. Der Knoten ist ein Blatt (keine Kinder): Der Knoten kann einfach entfernt werden. 2. Der Knoten hat ein Kind: Das Kind ersetzt den Knoten. 3. Der Knoten hat zwei Kinder: Der Knoten wird durch den kleinsten Knoten im rechten Teilbaum ersetzt.\nIn den folgenden Abschnitten findet sich eine Mögliche Implementierung eines binären Suchbaums in Python.\nclass BSTNode:\n    def __init__(self, key, value=None):\n        self.key = key\n        self.value = value\n        self.parent = None\n        self.left = None\n        self.right = None\n\n    def __str__(self):\n        key = str(self.key)\n        parent = 'None' if self.parent is None else str(self.parent.key)\n        left = 'None' if self.left is None else str(self.left.key)\n        right = 'None' if self.right is None else str(self.right.key)\n        s = (\n            f'\\tParent = {parent}\\n'\n            f'\\tKey = {key}\\n'\n            f'Left = {left}\\tRight = {right}'\n        )\n        return s",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Binary Search Tree</span>"
+    ]
+  },
+  {
+    "objectID": "250305/bst.html#klasse-bst",
+    "href": "250305/bst.html#klasse-bst",
+    "title": "20  Binary Search Tree",
+    "section": "20.2 Klasse BST",
+    "text": "20.2 Klasse BST\n\nclass BST:\n    def __init__(self, key=None, value=None):\n        if key is None:\n            self.root = None\n        else:\n            node = BSTNode(key, value)            \n            self.root = node\n            \n    def insert(self, key, value=None, root=None):\n        node = BSTNode(key, value)\n        if self.root is None:\n            self.root = node\n            return\n\n        if root is None:\n            root = self.root\n        \n        if key &lt; root.key and root.left is None:\n            root.left = node\n            node.parent = root\n            return\n\n        if key &lt; root.key:\n            root = root.left\n            self.insert(key, value, root)\n            \n        \n        if key &gt; root.key and root.right is None:\n            root.right = node\n            node.parent = root\n            return\n\n        if key &gt; root.key:\n            root = root.right\n            self.insert(key, value, root)\n\n    def min(self, bst=None):\n        if bst is None:\n            minimum = self.root\n        else:\n            minimum =bst.root\n        \n        while minimum.left is not None:\n            minimum = minimum.left\n        \n        return minimum\n\n    def max(self, bst=None):\n        if bst is None:\n            maximum = self.root\n        else:\n            maximum = bst.root\n\n        while maximum.right is not None:\n            maximum = maximum.right\n\n        return maximum\n\n    def search(self, key, node=None):\n        # If initial call or we've hit None in recursion\n        if node is None:\n            if self.root is None:  # Empty tree\n                return -1\n            node = self.root\n        \n        # Found the key\n        if key == node.key:\n            return node\n            \n        # Key doesn't exist in this path\n        if key &lt; node.key:\n            if node.left is None:\n                return -1\n            return self.search(key, node.left)\n        else:  # key &gt; node.key\n            if node.right is None:\n                return -1\n            return self.search(key, node.right)\n\n    def delete(self, key):\n        # Find the node to delete\n        node = self.search(key)\n        \n        # If node not found, return\n        if node == -1:\n            return\n        \n        self._delete_node(node)\n        \n    def _delete_node(self, node):\n        # Case 1: Node has no children (leaf node)\n        if node.left is None and node.right is None:\n            if node == self.root:\n                self.root = None\n            else:\n                if node.parent.left == node:\n                    node.parent.left = None\n                else:\n                    node.parent.right = None\n        \n        # Case 2: Node has only one child\n        elif node.left is None:  # Has only right child\n            if node == self.root:\n                self.root = node.right\n                node.right.parent = None\n            else:\n                if node.parent.left == node:\n                    node.parent.left = node.right\n                else:\n                    node.parent.right = node.right\n                node.right.parent = node.parent\n        \n        elif node.right is None:  # Has only left child\n            if node == self.root:\n                self.root = node.left\n                node.left.parent = None\n            else:\n                if node.parent.left == node:\n                    node.parent.left = node.left\n                else:\n                    node.parent.right = node.left\n                node.left.parent = node.parent\n        \n        # Case 3: Node has two children\n        else:\n            # Find successor (smallest node in right subtree)\n            successor = None\n            current = node.right\n            \n            while current.left is not None:\n                current = current.left\n            \n            successor = current\n            \n            # Copy successor's key and value to the node\n            node.key = successor.key\n            node.value = successor.value\n            \n            # Delete the successor (which has at most one right child)\n            self._delete_node(successor)\n        \n    def iterate(self, node=None, result=None):\n        # Initialize result list on first call\n        if result is None:\n            result = []\n        \n        # Use root if no starting node provided\n        if node is None:\n            if self.root is None:  # Empty tree\n                return result\n            node = self.root\n        \n        # In-order traversal: left -&gt; current -&gt; right\n        if node.left is not None:\n            self.iterate(node.left, result)\n        \n        result.append(node)\n        \n        if node.right is not None:\n            self.iterate(node.right, result)\n        \n        return result",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Binary Search Tree</span>"
+    ]
+  },
+  {
+    "objectID": "250312/binaersystem.html",
+    "href": "250312/binaersystem.html",
+    "title": "21  Das Binärsystem",
+    "section": "",
+    "text": "21.1 Umrechnung von Dezimalzahlen in Binärzahlen\nWir sind es gewohnt uns im Dezimalsystem zu bewegen. Das bedeutet, dass wir Zahlen in der Basis 10 darstellen. Wir verwenden dazu 10 verschiedene Ziffern, nämlich die Ziffern 0 bis 9.\nUm Zahlen darzustellen, welche grösser sind als 9 darzustellen, verwenden wir die Zehnerpotenzen. Das heisst, dass die Ziffern von rechts nach links gelesen, die Zehnerpotenzen von 0 an aufsteigend sind. Die Zahl 123 entspricht also der Rechnung \\(1 \\cdot 10^2 + 2 \\cdot 10^1 + 3 \\cdot 10^0\\).\nDas Binärsystem funktioniert nach dem gleichen Prinzip, nur dass wir nur die Ziffern 0 und 1 verwenden. Das bedeutet, dass wir Zahlen in der Basis 2 darstellen. Sobald eine Zahl grösser als 1 dargestellt werden soll, schreiben wir die Zahl als Summe von Zweierpotenzen. Die Zahl 101 entspricht also der Rechnung \\(1 \\cdot 2^2 + 0 \\cdot 2^1 + 1 \\cdot 2^0\\).\nUm eine Dezimalzahl in eine Binärzahl umzurechnen, gibt es eine systematische Methode, die auf wiederholter Division durch 2 basiert:",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Das Binärsystem</span>"
+    ]
+  },
+  {
+    "objectID": "250312/binaersystem.html#umrechnung-von-dezimalzahlen-in-binärzahlen",
+    "href": "250312/binaersystem.html#umrechnung-von-dezimalzahlen-in-binärzahlen",
+    "title": "21  Das Binärsystem",
+    "section": "",
+    "text": "Teile die Dezimalzahl durch 2 und notiere den Rest (0 oder 1).\nTeile den Quotienten (Ergebnis der Division) erneut durch 2 und notiere wieder den Rest.\nFahre damit fort, bis der Quotient 0 ist.\nDie Binärzahl wird nun gebildet, indem man die Reste von unten nach oben (vom letzten zum ersten) liest.\n\n\n21.1.1 Beispiel: Umrechnung von 42 ins Binärsystem\nLassen Sie uns die Dezimalzahl 42 in eine Binärzahl umrechnen:\n\n\n\nDivision\nRechnung\nQuotient\nRest\n\n\n\n\n42 ÷ 2\n42 = 21 · 2 + 0\n21\n0\n\n\n21 ÷ 2\n21 = 10 · 2 + 1\n10\n1\n\n\n10 ÷ 2\n10 = 5 · 2 + 0\n5\n0\n\n\n5 ÷ 2\n5 = 2 · 2 + 1\n2\n1\n\n\n2 ÷ 2\n2 = 1 · 2 + 0\n1\n0\n\n\n1 ÷ 2\n1 = 0 · 2 + 1\n0\n1\n\n\n\nNun lesen wir die Reste von unten nach oben: 101010\nAlso ist 42 im Dezimalsystem gleich 101010 im Binärsystem.\n\n\n21.1.2 Überprüfung:\n\\(1 \\cdot 2^5 + 0 \\cdot 2^4 + 1 \\cdot 2^3 + 0 \\cdot 2^2 + 1 \\cdot 2^1 + 0 \\cdot 2^0\\) \\(= 32 + 0 + 8 + 0 + 2 + 0 = 42\\)\nEine alternative Methode zur Umrechnung ist die Verwendung der Zweierpotenzen. Man zerlegt die Dezimalzahl in eine Summe von Zweierpotenzen und schreibt dann eine 1 an den Stellen der verwendeten Potenzen und eine 0 an allen anderen Stellen.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Das Binärsystem</span>"
+    ]
+  },
+  {
+    "objectID": "250312/binaersystem.html#umrechnung-von-binärzahlen-in-dezimalzahlen",
+    "href": "250312/binaersystem.html#umrechnung-von-binärzahlen-in-dezimalzahlen",
+    "title": "21  Das Binärsystem",
+    "section": "21.2 Umrechnung von Binärzahlen in Dezimalzahlen",
+    "text": "21.2 Umrechnung von Binärzahlen in Dezimalzahlen\nDie Umrechnung von Binärzahlen in Dezimalzahlen ist vergleichsweise einfach und basiert auf der Berechnung der Stellenwerte im Binärsystem.\n\n21.2.1 Methode:\n\nIdentifiziere jede Stelle in der Binärzahl und ihre Position (von rechts nach links beginnend bei 0).\nMultipliziere jede Binärziffer (0 oder 1) mit dem Wert von 2 hoch der Stellenposition.\nAddiere alle resultierenden Werte zusammen.\n\n\n\n21.2.2 Beispiel: Umrechnung von 10110₂ ins Dezimalsystem\nLassen Sie uns die Binärzahl 10110 in eine Dezimalzahl umrechnen:\n\n\n\nPosition (von rechts)\n4\n3\n2\n1\n0\n\n\n\n\nBinäre Ziffer\n1\n0\n1\n1\n0\n\n\nBerechnung\n1 · 2⁴\n0 · 2³\n1 · 2²\n1 · 2¹\n0 · 2⁰\n\n\nDezimalwert\n16\n0\n4\n2\n0\n\n\n\nNun addieren wir alle Dezimalwerte: 16 + 0 + 4 + 2 + 0 = 22\nAlso ist 10110₂ im Binärsystem gleich 22 im Dezimalsystem.\n\n\n21.2.3 Formel:\nFür eine Binärzahl mit n Stellen (b₀, b₁, …, bₙ₋₁) gilt:\nDezimalzahl = b₀ · 2⁰ + b₁ · 2¹ + b₂ · 2² + … + bₙ₋₁ · 2ⁿ⁻¹\nwobei b₀ die erste Stelle von rechts ist.\n\n\n21.2.4 Praktischer Trick:\nBei der Umrechnung kann man auch eine Tabelle mit den Stellenwerten erstellen:\n\n\n\n2⁷\n2⁶\n2⁵\n2⁴\n2³\n2²\n2¹\n2⁰\n\n\n\n\n128\n64\n32\n16\n8\n4\n2\n1\n\n\n\nMan schreibt die Binärzahl unter die Tabelle und addiert nur die Werte, an deren Position eine 1 steht.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Das Binärsystem</span>"
+    ]
+  },
+  {
+    "objectID": "250312/binaersystem.html#binärcodierung-von-strings",
+    "href": "250312/binaersystem.html#binärcodierung-von-strings",
+    "title": "21  Das Binärsystem",
+    "section": "21.3 Binärcodierung von Strings",
+    "text": "21.3 Binärcodierung von Strings\nIn der Informatik werden Textzeichen (Strings) durch binäre Codes repräsentiert. Bei Unicode-Zeichen wird eine fortschrittliche Codierung verwendet, um sowohl einfache als auch komplexe Schriftzeichen aus allen Sprachen der Welt darstellen zu können.\n\n21.3.1 Unicode: Ein universeller Zeichencode\nUnicode ist ein internationaler Standard zur Darstellung von Textzeichen aller Schriftsysteme. Jedes Zeichen erhält eine eindeutige Nummer (Codepoint), z.B. hat der Buchstabe “A” den Codepoint U+0041 (dezimal: 65).\n\n\n21.3.2 UTF-8: Die häufigste Unicode-Codierung\nUTF-8 ist die am weitesten verbreitete Codierungsform für Unicode. Sie hat folgende Eigenschaften:\n\nVariable Länge: Ein Zeichen wird mit 1 bis 4 Bytes codiert\nAbwärtskompatibilität: ASCII-Zeichen (0-127) werden mit nur 1 Byte dargestellt\nSelbstsynchronisierend: Der Anfang eines Zeichens ist eindeutig erkennbar\n\n\n\n21.3.3 UTF-8 Codierungsschema:\n\n\n\nAnzahl Bytes\nBinärmuster\nCodepoint-Bereich\n\n\n\n\n1\n0xxxxxxx\nU+0000 bis U+007F\n\n\n2\n110xxxxx 10xxxxxx\nU+0080 bis U+07FF\n\n\n3\n1110xxxx 10xxxxxx 10xxxxxx\nU+0800 bis U+FFFF\n\n\n4\n11110xxx 10xxxxxx 10xxxxxx 10xxxxxx\nU+10000 bis U+10FFFF\n\n\n\nDie mit x markierten Stellen werden mit den Bits des Unicode-Codepoints gefüllt.\n\n\n21.3.4 Beispiel: Codierung deutscher Umlaute\nNehmen wir als Beispiel den Buchstaben “ü” (U+00FC):\n\nDer Codepoint von “ü” ist U+00FC (dezimal: 252)\nAls Binärzahl: 11111100\nDa der Wert &gt; 127 ist, benötigen wir 2 Bytes\nNach dem 2-Byte-Schema: 110xxxxx 10xxxxxx\nWir füllen den Unicode-Wert ein: 110(00000) 10(111100) → 11000011 10111100\nSomit wird “ü” als die zwei Bytes 11000011 10111100 codiert\n\n\n\n21.3.5 Weiteres Beispiel: Das Euro-Zeichen €\n\nDer Codepoint von “€” ist U+20AC (dezimal: 8364)\nAls Binärzahl: 10000010101100\nDa der Wert &gt; 2047 ist, benötigen wir 3 Bytes\nNach dem 3-Byte-Schema: 1110xxxx 10xxxxxx 10xxxxxx\nWir füllen den Unicode-Wert ein: 1110(0010) 10(000010) 10(101100) → 11100010 10000010 10101100\nSomit wird “€” als die drei Bytes 11100010 10000010 10101100 codiert\n\n\n\n21.3.6 Beispiel: ‘Informatik ist interessant.’\nLassen Sie uns den Satz “Informatik ist interessant.” in die binäre UTF-8-Kodierung umwandeln:\n\n\n\nZeichen\nUnicode-Codepoint\nDezimal\nBinär\nUTF-8 Kodierung\n\n\n\n\nI\nU+0049\n73\n1001001\n01001001\n\n\nn\nU+006E\n110\n1101110\n01101110\n\n\nf\nU+0066\n102\n1100110\n01100110\n\n\no\nU+006F\n111\n1101111\n01101111\n\n\nr\nU+0072\n114\n1110010\n01110010\n\n\nm\nU+006D\n109\n1101101\n01101101\n\n\na\nU+0061\n97\n1100001\n01100001\n\n\nt\nU+0074\n116\n1110100\n01110100\n\n\ni\nU+0069\n105\n1101001\n01101001\n\n\nk\nU+006B\n107\n1101011\n01101011\n\n\n␣\nU+0020\n32\n100000\n00100000\n\n\ni\nU+0069\n105\n1101001\n01101001\n\n\ns\nU+0073\n115\n1110011\n01110011\n\n\nt\nU+0074\n116\n1110100\n01110100\n\n\n␣\nU+0020\n32\n100000\n00100000\n\n\ni\nU+0069\n105\n1101001\n01101001\n\n\nn\nU+006E\n110\n1101110\n01101110\n\n\nt\nU+0074\n116\n1110100\n01110100\n\n\ne\nU+0065\n101\n1100101\n01100101\n\n\nr\nU+0072\n114\n1110010\n01110010\n\n\ne\nU+0065\n101\n1100101\n01100101\n\n\ns\nU+0073\n115\n1110011\n01110011\n\n\ns\nU+0073\n115\n1110011\n01110011\n\n\na\nU+0061\n97\n1100001\n01100001\n\n\nn\nU+006E\n110\n1101110\n01101110\n\n\nt\nU+0074\n116\n1110100\n01110100\n\n\n.\nU+002E\n46\n101110\n00101110\n\n\n\nDa alle Zeichen in diesem Beispiel im ASCII-Bereich liegen (0-127), wird jedes Zeichen mit genau einem Byte codiert. Der vollständige Text benötigt also 27 Bytes im UTF-8 Format.\nDie komplette binäre Darstellung des Textes ist:\n01001001 01101110 01100110 01101111 01110010 01101101 01100001 01110100 \n01101001 01101011 00100000 01101001 01110011 01110100 00100000 01101001 \n01101110 01110100 01100101 01110010 01100101 01110011 01110011 01100001 \n01101110 01110100 00101110\nIn hexadezimaler Schreibweise:\n49 6E 66 6F 72 6D 61 74 69 6B 20 69 73 74 20 69 6E 74 65 72 65 73 73 61 6E 74 2E\nDieser String kann direkt in einem Computer gespeichert und verarbeitet werden. In Textdateien, bei der Übertragung im Internet oder in Datenbanken sind Strings immer in solchen binären Formaten gespeichert.\n\n\n21.3.7 Vorteile der Unicode-Codierung:\n\nUniversalität: Alle Schriftsysteme und Sonderzeichen können dargestellt werden\nEffizienz: Häufig verwendete Zeichen benötigen weniger Speicherplatz\nKompatibilität: Rückwärtskompatibel mit ASCII, was die Integration erleichtert\n\nDie Umwandlung zwischen Textzeichen und ihrer binären Repräsentation wird in Computersystemen automatisch durch Codierungs- und Decodierungsprozesse abgewickelt, sodass Benutzer sich in der Regel nicht mit den Details befassen müssen.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Das Binärsystem</span>"
+    ]
+  },
+  {
+    "objectID": "250312/umrechnungen.html",
+    "href": "250312/umrechnungen.html",
+    "title": "22  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "",
+    "text": "22.1 Umrechnung von Binär- in Dezimalzahlen\nPython stellt Funktionen zur Verfügung, mit deren Hilfe Zahlen zwischen den verschiedenen Zahlensystemen umgerechnet werden können. Trotzdem sollen in diesem Notebook eigene Funktionen implementiert werden, mit deren Hilfe Zahlen zwischen dem Dezimal- und Binärsystem umgerechnet werden können.\nAusserdem sollen Funktionen implementiert werden, mit welchen Strings in ihre binäre Repräsentation umgewandelt werden können und umgekehrt.\ndef bin2dec(binary: str) -&gt; int:\n    # TODO: implementieren Sie hier die Funktion\n    pass",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/umrechnungen.html#umrechnung-von-dezimal--in-binärzahlen",
+    "href": "250312/umrechnungen.html#umrechnung-von-dezimal--in-binärzahlen",
+    "title": "22  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "22.2 Umrechnung von Dezimal- in Binärzahlen",
+    "text": "22.2 Umrechnung von Dezimal- in Binärzahlen\n\ndef dec2bin(decimal: int) -&gt; str:\n    # TODO: implementieren Sie hier die Funktion\n    pass",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/umrechnungen.html#binäre-repräsentation-von-strings",
+    "href": "250312/umrechnungen.html#binäre-repräsentation-von-strings",
+    "title": "22  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "22.3 Binäre Repräsentation von Strings",
+    "text": "22.3 Binäre Repräsentation von Strings\nFür die Darstellung eines Strings in binärer Form wird auf die dezimale Repräsentation des Unicode-Zeichens zurückgegriffen. Dazu stellt Python die Funktion ord() zur Verfügung. Diese Funktion gibt die dezimale Repräsentation eines Unicode-Zeichens zurück.\n\ndef str2bin(s: str) -&gt; str:\n    # TODO: implementieren Sie hier die Funktion\n    pass",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/umrechnungen.html#umwandlung-der-binären-repräsentation-in-einen-string",
+    "href": "250312/umrechnungen.html#umwandlung-der-binären-repräsentation-in-einen-string",
+    "title": "22  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "22.4 Umwandlung der binären Repräsentation in einen String",
+    "text": "22.4 Umwandlung der binären Repräsentation in einen String\nUm aus der dezimalen Repräsentation eines Unicode-Zeichens wieder den entsprechenden String zu erhalten, stellt Python die Funktion chr() zur Verfügung.\n\ndef bin2str(binary: str) -&gt; str:\n    # TODO: implementieren Sie hier die Funktion\n    pass",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/muloe_umrechnungen.html",
+    "href": "250312/muloe_umrechnungen.html",
+    "title": "23  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "",
+    "text": "23.1 Umrechnung von Binär- in Dezimalzahlen\nPython stellt Funktionen zur Verfügung, mit deren Hilfe Zahlen zwischen den verschiedenen Zahlensystemen umgerechnet werden können. Trotzdem sollen in diesem Notebook eigene Funktionen implementiert werden, mit deren Hilfe Zahlen zwischen dem Dezimal- und Binärsystem umgerechnet werden können.\nAusserdem sollen Funktionen implementiert werden, mit welchen Strings in ihre binäre Repräsentation umgewandelt werden können und umgekehrt.\ndef bin2dec(binary: str) -&gt; int:\n    decimal = 0\n    length = len(binary)\n    \n    for i in range(1, length + 1):\n        decimal += int(binary[-i]) * 2 ** (i-1)\n        \n    return decimal",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/muloe_umrechnungen.html#umrechnung-von-dezimal--in-binärzahlen",
+    "href": "250312/muloe_umrechnungen.html#umrechnung-von-dezimal--in-binärzahlen",
+    "title": "23  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "23.2 Umrechnung von Dezimal- in Binärzahlen",
+    "text": "23.2 Umrechnung von Dezimal- in Binärzahlen\n\ndef dec2bin(decimal: int) -&gt; str:\n    binary = ''\n    while decimal &gt; 0:\n        binary = str(decimal % 2) + binary\n        decimal = decimal // 2\n        \n    return binary",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/muloe_umrechnungen.html#binäre-repräsentation-von-strings",
+    "href": "250312/muloe_umrechnungen.html#binäre-repräsentation-von-strings",
+    "title": "23  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "23.3 Binäre Repräsentation von Strings",
+    "text": "23.3 Binäre Repräsentation von Strings\nFür die Darstellung eines Strings in binärer Form wird auf die dezimale Repräsentation des Unicode-Zeichens zurückgegriffen. Dazu stellt Python die Funktion ord() zur Verfügung. Diese Funktion gibt die dezimale Repräsentation eines Unicode-Zeichens zurück.\n\ndef str2bin(s: str) -&gt; str:\n    length_string = len(s)\n    binary = ''\n    for i in range(length_string):\n        c = s[i]\n        u10 = ord(c)\n        b = dec2bin(u10)\n        length_binary = len(b)\n        if i % 5 == 0 and i != 0:\n            binary += '\\n'\n        b = '0' * (8 - length_binary) + b\n        binary += b + ' '\n    return binary.strip()",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250312/muloe_umrechnungen.html#umwandlung-der-binären-repräsentation-in-einen-string",
+    "href": "250312/muloe_umrechnungen.html#umwandlung-der-binären-repräsentation-in-einen-string",
+    "title": "23  Python Funktionen zum Umrechnen zwichen den Zahlensystemen",
+    "section": "23.4 Umwandlung der binären Repräsentation in einen String",
+    "text": "23.4 Umwandlung der binären Repräsentation in einen String\nUm aus der dezimalen Repräsentation eines Unicode-Zeichens wieder den entsprechenden String zu erhalten, stellt Python die Funktion chr() zur Verfügung.\n\ndef bin2str(binary: str) -&gt; str:\n    binary = binary.replace(' ', '')\n    binary = binary.replace('\\n', '')\n    length = len(binary)\n    s = ''\n    for i in range(0, length, 8):\n        b = binary[i:i+8]\n        u10 = bin2dec(b)\n        c = chr(u10)\n        s += c\n    return s",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html",
+    "href": "250319/base64.html",
+    "title": "24  Base64-Codierung",
+    "section": "",
+    "text": "24.1 Prinzip der Base64-Codierung\nDie Base64-Codierung ist ein Verfahren zur Umwandlung von Binärdaten in eine Zeichenkette, die nur aus lesbaren ASCII-Zeichen besteht. Diese Codierung wird häufig verwendet, um binäre Daten über textbasierte Systeme zu übertragen, die möglicherweise nicht mit Binärdaten umgehen können (z.B. E-Mails). Eine weitere Anwendung ist die Einbettung von Bildern in HTML- oder Markdown-Dokumente.\nUntenstehende Octocat-Grafik ist ein Beispiel für eine Base64-codierte Grafik.\nSofern die Website in Chrome geöffnet ist, kann die Grafik mit einem Rechtsklick “untersucht” werden. Die “Untersuchung” zeigt den Quellcode der Seite an. Dort kann die Base64-codierte Grafik gefunden werden. Diese beginnt mit data:image/png;base64, und setzt sich mit einer langen Zeichenkette fort. Diese Zeichenkette ist die Base64-Codierung der Grafik.\nBase64 wandelt 3 Bytes (24 Bits) Binärdaten in 4 druckbare ASCII-Zeichen um:",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html#prinzip-der-base64-codierung",
+    "href": "250319/base64.html#prinzip-der-base64-codierung",
+    "title": "24  Base64-Codierung",
+    "section": "",
+    "text": "Die Binärdaten werden in 6-Bit-Blöcke aufgeteilt (2^6 = 64 mögliche Werte)\nJeder 6-Bit-Block wird in ein druckbares ASCII-Zeichen umgewandelt\nBei unvollständigen Blocks am Ende werden Füllzeichen (=) hinzugefügt",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html#base64-zeichensatz",
+    "href": "250319/base64.html#base64-zeichensatz",
+    "title": "24  Base64-Codierung",
+    "section": "24.2 Base64-Zeichensatz",
+    "text": "24.2 Base64-Zeichensatz\nDer Base64-Zeichensatz besteht aus 64 Zeichen: - Die Großbuchstaben A-Z (26 Zeichen) - Die Kleinbuchstaben a-z (26 Zeichen) - Die Ziffern 0-9 (10 Zeichen) - Zwei zusätzliche Zeichen, meist ‘+’ und ‘/’ (2 Zeichen)\nDiese 64 Zeichen repräsentieren die Werte 0-63 und können mit 6 Bits dargestellt werden.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html#codierungsprozess",
+    "href": "250319/base64.html#codierungsprozess",
+    "title": "24  Base64-Codierung",
+    "section": "24.3 Codierungsprozess",
+    "text": "24.3 Codierungsprozess\n\nDie Binärdaten werden in Gruppen von 3 Bytes (24 Bits) aufgeteilt\nDiese 24 Bits werden in vier 6-Bit-Blöcke umgewandelt\nJeder 6-Bit-Wert wird als Index für den Base64-Zeichensatz verwendet\n\nWenn die Anzahl der zu codierenden Bytes nicht durch 3 teilbar ist: - Bei einem übrig bleibenden Byte: Auffüllen mit vier Nullbits, Codierung ergibt zwei Zeichen und zwei ‘=’-Zeichen - Bei zwei übrig bleibenden Bytes: Auffüllen mit zwei Nullbits, Codierung ergibt drei Zeichen und ein ‘=’-Zeichen",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html#beispiele",
+    "href": "250319/base64.html#beispiele",
+    "title": "24  Base64-Codierung",
+    "section": "24.4 Beispiele:",
+    "text": "24.4 Beispiele:\n\n24.4.1 Beispiel 1: Codierung von “KBW”\n\n\n\nBase64 Beispiel\n\n\n\n\n24.4.2 Beispiel 2: Codierung von “Hallo”\nBetrachten wir das Wort “Hallo”:\n\nASCII-Werte: H=72, a=97, l=108, l=108, o=111\nBinär: 01001000 01100001 01101100 01101100 01101111\nIn 6-Bit-Gruppen aufteilen: 010010 000110 000101 101100 011011 000110 1111\nDa die letzte Gruppe nur 4 Bits hat, wird sie mit zwei Nullen aufgefüllt: 010010 000110 000101 101100 011011 000110 111100\nDie 6-Bit-Werte sind: 18, 6, 5, 44, 27, 6, 60\nDiese werden in Base64-Zeichen umgewandelt: S G F s b G 8 =\n\nDas Ergebnis “SGFsbG8=” ist die Base64-Codierung von “Hallo”.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250319/base64.html#anwendungen-der-base64-codierung",
+    "href": "250319/base64.html#anwendungen-der-base64-codierung",
+    "title": "24  Base64-Codierung",
+    "section": "24.5 Anwendungen der Base64-Codierung",
+    "text": "24.5 Anwendungen der Base64-Codierung\n\nE-Mail-Anhänge (MIME)\nDatenkodierung in URLs\nEinbettung von Bildern in HTML/CSS (Data-URLs)\nÜbertragung binärer Daten in JSON\nSpeicherung von Binärdaten in XML\n\nBase64 vergrößert die Datenmenge um etwa 33% (da 3 Bytes in 4 Zeichen umgewandelt werden), bietet aber den Vorteil, dass die codierten Daten in jedem Textformat sicher übertragen werden können.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Base64-Codierung</span>"
+    ]
+  },
+  {
+    "objectID": "250326/lernziele.html",
+    "href": "250326/lernziele.html",
+    "title": "25  Lernziele für die Prüfung vom 26. März 2025",
+    "section": "",
+    "text": "Ich erwarte, dass Sie in der Lage sind,\n\ndie folgenden Datenstrukturen zu beschreiben und ihre Implementation in Python grundsätzlich zu erklären:\n\nLinked List\nStack\nQueue sowie\nBinary Search Tree;\n\nZahlen vom Dezimalsystem ins Binärsystem umzurechnen und umgekehrt sowie\nzu erklären, wozu die Base64-Codierung verwendet wird und wie sie funktioniert.\n\nAnd der Prüfung dürfen Sie eine handschriftliche Zusammenfassung im Umfang von einer Seite A4 verwenden. Das einzige, was nicht auf der Zusammenfassung stehen darf, sind die für das Arbeiten mit Jupyter Notebooks notwendigen Einrichtungsschritte.",
+    "crumbs": [
+      "Datenstrukturen und Codierung",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Lernziele für die Prüfung vom 26. März 2025</span>"
+    ]
+  },
+  {
+    "objectID": "251107/soziale_medien.html",
+    "href": "251107/soziale_medien.html",
+    "title": "26  The Social Dilemma",
+    "section": "",
+    "text": "The Social Dilemma ist ein Film von Nextflix.\nhttps://www.netflix.com/title/81254224",
+    "crumbs": [
+      "Künstliche Intelligenz",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>The Social Dilemma</span>"
+    ]
+  },
+  {
+    "objectID": "251128/ki_beispiel.html",
+    "href": "251128/ki_beispiel.html",
+    "title": "27  Was ist eine Künstliche Intelligenz?",
+    "section": "",
+    "text": "Sie alle kennen heute generative K.I.-Tools. Wir werden zuerst K.I. anschauen, die keinen Inhalt generieren, sondern Entscheidungen fällen. Dies ist zu Beginn einfacher nachzuvollziehen, was ein Modell ist.\nNehmen Sie Kopfhörer nach vorne und absolvieren Sie selbstständig diesen Kurs: https://studio.code.org/courses/oceans/units/1/lessons/1/levels/1\n\n28 Maschinelles Lernen: Punkt- und Linienklassifikatoren\nBesuchen Sie die Seite https://ricardoheinzmann.com/ml-class/level-selection.\nSpielen Sie in folgender Reihenfolge:\n\nLinien-Klassifizieren mit 2D-Daten\nPunkt-Klassifizieren mit 2D-Daten\nPunkt-Klassifizieren mit 3D-Daten  \n\n\n\n29 Maschinelles Lernen: Gewinnstrategie\nSpielen Sie das Spiel und entdecken Sie den Lernalgorithmus.\nBedienung:\n\nKlicken Sie auf einen blauen Spielstein, nachher auf das gefärbte Feld eins weiter unten.\n\nhttps://aieducation.computatrum.ch/\nNach der “Übung 1: Lernalgorithmus in Aktion - Einfach” dürfen Sie selber entscheiden, ob Sie die selbe Übung mit einem Mittel schweren Spiel machen möchten, oder zur Übung 2 gehen.",
+    "crumbs": [
+      "Künstliche Intelligenz",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Was ist eine Künstliche Intelligenz?</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/python.html",
+    "href": "anleitungen/python.html",
+    "title": "28  Installation von Python",
+    "section": "",
+    "text": "28.1 Python herunterladen und installieren\nHier ist eine einfache Schritt-für-Schritt-Anleitung zur Installation von Python:",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installation von Python</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/python.html#python-herunterladen-und-installieren",
+    "href": "anleitungen/python.html#python-herunterladen-und-installieren",
+    "title": "28  Installation von Python",
+    "section": "",
+    "text": "Öffnen Sie Ihren Webbrowser und gehen Sie zur offiziellen Python-Website: www.python.org\nKlicken Sie auf der Startseite auf den Button “Downloads”\nSuchen Sie die neueste Python-Version für Windows (Juli 24 Python 3.12.x)\nKlicken Sie auf den Download-Button für die 64-bit-Version (falls nicht automatisch ausgewählt)\nNachdem der Download abgeschlossen ist, öffnen Sie die heruntergeladene Datei (sie endet auf .exe)\nIm Installationsfenster setzen Sie ein Häkchen bei “Add Python x.x to PATH” (sehr wichtig!)\nKlicken Sie auf “Install Now” und warten Sie, bis die Installation abgeschlossen ist\nKlicken Sie am Ende auf “Close”",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installation von Python</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/python.html#installation-überprüfen",
+    "href": "anleitungen/python.html#installation-überprüfen",
+    "title": "28  Installation von Python",
+    "section": "28.2 Installation überprüfen",
+    "text": "28.2 Installation überprüfen\n\nÖffnen Sie die Windows-Eingabeaufforderung (cmd/Terminal):\n\nDrücken Sie die Windows-Taste + R\nGeben Sie “cmd” ein und drücken Sie Enter\n\nIn der Eingabeaufforderung/Terminal (dem neu aufgegangen Fenster) tippen Sie:\npython --version\nund drücken Sie Enter\nWenn die Installation erfolgreich war, sehen Sie die installierte Python-Version (stimmt mit dem Überein, was auf dem Download-Button gestanden hat)",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installation von Python</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/python.html#erste-schritte-mit-python",
+    "href": "anleitungen/python.html#erste-schritte-mit-python",
+    "title": "28  Installation von Python",
+    "section": "28.3 Erste Schritte mit Python",
+    "text": "28.3 Erste Schritte mit Python\n\nIn der Eingabeaufforderung tippen Sie python und drücken Enter\nSie sehen nun den Python-Prompt (&gt;&gt;&gt;). Der Prompt ist eine Eingabeaufforderung. Hier können Sie direkt Python-Code eingeben, z.B.:\nprint(\"Hallo, Welt!\")\nDrücken Sie Enter, um den Code auszuführen\nUm die Python-Umgebung zu verlassen, geben Sie exit() ein und drücken Enter\n\nGlückwunsch! Sie haben Python erfolgreich installiert und Ihr erstes Programm ausgeführt.\nMit dieser Anleitung sollten Sie Python problemlos installieren und erste Schritte in der Programmierung machen können. Viel Erfolg beim Lernen!\nDieser Text wurde mit Hilfe von Perplexity.ai erstellt.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installation von Python</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/kurzanleitung_venv.html",
+    "href": "anleitungen/kurzanleitung_venv.html",
+    "title": "29  Anleitung zum Arbeiten mit Python Virtual Environments",
+    "section": "",
+    "text": "29.1 Arbeiten mit einer bereits bestehenden venv\nEine Python Virtual Environment (venv) ist eine geschützte Umgebung, in der die Installation zusätzlicher Module zu keinen Konflikten mit dem Gesamtsystem führen. Aus diesem Grund ist es sinnvoll, für jedes neue Python Projekt eine solche venv anzulegen.\nHier eine Checkliste für das Arbeiten in einer venv:\nAls Vorfrage ist zu prüfen, ob bereits eine venv angelegt ist.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Anleitung zum Arbeiten mit Python Virtual Environments</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/kurzanleitung_venv.html#arbeiten-mit-einer-bereits-bestehenden-venv",
+    "href": "anleitungen/kurzanleitung_venv.html#arbeiten-mit-einer-bereits-bestehenden-venv",
+    "title": "29  Anleitung zum Arbeiten mit Python Virtual Environments",
+    "section": "",
+    "text": "Aktivieren der venv:\nC:\\Pfad\\zum\\aktuellen\\Ordner&gt;venv\\Scripts\\activate\nDass die venv aktiviert worden ist, erkennt man daran, dass das Terminal folgenden Prompt aufweist:\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;\nJupyter Server starten:\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;jupyter notebook\nDas Terminal, in welchem der Jupyter Server gestartet wurde, darf nicht geschlossen werden.\nArbeiten am Projekt\nJupyter Server deaktivieren.\nDer Jupyter Server kann im Terminal, in welchem er gestartet wurde, mit der Tastenkombination [Ctrl] + [C] angehalten werden.\nvenv deaktivieren\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;deactivate",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Anleitung zum Arbeiten mit Python Virtual Environments</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/kurzanleitung_venv.html#einrichten-einer-neuen-venv",
+    "href": "anleitungen/kurzanleitung_venv.html#einrichten-einer-neuen-venv",
+    "title": "29  Anleitung zum Arbeiten mit Python Virtual Environments",
+    "section": "29.2 Einrichten einer neuen venv",
+    "text": "29.2 Einrichten einer neuen venv\n\nProjektordner erstellen\nvenv anlegen:\nC:\\Pfad\\zum\\aktuellen\\Ordner&gt;python -m venv venv\nAktivieren der venv:\nC:\\Pfad\\zum\\aktuellen\\Ordner&gt;venv\\Scripts\\activate\nDass die venv aktiviert worden ist, erkennt man daran, dass das Terminal folgenden Prompt aufweist:\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;\nInstallieren der erforderlichen Pakete:\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;python -m pip install jupyter (und allfällige andere Pakete)\nJupyter Server starten:\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;jupyter notebook\nDas Terminal, in welchem der Jupyter Server gestartet wurde, darf nicht geschlossen werden.\nArbeiten am Projekt\nJupyter Server deaktivieren.\nDer Jupyter Server kann im Terminal, in welchem er gestartet wurde, mit der Tastenkombination [Ctrl] + [C] angehalten werden.\nvenv deaktivieren\n(venv) C:\\Pfad\\zum\\aktuellen\\Ordner&gt;deactivate",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Anleitung zum Arbeiten mit Python Virtual Environments</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html",
+    "href": "anleitungen/jupyter.html",
+    "title": "30  Jupyter Notebook",
+    "section": "",
+    "text": "30.1 Installationsanleitung\nIn einem Jupyter Notebook kann Text mit ausführbarem Programmcode kombiniert werden. Wir werden Jupyter Notebooks für die Anwendungsübungen im Unterricht verwenden.\nHier ist eine Schritt-für-Schritt-Anleitung zur Installation von Jupyter Notebooks:",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html#installationsanleitung",
+    "href": "anleitungen/jupyter.html#installationsanleitung",
+    "title": "30  Jupyter Notebook",
+    "section": "",
+    "text": "Öffnen Sie die Windows-Eingabeaufforderung (cmd).\nWechseln Sie mit\ncd \\Pfad\\zum\\Arbeitsverzeichnis\nin Ihr Arbeitsverzeichnis.\nStarten Sie eine Python Virtual Environment\npython -m venv venv\n\nvenv\\Scripts\\activate\nGeben Sie folgenden Befehl ein und drücken Sie Enter:\npython -m pip install jupyter\nDie Installation braucht etwas Zeit. Haben Sie Geduld mit Ihrem Computer.\nFalls pip aus irgendeinem Grund nicht installiert wurde oder nicht funktioniert, können Sie es manuell installieren, indem Sie den folgenden Befehl in der Eingabeaufforderung ausführen:\npython -m ensurepip --upgrade\nDieser Befehl stellt sicher, dass pip installiert und auf dem neuesten Stand ist.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html#jupyter-notebook-starten",
+    "href": "anleitungen/jupyter.html#jupyter-notebook-starten",
+    "title": "30  Jupyter Notebook",
+    "section": "30.2 Jupyter Notebook starten",
+    "text": "30.2 Jupyter Notebook starten\n\nÖffnen Sie erneut die Eingabeaufforderung/das Terminal.\nGeben Sie ein:\njupyter notebook\nDrücken Sie Enter. Ihr Standardbrowser öffnet sich automatisch mit der Jupyter Notebook-Oberfläche.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html#ihr-erstes-notebook-erstellen",
+    "href": "anleitungen/jupyter.html#ihr-erstes-notebook-erstellen",
+    "title": "30  Jupyter Notebook",
+    "section": "30.3 Ihr erstes Notebook erstellen",
+    "text": "30.3 Ihr erstes Notebook erstellen\n\nKlicken Sie in der Jupyter-Oberfläche auf “New” und wählen Sie “Notebook”.\nWählen Sie im Pop-up Fenster “Python 3 (ipykernel)” und bestätigen Sie mit select.\nEin neues Notebook öffnet sich in einem neuen Tab. Der Tab trägt den Namen “Untitled”.\nGeben Sie in die erste Zelle etwas Python-Code ein, z.B.:\nprint(\"Hallo Jupyter!\")\nDrücken Sie Shift+Enter, um die Zelle auszuführen.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html#tipps-zur-verwendung",
+    "href": "anleitungen/jupyter.html#tipps-zur-verwendung",
+    "title": "30  Jupyter Notebook",
+    "section": "30.4 Tipps zur Verwendung",
+    "text": "30.4 Tipps zur Verwendung\n\nVerwenden Sie “Code”-Zellen für Python-Code und “Markdown”-Zellen für Text.\nSpeichern Sie Ihr Notebook regelmäßig mit dem Disketten-Symbol oder Strg+S.\nSchließen Sie das Browserfenster und geben Sie in der Eingabeaufforderung/im Terminal Strg+C ein, um Jupyter zu beenden.\n\nGlückwunsch! Sie haben nun Jupyter Notebooks installiert und können damit arbeiten. Erkunden Sie weitere Funktionen und Möglichkeiten, während Sie sich mit dem Tool vertraut machen.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "anleitungen/jupyter.html#bearbeiten-von-jupyter-notebooks-in-vs-code",
+    "href": "anleitungen/jupyter.html#bearbeiten-von-jupyter-notebooks-in-vs-code",
+    "title": "30  Jupyter Notebook",
+    "section": "30.5 Bearbeiten von Jupyter Notebooks in VS Code",
+    "text": "30.5 Bearbeiten von Jupyter Notebooks in VS Code\n\nJupyter-Erweiterung installieren:\n\nSuchen Sie im Erweiterungen-Bereich nach “Jupyter”\nInstallieren Sie die Erweiterung “Jupyter” von Microsoft\n\nNeues Jupyter Notebook erstellen:\n\nDrücken Sie Strg+Shift+P, um die Befehlspalette zu öffnen\nGeben Sie “Jupyter: Create New Jupyter Notebook” ein und wählen Sie diesen Befehl aus\nEin neues Notebook wird geöffnet\n\nMit dem Notebook arbeiten:\n\nUm eine neue Zelle hinzuzufügen, klicken Sie auf den “+ Code” Button oben im Notebook\nGeben Sie Ihren Python-Code in die Zelle ein\nUm den Code auszuführen, klicken Sie auf den Play-Button links neben der Zelle oder drücken Sie Shift+Enter\nDie Ausgabe erscheint direkt unter der Zelle\n\nNotebook speichern:\n\nGehen Sie auf Datei &gt; Speichern unter\nWählen Sie einen Speicherort und geben Sie einen Namen mit der Endung .ipynb ein\n\nBestehendes Notebook öffnen:\n\nGehen Sie auf Datei &gt; Öffnen\nNavigieren Sie zu Ihrem .ipynb-File und öffnen Sie es\n\n\nTipps: - Sie können zwischen Code- und Markdown-Zellen wechseln, indem Sie auf den Zellentyp oben im Notebook klicken - Nutzen Sie die Befehlspalette (Strg+Shift+P), um weitere Jupyter-bezogene Befehle zu finden\nDieser Text wurde mit Hilfe von Perplexity.ai erstellt.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "260109_plain_text_writing/plain_text_writing.html",
+    "href": "260109_plain_text_writing/plain_text_writing.html",
+    "title": "31  Plain Text Writing",
+    "section": "",
+    "text": "31.1 Text- und Binärdateien\nIn diesem Abschnitt geht es um einen Aspekt der digitalen Nachhaltigkeit. Digitale Nachhaltigkeit wird hier so verstanden, dass digitale Produkte unabhängig von konkreten Herstellern dargestellt werden können.\nUm zu erklären, wo das Problem liegt, muss zuerst zwischen den zwei Dateitypen Textdateien und Binärdateien unterscheiden werden.\nTextdateien speichern ihren Inhalt als reinen Text. Formatierung in solchen Dateien erfolgen durch Steuerzeichen (vgl. z.B. ASCII-Tabelle, dort insbesondere die Beispiele der Zeichen 9 für einen horizontalen Tabulatoren oder Zeichen 10 für den Zeilenumbruch) und durch Konventionen (vgl. z.B. die Formatierungen in Markdown oder LaTeX). Entsprechend können sie in beliebigen Texteditoren gelesen werden.\nIm Gegensatz dazu sind Binärdateien für ihre Erstellung, Bearbeitung und Darstellung grundsätzlich an Programme gebunden, welche ihren Standard lesen können. Ihre Inhalte werden als eine Folge von Bytes gespeichert. Ein Beispiel für eine Binärdatei ist ein in MS Word erstelltes Dokument.\nDiese Unterscheidung zeigt, dass Textdateien grundsätzlich auf jedem funktionierenden Computer mit einem Texteditor angezeigt werden können. Im Gegensatz dazu erfordern Binärdateien in der Regel spezielle Programme, die das jeweilige Dateiformat interpretieren können, was zu einer gewissen Abhängigkeit von entsprechender Software führen kann.\nWeiterführende Überlegungen zum Verfassen von Texten in Plain Text können den hier angeführten Texten entnommen werden.1",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Plain Text Writing</span>"
+    ]
+  },
+  {
+    "objectID": "260109_plain_text_writing/plain_text_writing.html#plain-text-formate-für-die-textredaktion",
+    "href": "260109_plain_text_writing/plain_text_writing.html#plain-text-formate-für-die-textredaktion",
+    "title": "31  Plain Text Writing",
+    "section": "31.2 Plain Text Formate für die Textredaktion",
+    "text": "31.2 Plain Text Formate für die Textredaktion\nDie einfachste Form eines Textfiles ist eine .txt Datei. Dabei handelt es sich in der Regel um reinen Text ohne Formatierungen. Das Bedürfnis nach formatierten Textdarstellungen hat zu verschiedenen Dateiformaten geführt. Dazu gehören zum Beispiel HTML-Dateien (.html oder .htm: Hyper Text Markup Language). Dieses Format wurde ursprünglich unter anderem auch dazu geschaffen, Text formatiert am Bildschirm darzustellen. Ein anderes Beispiel ist LaTeX. Auch LaTeX ist eine sogenannte Auszeichnungssprache (Markup Language). Allerdings ist das Zielmedium von LaTeX weniger der Bildschirm sondern eher der Druck, heute vor allem das Portable Document Format (PDF), welches sich zum Quasi-Standard entwickelt hat.\nAllerdings ist der Umfang der Formatierungsmöglichkeiten sowohl in HTML wie auch in LaTeX so umfangreich, dass die Hürde für deren Verwendung relativ hoch ist.\nVor diesem Hintergrund ist eine eher minimalistische Auszeichnungssprache, Markdown (.md) geschaffen worden. Diese stellt alle wesentlichen Formatierungsmöglichkeiten, wie zum Beispiel hierarchische Überschriften oder das setzen von kursivem Text, direkt zur Verfügung. Dort wo die Formatierungsmöglichkeiten den Bedürfnissen nicht genügen, kann in vielen Fällen auf HTML oder LaTeX Auszeichnungen zurückgegriffen werden.\nEine Übersicht über die Formatierungsbefehle in Markdown findet sich auf der Website Markdown Cheat Sheet. Wichtige Formatierungen in LaTeX (mathematische Formeln) werden auf der Website Wikibooks LaTeX/Mathematics erklärt.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Plain Text Writing</span>"
+    ]
+  },
+  {
+    "objectID": "260109_plain_text_writing/plain_text_writing.html#vorbereitung-der-konvertierung",
+    "href": "260109_plain_text_writing/plain_text_writing.html#vorbereitung-der-konvertierung",
+    "title": "31  Plain Text Writing",
+    "section": "32.1 Vorbereitung der Konvertierung",
+    "text": "32.1 Vorbereitung der Konvertierung\nFür diese Konvertierung kann das Programm Pandoc verwendet werden. Pandoc kann Markdown in unzählige Formate Konvertieren. Die genaue Vorgehensweise wird im Folgenden Schritt für Schritt erläutert.\n\nPandoc installieren\nDas Installationsprogramm für Pandoc kann auf der Website von Pandoc heruntergeladen werden. Dazu ist dem Link “Download the latest Installer” zu folgen. Für Windows ist die Datei mit der Endung .msi herunterzuladen.\nDas heruntergeladene Installationsprogramm kann anschliessend mit einem Doppelklick für die Installation ausgeführt werden.\nLaTeX installieren\nDamit Pandoc ein Markdown Dokument in ein PDF Konvertieren kann, braucht es auf dem Rechner eine Installation von LaTeX. LaTeX gibt es für Windows in verschiedenen Varianten. Die einfachste Installation erfolgt in der Variante von MiKTeX. Das entsprechende Installationspaket kann von der Website von MiKTeX heruntergeladen werden.\nDas heruntergeladene Installationsprogramm kann anschliessend mit einem Doppelklick für die Installation ausgeführt werden.\nPandoc verwenden\nPandoc ist ein Programm für die Kommandozeile. Das heisst, es gibt keine grafische Oberfläche für die Verwendung von Pandoc. Am einfachsten kann Pandoc verwendet werden, wenn im Ordner, in dem sich das zu konvertierende File befindet, ein Terminal geöffnet wird.\nDie Konvertierung erfolgt mit folgendem Befehl:\npandoc -o output.pdf input.md\nOutput.pdf und input.md muss an die eigenen Dateinamen angepasst werden. Alternativ können auch andere Dateiformate, wie .docx oder .html als Zielformate gewählt werden. Für eine abschliessende Liste aller möglichen Zielformate sei auf die Website von Pandoc verwiesen.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Plain Text Writing</span>"
+    ]
+  },
+  {
+    "objectID": "260109_plain_text_writing/plain_text_writing.html#spezifische-formatierung-der-ausgabe",
+    "href": "260109_plain_text_writing/plain_text_writing.html#spezifische-formatierung-der-ausgabe",
+    "title": "31  Plain Text Writing",
+    "section": "32.2 Spezifische Formatierung der Ausgabe",
+    "text": "32.2 Spezifische Formatierung der Ausgabe\nDie oben dargestellte Version führt zu einem sauber strukturierten PDF. Allerdings fehlen wesentliche Dokumentteile wie Deckblatt oder Inhaltsverzeichnis.\nFür diese weiterführenden Formatierungen werden dem Dokument die erforderlichen Informationen entweder in einem speziellen Header vorangestellt oder in einem separaten Dokument dem Befehl für die Konvertierung übergeben. Hier soll die zweite Variante dargestellt werden.\nDas Dokument mit den Informationen für die Formatierung ist ein sogenanntes YAML-Dokument .yaml. YAML steht dabei für Yet Another Markup Llanguage. Das Dokument kann einen beliebigen Namen haben. Hier im Beispiel wird es format.yaml genannt. Das folgende Listing zeigt eine Formatierung mit dem Namen des Authors, dem Titel und weiteren Angaben. Was die einzelnen Einträge bedeuten, ist weitestgehend selbsterklärend.\nfrom: markdown                     # Ausgangsformat \nto: pdf                            # Zielformat\nstandalone: true                   # Erzwingt eigenständiges Dokument\npdf-engine: xelatex                # Wählt eine spezifische pdf-engine\noutput-file: output.pdf            # Name des Ausgabedokuments\nmetadata:                          # Dokumentspezifische Angaben\n  title: \"Anleitung\"               # Titel\n  author: \"Jacques Mock Schindler\" # Verfasser\n  lang: de-CH                      # Sprache des Dokuments\n  fontsize: 11pt                   # Schriftgrösse\n  geometry: left=2.5cm, right=3cm  # Seitenränder\n  date: \"9. Januar 2026\"           # Datum\n  toc: true                        # Erstellt ein Inhaltsverzeichnis\n  number-sections: true            # Nummeriert die Titel\nDie Einrückung ist für die Syntax im YAML Dokument wichtig. Sie beträgt zwei Leerzeichen.\nWenn die Datei format.yaml das Format des PDF steuern soll, lautet der Befehl für die Konvertierung des Markdown Dokuments in ein PDF\npandoc --defaults=format.yaml input.md\nFalls der Name des neu erstellten PDF Dokuments bei jedem Befehlsaufruf individuell festgelegt werden soll, kann die Zeile output-file: output.pdf in der YAML Datei auch weggelassen werden. Dann lautet der Befehl für die Konvertierung\npandoc --defaults=format.yaml -o output.pdf input.md\nFalls für komplexe Formatierungen auf externe LaTeX Pakete abgestellt werden muss, werden diese über ein separates .tex Dokument geladen. Auch dieses Dokument kann grundsätzlich beliebig benannt werden. Für das Beispiel hier wird die Datei als header.tex bezeichnet. Der Inhalt dieser Datei ist folgendermassen zu formatieren:\n\\usepackage{caption}\nDer Befehl für die Konvertierung lautet jetzt\npandox --defaults=format.yaml -H header.tex input.md\nDie Website CTAN Comprehensive TeX Archive Network gibt Auskunft darüber, was für LaTeX Pakete zur Verfügung stehen.\n\n\n\n\nFix, Blair. “Why and How I Write Scientific Documents in Plain Text.” In Economics from the Top Down. 2020.\n\n\nHealy, Kieran. The Plain Person’s Guide to Plain Text Social Science. 2020.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Plain Text Writing</span>"
+    ]
+  },
+  {
+    "objectID": "260109_plain_text_writing/plain_text_writing.html#footnotes",
+    "href": "260109_plain_text_writing/plain_text_writing.html#footnotes",
+    "title": "31  Plain Text Writing",
+    "section": "",
+    "text": "Kieran Healy, The Plain Person’s Guide to Plain Text Social Science (2020); Blair Fix, “Why and How I Write Scientific Documents in Plain Text,” in Economics from the Top Down, 2020.↩︎",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Plain Text Writing</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html",
+    "href": "260116_referenzen/referenzen.html",
+    "title": "32  Referenzen in Markdown",
+    "section": "",
+    "text": "32.1 Textformat (.yaml)\nDamit in Texten, die im Markdown Format erstellt werden, Literaturzitate eingefügt werden können, braucht es neben dem Markdown Dokument mit dem eigentlichen Text, drei weitere Dateien:\nVon diesen drei Dateien muss lediglich die Datei mit den Formatierungsinformationen manuell erstellt werden. Die Datei mit den bibliographischen Angaben wird von Zotero erstellt und die Datei für die Darstellung der bibliographischen Angaben im Text kann aus dem Zotero Style Repository heruntergeladen werden.\nDie Darstellung des Textes sowie dessen Ausgabeformat kann über die Datei format.yaml gesteuert werden. Der Name der Datei ist frei wählbar. Hier wurde format.yaml gewählt, weil die Datei genau das macht: das Format der Ausgabe steuern. Im folgenden Listing findet sich ein Beispiel mit den Angaben für die Verwendung einer .bib und .csl Datei.\nHier die Erklärungen zu den einzelnen Einträgen in dieser Konfigurationsdatei:\nWeitere Konfigurationsmöglichkeiten für die Konvertierung in ein PDF finden sich Pandoc User Guide.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html#textformat-.yaml",
+    "href": "260116_referenzen/referenzen.html#textformat-.yaml",
+    "title": "32  Referenzen in Markdown",
+    "section": "",
+    "text": "# Input und Output\ninput-files:\n  - mein-text.md  # es können auch mehrere Dateien angegeben werden\n  # - zweiter_teil.md\n  # - dritter_teil.md\noutput-file: ausgabe.pdf\n\n# Grundeinstellungen\nfrom: markdown\nto: pdf\n# lualatex als pdf-engine hilft bei der Darstellung\n# von Umlauten und anderen Sonderzeichen\npdf-engine: lualatex # oder xelatex, pdflatex\n\n# Aktiviert citeproc - damit wird die Bibliographie eingebunden\nciteproc: true\n\n# Inhaltsverzeichnis\ntable-of-contents: true\n\n# Variablen und Metadaten\nvariables:\n  lang: de-CH\n  lof: true\n  lot: true\n  number-sections: true\n  header-includes:\n    - \\setcounter{secnumdepth}{3}\n    - \\setcounter{tocdepth}{3}\n\nmetadata:\n  title: \"Titel des Dokuments\"\n  author: \"Ihr Name\"\n  date: \"Heute\"\n  bibliography: bibliography.bib\n  csl: chicago-notes-bibliography-access-dates.csl\n  link-citations: true\n\n\ninput-files Hier werden alle Dateien erfasst, welche in das finale Ausgabedokument einfliessen sollen. Die einzelnen Dateien werden wie in der Vorlage angedeutet untereinander als Aufzählung aufgelistet.\noutput-file Mit diesem Schlüssel wird der Pfad zur Ausgabedatei mit deren Namen erfasst.\nfrom ist der Schlüssel für das Format der input-files.\nto ist der Schlüssel für das Format des output-file.\npdf-engine legt fest, mit welchem Programm das Markdown Dokument in eine PDF Datei umgewandelt wird. Aktuell ist lualatex die modernste Variante. lualatex unterstützt Schweizerische Umlaute und Akzente sehr gut. Aus diesem Grund wurde hier lualatex ausgewählt.\nciteproc ist das Programm, dass für die Übernahme der bibliographischen Angaben verantwortlich ist. Mit dem Wert true wird dessen Verwendung aktiviert.\ntable-of-contents aktiviert, wenn der Wert true ist, die Erstellung eines Inhaltsverzeichnisses.\nvariables stellt die Details für die Darstellung des Ausgabedokuments zur Verfügung.\nlang ist die Variabel zur Speicherung der Sprache des Ausgabedokuments. Indem sie hier auf de-CH gesetzt wird, werden die typographischen Besonderheiten der Deutschschweiz berücksichtigt.\nlof erstellt ein Abbildungsverzeichnis.\nlot erstellt ein Tabellenverzeichnis.\nnumber-sections nummeriert die Titel ihrer Hierarchiestufe gemäss.\nheader-includes ermöglicht es, LaTeX Formatierungsbefehle zu verwenden.\n- \\setcounter{secnumdepth}{3} ist eine LaTeX Formatierung, die dafür sorgt, dass Titel nur über drei Hierarchieebenen hinweg nummeriert werden.\n- \\setcounter{tocdepth}{3} ist eine LaTeX Formatierung, welche nur Titel bis zur dritten Hierarchieebene ins Inhaltsverzeichnis aufgenommen werden.\nmetadata speichert die inhaltlichen Eckwerte für das Dokument.\ntitle ist jener Titel, der auf dem Deckblatt abgedruckt wird.\nauthor ist der Name des Autors.\ndate ist das Datum. Für Dokumente, welche ein PDF als Ausgabeformat haben, kann auch der Befehl verwendet werden. Dieser liest bei der Konvertierung von Markdown zu PDF das aktuelle Systemdatum aus.\nbibliography gibt den Pfad zur Datei mit den bibliographischen Angaben an.\ncsl gibt den Pfad zur Datei mit dem gewählten Zitierstil an.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html#bibliographische-angaben",
+    "href": "260116_referenzen/referenzen.html#bibliographische-angaben",
+    "title": "32  Referenzen in Markdown",
+    "section": "32.2 Bibliographische Angaben",
+    "text": "32.2 Bibliographische Angaben\nDas Dokument mit den bibliographischen Angaben kann Zotero automatisch erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem Dokument erklärt. Das Dokument für das Beispiel heist bibliography.bib.\n@book{healy2020,\n  title = {The {{Plain Person}}'s {{Guide}} to {{Plain Text Social Science}}},\n  author = {Healy, Kieran},\n  year = 2020,\n  }\nDer Eintrag bezieht sich auf ein Buch (@book). Unmittelbar auf diesen Identifikator folgt nach der geschweiften Klammer der Zitierschlüssel (healy2020). Dieser wird von Zotero grundsätzlich automatisch vergeben, kann aber auch manuell festgelegt werden. Anschliessend folgen Zeile für Zeile die notwendigen bibliographischen Angaben als Schlüssel - Werte Paare.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html#zitierstil",
+    "href": "260116_referenzen/referenzen.html#zitierstil",
+    "title": "32  Referenzen in Markdown",
+    "section": "32.3 Zitierstil",
+    "text": "32.3 Zitierstil\nDer Zitierstil wird in einem Dokument mit der Endung .csl definiert. Die Abkürzung csl steht für Citation Style Language und ist eine Form von xml. Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das Zotero Style Repository stellt jedoch die gängigsten Zitierstile zur Verfügung.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html#einfügen-von-referenzen-in-markdown",
+    "href": "260116_referenzen/referenzen.html#einfügen-von-referenzen-in-markdown",
+    "title": "32  Referenzen in Markdown",
+    "section": "32.4 Einfügen von Referenzen in Markdown",
+    "text": "32.4 Einfügen von Referenzen in Markdown\nUm Referenzen aus dem Bibliographie Dokument in den Markdown Text zu übernehmen, verwendet man den Zitierschlüssel. Eingefügt wird er mit [@zitierschlüssel]. Soll die Referenz mit einer Seitenzahl versehen werden, wird der Eintrag folgendermassen ergänzt: [@zitierschlüssel, 25]. Sollen in der gleichen Referenz mehrere Belege angeführt werden, sieht die Syntax folgendermassen aus : [@zitierschlüssel1, 25; @zitierschlüssel2, 33].\nDie Zitierschlüssel braucht man nicht auswendig zu wissen. Die Zotero Einträge zeigen sie als obersten Eintrag zu jedem erfassten Werk an.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/referenzen.html#erstellen-des-pdf-mit-referenzen",
+    "href": "260116_referenzen/referenzen.html#erstellen-des-pdf-mit-referenzen",
+    "title": "32  Referenzen in Markdown",
+    "section": "32.5 Erstellen des PDF mit Referenzen",
+    "text": "32.5 Erstellen des PDF mit Referenzen\nSofern ein entsprechendes Konfigurationsdokument (.yaml) erstellt worden ist, kann das PDF mit dem Aufruf\npandoc -d format.yaml\nerstellt werden.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Referenzen in Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/zotero.html",
+    "href": "260116_referenzen/zotero.html",
+    "title": "33  Literaturverwaltung mit Zotero",
+    "section": "",
+    "text": "33.1 Zotero installieren und einrichten\nZotero bewirbt sich selber als persönlicher Forschungsassistent. Im gymnasialen Umfeld ist Zotero in erster Linie ein Hilfsmittel Zitate in Texten korrekt zu formatieren. Darüber hinaus kann Zotero auch als E-Reader mit Zusatzfunktionen zur Verwaltung von Notizen verwendet werden.\nUm die Funktionen von Zotero im vollen Umfang zu nutzen, ist es sinnvoll ein Zotero Account zu erstellen. Der Account kann auf der Website von Zotero erstellt werden. Wenn der Account nicht ausschliesslich privat genutzt werden soll, ist es sinnvoll die Schul- bzw. Geschäftsemail zu verwenden. Im Nutzerprofil können auch mehrere Adressen hinterlegt werden. Das ermöglicht es, die eigene Datenbank zu behalten, wenn man eine Institution verlässt.\nNachdem optional ein persönlicher Account erstellt worden ist, kann der Zotero Desktop Client heruntergeladen und installiert werden. Auf der gleichen Seite findet sich auch die Möglichkeit den Zotero Connector als Browser Plugin herunterzuladen. Dieses Plugin ist für die Arbeit mit Zotero nicht zwingend erforderlich, vereinfacht aber die Erfassung von Quellen ungemein.\nWenn Zotero installiert ist, kann es über den Menüpunkt Bearbeiten &gt; Einstellungen, Registerkarte Sync mit dem eigenen Zotero Account verbunden werden.\nFür die Verwendung von Zotero in einem Markdown – Pandoc-Workflow ist die Installation des BetterBibTeX Plugins in Zotero unbedingt erforderlich. Das Plugin kann direkt aus seinem GitHub Repository heruntergeladen werden. Das heruntergeladene .xpi Dokument kann über das Menü Werkzeuge &gt; Plugins, Zahnradsymbol, Install Plugin from File, installiert werden.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Literaturverwaltung mit Zotero</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/zotero.html#einträge-in-zotero-erstellen-und-organisieren",
+    "href": "260116_referenzen/zotero.html#einträge-in-zotero-erstellen-und-organisieren",
+    "title": "33  Literaturverwaltung mit Zotero",
+    "section": "33.2 Einträge in Zotero erstellen und organisieren",
+    "text": "33.2 Einträge in Zotero erstellen und organisieren\nWie Einträge in Zotero erfasst werden, wird auf der Website von Zotero ausführlich beschrieben. An dieser Stelle darf daher auf die dortigen Erklärungen verwiesen werden. Das gleiche gilt für die Organisation der eigenen Bibliothek.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Literaturverwaltung mit Zotero</span>"
+    ]
+  },
+  {
+    "objectID": "260116_referenzen/zotero.html#erstellen-einer-bibliographie-datei-für-den-markdown-pandoc-workflow",
+    "href": "260116_referenzen/zotero.html#erstellen-einer-bibliographie-datei-für-den-markdown-pandoc-workflow",
+    "title": "33  Literaturverwaltung mit Zotero",
+    "section": "33.3 Erstellen einer Bibliographie Datei für den Markdown – Pandoc-Workflow",
+    "text": "33.3 Erstellen einer Bibliographie Datei für den Markdown – Pandoc-Workflow\nDie für das jeweilige Projekt erforderlichen Einträge in Zotero werden sinnvollerweise in einer Sammlung zusammengefasst. Diese Sammlung kann dann in eine .bib Datei exportiert werden. Dazu ist das Kontextmenü der Sammlung mit Rechtsklick zu öffnen. Anschliessend ist der Menüpunkt ‘Sammlung Exportieren’ auszuwählen. In der sich öffnenden Dialogbox ist Better BibLaTeX als Format auszuwählen. Sinnvollerweise werden die beiden Optionen ‘Halte aktuell’ und ‘Hintergrund-Export’ ausgewählt. Die erste Option sorgt dafür, dass Änderungen in Zotero-Einträgen automatisch in die .bib Datei geschrieben werden, die zweite verhindert, dass der Export einfriert.\nStandardmässig erhält die so erstellte .bib Datei den Namen der Sammlung. Der Name kann während des Erstellens noch angepasst werden. Falls der Name nachträglich angepasst wird, ist nicht sichergestellt, dass die automatische Aktualisierung weiterhin funktioniert. Falls man dem Automatismus nicht vertraut, kann die .bib Datei nach jeder Änderung manuell neu aus Zotero exportiert werden.",
+    "crumbs": [
+      "Anleitungen",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Literaturverwaltung mit Zotero</span>"
+    ]
+  },
+  {
+    "objectID": "archiv/fs25.html",
+    "href": "archiv/fs25.html",
+    "title": "34  Programm im Frühlingssemester 2025",
+    "section": "",
+    "text": "Datum\nThema\n\n\n\n\n19.02.2025\nQueues Implementieren in Python\n\n\n26.02.2025\nBST Implementieren in Python\n\n\n05.03.2025\nBST Implementieren in Python\n\n\n12.03.2025\nBinärsystem\n\n\n19.03.2025\nBase64 Codierung\n\n\n26.03.2025\nTest (Datenstrukturen & Datencodierung)\n\n\n02.04.2025\nDatenbanken\n\n\n09.04.2025\nDatenbanken\n\n\n16.04.2025\nDatenbanken\n\n\n07.05.2025\nDatenbanken\n\n\n14.05.2025\nDatenbanken: Übungen\n\n\n21.05.2025\nTest (Datenbanken)\n\n\n28.05.2025\nDatenvisualisierung mit Python\n\n\n04.06.2025\nDatenvisualisierung mit Python\n\n\n11.06.2025\nDatenvisualisierung mit Python\n\n\n18.06.2025\nDatenvisualisierung mit Python\n\n\n25.06.2025\nDatenvisualisierung mit Python\n\n\n02.07.2025\nDatenvisualisierung mit Python\n\n\n09.07.2025\nDatenvisualisierung mit Python",
+    "crumbs": [
+      "Alte Programme",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Programm im Frühlingssemester 2025</span>"
+    ]
+  }
+]
