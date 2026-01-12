@@ -484,22 +484,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="grundstruktur-einer-sql-abfrage" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="grundstruktur-einer-sql-abfrage"><span class="header-section-number">16.1</span> Grundstruktur einer SQL Abfrage</h2>
 <p>Die Grundstruktur einer SQL Abfrage ist im untenstehenden Code Snippet dargestellt.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">&lt;</span>Spalten<span class="op">&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="op">&lt;</span>Tabelle<span class="op">&gt;</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="op">&lt;</span>Bedingung<span class="op">&gt;</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">SELECT</span> <span class="op">&lt;</span>Spalten<span class="op">&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">FROM</span> <span class="op">&lt;</span>Tabelle<span class="op">&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">WHERE</span> <span class="op">&lt;</span>Bedingung<span class="op">&gt;</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das Schlüsselwort <code>SELECT</code> gibt an, welche Spalte(n) aus der Tabelle ausgegeben werden soll(en). Das Schlüsselwort <code>FROM</code> gibt an, aus welcher Tabelle die Daten ausgelesen werden. Das Schlüsselwort <code>WHERE</code> gibt die Bedingung an, die erfüllt sein muss, damit die Daten angezeigt werden. Dass die Schlüsselwörter in Grossbuchstaben geschrieben werden, ist technisch nicht nötig, entspricht aber der Konvention. Die Abfrage wird mit einem Semikolon abgeschlossen.</p>
 <section id="einfache-abfrage" class="level3" data-number="16.1.1">
 <h3 data-number="16.1.1" class="anchored" data-anchor-id="einfache-abfrage"><span class="header-section-number">16.1.1</span> Einfache Abfrage</h3>
 <p>In einem ersten Beispiel sollen alle Vornamen aller Lehrer aus der Tabelle Lehrer aus dem vergangenen Abschnitt angezeigt werden:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Vorname</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">SELECT</span> Vorname</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">FROM</span> Lehrer;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In diesem Beispiel wurde auf die Formulierung einer Bedingung verzichtet. Wenn die Ausgabe zusätzlich eine Bedingung erfüllen soll, wird diese mit dem Schlüsselwort <code>WHERE</code> angegeben. Im folgenden Beispiel sollen nur die Vornamen der Lehrer angezeigt werden, die vor dem Jahr 1800 geboren sind.</p>
 </section>
 <section id="abfrage-mit-bedingung" class="level3" data-number="16.1.2">
 <h3 data-number="16.1.2" class="anchored" data-anchor-id="abfrage-mit-bedingung"><span class="header-section-number">16.1.2</span> Abfrage mit Bedingung</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Vorname</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> Vorname</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> Lehrer</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Diese Abfrage führt zu folgendem Ergebnis:</p>
 <table class="caption-top table">
 <thead>
@@ -526,10 +526,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sortierung-der-ausgabe" class="level3" data-number="16.1.3">
 <h3 data-number="16.1.3" class="anchored" data-anchor-id="sortierung-der-ausgabe"><span class="header-section-number">16.1.3</span> Sortierung der Ausgabe</h3>
 <p>Falls die Ausgabe nicht nur die Vornamen, sondern auch die Nachnamen und das Geburtsdatum enthalten soll und die Ausgabe nach dem Geburtsdatum aufsteigend sortiert werden soll, wird die Abfrage entsprechend angepasst:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Vorname, Geburtsdatum</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Geburtsdatum;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SELECT</span> Name, Vorname, Geburtsdatum</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">FROM</span> Lehrer</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Geburtsdatum;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Diese Abfrage führt zu folgendem Ergebnis:</p>
 <table class="caption-top table">
 <thead>
@@ -563,10 +563,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>Es können dem Schlüsselwort <code>SELECT</code> mehrere Spalten übergeben werden. Zusätzlich wurde in der Anfrage das Schlüsselwort <code>ORDER BY</code> verwendet. Mit diesem kann angegeben werden, nach welchem Kriterium die Ausgabe sortiert werden soll. Standardmässig wird aufsteigend sortiert. Mit dem Schlüsselwort <code>DESC</code> kann die Sortierung absteigend erfolgen. Die Abfrage sieht dann folgendermassen aus:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Name, Vorname, Geburtsdatum</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Geburtsdatum <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> Name, Vorname, Geburtsdatum</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">FROM</span> Lehrer</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">WHERE</span> Geburtsdatum <span class="op">&lt;</span> <span class="st">'1800-01-01'</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Geburtsdatum <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Sortierreihenfolge wird hinter das Kriterium geschrieben. Wenn nach mehreren Kriterien sortiert werden soll, werden die zusätzlichen Kriterien mit einem Komma an das erste Kriterium angehängt.</p>
 </section>
 </section>
@@ -580,10 +580,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Um abzufragen, wer Deutsch unterrichtet, müssen die Daten aus den Tabellen <code>Lehrer</code>, <code>Fach</code> und <code>erhält Unterricht in/von</code> zusammengeführt werden. Dies geschieht mit dem Schlüsselwort <code>JOIN</code>. Das Schlüsselwort <code>JOIN</code> kann unterschiedlich verwendet werden. Im vorliegenden Beispiel wird die Variante <code>INNER JOIN</code> verwendet.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> l.Name, l.Vorname</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer <span class="kw">AS</span> l</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> erhält_Unterricht_in <span class="kw">AS</span> u <span class="kw">ON</span> l.Personalnummer <span class="op">=</span> u.Personalnummer</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> u.Fach_ID <span class="op">=</span> <span class="st">'Deutsch'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> l.Name, l.Vorname</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">FROM</span> Lehrer <span class="kw">AS</span> l</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> erhält_Unterricht_in <span class="kw">AS</span> u <span class="kw">ON</span> l.Personalnummer <span class="op">=</span> u.Personalnummer</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">WHERE</span> u.Fach_ID <span class="op">=</span> <span class="st">'Deutsch'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das Resultat dieser Abfrage sieht wie folgt aus:</p>
 <table class="caption-top table">
 <thead>
@@ -604,11 +604,11 @@ Unter dem Schlüsselwort <code>FROM</code> wird die Tabelle <code>Lehrer</code> 
 Mit dem Schlüsselwort <code>INNER JOIN</code> werden die Datensätze aus den beiden Tabellen <code>Lehrer</code> und <code>erhält_Unterricht_in</code> basierend auf übereinstimmenden Werten in der Spalte <code>Personalnummer</code> miteinander verbunden. Dabei entsteht eine neue Ergebnismenge, die alle Spalten beider Tabellen enthält, jedoch nur für diejenigen Zeilen, bei denen die <code>Personalnummer</code> in beiden Tabellen übereinstimmt.<br>
 Aus dieser Schnittmenge werden aus der Tabelle <code>erhält Unterricht in/von</code> die Lehrer ausgewählt, die Deutsch unterrichten. Dies geschieht mit dem Schlüsselwort <code>WHERE</code> und dem Kriterium <code>u.Fach_ID = 'Deutsch'</code>.</p>
 <p>Die Abfrage, wer die Klasse fP_24-28 in PPP unterrichtet, sieht wie folgt aus:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> l.Name, l.Vorname</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Lehrer <span class="kw">AS</span> l</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> erhält_Unterricht_in <span class="kw">AS</span> u <span class="kw">ON</span> l.Personalnummer <span class="op">=</span> u.Personalnummer</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> u.Fach_ID <span class="op">=</span> <span class="st">'PPP'</span> </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> u.Klassen_ID <span class="op">=</span> <span class="st">'fP_24-28'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">SELECT</span> l.Name, l.Vorname</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">FROM</span> Lehrer <span class="kw">AS</span> l</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> erhält_Unterricht_in <span class="kw">AS</span> u <span class="kw">ON</span> l.Personalnummer <span class="op">=</span> u.Personalnummer</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">WHERE</span> u.Fach_ID <span class="op">=</span> <span class="st">'PPP'</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">AND</span> u.Klassen_ID <span class="op">=</span> <span class="st">'fP_24-28'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Abfrage gibt folgendes Resultat zurück:</p>
 <table class="caption-top table">
 <thead>

@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Der entsprechende Filter für DNS-Anfragen zu einer gegebenen Website lautet</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dns.qry.name == "www.example.com"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>dns.qry.name == "www.example.com"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Der angewendete Filterbefehl ist relativ einfach nachzuvollziehen. An erster Stelle steht hier das Protokoll, nach dem gefiltert wird. Weil nach den DNS-Anfragen gefiltert wird, ist das hier <code>dns</code>. <code>dns</code> alleine wäre bereits ein gültiger Filter. Allerdings werden dann alle DNS-Pakete angezeigt. Der Filter wird daher zu <code>dns.qry.name</code> ergänzt Dabei steht <code>qry</code> als Abkürzung für query - Anfrage. Die Ergänzung <code>name</code> steht für den Domain Name, der Abgefragt wird. <code>==</code> ist die logische Verknüpfung, nach der gefiltert wird und bedeutet hier “ist gleich”. Zwischen den Anführungszeichen steht der String, nach dem gesucht wird.<br>
 Sofern die Seite während der Aufzeichnung genau einmal aufgerufen wurde, wird der Filter zwei Pakete anzeigen: eine DNS-Anfrage und eine DNS-Antwort.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -527,39 +527,37 @@ Sofern die Seite während der Aufzeichnung genau einmal aufgerufen wurde, wird d
 <p>Dass es sich hier im Bild um die Details des ausgewählten Paketes handelt, ist an der übereinstimmenden Paketnummer zu erkennen. Die Zeilen in der Detailansicht entsprechen den einzelnen Protokoll-Header-Feldern des ausgewählten Paketes. Das bildet auch das TCP/IP Schichtenmodell ab.</p>
 <p>Die Detailansicht kann durch einen Klick auf die Dreiecke am Anfang der einzelnen Protokoll-Header-Felder erweitert werden. Dadurch werden weitere Informationen zu den jeweiligen Feldern angezeigt. Hier werden jedoch nur die Zusammenfassungen der Header-Felder erläutert.</p>
 <p>Im Beispiel wird als erstes der Inhalt des Headers des Internetlayers erläutert.</p>
-<pre class="text"><code>
-Internet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a>Internet Protocol Version 4, Src: 192.168.1.108, Dst: 192.168.1.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In der Zusammenfassung werden die Quell- und Ziel-Adressen des IP-Pakets angezeigt. Im vorliegenden Fall sind das jeweils die Privaten IP-Adressen 192.168.1.108 und 192.168.1.1. 192.168.1.108 ist die Quell-Adresse, erkennbar an der Abkürzung “Src” und 192.168.1.1 die Ziel-Adresse, erkennbar an der Abkürzung “Dst”. Beide Geräte befinden sich damit im gleichen LAN. Der Rechner mit der IP-Adresse 192.168.1.1 ist der Router. Dieses Gerät stellt die Internetverbindung her und kann DNS-Anfragen aus seinem Cache beantworten.</p>
 <p>Im Header für das User Datagram Protocol (UDP) werden die Quell- und Ziel-Ports angezeigt.</p>
-<pre class="text"><code>User Datagram Protocol, Src Port: 53586, Dst Port: 53</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>User Datagram Protocol, Src Port: 53586, Dst Port: 53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Der Quellport wurde mit 53586 automatisch und weit oberhalb der sog. “Well-Known Ports” (0-1023) gewählt. Die “Well-Known Ports” sind Ports, die von bestimmten Anwendungen oder Diensten standardmässig verwendet werden. Entsprechend wurde der Zielport auf 53 gewählt, da dies der standardmässige Port für DNS-Anfragen ist. Eine Liste der “Well-Known Ports” findet sich in der <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml" target="_blank"> offiziellen IANA-Portdatenbank</a>. Der Quellport ermöglicht es dem Zielsystem, die Antwort an den korrekten Absender zurückzusenden. NAT-Geräte (vgl. <a href="../250822/nat.html">Abschnitt Network Address Translation (NAT)</a>) nutzen diese Port-Informationen zusätzlich für die Zuordnung zwischen privaten und öffentlichen Adressen.</p>
 <p>Der zuunterst dargestellte Layer in der Detailansicht, beinhaltet die eigentliche Anfrage für die Übersetzung des Domainnamens in eine IP-Adresse.</p>
-<pre class="text"><code>Domain Name System (query)
-    Transaction ID: 0x1f7a
-    Flags: 0x0100 Standard query
-    Questions: 1
-    Answer RRs: 0
-    Authority RRs: 0
-    Additional RRs: 0
-    Queries
-        www.deutschegrammophon.com: type A, class IN
-    [Response In: 723]</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>Domain Name System (query)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    Transaction ID: 0x1f7a</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    Flags: 0x0100 Standard query</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    Questions: 1</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    Answer RRs: 0</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    Authority RRs: 0</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    Additional RRs: 0</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    Queries</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        www.deutschegrammophon.com: type A, class IN</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    [Response In: 723]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Aus diesem Grund wird dieser Teil der Analyse hier auch aufgefaltet dargestellt.<br>
 Unter dem Stichwort <code>Queries</code> wird die gesuchte Adresse <code>www.deutschegrammophon.com</code> angezeigt. Das Stichwort <code>type A</code> zeigt an, dass es sich hier um eine Anfrage nach einer IPv4-Adresse handelt. IPv4-Adressen werden mit <code>A</code> bezeichnet, IPv6 mit <code>AAAA</code>. Das letzte Element in dieser Zeile ist die Klasse der Anfrage, in diesem Fall <code>IN</code> für das Internet. Obwohl heute fast ausschliesslich das Internet als Netzwerktyp verwendet wird, ist das Feld für die Klasse (IN) aus historischen Gründen weiterhin Teil jeder DNS-Anfrage.</p>
 <p>Der entsprechende Inhalt der Antwort sieht folgendermassen aus:</p>
-<pre class="text"><code>Domain Name System (response)
-    Transaction ID: 0x1f7a
-    Flags: 0x8180 Standard query response, No error
-    Questions: 1
-    Answer RRs: 1
-    Authority RRs: 0
-    Additional RRs: 0
-    Queries
-        www.deutschegrammophon.com: type A, class IN
-    Answers
-        www.deutschegrammophon.com: type A, class IN, addr 85.236.46.65
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>Domain Name System (response)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    Transaction ID: 0x1f7a</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    Flags: 0x8180 Standard query response, No error</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    Questions: 1</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    Answer RRs: 1</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    Authority RRs: 0</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    Additional RRs: 0</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    Queries</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        www.deutschegrammophon.com: type A, class IN</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    Answers</span>
+<span id="cb5-11"><a href="#cb5-11"></a>        www.deutschegrammophon.com: type A, class IN, addr 85.236.46.65</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das Paket wiederholt die Frage und liefert die Antwort des DNS-Servers. Der Domainname <code>www.deutschegrammophon.com</code> ist mit der IPv4-Adresse <code>85.236.46.65</code> verknüpft.</p>
 <p>Damit kann die Verbindung zur Website <code>www.deutschegrammophon.com</code> hergestellt werden.</p>
 </section>
@@ -575,7 +573,7 @@ Unter dem Stichwort <code>Queries</code> wird die gesuchte Adresse <code>www.deu
 </div>
 <p>Der Client sendet ein SYN-Paket an den Server, um eine Verbindung anzufordern. Dieser atwortet mit einem SYN-ACK-Paket. Das heisst, er bestätigt die Anfrage mit einem ACK und fragt seinerseits mit einem SYN nach, ob der Client (immer noch) bereit ist, die Verbindung aufzubauen. Damit klar ist, dass sich das ACK im SYN-ACK-Paket auf das ursprüngliche SYN-Paket bezieht, werden die einzelnen Pakete mit einer Sequenznummer (Sequence Number) versehen. Das ACK gibt die Sequenznummer des SYN-Paketes plus eins zurück.</p>
 <p>Dieser Vorgang kann mit Wireshark beobachtet werden. Dafür braucht es einen kombinierten Wireshark Anzeigefilter. Als Beispiel wird der Verbindungsaufbau zwischen dem lokalen Rechner und der Website von www.deutschegrammophon.com betrachtet. Der erste Teil des Filters soll nur jene Pakete anzeigen, welche mit der IP-Adresse des Servers von www.deutschegrammophon.com (85.236.46.65) kommunizieren. Dieser Filter lautet</p>
-<pre class="wireshark"><code>ip.addr == 85.236.46.65</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource wireshark number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>ip.addr == 85.236.46.65</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dieser Filter alleine zeigt jedoch noch zu viele Pakete an.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -584,10 +582,10 @@ Unter dem Stichwort <code>Queries</code> wird die gesuchte Adresse <code>www.deu
 </figure>
 </div>
 <p>Um die Resultate weiter einzuschränken sollen nur jene Pakete angezeigt werden, welche entweder das SYN-Flag oder das ACK-Flag (oder beides) gesetzt haben. Dies kann mit folgendem Filter erreicht werden:</p>
-<pre class="wireshark"><code>ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1 )</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource wireshark number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Das sind allerdings immer noch zu viele Pakete. Daher sollen nur jene Pakete angezeigt werden, welche die Antworten auf eine SYN-Anfrage sind. Das kann erreicht werden, in dem ein Paket mit dem SYN-Flag mit der rechten Maustaste angeklickt wird und die Option “Follow” &gt; “TCP Stream” ausgewählt wird. Dadurch wird der gesamte TCP-Stream, in dem dieses Paket steht, (die aufeinanderfolgenden Pakete) angezeigt. Der Filter wird automatisch angepasst.</p>
 <p>Das folgende Listing zeigt den ganzen Filterbefehl für die Anzeige der Pakete, die zu diesem TCP-Stream gehören:</p>
-<pre class="wireshark"><code>ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1) and !(tcp.stream eq 8)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource wireshark number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>ip.addr == 85.236.46.65 and (tcp.flags.syn == 1 or tcp.flags.ack == 1) and !(tcp.stream eq 8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ws_three-way-handshake.png" class="img-fluid figure-img"></p>

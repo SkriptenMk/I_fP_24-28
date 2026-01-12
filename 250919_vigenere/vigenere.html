@@ -616,128 +616,128 @@ window.Quarto = {
 </table>
 <p>Um zu zeigen, dass dies sich mit (längeren) Texten deckt, wurde ein Kapitel aus dem Roman ‘Der Zauberberg’ von Thomas Mann ausgewertet. Die sich aus dieser Auswertung ergebende Verteilung wird in der folgenden Grafik der Verteilung aus der Tabelle gegenübergestellt.</p>
 <div id="a35cedd0-c8fd-485a-9dee-bef4c9ce6183" class="cell" data-tags="[&quot;hide-input&quot;]" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pdfplumber</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pdfplumber.<span class="bu">open</span>(<span class="st">"Mann_1989_Der Zauberberg - Roman.pdf"</span>) <span class="im">as</span> pdf:</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    pages <span class="op">=</span> pdf.pages</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, pg <span class="kw">in</span> <span class="bu">enumerate</span>(pages):</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;=</span> <span class="dv">23</span> <span class="kw">and</span> i <span class="op">&lt;</span> <span class="dv">42</span>:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            text <span class="op">+=</span> pages[i].extract_text() <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> text_cleaning(text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    clean <span class="op">=</span> text.upper() <span class="op">\</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                .replace(<span class="st">'Ä'</span>, <span class="st">'AE'</span>) <span class="op">\</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                .replace(<span class="st">'Ö'</span>, <span class="st">'OE'</span>) <span class="op">\</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                .replace(<span class="st">'Ü'</span>, <span class="st">'UE'</span>) <span class="op">\</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                .replace(<span class="st">'ß'</span>, <span class="st">'SS'</span>) <span class="op">\</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                .replace(<span class="st">' '</span>, <span class="st">''</span>) <span class="op">\</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    cleaned_text <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> clean:</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c.isalpha():</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            cleaned_text <span class="op">+=</span> c</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cleaned_text</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> file_writer(path : <span class="bu">str</span>, text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    grouped_text <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> text:</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">" "</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            grouped_text <span class="op">+=</span> c</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, mode<span class="op">=</span><span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        f.write(grouped_text)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>zauberberg <span class="op">=</span> text_cleaning(text)</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>file_writer(<span class="st">'zauberberg_bereinigt.txt'</span>, zauberberg)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> letter_frequency(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    frequency <span class="op">=</span> {}</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    total_letters <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> frequency:</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>            frequency[char] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>            frequency[char] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        total_letters <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> frequency.items():</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        frequency[key] <span class="op">=</span> (value <span class="op">/</span> total_letters) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>           </span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> frequency</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>frequency_zauberberg <span class="op">=</span> letter_frequency(zauberberg)</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>standard_frequency <span class="op">=</span> {</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">'E'</span>: <span class="fl">17.4</span>,</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="st">'T'</span>: <span class="fl">7.27</span>,</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A'</span>: <span class="fl">6.51</span>,</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O'</span>: <span class="fl">2.51</span>,</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">'I'</span>: <span class="fl">7.55</span>,</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">'N'</span>: <span class="fl">9.78</span>,</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">'S'</span>: <span class="fl">7.27</span>,</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: <span class="fl">7.0</span>,</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: <span class="fl">4.76</span>,</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">'D'</span>: <span class="fl">5.08</span>,</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">'L'</span>: <span class="fl">3.44</span>,</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">'C'</span>: <span class="fl">3.06</span>,</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">'U'</span>: <span class="fl">4.35</span>,</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="st">'M'</span>: <span class="fl">2.53</span>,</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">'W'</span>: <span class="fl">1.89</span>,</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'F'</span>: <span class="fl">1.66</span>,</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">'G'</span>: <span class="fl">3.01</span>,</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Y'</span>: <span class="fl">0.04</span>,</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">'P'</span>: <span class="fl">0.79</span>,</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">'B'</span>: <span class="fl">1.89</span>,</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    <span class="st">'V'</span>: <span class="fl">0.67</span>,</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    <span class="st">'K'</span>: <span class="fl">1.21</span>,</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">'J'</span>: <span class="fl">0.27</span>,</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="st">'X'</span>: <span class="fl">0.03</span>,</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Q'</span>: <span class="fl">0.02</span>,</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Z'</span>: <span class="fl">1.13</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame.from_dict([standard_frequency, frequency_zauberberg])</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> [<span class="st">'Standard Frequency'</span>, <span class="st">'Zauberberg Frequency'</span>]</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>dft <span class="op">=</span> df.T</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>dft <span class="op">=</span> dft.sort_index()</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>dft[<span class="st">'Standard Frequency'</span>] <span class="op">=</span> dft[<span class="st">'Standard Frequency'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>dft[<span class="st">'Zauberberg Frequency'</span>] <span class="op">=</span> dft[<span class="st">'Zauberberg Frequency'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit in Zauberberg'</span>)</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(dft.index)</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit'</span>)</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pdfplumber</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> string</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="cf">with</span> pdfplumber.<span class="bu">open</span>(<span class="st">"Mann_1989_Der Zauberberg - Roman.pdf"</span>) <span class="im">as</span> pdf:</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    pages <span class="op">=</span> pdf.pages</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    text <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">for</span> i, pg <span class="kw">in</span> <span class="bu">enumerate</span>(pages):</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        <span class="cf">if</span> i <span class="op">&gt;=</span> <span class="dv">23</span> <span class="kw">and</span> i <span class="op">&lt;</span> <span class="dv">42</span>:</span>
+<span id="cb1-11"><a href="#cb1-11"></a>            text <span class="op">+=</span> pages[i].extract_text() <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">def</span> text_cleaning(text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    clean <span class="op">=</span> text.upper() <span class="op">\</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>                .replace(<span class="st">'Ä'</span>, <span class="st">'AE'</span>) <span class="op">\</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>                .replace(<span class="st">'Ö'</span>, <span class="st">'OE'</span>) <span class="op">\</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>                .replace(<span class="st">'Ü'</span>, <span class="st">'UE'</span>) <span class="op">\</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>                .replace(<span class="st">'ß'</span>, <span class="st">'SS'</span>) <span class="op">\</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>                .replace(<span class="st">' '</span>, <span class="st">''</span>) <span class="op">\</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>    cleaned_text <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="cf">for</span> c <span class="kw">in</span> clean:</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        <span class="cf">if</span> c.isalpha():</span>
+<span id="cb1-24"><a href="#cb1-24"></a>            cleaned_text <span class="op">+=</span> c</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    </span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="cf">return</span> cleaned_text</span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="kw">def</span> file_writer(path : <span class="bu">str</span>, text : <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb1-29"><a href="#cb1-29"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>    grouped_text <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>    <span class="cf">for</span> c <span class="kw">in</span> text:</span>
+<span id="cb1-32"><a href="#cb1-32"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>        <span class="cf">if</span> i <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-34"><a href="#cb1-34"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>        <span class="cf">elif</span> i <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-36"><a href="#cb1-36"></a>            grouped_text <span class="op">+=</span> c <span class="op">+</span> <span class="st">" "</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-38"><a href="#cb1-38"></a>            grouped_text <span class="op">+=</span> c</span>
+<span id="cb1-39"><a href="#cb1-39"></a>        </span>
+<span id="cb1-40"><a href="#cb1-40"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, mode<span class="op">=</span><span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb1-41"><a href="#cb1-41"></a>        f.write(grouped_text)</span>
+<span id="cb1-42"><a href="#cb1-42"></a>zauberberg <span class="op">=</span> text_cleaning(text)</span>
+<span id="cb1-43"><a href="#cb1-43"></a>file_writer(<span class="st">'zauberberg_bereinigt.txt'</span>, zauberberg)</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="kw">def</span> letter_frequency(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb1-45"><a href="#cb1-45"></a>    frequency <span class="op">=</span> {}</span>
+<span id="cb1-46"><a href="#cb1-46"></a>    total_letters <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>    </span>
+<span id="cb1-48"><a href="#cb1-48"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1-49"><a href="#cb1-49"></a>        <span class="cf">if</span> char <span class="kw">not</span> <span class="kw">in</span> frequency:</span>
+<span id="cb1-50"><a href="#cb1-50"></a>            frequency[char] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-52"><a href="#cb1-52"></a>            frequency[char] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>        total_letters <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>        </span>
+<span id="cb1-55"><a href="#cb1-55"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> frequency.items():</span>
+<span id="cb1-56"><a href="#cb1-56"></a>        frequency[key] <span class="op">=</span> (value <span class="op">/</span> total_letters) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>        </span>
+<span id="cb1-58"><a href="#cb1-58"></a>           </span>
+<span id="cb1-59"><a href="#cb1-59"></a>    <span class="cf">return</span> frequency</span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a>frequency_zauberberg <span class="op">=</span> letter_frequency(zauberberg)</span>
+<span id="cb1-62"><a href="#cb1-62"></a></span>
+<span id="cb1-63"><a href="#cb1-63"></a></span>
+<span id="cb1-64"><a href="#cb1-64"></a>standard_frequency <span class="op">=</span> {</span>
+<span id="cb1-65"><a href="#cb1-65"></a>    <span class="st">'E'</span>: <span class="fl">17.4</span>,</span>
+<span id="cb1-66"><a href="#cb1-66"></a>    <span class="st">'T'</span>: <span class="fl">7.27</span>,</span>
+<span id="cb1-67"><a href="#cb1-67"></a>    <span class="st">'A'</span>: <span class="fl">6.51</span>,</span>
+<span id="cb1-68"><a href="#cb1-68"></a>    <span class="st">'O'</span>: <span class="fl">2.51</span>,</span>
+<span id="cb1-69"><a href="#cb1-69"></a>    <span class="st">'I'</span>: <span class="fl">7.55</span>,</span>
+<span id="cb1-70"><a href="#cb1-70"></a>    <span class="st">'N'</span>: <span class="fl">9.78</span>,</span>
+<span id="cb1-71"><a href="#cb1-71"></a>    <span class="st">'S'</span>: <span class="fl">7.27</span>,</span>
+<span id="cb1-72"><a href="#cb1-72"></a>    <span class="st">'R'</span>: <span class="fl">7.0</span>,</span>
+<span id="cb1-73"><a href="#cb1-73"></a>    <span class="st">'H'</span>: <span class="fl">4.76</span>,</span>
+<span id="cb1-74"><a href="#cb1-74"></a>    <span class="st">'D'</span>: <span class="fl">5.08</span>,</span>
+<span id="cb1-75"><a href="#cb1-75"></a>    <span class="st">'L'</span>: <span class="fl">3.44</span>,</span>
+<span id="cb1-76"><a href="#cb1-76"></a>    <span class="st">'C'</span>: <span class="fl">3.06</span>,</span>
+<span id="cb1-77"><a href="#cb1-77"></a>    <span class="st">'U'</span>: <span class="fl">4.35</span>,</span>
+<span id="cb1-78"><a href="#cb1-78"></a>    <span class="st">'M'</span>: <span class="fl">2.53</span>,</span>
+<span id="cb1-79"><a href="#cb1-79"></a>    <span class="st">'W'</span>: <span class="fl">1.89</span>,</span>
+<span id="cb1-80"><a href="#cb1-80"></a>    <span class="st">'F'</span>: <span class="fl">1.66</span>,</span>
+<span id="cb1-81"><a href="#cb1-81"></a>    <span class="st">'G'</span>: <span class="fl">3.01</span>,</span>
+<span id="cb1-82"><a href="#cb1-82"></a>    <span class="st">'Y'</span>: <span class="fl">0.04</span>,</span>
+<span id="cb1-83"><a href="#cb1-83"></a>    <span class="st">'P'</span>: <span class="fl">0.79</span>,</span>
+<span id="cb1-84"><a href="#cb1-84"></a>    <span class="st">'B'</span>: <span class="fl">1.89</span>,</span>
+<span id="cb1-85"><a href="#cb1-85"></a>    <span class="st">'V'</span>: <span class="fl">0.67</span>,</span>
+<span id="cb1-86"><a href="#cb1-86"></a>    <span class="st">'K'</span>: <span class="fl">1.21</span>,</span>
+<span id="cb1-87"><a href="#cb1-87"></a>    <span class="st">'J'</span>: <span class="fl">0.27</span>,</span>
+<span id="cb1-88"><a href="#cb1-88"></a>    <span class="st">'X'</span>: <span class="fl">0.03</span>,</span>
+<span id="cb1-89"><a href="#cb1-89"></a>    <span class="st">'Q'</span>: <span class="fl">0.02</span>,</span>
+<span id="cb1-90"><a href="#cb1-90"></a>    <span class="st">'Z'</span>: <span class="fl">1.13</span></span>
+<span id="cb1-91"><a href="#cb1-91"></a>}</span>
+<span id="cb1-92"><a href="#cb1-92"></a></span>
+<span id="cb1-93"><a href="#cb1-93"></a></span>
+<span id="cb1-94"><a href="#cb1-94"></a>df <span class="op">=</span> pd.DataFrame.from_dict([standard_frequency, frequency_zauberberg])</span>
+<span id="cb1-95"><a href="#cb1-95"></a>df.index <span class="op">=</span> [<span class="st">'Standard Frequency'</span>, <span class="st">'Zauberberg Frequency'</span>]</span>
+<span id="cb1-96"><a href="#cb1-96"></a>dft <span class="op">=</span> df.T</span>
+<span id="cb1-97"><a href="#cb1-97"></a>dft <span class="op">=</span> dft.sort_index()</span>
+<span id="cb1-98"><a href="#cb1-98"></a>dft[<span class="st">'Standard Frequency'</span>] <span class="op">=</span> dft[<span class="st">'Standard Frequency'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb1-99"><a href="#cb1-99"></a>dft[<span class="st">'Zauberberg Frequency'</span>] <span class="op">=</span> dft[<span class="st">'Zauberberg Frequency'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
+<span id="cb1-101"><a href="#cb1-101"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
+<span id="cb1-102"><a href="#cb1-102"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb1-103"><a href="#cb1-103"></a></span>
+<span id="cb1-104"><a href="#cb1-104"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
+<span id="cb1-105"><a href="#cb1-105"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
+<span id="cb1-106"><a href="#cb1-106"></a></span>
+<span id="cb1-107"><a href="#cb1-107"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
+<span id="cb1-108"><a href="#cb1-108"></a></span>
+<span id="cb1-109"><a href="#cb1-109"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
+<span id="cb1-110"><a href="#cb1-110"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
+<span id="cb1-111"><a href="#cb1-111"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit in Zauberberg'</span>)</span>
+<span id="cb1-112"><a href="#cb1-112"></a></span>
+<span id="cb1-113"><a href="#cb1-113"></a>ax.set_xticks(x)</span>
+<span id="cb1-114"><a href="#cb1-114"></a>ax.set_xticklabels(dft.index)</span>
+<span id="cb1-115"><a href="#cb1-115"></a></span>
+<span id="cb1-116"><a href="#cb1-116"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
+<span id="cb1-117"><a href="#cb1-117"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
+<span id="cb1-118"><a href="#cb1-118"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit'</span>)</span>
+<span id="cb1-119"><a href="#cb1-119"></a>ax.legend()</span>
+<span id="cb1-120"><a href="#cb1-120"></a>plt.tight_layout()</span>
+<span id="cb1-121"><a href="#cb1-121"></a></span>
+<span id="cb1-122"><a href="#cb1-122"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -749,49 +749,49 @@ window.Quarto = {
 <p>Die Grafik zeigt, dass bei einer Textlänge von 51’396 Buchstaben die Verteilung in einem literarischen Text nahezu identisch ist mit der allgemeinen Häufigkeitsverteilung in der deutschen Sprache.</p>
 <p>Die nächste Grafik zeigt, was mit der Verteilung der Buchstaben geschieht, wenn der gleiche Text mit einer Caesar-Chiffre verschlüsselt worden ist.</p>
 <div id="382bba9f-05f1-4cad-935d-96ecc1ff6d03" class="cell" data-tags="[&quot;hide-input&quot;]" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> caesar(text : <span class="bu">str</span>, shift : <span class="bu">int</span>, encrypt<span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> text.upper()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> encrypt:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">+</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">-</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>zauberberg_verschluesselt <span class="op">=</span> caesar(zauberberg, <span class="dv">11</span>, encrypt<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>frequency_zauberberg_verschluesselt <span class="op">=</span> letter_frequency(zauberberg_verschluesselt)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>dft[<span class="st">'Zauberberg Frequency Encrypted'</span>] <span class="op">=</span> pd.Series(frequency_zauberberg_verschluesselt)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency Encrypted'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit Zauberberg veschlüsselt'</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(dft.index)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit im verschlüsselten Text'</span>)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> caesar(text : <span class="bu">str</span>, shift : <span class="bu">int</span>, encrypt<span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    text <span class="op">=</span> text.upper()</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    </span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="cf">if</span> encrypt:</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb2-7"><a href="#cb2-7"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">+</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb2-11"><a href="#cb2-11"></a>            shifted <span class="op">=</span> (<span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>) <span class="op">-</span> shift) <span class="op">%</span> <span class="dv">26</span> <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>            result <span class="op">+=</span> <span class="bu">chr</span>(shifted)</span>
+<span id="cb2-13"><a href="#cb2-13"></a>            </span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="cf">return</span> result</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a>zauberberg_verschluesselt <span class="op">=</span> caesar(zauberberg, <span class="dv">11</span>, encrypt<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>frequency_zauberberg_verschluesselt <span class="op">=</span> letter_frequency(zauberberg_verschluesselt)</span>
+<span id="cb2-19"><a href="#cb2-19"></a>dft[<span class="st">'Zauberberg Frequency Encrypted'</span>] <span class="op">=</span> pd.Series(frequency_zauberberg_verschluesselt)</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
+<span id="cb2-32"><a href="#cb2-32"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency Encrypted'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit Zauberberg veschlüsselt'</span>)</span>
+<span id="cb2-33"><a href="#cb2-33"></a></span>
+<span id="cb2-34"><a href="#cb2-34"></a>ax.set_xticks(x)</span>
+<span id="cb2-35"><a href="#cb2-35"></a>ax.set_xticklabels(dft.index)</span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
+<span id="cb2-38"><a href="#cb2-38"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
+<span id="cb2-39"><a href="#cb2-39"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit im verschlüsselten Text'</span>)</span>
+<span id="cb2-40"><a href="#cb2-40"></a>ax.legend()</span>
+<span id="cb2-41"><a href="#cb2-41"></a>plt.tight_layout()</span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -829,73 +829,73 @@ LLCAKOTBHCITJTACBHRPED</code></pre>
 <p>Für die Entschlüsselung wird die ‘Formel’ folgendermassen umgekehrt: <span class="math inline">\(P_i = (C_i - K_i + 26)\ mod\ 26\)</span>. Die Addition von 26 in der Klammer erfolgt, um negative Zahlen zu vermeiden.</p>
 <p>Wie sich die Vigenère Verschlüsselung auf die Verteilung der Buchstaben auswirkt, kann untenstehender Grafik entnommen werden.</p>
 <div id="889130d7-d920-4ea4-a29e-46628187021c" class="cell" data-tags="[&quot;hide-input&quot;]" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vigenere_chiffre(text: <span class="bu">str</span>, key: <span class="bu">str</span>, encrypt<span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Implementiert die Vigenère-Verschlüsselung für einen gegebenen Klartext und</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Schlüssel.</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">        klartext (str): Der zu verschlüsselnde Text schluessel (str): Das</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">        Schlüsselwort für die Verschlüsselung</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">        str: Der verschlüsselte Text</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialisiere den resultierenden Text</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    resulting_text <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># bestimme die Schlüssellänge für die anschliessende Modulo-Operation</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    key_length <span class="op">=</span> <span class="bu">len</span>(key)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># itererie über den Eingabetext unter gleichzeitiger Erfassung des Index</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># berechne den Zahlwert des Buchstabens aus der ascii Tabelle</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        char_no <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="dv">97</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        key_no <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="dv">97</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> encrypt <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># berechne den Zahlwert des verschlüsselten Buchstabens</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            ciph_no <span class="op">=</span> (char_no <span class="op">+</span> key_no) <span class="op">%</span> <span class="dv">26</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># berechne den Zahlwert des entschlüsselten Buchstabens</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            ciph_no <span class="op">=</span> (char_no <span class="op">+</span> (<span class="dv">26</span> <span class="op">-</span> key_no)) <span class="op">%</span> <span class="dv">26</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>         <span class="co"># übernehme das Zeichen aufgrund seines Zahlwertes aus der ascii Tabelle  </span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        ciph <span class="op">=</span> <span class="bu">chr</span>(ciph_no <span class="op">+</span> <span class="dv">97</span>)</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># füge den Buchstaben am resultierenden Text an</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        resulting_text <span class="op">+=</span> ciph</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resulting_text</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>zauberberg_vigenere <span class="op">=</span> vigenere_chiffre(zauberberg.lower(), <span class="st">'buelrain'</span>, encrypt<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>zauberberg_vigenere_frequency <span class="op">=</span> letter_frequency(zauberberg_vigenere.upper())</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>dft[<span class="st">'Zauberberg Frequency Vigenere'</span>] <span class="op">=</span> pd.Series(zauberberg_vigenere_frequency)</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency Vigenere'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit Zauberberg Vigenère'</span>)</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(dft.index)</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit im Vigenère verschlüsselten Text'</span>)</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> vigenere_chiffre(text: <span class="bu">str</span>, key: <span class="bu">str</span>, encrypt<span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">"""</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    Implementiert die Vigenère-Verschlüsselung für einen gegebenen Klartext und</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">    Schlüssel.</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    Args:</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">        klartext (str): Der zu verschlüsselnde Text schluessel (str): Das</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">        Schlüsselwort für die Verschlüsselung</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">    </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">    Returns:</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">        str: Der verschlüsselte Text</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">    """</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>    </span>
+<span id="cb6-14"><a href="#cb6-14"></a>    <span class="co"># initialisiere den resultierenden Text</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>    resulting_text <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>    </span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="co"># bestimme die Schlüssellänge für die anschliessende Modulo-Operation</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    key_length <span class="op">=</span> <span class="bu">len</span>(key)</span>
+<span id="cb6-19"><a href="#cb6-19"></a>    </span>
+<span id="cb6-20"><a href="#cb6-20"></a>    <span class="co"># itererie über den Eingabetext unter gleichzeitiger Erfassung des Index</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>    <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
+<span id="cb6-22"><a href="#cb6-22"></a>        <span class="co"># berechne den Zahlwert des Buchstabens aus der ascii Tabelle</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a>        char_no <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="dv">97</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>        key_no <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="dv">97</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a>        </span>
+<span id="cb6-26"><a href="#cb6-26"></a>        <span class="cf">if</span> encrypt <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-27"><a href="#cb6-27"></a>            <span class="co"># berechne den Zahlwert des verschlüsselten Buchstabens</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a>            ciph_no <span class="op">=</span> (char_no <span class="op">+</span> key_no) <span class="op">%</span> <span class="dv">26</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-30"><a href="#cb6-30"></a>            <span class="co"># berechne den Zahlwert des entschlüsselten Buchstabens</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a>            ciph_no <span class="op">=</span> (char_no <span class="op">+</span> (<span class="dv">26</span> <span class="op">-</span> key_no)) <span class="op">%</span> <span class="dv">26</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a>            </span>
+<span id="cb6-33"><a href="#cb6-33"></a>         <span class="co"># übernehme das Zeichen aufgrund seines Zahlwertes aus der ascii Tabelle  </span></span>
+<span id="cb6-34"><a href="#cb6-34"></a>        ciph <span class="op">=</span> <span class="bu">chr</span>(ciph_no <span class="op">+</span> <span class="dv">97</span>)</span>
+<span id="cb6-35"><a href="#cb6-35"></a>        </span>
+<span id="cb6-36"><a href="#cb6-36"></a>        <span class="co"># füge den Buchstaben am resultierenden Text an</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a>        resulting_text <span class="op">+=</span> ciph</span>
+<span id="cb6-38"><a href="#cb6-38"></a>    <span class="cf">return</span> resulting_text</span>
+<span id="cb6-39"><a href="#cb6-39"></a></span>
+<span id="cb6-40"><a href="#cb6-40"></a>zauberberg_vigenere <span class="op">=</span> vigenere_chiffre(zauberberg.lower(), <span class="st">'buelrain'</span>, encrypt<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-41"><a href="#cb6-41"></a></span>
+<span id="cb6-42"><a href="#cb6-42"></a>zauberberg_vigenere_frequency <span class="op">=</span> letter_frequency(zauberberg_vigenere.upper())</span>
+<span id="cb6-43"><a href="#cb6-43"></a>dft[<span class="st">'Zauberberg Frequency Vigenere'</span>] <span class="op">=</span> pd.Series(zauberberg_vigenere_frequency)</span>
+<span id="cb6-44"><a href="#cb6-44"></a></span>
+<span id="cb6-45"><a href="#cb6-45"></a><span class="co"># --- Erstellen Sie das Side-by-Side-Balkendiagramm ---</span></span>
+<span id="cb6-46"><a href="#cb6-46"></a><span class="co"># Legen Sie die Breite der Balken fest</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a>bar_width <span class="op">=</span> <span class="fl">0.35</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="co"># Verwenden Sie den Index des transponierten DataFrames (dft)</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(dft.index))</span>
+<span id="cb6-51"><a href="#cb6-51"></a></span>
+<span id="cb6-52"><a href="#cb6-52"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
+<span id="cb6-53"><a href="#cb6-53"></a></span>
+<span id="cb6-54"><a href="#cb6-54"></a><span class="co"># Zeichnen Sie die Balken für die beiden Spalten aus dft</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a>ax.bar(x <span class="op">-</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Standard Frequency'</span>], bar_width, label<span class="op">=</span><span class="st">'Standardhäufigkeit'</span>)</span>
+<span id="cb6-56"><a href="#cb6-56"></a>ax.bar(x <span class="op">+</span> bar_width<span class="op">/</span><span class="dv">2</span>, dft[<span class="st">'Zauberberg Frequency Vigenere'</span>], bar_width, label<span class="op">=</span><span class="st">'Häufigkeit Zauberberg Vigenère'</span>)</span>
+<span id="cb6-57"><a href="#cb6-57"></a></span>
+<span id="cb6-58"><a href="#cb6-58"></a>ax.set_xticks(x)</span>
+<span id="cb6-59"><a href="#cb6-59"></a>ax.set_xticklabels(dft.index)</span>
+<span id="cb6-60"><a href="#cb6-60"></a></span>
+<span id="cb6-61"><a href="#cb6-61"></a>ax.set_xlabel(<span class="st">'Buchstaben'</span>)</span>
+<span id="cb6-62"><a href="#cb6-62"></a>ax.set_ylabel(<span class="st">'Häufigkeit (%)'</span>)</span>
+<span id="cb6-63"><a href="#cb6-63"></a>ax.set_title(<span class="st">'Vergleich der Buchstabenhäufigkeit im Vigenère verschlüsselten Text'</span>)</span>
+<span id="cb6-64"><a href="#cb6-64"></a>ax.legend()</span>
+<span id="cb6-65"><a href="#cb6-65"></a>plt.tight_layout()</span>
+<span id="cb6-66"><a href="#cb6-66"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

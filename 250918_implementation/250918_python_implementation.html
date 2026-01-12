@@ -498,103 +498,103 @@ window.Quarto = {
 
 <p>In diesem Notebook wird eine mögliche Implementierung der Vigenère Chiffre in Python vorgestellt.</p>
 <div id="c1fd7eb8" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vigenere(text: <span class="bu">str</span>, key: <span class="bu">str</span>, mode: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Encrypts or decrypts a given text using the Vigenère cipher.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The function processes a string of uppercase alphabetic characters</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    using a provided key for encryption or decryption.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">        text: The string to be encrypted or decrypted. It should only contain</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">              uppercase alphabetic characters (A-Z).</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">        key: The key for the cipher. It should also only contain</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">             uppercase alphabetic characters (A-Z).</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">        mode: The operation to perform, must be 'encrypt' or 'decrypt'.</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">        The resulting ciphertext or plaintext.</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    Raises:</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">        ValueError: If the mode is not 'encrypt' or 'decrypt'.</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure the mode is valid before proceeding.</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mode <span class="kw">not</span> <span class="kw">in</span> [<span class="st">'encrypt'</span>, <span class="st">'decrypt'</span>]:</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Mode must be 'encrypt' or 'decrypt'"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    key_length <span class="op">=</span> <span class="bu">len</span>(key)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mode <span class="op">==</span> <span class="st">'encrypt'</span>:</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       cipher <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Iterate through each character of the input text.</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Convert the current text character and the corresponding key </span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>           <span class="co"># character to a number (0-25).</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>           <span class="co"># The key character is determined using modulo to cycle through </span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>           <span class="co"># the key.</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>           char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>           key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>           </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Calculate the new character's number using the Vigenère encryption formula.</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>           <span class="co"># The modulo operator ensures the result stays within the range 0-25.</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>           cipher_num <span class="op">=</span> (char_num <span class="op">+</span> key_num) <span class="op">%</span> <span class="dv">26</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>           </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Convert the resulting number back to an uppercase character and append it.</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>           cipher <span class="op">+=</span> <span class="bu">chr</span>(cipher_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>       <span class="cf">return</span> cipher  </span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># mode == 'decrypt'</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        plain <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Iterate through each character of the input text.</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Convert the current text character and the corresponding key </span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>            <span class="co"># character to a number (0-25).</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>            char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>            key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Calculate the new character's number using the Vigenère </span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>            <span class="co"># decryption formula.</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>            <span class="co"># The modulo operator handles negative results, ensuring the </span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>            <span class="co"># result is correct.</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>            plain_num <span class="op">=</span> (char_num <span class="op">-</span> key_num) <span class="op">%</span> <span class="dv">26</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Convert the resulting number back to an uppercase </span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>            <span class="co"># character and append it.</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>            plain <span class="op">+=</span> <span class="bu">chr</span>(plain_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> plain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> vigenere(text: <span class="bu">str</span>, key: <span class="bu">str</span>, mode: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">"""Encrypts or decrypts a given text using the Vigenère cipher.</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">    The function processes a string of uppercase alphabetic characters</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">    using a provided key for encryption or decryption.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">    Args:</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">        text: The string to be encrypted or decrypted. It should only contain</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">              uppercase alphabetic characters (A-Z).</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">        key: The key for the cipher. It should also only contain</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">             uppercase alphabetic characters (A-Z).</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">        mode: The operation to perform, must be 'encrypt' or 'decrypt'.</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">    Returns:</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co">        The resulting ciphertext or plaintext.</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">    Raises:</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">        ValueError: If the mode is not 'encrypt' or 'decrypt'.</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co">    """</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="co"># Ensure the mode is valid before proceeding.</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="cf">if</span> mode <span class="kw">not</span> <span class="kw">in</span> [<span class="st">'encrypt'</span>, <span class="st">'decrypt'</span>]:</span>
+<span id="cb1-23"><a href="#cb1-23"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Mode must be 'encrypt' or 'decrypt'"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    </span>
+<span id="cb1-25"><a href="#cb1-25"></a>    key_length <span class="op">=</span> <span class="bu">len</span>(key)</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    </span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="cf">if</span> mode <span class="op">==</span> <span class="st">'encrypt'</span>:</span>
+<span id="cb1-28"><a href="#cb1-28"></a>       cipher <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>       <span class="co"># Iterate through each character of the input text.</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>       <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
+<span id="cb1-31"><a href="#cb1-31"></a>           <span class="co"># Convert the current text character and the corresponding key </span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>           <span class="co"># character to a number (0-25).</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>           <span class="co"># The key character is determined using modulo to cycle through </span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>           <span class="co"># the key.</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>           char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36"></a>           key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb1-37"><a href="#cb1-37"></a>           </span>
+<span id="cb1-38"><a href="#cb1-38"></a>           <span class="co"># Calculate the new character's number using the Vigenère encryption formula.</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a>           <span class="co"># The modulo operator ensures the result stays within the range 0-25.</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>           cipher_num <span class="op">=</span> (char_num <span class="op">+</span> key_num) <span class="op">%</span> <span class="dv">26</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>           </span>
+<span id="cb1-42"><a href="#cb1-42"></a>           <span class="co"># Convert the resulting number back to an uppercase character and append it.</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>           cipher <span class="op">+=</span> <span class="bu">chr</span>(cipher_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span>
+<span id="cb1-44"><a href="#cb1-44"></a>       <span class="cf">return</span> cipher  </span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="cf">else</span>:  <span class="co"># mode == 'decrypt'</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>        plain <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>        <span class="co"># Iterate through each character of the input text.</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>        <span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span>
+<span id="cb1-49"><a href="#cb1-49"></a>            <span class="co"># Convert the current text character and the corresponding key </span></span>
+<span id="cb1-50"><a href="#cb1-50"></a>            <span class="co"># character to a number (0-25).</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>            char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb1-52"><a href="#cb1-52"></a>            key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb1-53"><a href="#cb1-53"></a>            </span>
+<span id="cb1-54"><a href="#cb1-54"></a>            <span class="co"># Calculate the new character's number using the Vigenère </span></span>
+<span id="cb1-55"><a href="#cb1-55"></a>            <span class="co"># decryption formula.</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a>            <span class="co"># The modulo operator handles negative results, ensuring the </span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>            <span class="co"># result is correct.</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a>            plain_num <span class="op">=</span> (char_num <span class="op">-</span> key_num) <span class="op">%</span> <span class="dv">26</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a>            </span>
+<span id="cb1-60"><a href="#cb1-60"></a>            <span class="co"># Convert the resulting number back to an uppercase </span></span>
+<span id="cb1-61"><a href="#cb1-61"></a>            <span class="co"># character and append it.</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a>            plain <span class="op">+=</span> <span class="bu">chr</span>(plain_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span>
+<span id="cb1-63"><a href="#cb1-63"></a>        <span class="cf">return</span> plain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Die Funktion <code>vigenere()</code> wird im Folgenden detailliert erklärt.</p>
 <p>Die Signatur der Funktion</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vigenere(text: <span class="bu">str</span>, key: <span class="bu">str</span>, mode: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> vigenere(text: <span class="bu">str</span>, key: <span class="bu">str</span>, mode: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>zeigt, dass die Funktion drei Parameter erwartet: * <code>text</code>: Der zu verschlüsselnde oder zu entschlüsselnde Text als String. * <code>key</code>: Der Schlüssel zur Verschlüsselung oder Entschlüsselung als String. * <code>mode</code>: Der Modus, der angibt, ob der Text verschlüsselt oder entschlüsselt werden soll. Mögliche Werte sind <code>'encrypt'</code> für Verschlüsselung und <code>'decrypt'</code> für Entschlüsselung (dies ist allerdings nicht direkt aus der Signatur ersichtlich).</p>
 <p>Anschliessend an die Signatur folgt ein ausführlicher Docstring, der die Funktion und ihre Parameter beschreibt. Dieser ist - obwohl in Englisch abgefasst - aus sich selber heraus verständlich.</p>
 <p>Der Docstring wird gefolgt durch die Prüfung, ob zulässige Werte für den <code>mode</code>-Parameter übergeben wurden. Ist dies nicht der Fall, wird eine <code>ValueError</code>-Exception ausgelöst.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> mode <span class="kw">not</span> <span class="kw">in</span> [<span class="st">'encrypt'</span>, <span class="st">'decrypt'</span>]:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Mode must be 'encrypt' or 'decrypt'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> mode <span class="kw">not</span> <span class="kw">in</span> [<span class="st">'encrypt'</span>, <span class="st">'decrypt'</span>]:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Mode must be 'encrypt' or 'decrypt'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Um diese Prüfung durchzuführen, werden die zulässigen Werte in einer Liste zur Verfügung gestellt. Geprüft wird dann, ob der <code>mode</code> zugewiesene Wert in der Liste enthalten ist. Falls dies nicht der Fall ist, wird eine Fehlermeldung ausgegeben und die Ausführung der Funktion abgebrochen.</p>
 <p>Sofern der <code>mode</code>-Parameter einen zulässigen Wert enthält, beginnt die eigentliche Funktionslogik zu spielen.</p>
 <p>Als erstes wird die Länge des Schlüssels in</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>key_length <span class="op">=</span> <span class="bu">len</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>key_length <span class="op">=</span> <span class="bu">len</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>der Variablen <code>key_length</code> zugewiesen. Diese Information wird weiter unten benötigt, um in einer besonderen Art von Schlaufe über den Text des Schlüssels zu iterieren.</p>
 <p>Nach dieser Zuweisung teilt sich die Funktion in die Zweige Ver- bzw. Entschlüsselung.</p>
 <p>Zuerst wird die Verschlüsselung - eingeleitet mit <code>if mode == 'encrypt':</code> - betrachtet.</p>
 <p>Innerhalb dieses Blocks wird als erstes ein leerer String <code>cipher</code> initialisiert, der später die verschlüsselten Zeichen aufnehmen wird.</p>
 <p>Anschliessend wird mit einer <code>for</code>-Schlaufe über den zu verschlüsselnden Text iteriert.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">for</span> i, char <span class="kw">in</span> <span class="bu">enumerate</span>(text):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In dieser Schlaufe wird die Funktion <code>enumerate()</code> verwendet. Diese Funktion liefert ein Tupel aus Index und dem jeweiligen Element der Struktur, über die iteriert wird. Die Werte des Tupels werden den Variablen <code>i</code> und <code>char</code> zugewiesen.</p>
 <p>Die Variabeln <code>i</code> und <code>char</code> werden innerhalb der Schlaufe verwendet, um die einzelnen Zeichen des Textes in eine Zahl umzuwandeln.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>    char_num <span class="op">=</span> <span class="bu">ord</span>(char) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    key_num <span class="op">=</span> <span class="bu">ord</span>(key[i <span class="op">%</span> key_length]) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">'A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Funktion <code>ord()</code> wandelt einen Buchstaben in die entsprechende Zahl aus der ASCII-Tabelle um. Damit die Zahlen im Bereich von 0 bis 25 liegen, wird der ASCII-Wert des Buchstabens ‘A’ abgezogen. Der Buchstabe ‘A’ wird verwendet, da die zu verschlüsselnden Zeichen in Grossbuchstaben vorgegeben sind.<br>
 Da der Schlüssel kürzer als der zu verschlüsselnde Text sein kann, wird mit <code>i % key_length</code> über den Schlüssel iteriert. Der Modulo-Operator <code>%</code> sorgt dafür, dass der Index Wert des verwendeten Index immer zwischen 0 und der Länge des Schlüssels <code>key_length</code> bleibt. Dadurch wird sichergestellt, dass der Schlüssel wieder von vorne begonnen wird, sobald das Ende des Schlüssels erreicht ist. Anschliessend wird mit den einzelnen Buchstaben des Schlüssels genauso verfahren wie mit den Buchstaben des Textes.</p>
 <p>Nachdem die Buchstaben des Textes sowie des Schlüssels in Zahlen umgewandelt wurden, wird die eigentliche Verschlüsselung gemäss der Formel <span class="math inline">\(C_i = (P_i + K_i)\ mod\ 26\)</span> durchgeführt.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    cipher_num <span class="op">=</span> (char_num <span class="op">+</span> key_num) <span class="op">%</span> <span class="dv">26</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>    cipher_num <span class="op">=</span> (char_num <span class="op">+</span> key_num) <span class="op">%</span> <span class="dv">26</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Zahlenwerte des verschlüsselten Textes werden anschliessend wieder in Buchstaben umgewandelt und an den String <code>cipher</code> angehängt. Dazu wird die Funktion <code>chr()</code> verwendet, die eine Zahl in den entsprechenden Buchstaben der ASCII-Tabelle umwandelt. Da die Zahlenwerte im Bereich von 0 bis 25 liegen, wird der ASCII-Wert des Buchstabens ‘A’ addiert.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    cipher <span class="op">+=</span> <span class="bu">chr</span>(cipher_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>    cipher <span class="op">+=</span> <span class="bu">chr</span>(cipher_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Der unter <code>cipher</code> abgelegte String wird am Ende des Blocks zurückgegeben.</p>
 <p>Im zweiten Block wird die Entschlüsselung - eingeleitet mit <code>else:</code> - durchgeführt. Der Prozess ist dem der Verschlüsselung sehr ähnlich, jedoch wird hier die umgekehrte Formel (<span class="math inline">\(P_i = (C_i - K_i + 26)\ mod\
 26\)</span>) verwendet.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    plain_num <span class="op">=</span> (char_num <span class="op">-</span> key_num <span class="op">+</span> <span class="dv">26</span>) <span class="op">%</span> <span class="dv">26</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    plain <span class="op">+=</span> <span class="bu">chr</span>(plain_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>    plain_num <span class="op">=</span> (char_num <span class="op">-</span> key_num <span class="op">+</span> <span class="dv">26</span>) <span class="op">%</span> <span class="dv">26</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>    plain <span class="op">+=</span> <span class="bu">chr</span>(plain_num <span class="op">+</span> <span class="bu">ord</span>(<span class="st">'A'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alles andere entspricht dem Vorgehen bei der Verschlüsselung.</p>
 
 

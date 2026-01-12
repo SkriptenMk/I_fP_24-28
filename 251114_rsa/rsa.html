@@ -523,13 +523,27 @@ window.Quarto = {
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="tipps"><span class="header-section-number">8.2.1</span> Tipps</h3>
 <p>Der Taschenrechner kann nicht gut modulo mit grossen Zahlen rechnen.</p>
 <p>Python ist da besser geeignet. Wenn Sie <span class="math inline">\(c=88^{17} ~mod~ 143\)</span> rechnen möchten, können Sie es in Python wie folgt berechnen:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">88</span><span class="op">**</span><span class="dv">17</span> <span class="op">%</span> <span class="dv">143</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 121</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::{dropdown} Zusätzlicher Hintergrund zum Rechnen</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>c <span class="op">=</span> <span class="dv">88</span><span class="op">**</span><span class="dv">17</span> <span class="op">%</span> <span class="dv">143</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(c)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># 121</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Zusätzlicher Hintergrund zum Rechnen</p>
 <p>Python kann <code>88000**80021</code> nicht ausrechnen, aber <code>88000**80021 % 89911</code> schon.</p>
 <p><span class="math inline">\(88000 \cdot 80021\)</span> ist zu gross für den Speicher. Python berechnet vor zu den Rest und braucht damit nicht nur weniger Speicher, sondern rechnet auch viel schneller.</p>
-<p>:::</p>
+</div>
+</div>
+</div>
 </section>
 <section id="signieren" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="signieren"><span class="header-section-number">8.2.2</span> Signieren</h3>
@@ -544,7 +558,16 @@ window.Quarto = {
 <p>Wenn Mallory nichts ändert, bekommt Bob “Uhrzeit 15, Signatur 97”. Bob kann nun den Inhalt überprüfen, indem er <span class="math display">\[ signatur ^ e ~mod~ n = 97
 ^{17} ~mod~ 143 = 15 \]</span> berechnet. Er merkt, die Zahl stimmt überein.</p>
 <p>Wenn Mallory eine falsche Zeit an Bob geben möchte und die Zeit zu 14 anpasst, merkt Alice, dass die Zeit nicht mit der Signatur über einpasst. Wenn Mallory die Signatur auch anpassen möchte, müsste sie die Signatur finden, sodass <span class="math display">\[ x = 14^e ~mod~n. \]</span> Dies ist genau so schwierig, wie das Entschlüsseln der Nachricht.</p>
-<p>:::{tip} Aufgabe</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aufgabe
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Erstellen Sie auf der <a href="https://www.cryptool.org/de/cto/rsa-step-by-step/">bekannten cryptool Seite</a> ein Schlüsselpaar.</li>
 <li>Wählen Sie (zufällig) 3 Zahlen.</li>
@@ -553,7 +576,8 @@ window.Quarto = {
 <li>Tauschen Sie den öffentlichen Schlüssel mit den 3 Tupeln mit Ihrem Nachbar aus.</li>
 <li>Testen Sie die Tupel, welches stimmt.</li>
 </ol>
-<p>:::</p>
+</div>
+</div>
 
 
 </section>
