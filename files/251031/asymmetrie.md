@@ -116,8 +116,5 @@ In den Knoten $v_1$, $v_7$ und $v_8$ sind alle Summanden enthalten. Um die
 ursprüngliche Zahl zu rekonstruieren, reicht es also, die Werte dieser drei
 Knoten zu summieren. Das finden der dominierenden Menge ist aber ein schwierig
 zu lösendes Problem und stellt daher für den Lauscher eine unüberwindbare
-Schranke dar[^1].
+Schranke dar[@freiermuth2014, 244 ff.].
 
-[^1]: Das Beispiel stammt aus dem Buch Freiermuth, Karin. Einführung in die
-    Kryptologie: Lehrbuch für Unterricht und Selbststudium. 2., Überarb. Aufl.
-    Einführung in die Kryptologie. Wiesbaden: Vieweg, 2014, Kapitel 9.
