@@ -36,7 +36,8 @@ Zotero unbedingt erforderlich. Das Plugin kann direkt aus seinem
 Repository](https://github.com/retorquere/zotero-better-bibtex/releases/latest)
 heruntergeladen werden. Das heruntergeladene `.xpi` Dokument kann über
 das Menü Werkzeuge > Plugins, Zahnradsymbol, Install Plugin from File,
-installiert werden.
+installiert werden. Nach der Installation kann die `.xpi` Datei gelöscht
+werden.  
 
 ## Einträge in Zotero erstellen und organisieren
 

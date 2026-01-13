@@ -9,6 +9,10 @@ eigentlichen Text, drei weitere Dateien:
 * eine Datei mit den Formatierungsangaben für die Literaturdarstellung
   (`.csl`). 
 
+Diese Dateien müssen sich alle im gleichen Verzeichnis befinden. Falls
+dies nicht der Fall ist, müssen sie in der Konfigurationsdatei
+(`.yaml`) mit dem Pfad angegeben werden.
+
 Von diesen drei Dateien muss lediglich die Datei mit den
 Formatierungsinformationen manuell erstellt werden. Die Datei mit den
 bibliographischen Angaben wird von Zotero erstellt und die Datei für die
@@ -116,7 +120,7 @@ finden sich [Pandoc User Guide](https://pandoc.org/MANUAL.html).
 
 Das Dokument mit den bibliographischen Angaben kann Zotero automatisch
 erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem
-Dokument erklärt. Das Dokument für das Beispiel heist
+Dokument erklärt. Das Dokument für das Beispiel heisst
 `bibliography.bib`.
 
 ```bib
@@ -141,7 +145,8 @@ Die Abkürzung csl steht für Citation Style Language und ist eine Form
 von [xml](https://de.wikipedia.org/wiki/Extensible_Markup_Language).
 Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das
 [Zotero Style Repository](https://www.zotero.org/styles) stellt jedoch
-die gängigsten Zitierstile zur Verfügung. 
+die gängigsten Zitierstile zur Verfügung. Dort kann der gewünschte Stil
+heruntergeladen und im Projektverzeichnis gespeichert werden.
 
 ## Einfügen von Referenzen in Markdown {#sec-referenzen_einf}
 
@@ -165,4 +170,5 @@ worden ist, kann das PDF mit dem Aufruf
 pandoc -d format.yaml
 ```
 
-erstellt werden.
+erstellt werden. Damit der Befehl funktioniert, muss er im Verzeichnis,
+in welchem die Datei `format.yaml` liegt, ausgeführt werden.
