@@ -51,7 +51,6 @@ table-of-contents: true
 
 # Variablen und Metadaten
 variables:
-  lang: de-CH
   lof: true
   lot: true
   number-sections: true
@@ -62,6 +61,7 @@ variables:
 metadata:
   title: "Titel des Dokuments"
   author: "Ihr Name"
+  lang: de-CH
   date: "Heute"
   bibliography: bibliography.bib
   csl: chicago-notes-bibliography-access-dates.csl
@@ -89,9 +89,6 @@ Konfigurationsdatei:
   Erstellung eines Inhaltsverzeichnisses.
 * `variables` stellt die Details für die Darstellung des
   Ausgabedokuments zur Verfügung.
-* `lang` ist die Variabel zur Speicherung der Sprache des
-  Ausgabedokuments. Indem sie hier auf `de-CH` gesetzt wird, werden die
-  typographischen Besonderheiten der Deutschschweiz berücksichtigt.
 * `lof` erstellt ein Abbildungsverzeichnis.
 * `lot` erstellt ein Tabellenverzeichnis.
 * `number-sections` nummeriert die Titel ihrer Hierarchiestufe gemäss.
@@ -106,6 +103,9 @@ Konfigurationsdatei:
 * `metadata` speichert die inhaltlichen Eckwerte für das Dokument.
 * `title` ist jener Titel, der auf dem Deckblatt abgedruckt wird.
 * `author` ist der Name des Autors.
+* `lang` ist die Variabel zur Speicherung der Sprache des
+  Ausgabedokuments. Indem sie hier auf `de-CH` gesetzt wird, werden die
+  typographischen Besonderheiten der Deutschschweiz berücksichtigt.
 * `date` ist das Datum. Für Dokumente, welche ein PDF als Ausgabeformat
   haben, kann auch der Befehl \today verwendet werden. Dieser liest bei
   der Konvertierung von Markdown zu PDF das aktuelle Systemdatum aus.
