@@ -85,8 +85,6 @@ execute:
 
 format:
   html:
-    code-tools: 
-      source: repo
     theme: cosmo
     code-copy: true
     toc: true
