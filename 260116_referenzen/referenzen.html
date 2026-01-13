@@ -450,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#textformat-.yaml" id="toc-textformat-.yaml" class="nav-link active" data-scroll-target="#textformat-.yaml"><span class="header-section-number">32.1</span> Textformat (.yaml)</a></li>
   <li><a href="#bibliographische-angaben" id="toc-bibliographische-angaben" class="nav-link" data-scroll-target="#bibliographische-angaben"><span class="header-section-number">32.2</span> Bibliographische Angaben</a></li>
   <li><a href="#zitierstil" id="toc-zitierstil" class="nav-link" data-scroll-target="#zitierstil"><span class="header-section-number">32.3</span> Zitierstil</a></li>
-  <li><a href="#einfügen-von-referenzen-in-markdown" id="toc-einfügen-von-referenzen-in-markdown" class="nav-link" data-scroll-target="#einfügen-von-referenzen-in-markdown"><span class="header-section-number">32.4</span> Einfügen von Referenzen in Markdown</a></li>
+  <li><a href="#sec-referenzen_einf" id="toc-sec-referenzen_einf" class="nav-link" data-scroll-target="#sec-referenzen_einf"><span class="header-section-number">32.4</span> Einfügen von Referenzen in Markdown</a></li>
   <li><a href="#erstellen-des-pdf-mit-referenzen" id="toc-erstellen-des-pdf-mit-referenzen" class="nav-link" data-scroll-target="#erstellen-des-pdf-mit-referenzen"><span class="header-section-number">32.5</span> Erstellen des PDF mit Referenzen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/260116_referenzen/referenzen.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
@@ -483,6 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>eine Datei mit den bibliographischen Angaben (<code>.bib</code>) sowie</li>
 <li>eine Datei mit den Formatierungsangaben für die Literaturdarstellung (<code>.csl</code>).</li>
 </ul>
+<p>Diese Dateien müssen sich alle im gleichen Verzeichnis befinden. Falls dies nicht der Fall ist, müssen sie in der Konfigurationsdatei (<code>.yaml</code>) mit dem Pfad angegeben werden.</p>
 <p>Von diesen drei Dateien muss lediglich die Datei mit den Formatierungsinformationen manuell erstellt werden. Die Datei mit den bibliographischen Angaben wird von Zotero erstellt und die Datei für die Darstellung der bibliographischen Angaben im Text kann aus dem <a href="https://www.zotero.org/styles">Zotero Style Repository</a> heruntergeladen werden.</p>
 <section id="textformat-.yaml" class="level2" data-number="32.1">
 <h2 data-number="32.1" class="anchored" data-anchor-id="textformat-.yaml"><span class="header-section-number">32.1</span> Textformat (.yaml)</h2>
@@ -552,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="bibliographische-angaben" class="level2" data-number="32.2">
 <h2 data-number="32.2" class="anchored" data-anchor-id="bibliographische-angaben"><span class="header-section-number">32.2</span> Bibliographische Angaben</h2>
-<p>Das Dokument mit den bibliographischen Angaben kann Zotero automatisch erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem Dokument erklärt. Das Dokument für das Beispiel heist <code>bibliography.bib</code>.</p>
+<p>Das Dokument mit den bibliographischen Angaben kann Zotero automatisch erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem Dokument erklärt. Das Dokument für das Beispiel heisst <code>bibliography.bib</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bib number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb2-1"><a href="#cb2-1"></a><span class="va">@book</span>{<span class="ot">healy2020</span>,</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">title</span> = {The {{Plain Person}}'s {{Guide}} to {{Plain Text Social Science}}},</span>
 <span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">author</span> = {Healy, Kieran},</span>
@@ -562,10 +563,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="zitierstil" class="level2" data-number="32.3">
 <h2 data-number="32.3" class="anchored" data-anchor-id="zitierstil"><span class="header-section-number">32.3</span> Zitierstil</h2>
-<p>Der Zitierstil wird in einem Dokument mit der Endung <code>.csl</code> definiert. Die Abkürzung csl steht für Citation Style Language und ist eine Form von <a href="https://de.wikipedia.org/wiki/Extensible_Markup_Language">xml</a>. Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das <a href="https://www.zotero.org/styles">Zotero Style Repository</a> stellt jedoch die gängigsten Zitierstile zur Verfügung.</p>
+<p>Der Zitierstil wird in einem Dokument mit der Endung <code>.csl</code> definiert. Die Abkürzung csl steht für Citation Style Language und ist eine Form von <a href="https://de.wikipedia.org/wiki/Extensible_Markup_Language">xml</a>. Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das <a href="https://www.zotero.org/styles">Zotero Style Repository</a> stellt jedoch die gängigsten Zitierstile zur Verfügung. Dort kann der gewünschte Stil heruntergeladen und im Projektverzeichnis gespeichert werden.</p>
 </section>
-<section id="einfügen-von-referenzen-in-markdown" class="level2" data-number="32.4">
-<h2 data-number="32.4" class="anchored" data-anchor-id="einfügen-von-referenzen-in-markdown"><span class="header-section-number">32.4</span> Einfügen von Referenzen in Markdown</h2>
+<section id="sec-referenzen_einf" class="level2" data-number="32.4">
+<h2 data-number="32.4" class="anchored" data-anchor-id="sec-referenzen_einf"><span class="header-section-number">32.4</span> Einfügen von Referenzen in Markdown</h2>
 <p>Um Referenzen aus dem Bibliographie Dokument in den Markdown Text zu übernehmen, verwendet man den Zitierschlüssel. Eingefügt wird er mit <code>[@zitierschlüssel]</code>. Soll die Referenz mit einer Seitenzahl versehen werden, wird der Eintrag folgendermassen ergänzt: <code>[@zitierschlüssel, 25]</code>. Sollen in der gleichen Referenz mehrere Belege angeführt werden, sieht die Syntax folgendermassen aus : <code>[@zitierschlüssel1, 25; @zitierschlüssel2, 33]</code>.</p>
 <p>Die Zitierschlüssel braucht man nicht auswendig zu wissen. Die Zotero Einträge zeigen sie als obersten Eintrag zu jedem erfassten Werk an.</p>
 </section>
@@ -573,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="32.5" class="anchored" data-anchor-id="erstellen-des-pdf-mit-referenzen"><span class="header-section-number">32.5</span> Erstellen des PDF mit Referenzen</h2>
 <p>Sofern ein entsprechendes Konfigurationsdokument (<code>.yaml</code>) erstellt worden ist, kann das PDF mit dem Aufruf</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">pandoc</span> <span class="at">-d</span> format.yaml</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>erstellt werden.</p>
+<p>erstellt werden. Damit der Befehl funktioniert, muss er im Verzeichnis, in welchem die Datei <code>format.yaml</code> liegt, ausgeführt werden.</p>
 
 
 </section>
