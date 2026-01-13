@@ -510,17 +510,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-20"><a href="#cb1-20"></a></span>
 <span id="cb1-21"><a href="#cb1-21"></a><span class="co"># Variablen und Metadaten</span></span>
 <span id="cb1-22"><a href="#cb1-22"></a><span class="fu">variables</span><span class="kw">:</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="at">  </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> de-CH</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="at">  </span><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="at">  </span><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="at">  </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="at">  </span><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> \setcounter{secnumdepth}{3}</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> \setcounter{tocdepth}{3}</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="fu">metadata</span><span class="kw">:</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Titel des Dokuments"</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ihr Name"</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="at">  </span><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="at">  </span><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="at">  </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="at">  </span><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> \setcounter{secnumdepth}{3}</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> \setcounter{tocdepth}{3}</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Titel des Dokuments"</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ihr Name"</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="at">  </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> de-CH</span></span>
 <span id="cb1-34"><a href="#cb1-34"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"Heute"</span></span>
 <span id="cb1-35"><a href="#cb1-35"></a><span class="at">  </span><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> bibliography.bib</span></span>
 <span id="cb1-36"><a href="#cb1-36"></a><span class="at">  </span><span class="fu">csl</span><span class="kw">:</span><span class="at"> chicago-notes-bibliography-access-dates.csl</span></span>
@@ -535,7 +535,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>citeproc</code> ist das Programm, dass für die Übernahme der bibliographischen Angaben verantwortlich ist. Mit dem Wert <code>true</code> wird dessen Verwendung aktiviert.</li>
 <li><code>table-of-contents</code> aktiviert, wenn der Wert <code>true</code> ist, die Erstellung eines Inhaltsverzeichnisses.</li>
 <li><code>variables</code> stellt die Details für die Darstellung des Ausgabedokuments zur Verfügung.</li>
-<li><code>lang</code> ist die Variabel zur Speicherung der Sprache des Ausgabedokuments. Indem sie hier auf <code>de-CH</code> gesetzt wird, werden die typographischen Besonderheiten der Deutschschweiz berücksichtigt.</li>
 <li><code>lof</code> erstellt ein Abbildungsverzeichnis.</li>
 <li><code>lot</code> erstellt ein Tabellenverzeichnis.</li>
 <li><code>number-sections</code> nummeriert die Titel ihrer Hierarchiestufe gemäss.</li>
@@ -545,6 +544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>metadata</code> speichert die inhaltlichen Eckwerte für das Dokument.</li>
 <li><code>title</code> ist jener Titel, der auf dem Deckblatt abgedruckt wird.</li>
 <li><code>author</code> ist der Name des Autors.</li>
+<li><code>lang</code> ist die Variabel zur Speicherung der Sprache des Ausgabedokuments. Indem sie hier auf <code>de-CH</code> gesetzt wird, werden die typographischen Besonderheiten der Deutschschweiz berücksichtigt.</li>
 <li><code>date</code> ist das Datum. Für Dokumente, welche ein PDF als Ausgabeformat haben, kann auch der Befehl verwendet werden. Dieser liest bei der Konvertierung von Markdown zu PDF das aktuelle Systemdatum aus.</li>
 <li><code>bibliography</code> gibt den Pfad zur Datei mit den bibliographischen Angaben an.</li>
 <li><code>csl</code> gibt den Pfad zur Datei mit dem gewählten Zitierstil an.</li>
