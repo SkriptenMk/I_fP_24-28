@@ -9,6 +9,10 @@ eigentlichen Text, drei weitere Dateien:
 * eine Datei mit den Formatierungsangaben für die Literaturdarstellung
   (`.csl`). 
 
+Diese Dateien müssen sich alle im gleichen Verzeichnis befinden. Falls
+dies nicht der Fall ist, müssen sie in der Konfigurationsdatei
+(`.yaml`) mit dem Pfad angegeben werden.
+
 Von diesen drei Dateien muss lediglich die Datei mit den
 Formatierungsinformationen manuell erstellt werden. Die Datei mit den
 bibliographischen Angaben wird von Zotero erstellt und die Datei für die
