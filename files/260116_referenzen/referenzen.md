@@ -143,7 +143,7 @@ Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das
 [Zotero Style Repository](https://www.zotero.org/styles) stellt jedoch
 die gängigsten Zitierstile zur Verfügung. 
 
-## Einfügen von Referenzen in Markdown
+## Einfügen von Referenzen in Markdown {#sec-referenzen_einf}
 
 Um Referenzen aus dem Bibliographie Dokument in den Markdown Text zu
 übernehmen, verwendet man den Zitierschlüssel. Eingefügt wird er mit

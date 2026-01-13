@@ -47,6 +47,17 @@ verwiesen werden. Das gleiche gilt für die
 [Organisation](https://www.zotero.org/support/collections_and_tags) der
 eigenen Bibliothek. 
 
+Damit die Einträge aus Zotero in den Texten gelesen werden können,
+müssen sie mit dem Zitierschlüssel (citation key) adressiert werden. Die
+genaue Syntax dazu wird in @sec-referenzen_einf erklärt. Zotero erstellt
+für jeden Eintrag einen Standardschlüssel. Dieser ist jedoch oft schwer
+zu merken. Es empfiehlt sich daher, den Zitierschlüssel selber
+festzulegen. Dazu ist im Feld "Extra" der Metadaten des Eintrags das
+"Key -- Value" Paar "citation key: eigener_schlüssel" einzutragen.
+Gespeichert wird der so festgelegte Zitierschlüssel in dem das Feld
+"Extra" wieder verlassen wird. Der einfachste Zitierschlüssel ist wohl
+`autorYYYY` wobei `YYYY` für die vierstellige Jahreszahl steht.
+
 ## Erstellen einer Bibliographie Datei für den Markdown -- Pandoc-Workflow
 
 Die für das jeweilige Projekt erforderlichen Einträge in Zotero werden
