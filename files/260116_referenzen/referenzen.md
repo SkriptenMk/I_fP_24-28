@@ -145,7 +145,8 @@ Die Abkürzung csl steht für Citation Style Language und ist eine Form
 von [xml](https://de.wikipedia.org/wiki/Extensible_Markup_Language).
 Grundsätzlich ist es möglich, eigene csl Definitionen zu verfassen. Das
 [Zotero Style Repository](https://www.zotero.org/styles) stellt jedoch
-die gängigsten Zitierstile zur Verfügung. 
+die gängigsten Zitierstile zur Verfügung. Dort kann der gewünschte Stil
+heruntergeladen und im Projektverzeichnis gespeichert werden.
 
 ## Einfügen von Referenzen in Markdown {#sec-referenzen_einf}
 
