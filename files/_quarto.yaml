@@ -51,7 +51,7 @@ book:
         - 250305/bst.ipynb
         - 250312/binaersystem.md
         - 250312/umrechnungen.ipynb
-        - 250312/muloe_umrechnungen.ipynb
+        - 250312/muloe_umrechnungen.ipynb 
         - 250319/base64.md
         - 250326/lernziele.md
 
@@ -85,8 +85,6 @@ execute:
 
 format:
   html:
-    code-tools: 
-      source: repo
     theme: cosmo
     code-copy: true
     toc: true
