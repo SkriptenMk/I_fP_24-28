@@ -457,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../250122/speicherstrukturen.html">Datenstrukturen und Codierung</a></li><li class="breadcrumb-item"><a href="../250305/bst.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Binary Search Tree</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Binary Search Tree</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/SkriptenMk/I_fP_24-28/blob/main/250305/bst.ipynb"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Binary Search Tree</span></h1>
 </div>
 
 
@@ -474,6 +474,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notebook interaktiv ausführen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/SkriptenMk/I_fP_24-28/blob/main/files/250305/bst.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a> <a href="https://mybinder.org/v2/gh/SkriptenMk/I_fP_24-28/main?labpath=files/250305/bst.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid" alt="Binder"></a> <a href="https://kaggle.com/kernels/welcome?src=https://github.com/SkriptenMk/I_fP_24-28/blob/main/files/250305/bst.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" class="img-fluid" alt="Kaggle"></a></p>
+</div>
+</div>
 <p>Ein binärer Suchbaum (Binary Search Tree, BST) ist eine Datenstruktur, die es ermöglicht, Daten in einer hierarchischen Struktur zu speichern. Jeder Knoten im Baum hat maximal zwei Kinder, wobei das linke Kind kleiner und das rechte Kind grösser als der Knoten selbst ist. Dies ermöglicht das effiziente Suchen, Einfügen und Löschen von Elementen.</p>
 <p>Sollen beispielsweise die Zahlen 42, 23, 17, 34, 56, 78 und 12 der Reihe nach in einen binären Suchbaum eingefügt werden, geschieht dies wie folgt:</p>
 <pre><code>        42
@@ -487,7 +500,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In den folgenden Abschnitten findet sich eine Mögliche Implementierung eines binären Suchbaums in Python.</p>
 <section id="klasse-bstnode" class="level2" data-number="20.1">
 <h2 data-number="20.1" class="anchored" data-anchor-id="klasse-bstnode"><span class="header-section-number">20.1</span> Klasse BSTNode</h2>
-<div id="cell-6" class="cell">
+<div id="cell-7" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> BSTNode:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key, value<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.key <span class="op">=</span> key</span>
@@ -511,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="klasse-bst" class="level2" data-number="20.2">
 <h2 data-number="20.2" class="anchored" data-anchor-id="klasse-bst"><span class="header-section-number">20.2</span> Klasse BST</h2>
-<div id="cell-8" class="cell">
+<div id="cell-9" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> BST:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key<span class="op">=</span><span class="va">None</span>, value<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb3-3"><a href="#cb3-3"></a>        <span class="cf">if</span> key <span class="kw">is</span> <span class="va">None</span>:</span>
@@ -749,57 +762,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);

@@ -479,7 +479,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../250912/files.html">Kryptologie</a></li><li class="breadcrumb-item"><a href="../250918_implementation/250918_python_implementation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Vigenère Chiffre Implementierung in Python</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Vigenère Chiffre Implementierung in Python</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/SkriptenMk/I_fP_24-28/blob/main/250918_implementation/250918_python_implementation.ipynb"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Vigenère Chiffre Implementierung in Python</span></h1>
 </div>
 
 
@@ -496,6 +496,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notebook interaktiv ausführen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/SkriptenMk/I_fP_24-28/blob/main/files/250919/250918_python_implementation.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a> <a href="https://mybinder.org/v2/gh/SkriptenMk/I_fP_24-28/main?labpath=files/250919/250918_python_implementation.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid" alt="Binder"></a> <a href="https://kaggle.com/kernels/welcome?src=https://github.com/SkriptenMk/I_fP_24-28/blob/main/files/250919/250918_python_implementation.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" class="img-fluid" alt="Kaggle"></a></p>
+</div>
+</div>
 <p>In diesem Notebook wird eine mögliche Implementierung der Vigenère Chiffre in Python vorgestellt.</p>
 <div id="c1fd7eb8" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> vigenere(text: <span class="bu">str</span>, key: <span class="bu">str</span>, mode: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
@@ -669,57 +682,6 @@ Da der Schlüssel kürzer als der zu verschlüsselnde Text sein kann, wird mit <
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);

@@ -477,6 +477,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#vigenère-chiffre" id="toc-vigenère-chiffre" class="nav-link active" data-scroll-target="#vigenère-chiffre"><span class="header-section-number">4.1</span> Vigenère Chiffre</a></li>
+  <li><a href="#vigenère-chiffre-1" id="toc-vigenère-chiffre-1" class="nav-link" data-scroll-target="#vigenère-chiffre-1"><span class="header-section-number">4.2</span> Vigenère Chiffre</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/250919_vigenere/vigenere.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -485,7 +486,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../250912/files.html">Kryptologie</a></li><li class="breadcrumb-item"><a href="../250919_vigenere/vigenere.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Polyalphabetische Chiffren</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Polyalphabetische Chiffren</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/SkriptenMk/I_fP_24-28/blob/main/250919_vigenere/vigenere.ipynb"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Polyalphabetische Chiffren</span></h1>
 </div>
 
 
@@ -502,7 +503,21 @@ window.Quarto = {
 </header>
 
 
-<p>(Vigenère Chiffre)</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notebook interaktiv ausführen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/SkriptenMk/I_fP_24-28/blob/main/files/250918/vigenere.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a> <a href="https://mybinder.org/v2/gh/SkriptenMk/I_fP_24-28/main?labpath=files/250918/vigenere.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid" alt="Binder"></a> <a href="https://kaggle.com/kernels/welcome?src=https://github.com/SkriptenMk/I_fP_24-28/blob/main/files/250918/vigenere.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" class="img-fluid" alt="Kaggle"></a></p>
+</div>
+</div>
+<section id="vigenère-chiffre" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="vigenère-chiffre"><span class="header-section-number">4.1</span> Vigenère Chiffre</h2>
 <p>Bereits im 9. Jahrhundert wurde im islamischen Raum die grosse Schwachstelle monoalphabetischer Chiffren (Caesar-Chiffre) erkannt. Die Verteilung der Buchstaben folgt in jeder Sprache einem spezifischen aber konstanten Muster. Für die deutsche Sprache ist die Verteilung der folgenden Tabelle zu entnehmen.</p>
 <table class="caption-top table">
 <colgroup>
@@ -801,8 +816,9 @@ window.Quarto = {
 </div>
 </div>
 <p>Es ist deutlich zu erkennen, dass die Verteilung dem gleichen Muster folgt - verschoben um elf Positionen. Diese Auswertung ermöglicht die Entschlüsselung des Textes, ohne alle möglichen Schlüsselalphabete durchzuprobieren.</p>
-<section id="vigenère-chiffre" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="vigenère-chiffre"><span class="header-section-number">4.1</span> Vigenère Chiffre</h2>
+</section>
+<section id="vigenère-chiffre-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="vigenère-chiffre-1"><span class="header-section-number">4.2</span> Vigenère Chiffre</h2>
 <p>Bei der Vigenère Chiffre handelt es sich um eine polyalphabetische Chiffre. Das Verfahren ist nach Blaise de Vigenère (1523 - 1596) benannt. Polyalphabetisch heisst, dass zur Verschlüsselung nicht eine Verschiebung vorgenommen wird, sondern - nach jedem Buchstaben wechselnd - mehrere Verschiebungen vorgenommen werden.</p>
 <p>Um das zu erreichen, verwendet man ein sogenanntes Vigenère-Quadrat wie unten abgebildet.</p>
 <p><img src="vigenere_square_shading.svg" class="img-fluid"></p>
@@ -980,57 +996,6 @@ LLCAKOTBHCITJTACBHRPED</code></pre>
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);

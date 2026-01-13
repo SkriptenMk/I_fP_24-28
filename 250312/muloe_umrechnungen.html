@@ -459,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../250122/speicherstrukturen.html">Datenstrukturen und Codierung</a></li><li class="breadcrumb-item"><a href="../250312/muloe_umrechnungen.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/SkriptenMk/I_fP_24-28/blob/main/250312/muloe_umrechnungen.ipynb"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></h1>
 </div>
 
 
@@ -476,11 +476,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notebook interaktiv ausführen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/SkriptenMk/I_fP_24-28/blob/main/files/250312/muloe_umrechnungen.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a> <a href="https://mybinder.org/v2/gh/SkriptenMk/I_fP_24-28/main?labpath=files/250312/muloe_umrechnungen.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid" alt="Binder"></a> <a href="https://kaggle.com/kernels/welcome?src=https://github.com/SkriptenMk/I_fP_24-28/blob/main/files/250312/muloe_umrechnungen.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" class="img-fluid" alt="Kaggle"></a></p>
+</div>
+</div>
 <p>Python stellt Funktionen zur Verfügung, mit deren Hilfe Zahlen zwischen den verschiedenen Zahlensystemen umgerechnet werden können. Trotzdem sollen in diesem Notebook eigene Funktionen implementiert werden, mit deren Hilfe Zahlen zwischen dem Dezimal- und Binärsystem umgerechnet werden können.</p>
 <p>Ausserdem sollen Funktionen implementiert werden, mit welchen Strings in ihre binäre Repräsentation umgewandelt werden können und umgekehrt.</p>
 <section id="umrechnung-von-binär--in-dezimalzahlen" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="umrechnung-von-binär--in-dezimalzahlen"><span class="header-section-number">23.1</span> Umrechnung von Binär- in Dezimalzahlen</h2>
-<div id="cell-3" class="cell">
+<div id="cell-4" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> bin2dec(binary: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    decimal <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    length <span class="op">=</span> <span class="bu">len</span>(binary)</span>
@@ -494,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="umrechnung-von-dezimal--in-binärzahlen" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="umrechnung-von-dezimal--in-binärzahlen"><span class="header-section-number">23.2</span> Umrechnung von Dezimal- in Binärzahlen</h2>
-<div id="cell-5" class="cell" data-execution_count="12">
+<div id="cell-6" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> dec2bin(decimal: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    binary <span class="op">=</span> <span class="st">''</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">while</span> decimal <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -507,7 +520,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="binäre-repräsentation-von-strings" class="level2" data-number="23.3">
 <h2 data-number="23.3" class="anchored" data-anchor-id="binäre-repräsentation-von-strings"><span class="header-section-number">23.3</span> Binäre Repräsentation von Strings</h2>
 <p>Für die Darstellung eines Strings in binärer Form wird auf die dezimale Repräsentation des Unicode-Zeichens zurückgegriffen. Dazu stellt Python die Funktion <code>ord()</code> zur Verfügung. Diese Funktion gibt die dezimale Repräsentation eines Unicode-Zeichens zurück.</p>
-<div id="cell-8" class="cell" data-execution_count="1">
+<div id="cell-9" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> str2bin(s: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    length_string <span class="op">=</span> <span class="bu">len</span>(s)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    binary <span class="op">=</span> <span class="st">''</span></span>
@@ -526,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="umwandlung-der-binären-repräsentation-in-einen-string" class="level2" data-number="23.4">
 <h2 data-number="23.4" class="anchored" data-anchor-id="umwandlung-der-binären-repräsentation-in-einen-string"><span class="header-section-number">23.4</span> Umwandlung der binären Repräsentation in einen String</h2>
 <p>Um aus der dezimalen Repräsentation eines Unicode-Zeichens wieder den entsprechenden String zu erhalten, stellt Python die Funktion <code>chr()</code> zur Verfügung.</p>
-<div id="cell-11" class="cell" data-execution_count="29">
+<div id="cell-12" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> bin2str(binary: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    binary <span class="op">=</span> binary.replace(<span class="st">' '</span>, <span class="st">''</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    binary <span class="op">=</span> binary.replace(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, <span class="st">''</span>)</span>
@@ -613,57 +626,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);

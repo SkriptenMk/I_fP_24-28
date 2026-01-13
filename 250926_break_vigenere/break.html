@@ -462,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../250912/files.html">Kryptologie</a></li><li class="breadcrumb-item"><a href="../250926_break_vigenere/break.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Vigenère-Verschlüsselung brechen</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Vigenère-Verschlüsselung brechen</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/SkriptenMk/I_fP_24-28/blob/main/250926_break_vigenere/break.ipynb"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Vigenère-Verschlüsselung brechen</span></h1>
 </div>
 
 
@@ -479,6 +479,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notebook interaktiv ausführen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/SkriptenMk/I_fP_24-28/blob/main/files/250926_break_vigenere/break.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a> <a href="https://mybinder.org/v2/gh/SkriptenMk/I_fP_24-28/main?labpath=files/250926_break_vigenere/break.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid" alt="Binder"></a> <a href="https://kaggle.com/kernels/welcome?src=https://github.com/SkriptenMk/I_fP_24-28/blob/main/files/250926/break.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" class="img-fluid" alt="Kaggle"></a></p>
+</div>
+</div>
 <p>Die entscheidende Schwäche der Vigenère-Verschlüsselung wurde Mitte des 19. Jahrhunderts von zwei Männern unabhängig voneinander entdeckt. Einer von ihnen war Charles Babbage, ein britischer Universalgelehrter. Er entdeckte die Schwachstelle, um eine Wette zu gewinnen. Der andere war Friedrich Wilhelm Kasiski, ein pensionierter Major der preußischen Armee, der nach seiner Pensionierung seine Zeit mit Schreiben verbrachte. Die Methode zum Brechen der Vigenère-Verschlüsselung ist nach dem preußischen Major Kasiski benannt.</p>
 <section id="die-kasiski-methode-zusammenfassung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="die-kasiski-methode-zusammenfassung"><span class="header-section-number">6.1</span> Die Kasiski-Methode – Zusammenfassung</h2>
@@ -609,57 +622,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
