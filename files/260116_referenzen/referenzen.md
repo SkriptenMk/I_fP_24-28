@@ -120,7 +120,7 @@ finden sich [Pandoc User Guide](https://pandoc.org/MANUAL.html).
 
 Das Dokument mit den bibliographischen Angaben kann Zotero automatisch
 erstellen. Trotzdem wird hier ein Beispiel eines Eintrags in diesem
-Dokument erklärt. Das Dokument für das Beispiel heist
+Dokument erklärt. Das Dokument für das Beispiel heisst
 `bibliography.bib`.
 
 ```bib
@@ -170,4 +170,5 @@ worden ist, kann das PDF mit dem Aufruf
 pandoc -d format.yaml
 ```
 
-erstellt werden.
+erstellt werden. Damit der Befehl funktioniert, muss er im Verzeichnis,
+in welchem die Datei `format.yaml` liegt, ausgeführt werden.
