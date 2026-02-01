@@ -10,9 +10,11 @@ book:
   title: "Unterlagen für den Informatikunterricht in der Klasse 2fP"
   author: "Jacques Mock Schindler"
   date: last-modified
+  date-format: "D. MMMM YYYY"
   search: true
 
   downloads: [pdf]
+  
   
   chapters:
     # index.md ist nun Teil eines eigenen Parts, damit die Struktur einheitlich ist
@@ -91,6 +93,7 @@ format:
     code-copy: true
     toc: true
     code-line-numbers: true
+    notebook-view: true
   pdf:
     pdf-engine: lualatex
     documentclass: scrreprt
