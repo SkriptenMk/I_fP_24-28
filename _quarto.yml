@@ -11,6 +11,8 @@ book:
   author: "Jacques Mock Schindler"
   date: last-modified
   search: true
+
+downloads: [pdf]
   
   chapters:
     # index.md ist nun Teil eines eigenen Parts, damit die Struktur einheitlich ist
