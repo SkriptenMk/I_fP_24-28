@@ -1,0 +1,6 @@
+jupyter
+nbformat
+nbconvert
+pandas
+matplotlib
+numpy
