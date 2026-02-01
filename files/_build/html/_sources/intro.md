@@ -45,7 +45,7 @@ Durchschnitt der Prüfungen zählt zu 90%, die mündliche Beteiligung zu
 Ab dem zweiten Semester wird konstruktive Kritik an den Unterlagen,
 welche durch ein mir zugewiesenes Issue (der Zugang findet sich unter dem
 GitHub-Logo
-![](octocat_klein.png) 
+![](files/.png) 
 in der Kopfzeile) eingebracht wird, mit Maximal einem
 Notenpunkt auf die jeweils thematisch passende Prüfung angerechnet.
 

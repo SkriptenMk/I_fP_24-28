@@ -77,8 +77,8 @@ book:
   repo-branch: main
   repo-actions: [edit, issue]
 
-bibliography: references.bib
-csl: chicago-notes-bibliography-access-dates.csl
+bibliography: files/references.bib
+csl: chicago-notes-bibilography-access-dates.csl
 
 execute:
   freeze: false
@@ -96,7 +96,7 @@ format:
     number-sections: true
     colorlinks: true
     code-line-numbers: true
-    include-in-header: preamble.tex
+    # include-in-header: preamble.tex
     mainfont: "Times New Roman"
     CJKmainfont: "Microsoft YaHei"
     monofont: "Consolas"
