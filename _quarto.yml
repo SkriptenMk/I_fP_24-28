@@ -99,4 +99,3 @@ format:
     # include-in-header: preamble.tex
     mainfont: "Libertinus Serif"
     monofont: "Libertinus Mono"
-    monofont: "Consolas"
