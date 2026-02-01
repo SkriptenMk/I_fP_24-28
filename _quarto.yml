@@ -16,62 +16,62 @@ book:
     # index.md ist nun Teil eines eigenen Parts, damit die Struktur einheitlich ist
     - part: "Start"
       chapters:
-        - index.md
+        - index.qmd
     
     - part: "Kryptologie"
       chapters:
-        - 250912/files.ipynb
-        - 250912/caesar.ipynb
-        - 250919_vigenere/vigenere.ipynb
-        - 250918_implementation/250918_python_implementation.ipynb
-        - 250926_break_vigenere/break.ipynb
-        - 251031/asymmetrie.md
-        - 251114_rsa/rsa.md
+        - files/250912/files.ipynb
+        - files/250912/caesar.ipynb
+        - files/250919_vigenere/vigenere.ipynb
+        - files/250918_implementation/250918_python_implementation.ipynb
+        - files/250926_break_vigenere/break.ipynb
+        - files/251031/asymmetrie.md
+        - files/251114_rsa/rsa.md
 
     - part: "Computernetzwerke"
       chapters:
-        - 250822/netzwerke.md
-        - 250822/tcpip.md
-        - 250822/nat.md
-        - 250822/tld.md
-        - 250829/three_way_handshake.md
-        - 250905/sockets.md
+        - files/250822/netzwerke.md
+        - files/250822/tcpip.md
+        - files/250822/nat.md
+        - files/250822/tld.md
+        - files/250829/three_way_handshake.md
+        - files/250905/sockets.md
 
     - part: "Datenbanken"
       chapters:
-        - 250416/datenbank.md
-        - 250507/sql.md
+        - files/250416/datenbank.md
+        - files/250507/sql.md
         # Externe Links funktionieren am besten als .md Datei mit Link
-        - 250521/lernziele.md
+        - files/250521/lernziele.md
 
     - part: "Datenstrukturen und Codierung"
       chapters:
-        - 250122/speicherstrukturen.md
-        - 250219/queue.md
-        - 250305/bst.ipynb
-        - 250312/binaersystem.md
-        - 250312/umrechnungen.ipynb
-        - 250312/muloe_umrechnungen.ipynb 
-        - 250319/base64.md
-        - 250326/lernziele.md
+        - files/250122/speicherstrukturen.md
+        - files/250219/queue.md
+        - files/250305/bst.ipynb
+        - files/250312/binaersystem.md
+        - files/250312/umrechnungen.ipynb
+        - files/250312/muloe_umrechnungen.ipynb 
+        - files/250319/base64.md
+        - files/250326/lernziele.md
 
     - part: "Künstliche Intelligenz"
       chapters:
-        - 251107/soziale_medien.md
-        - 251128/ki_beispiel.md
+        - files/251107/soziale_medien.md
+        - files/251128/ki_beispiel.md
 
     - part: "Anleitungen"
       chapters:
-        - anleitungen/python.md
-        - anleitungen/kurzanleitung_venv.md
-        - anleitungen/jupyter.md
-        - 260109_plain_text_writing/plain_text_writing.md
-        - 260116_referenzen/referenzen.md
-        - 260116_referenzen/zotero.md
+        - files/anleitungen/python.md
+        - files/anleitungen/kurzanleitung_venv.md
+        - files/anleitungen/jupyter.md
+        - files/260109_plain_text_writing/plain_text_writing.md
+        - files/260116_referenzen/referenzen.md
+        - files/260116_referenzen/zotero.md
 
     - part: "Alte Programme"
       chapters:
-        - archiv/fs25.md
+        - files/archiv/fs25.md
 
   repo-url: https://github.com/SkriptenMk/I_fP_24-28
   repo-branch: main
