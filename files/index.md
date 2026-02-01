@@ -11,22 +11,23 @@ Das Programm entspricht dem aktuellen Stand der Planung. Es kann zu
 
 | Datum | Thema |
 | ----- | ----- |
-| 22.08.2025 | Netzwerke: TCP/IP |
-| 29.08.2025 | Netzwerke: Beobachtung von Netzwerkverbindungen |
-| 05.09.2025 | Netzwerke: Anwendungsübung |
-| 12.09.2025 | Kryptologie: Caesar |
-| 19.09.2025 | Kryptologie: Vigenère Chiffre |
-| 26.09.2025 | Kryptologie: Vigenère Brechen |
-| 24.10.2025 | Test |
-| 31.10.2025 | Kryptologie: Public Key Kryptographie (Graphengestützt) |
-| 07.11.2025 | [KI: The Social Dilemma](soziale-medien) |
-| 14.11.2025 | Kryptologie: Dominante Graphen |
-| 21.11.2025 | [Kryptologie: RSA und Signaturen](rsa) |
-| 28.11.2025 | [KI: Definition](ki-beispiel) |
-| 05.12.2025 | Test |
-| 12.12.2025 | KI |
-| 19.12.2025 | KI |
-| 09.01.2026 | KI |
+| 20.02.2026 | Einführung: Digitale Nachhaltigkeit & Green IT |
+| 27.02.2026 | Open Source Software: Philosophie, Lizenzen & Praxis |
+| 06.03.2026 | Digitale Nachhaltigkeit: Fallstudien |
+| 13.03.2026 | LEISTUNGSNACHWEIS 1 Textabgabe |
+| 20.03.2026 | SQL Vertiefung: Aggregatfunktionen & GROUP BY |
+| 27.03.2026 | SQL Vertiefung: Subqueries |
+| 10.04.2026 | SQL DML: INSERT, UPDATE, DELETE |
+| 17.04.2026 | Datenbankdesign: Normalisierung (1NF-3NF) |
+| 08.05.2026 | Datenbank-Miniprojekt |
+| 22.05.2026 | Repetition: SQL & Datenbanken |
+| 29.05.2026 | LEISTUNGSNACHWEIS 2 Schriftliche Prüfung |
+| 05.06.2026 | Informationssicherheit |
+| 12.06.2026 | Datenschutz: DSGVO & DSG Schweiz |
+| 19.06.2026 | KI-Vertiefung: Ethik & aktuelle Entwicklungen |
+| 26.06.2026 | Projekt: Datenethik-Fallstudie |
+| 03.07.2026 | Projektpräsentationen |
+| 10.07.2026 | Semesterabschluss & Ausblick |
 
 
 ## Hilfsmittel für den Unterricht
