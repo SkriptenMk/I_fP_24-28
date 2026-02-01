@@ -1,6 +1,3 @@
-# This file was created automatically with `myst init --gh-pages` 🪄 💚
-# Updated with Node.js caching for faster builds.
-
 name: MyST GitHub Pages Deploy
 on:
   push:
@@ -29,25 +26,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          # Aktiviert das automatische Caching für npm-Abhängigkeiten
-          cache: 'npm'
+          # Wir entfernen 'cache: npm', da die Lock-Datei fehlt
+
+      - name: Cache Node Modules
+        # Manueller Cache-Schritt, der ohne Lock-Datei funktioniert
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-myst-${{ hashFiles('**/docs/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-node-myst-
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Install MyST
-        # 'npm install -g' nutzt den Cache nicht optimal, daher lokal oder per npx
+        # Nutzt den Cache, falls vorhanden
         run: npm install mystmd
 
       - name: Build HTML Assets
-        # Wir bauen den 'docs' Ordner direkt vom Root aus.
-        # Das erzeugt den Output in ./_build/html
+        # Baut das Projekt von Root aus
         run: npx myst build docs --html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Da wir oben im Root gebaut haben, liegt der Output hier:
           path: '_build/html'
 
       - name: Deploy to GitHub Pages
