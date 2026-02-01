@@ -92,6 +92,7 @@ format:
   pdf:
     pdf-engine: lualatex
     documentclass: scrreprt
+    classoption: [ngerman]
     papersize: a4
     number-sections: true
     colorlinks: true
