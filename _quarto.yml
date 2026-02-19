@@ -21,6 +21,10 @@ book:
     - part: "Start"
       chapters:
         - index.qmd
+
+    - part: "Nachhaltige IT"
+      chapters:
+        - files/260220_green_it/green_it.qmd
     
     - part: "Kryptologie"
       chapters:
