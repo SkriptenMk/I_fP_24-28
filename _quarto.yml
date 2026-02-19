@@ -25,6 +25,7 @@ book:
     - part: "Nachhaltige IT"
       chapters:
         - files/260220_green_it/green_it.qmd
+        - files/260220_green_it_ex/green_it.ipynb
     
     - part: "Kryptologie"
       chapters:
