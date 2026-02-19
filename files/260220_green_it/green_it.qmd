@@ -5,7 +5,7 @@
 Der ökologische Fußabdruck der IT reicht weit über den Energieverbrauch und Elektroschrott hinaus. Er beinhaltet verborgene soziale und ökologische Kosten, wie etwa gewaltsame Konflikte um Mineralien wie Coltan, die für unsere digitalen Geräte unerlässlich sind. Das Verständnis dieser indirekten Kosten ist entscheidend, um Technologie nachhaltiger zu gestalten.
 :::
 
-### Einführung: Was ist der ökologische Fußabdruck der IT?
+## Einführung: Was ist der ökologische Fußabdruck der IT?
 
 Der ökologische Fußabdruck der IT umfasst den gesamten Lebenszyklus von Geräten und Dienstleistungen – von der Rohstoffgewinnung und Herstellung bis hin zur Nutzung und Entsorgung. Dieser Fußabdruck wird typischerweise in drei Hauptbereiche unterteilt: die Umweltkosten der Hardware, die Kosten des Computing und die indirekten Kosten, welche die oft übersehenen Folgen von Ressourcenkonflikten (wie etwa rund um Coltan) beinhalten.
 
@@ -13,19 +13,19 @@ Umweltkosten der Hardware
 
 IT-Hardware – Computer, Smartphones, Server – hat erhebliche Auswirkungen auf die Umwelt, primär über drei Kanäle: **Transport**, **Bergbau** und **Konstruktion**.
 
-### Transport
+## Transport
 
 Die globalisierte Natur der IT-Fertigung bedeutet, dass Rohstoffe aus der ganzen Welt bezogen, in Ländern wie China montiert und an Verbraucher überall versandt werden. Diese komplexe Lieferkette führt zu erheblichen Treibhausgasemissionen durch internationale Schifffahrt und Logistik.
 
-### Bergbau
+## Bergbau
 
 Der Abbau essenzieller Mineralien wie Kupfer, Lithium und insbesondere Coltan (Columbit-Tantalit) ist einer der umweltschädlichsten Aspekte der IT-Hardwareproduktion. Coltan ist entscheidend für die Herstellung von Tantalkondensatoren, die in fast allen Smartphones und Laptops zu finden sind. Bergbaubetriebe führen oft zu Entwaldung, Wasserverschmutzung und der Zerstörung von Lebensräumen für gefährdete Arten. In der Demokratischen Republik Kongo (DRK) hat der Coltan-Abbau beispielsweise seit dem Jahr 2000 zum Verlust von 8,6 % der Baumbedeckung des Landes beigetragen und die Populationen von Gorillas und anderen Wildtieren dezimiert.
 
-### Konstruktion
+## Konstruktion
 
 Der Herstellungsprozess für IT-Geräte ist energieintensiv und stützt sich auf gefährliche Chemikalien. Fabriken nutzen oft fossile Brennstoffe, was zur globalen Erwärmung beiträgt. Die kurze Lebensdauer vieler Geräte führt zu häufigem Ersatz, was die Nachfrage nach neuen Ressourcen erhöht und riesige Mengen an Elektroschrott (E-Waste) erzeugt. Weltweit werden nur etwa 22 % des Elektroschrotts ordnungsgemäß recycelt, während der Rest auf Mülldeponien landet oder unter unsicheren Bedingungen verarbeitet wird.
 
-Umweltkosten des Computing 
+## Umweltkosten des Computing 
 
 Über die Hardware hinaus hat der Betrieb von IT-Systemen – insbesondere Rechenzentren und Netzwerke – erhebliche Auswirkungen auf die Umwelt.
 
@@ -51,7 +51,7 @@ Um ihre Umweltauswirkungen zu reduzieren, investieren viele Organisationen in gr
 Das [Green Data Center Zürich](https://www.green.ch/de/ueber-green/so-handeln-wir/energieeffizenz) speist Abwärme in über 1.000 Haushalte ein und zeigt so, wie digitale Infrastruktur lokale Energiebedarfe unterstützen und gleichzeitig Verschwendung reduzieren kann.
 :::
 
-### Nachhaltige Software
+## Nachhaltige Software
 
 Software spielt ebenfalls eine Rolle beim Energieverbrauch. Effizienter Code und Algorithmen können die benötigte Rechenleistung verringern und so den Energieverbrauch und die Emissionen senken. Nachhaltige Softwareentwicklung konzentriert sich auf die Optimierung von Anwendungen, um weniger Ressourcen zu verbrauchen und die Lebensdauer der Hardware zu verlängern.
 
@@ -59,23 +59,23 @@ Indirekte Umweltkosten: Der Fall der Coltan-Konflikte
 
 Die indirekten Kosten der IT sind oft weniger sichtbar, können aber schwerwiegender sein als direkte Umweltauswirkungen. Eines der bedeutendsten Beispiele ist der Konflikt um Coltan in der DRK.
 
-### Coltan: Ein kritisches Mineral mit hohem Preis
+## Coltan: Ein kritisches Mineral mit hohem Preis
 
 Coltan ist essenziell für die Produktion von Tantalkondensatoren, die in fast jedem modernen elektronischen Gerät verwendet werden. Die DRK hält bis zu 70 % der weltweiten Coltan-Reserven, was sie zu einem Schlüsselakteur in der globalen Lieferkette macht. Die Gewinnung und der Handel mit Coltan haben jedoch gewaltsame Konflikte, Menschenrechtsverletzungen und Umweltzerstörung geschürt.
 
-#### Konflikte und Menschenrechte im Bergbausektor der DRK
+### Konflikte und Menschenrechte im Bergbausektor der DRK
 
 **Gewalt und Vertreibung:** Die Sicherheitslage im Osten der DRK bleibt kritisch, da bewaffnete Gruppen, insbesondere die M23-Rebellen, die Kontrolle über strategische Coltan-Bergbauzentren wie Rubaya gefestigt haben, um ihre militärischen Operationen zu finanzieren. Dieser Konflikt hat eine humanitäre Katastrophe ausgelöst; bis Anfang 2026 erreichte die Zahl der Binnenvertriebenen erschütternde 7,3 Millionen Menschen, während Schätzungen von Menschenrechtsbeobachtern darauf hindeuten, dass jährlich weiterhin Tausende Zivilisten in Verbindung mit Gewalt und Territorialstreitigkeiten getötet werden.
 
 **Kinderarbeit und Ausbeutung:** Der handwerkliche Bergbausektor ist weiterhin stark von Ausbeutung geprägt; schätzungsweise 40.000 Kinder arbeiten unter gefährlichen Bedingungen in den Minen der DRK für Hungerlöhne. Über Kinderarbeit hinaus haben internationale Beobachter wie Amnesty International systemische Menschenrechtsverletzungen dokumentiert, darunter Zwangsräumungen lokaler Gemeinschaften und weit verbreitete sexuelle Gewalt gegen Frauen und Kinder, was die verheerenden menschlichen Kosten der weltweiten Nachfrage nach Kobalt und Coltan unterstreicht.
 
-#### Wirtschaftliche und ökologische Auswirkungen
+### Wirtschaftliche und ökologische Auswirkungen
 
 **Ressourcenfluch:** Obwohl die DRK über enorme mineralische Reichtümer verfügt, bleibt der „Ressourcenfluch“ eine bittere Realität: Über 70 % der Bevölkerung leben weiterhin von weniger als 2,15 $ pro Tag. Während die weltweite Nachfrage nach Elektronik hohe Preise für Coltan treibt, verdienen die meisten handwerklichen Bergleute nur wenige Dollar pro Tag, wobei der Großteil der Gewinne von bewaffneten Gruppen und korrupten Beamten abgeschöpft wird, um laufende Konflikte aufrechtzuerhalten.
 
 **Umweltzerstörung:** Die Ausweitung des unregulierten Bergbaus hat zu katastrophalen Umweltfolgen geführt. Laut UNEP-Berichten hat der Bergbau großflächige Entwaldung im Kongobecken vorangetrieben, lokale Wasserquellen mit Schwermetallen kontaminiert und kritische Lebensräume für Wildtiere zerstört. Diese ökologischen Schäden verursachen langfristige indirekte Kosten, die die unmittelbaren wirtschaftlichen Gewinne aus der Mineralgewinnung bei weitem überwiegen.
 
-#### Herausforderungen der globalen Lieferkette
+### Herausforderungen der globalen Lieferkette
 
 * **Schmuggel und Betrug:** Coltan aus Konfliktgebieten wird oft in
   Nachbarländer geschmuggelt und mit legal gewonnenen Mineralien
