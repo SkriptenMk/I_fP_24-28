@@ -101,21 +101,11 @@ Die wahren Kosten unserer digitalen Geräte beinhalten nicht nur die Umweltzerst
 
 Tabelle: Die wichtigsten ökologischen und sozialen Auswirkungen der IT 
 
-| Bereich | Hauptauswirkungen 
-
- | Lösungen/Trends 
-
- |
+| Bereich | Hauptauswirkungen | Lösungen/Trends |
 | --- | --- | --- |
-| Hardware | Bergbau, Transport, Elektroschrott 
-
- | Kreislaufwirtschaft, nachhaltige Beschaffung |
-| Computing | Hoher Energieverbrauch, Emissionen 
-
- | Grüne Rechenzentren, effiziente Software |
-| Indirekt | Konflikte, Menschenrechtsverletzungen, Umweltzerstörung 
-
- | Politik, verantwortungsvolle Beschaffung, Verbraucherbewusstsein |
+| Hardware | Bergbau, Transport, Elektroschrott | Kreislaufwirtschaft, achhaltige Beschaffung |
+| Computing | Hoher Energieverbrauch, Emissionen  | Grüne Rechenzentren, effiziente Software |
+| Indirekt | Konflikte, Menschenrechtsverletzungen, Umweltzerstörung  | Politik, verantwortungsvolle Beschaffung, Verbraucherbewusstsein |
 
  **Weiterführende Literatur:**
 
