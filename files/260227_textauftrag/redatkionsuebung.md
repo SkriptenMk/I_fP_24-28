@@ -1,9 +1,11 @@
+# Anweisungen für die Redaktionsübung
 
 ## Orientierung
 Es geht bei dieser Aufgabe darum, dass Sie lernen, einen Text mit integrierten statistischen Auswertungen und Grafiken zu erstellen. Dabei sollen ausschliesslich Open Source Werkzeuge verwendet werden. Darüber hinaus sollen Sie sich mit den Vor- und Nachteilen des Einsatzes von Open Source Software auseinandersetzen.
 
 ## Absicht
 Ich will 
+
 * in erster Priorität, dass Sie die Möglichkeiten von Markdown und Jupyter Notebooks nutzen, um Ihre Analyse vorzunehmen;
 * in zweiter Priorität, dass Sie eine nachvollziehbare Datenvisualisierung innerhalb Ihres Textes erstellen sowie
 * in dritter Priorität, dass Sie Übersichtsgrafiken und Prinzipdarstellungen mit Hilfsmitteln aus der Familie 'Diagrams as Code' (Mermaid, PlantUML) erstellen können.
@@ -99,7 +101,7 @@ Die Arbeit wird nach folgenden Kriterien bewertet. Die Gewichtung spiegelt die P
   PDF.
 * **Citation Style**: Der verwendete Zitierstil *Chicago Manual of Style
   17th edition (notes and bibliography)* steht 
-  [hier zum Download zur Verfügung (Rechts-Klick zum Herunterladen)]()
+  [hier zum Download zur Verfügung (Rechts-Klick zum Herunterladen)](files\260227_textauftrag\chicago-notes-bibliography-17th-edition.csl)
 
 ## Erreichbarkeit
 Für Fragen stehe ich Ihnen während der Lektionen, via Teams oder über einen [Termin in der Sprechstunde](https://calendar.app.google/8vpokbeDbRXgxcGF7) zur Verfügung.
