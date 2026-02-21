@@ -11,9 +11,28 @@ Neben diesen bekannten Betriebssystemen und auf ihnen aufbauenden
 Software Ökosystemen existiert ein Paralleluniversum mit Open Source
 Software. Während Open Source Betriebssysteme auf Desktoprechnern ein
 Nischendasein fristen stellen sie auf Servern von der breiten
-Öffentlichkeit unbemerkt die Mehrheit dar.
+Öffentlichkeit unbemerkt die Mehrheit dar. Im Bildungsbereich erfreut
+sich Open Source Software ebenfalls einer gewissen Beliebtheit.
 
-Definition vertiefen: Was bedeutet "Open Source" genau? Nicht nur offener Quellcode, sondern auch die Freiheiten (verwenden, studieren, verändern, weitergeben) – eventuell Abgrenzung zu "Free Software" im Sinne der FSF.
+::: {.callout-note}
+## Was ist Open Source Software
+
+Open Source Software (kurz OSS) beinhaltet zwei Aspekte:
+
+1. Der Quellcode der Software ist öffentlich. Damit kann die
+   Funktionsweise von Software untersucht werden.
+2. Open Source Software kann frei verwendet, weitergegeben **und**
+   verändert werden.
+
+Davon abzugrenzen ist Freeware. Freeware ist Software, die, ohne dass man
+dafür bezahlen muss, verwendet werden darf. Allerdings ist der Quellcode
+nicht einsehbar und darf (was aufgrund des nicht einsehbaren Quellcodes
+ohnehin kaum möglich wäre) nicht verändert werden.
+:::
+
+## Beispiele von Open Source Software
+
+
 Verbreitung konkretisieren: Du hast den Server-Bereich schon angeteasert. Das lässt sich ausbauen: Linux dominiert bei Webservern, Cloud-Infrastruktur (AWS, Azure bieten Linux-VMs an), Supercomputern (praktisch 100%), Android basiert auf dem Linux-Kernel, Embedded Systems, IoT-Geräte usw.
 Bekannte Beispiele nennen: Firefox, LibreOffice, VLC, GIMP, Blender, WordPress, Python, R – das macht das Thema für Schüler greifbar.
 Geschäftsmodelle: Wie verdient man Geld mit etwas, das gratis ist? Support und Beratung (Red Hat), Dual Licensing, SaaS (z.B. GitLab), Freemium-Modelle. Das passt gut zu einem W&R-Kontext.
