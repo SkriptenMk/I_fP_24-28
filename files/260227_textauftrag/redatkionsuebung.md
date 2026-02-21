@@ -97,6 +97,9 @@ Die Arbeit wird nach folgenden Kriterien bewertet. Die Gewichtung spiegelt die P
   [File `_quarto.yml` (Rechts-Klick zum Herunterladen; `_quarto.yml` als
   Name verwenden - der Bodenstrich am Anfang des Dateinamens ist zwingend)](quarto.yml) mit einer Grundkonfiguration für die Erstellung eines
   PDF.
+* **Citation Style**: Der verwendete Zitierstil *Chicago Manual of Style
+  17th edition (notes and bibliography)* steht 
+  [hier zum Download zur Verfügung (Rechts-Klick zum Herunterladen)]()
 
 ## Erreichbarkeit
 Für Fragen stehe ich Ihnen während der Lektionen, via Teams oder über einen [Termin in der Sprechstunde](https://calendar.app.google/8vpokbeDbRXgxcGF7) zur Verfügung.

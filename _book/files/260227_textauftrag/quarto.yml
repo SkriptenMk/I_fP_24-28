@@ -27,9 +27,9 @@ format:
 
     # --- Link Colors ---
     colorlinks: true
-    linkcolor: "darkblue"
-    urlcolor: "darkblue"
-    citecolor: "darkblue"
+    linkcolor: "NavyBlue"
+    urlcolor: "NavyBlue"
+    citecolor: "NavyBlue"
 
     # Preferred float placement for figures: here, top, bottom, page
     fig-pos: "htbp"
@@ -50,7 +50,7 @@ format:
 # Download 'apa.csl' from https://www.zotero.org/styles/apa
 # or use another CSL style of your choice.
 bibliography: references.bib
-csl: apa.csl
+csl: chicago-notes-bibliography-17th-edition.csl
 
 # === Code Execution ===
 # echo: show source code in the output (required by the assignment)
