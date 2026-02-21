@@ -93,7 +93,10 @@ Die Arbeit wird nach folgenden Kriterien bewertet. Die Gewichtung spiegelt die P
 * **Termin**: Abgabetermin ist der 11. März 2026.
 * **Tech Stack**: Verwenden Sie Jupyter Notebooks mit Python und Quarto, um Ihr Endprodukt zu erstellen.
 * **Format**: Die Analyse kann als PDF oder HTML abgegeben werden. In jedem Fall sind alle verwendeten Quelltexte (je nach Arbeitsweise .qmd oder .ipynb, sowie die .yml-Datei und ggf. Bilder/Daten) abzugeben.
-* **Grundkonfiguration**: Sie erhalten mit diesem Auftrag ein File `_quarto.yml` mit einer Grundkonfiguration für die Erstellung eines PDF.
+* **Grundkonfiguration**: Sie erhalten mit diesem Auftrag ein 
+  [File `_quarto.yml` (Rechts-Klick zum Herunterladen; `_quarto.yml` als
+  Name verwenden - der Bodenstrich am Anfang des Dateinamens ist zwingend)](quarto.yml) mit einer Grundkonfiguration für die Erstellung eines
+  PDF.
 
 ### Erreichbarkeit
 Für Fragen stehe ich Ihnen während der Lektionen, via Teams oder über einen Termin in der Sprechstunde zur Verfügung.
