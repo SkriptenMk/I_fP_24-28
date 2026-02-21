@@ -99,4 +99,4 @@ Die Arbeit wird nach folgenden Kriterien bewertet. Die Gewichtung spiegelt die P
   PDF.
 
 ### Erreichbarkeit
-Für Fragen stehe ich Ihnen während der Lektionen, via Teams oder über einen Termin in der Sprechstunde zur Verfügung.
+Für Fragen stehe ich Ihnen während der Lektionen, via Teams oder über einen [Termin in der Sprechstunde](https://calendar.app.google/8vpokbeDbRXgxcGF7) zur Verfügung.
