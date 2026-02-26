@@ -1,48 +1,48 @@
-# Open Source Software
+# Open-Source-Software
 
-For most computer users, there are two alternatives regarding their working environment: either one works on a PC and uses Windows, or one works on an Apple device and uses macOS or iOS. Both variants have in common that one works with proprietary software. In the context of software, proprietary means that it is manufacturer-specific software whose source code is secret.
+Für die meisten Computernutzer gibt es zwei Alternativen hinsichtlich ihrer Arbeitsumgebung: Entweder man arbeitet an einem PC und nutzt Windows, oder man arbeitet an einem Apple-Gerät und nutzt macOS oder iOS. Beiden Varianten ist gemeinsam, dass man mit proprietärer Software arbeitet. Im Kontext von Software bedeutet proprietär, dass es sich um herstellerspezifische Software handelt, deren Quellcode geheim ist.
 
-Alongside these well-known operating systems and the software ecosystems built upon them, a parallel universe of Open Source Software exists. While Open Source operating systems lead a niche existence on desktop computers, they represent the majority on servers, largely unnoticed by the general public. Open Source software also enjoys a certain popularity in the field of education.
+Neben diesen bekannten Betriebssystemen und den darauf aufgebauten Software-Ökosystemen existiert ein Paralleluniversum aus Open-Source-Software. Während Open-Source-Betriebssysteme auf Desktop-Computern ein Nischendasein fristen, stellen sie auf Servern die Mehrheit dar, was von der breiten Öffentlichkeit weitgehend unbemerkt bleibt. Auch im Bildungsbereich erfreut sich Open-Source-Software einer gewissen Beliebtheit.
 
 ::: {.callout-note}
-## What is Open Source Software
+## Was ist Open-Source-Software
 
-Open Source Software (OSS for short) involves two aspects:
+Open-Source-Software (kurz OSS) umfasst zwei Aspekte:
 
-1. The source code of the software is public. This allows the functionality of the software to be examined.
-2. Open Source software can be freely used, redistributed, **and** modified.
+1. Der Quellcode der Software ist öffentlich. Dies erlaubt es, die Funktionsweise der Software zu untersuchen.
+2. Open-Source-Software kann frei verwendet, weiterverbreitet **und** verändert werden.
 
-This is to be distinguished from Freeware. Freeware is software that may be used without having to pay for it. However, the source code is not accessible and (which would hardly be possible anyway due to the hidden source code) may not be modified.
+Dies ist von Freeware zu unterscheiden. Freeware ist Software, die genutzt werden darf, ohne dafür bezahlen zu müssen. Der Quellcode ist jedoch nicht zugänglich und darf (was aufgrund des verborgenen Quellcodes ohnehin kaum möglich wäre) nicht verändert werden.
 :::
 
-## Use of Open Source Software
+## Nutzung von Open-Source-Software
 
-The most well-known use of Open Source software is the employment of Linux as a server operating system. AWS, Amazon's cloud computing product, not only offers customers virtual Linux servers [@AmazonLinux2023] but also runs internally on a specialised Linux system [@AWS_Nitro]. Microsoft's counterpart, Azure, runs internally on a Windows Server system; however, the solutions most frequently purchased by customers are also Linux servers [@AzureLinux].
+Die bekannteste Nutzung von Open-Source-Software ist der Einsatz von Linux als Server-Betriebssystem. AWS, das Cloud-Computing-Produkt von Amazon, bietet Kunden nicht nur virtuelle Linux-Server an [@AmazonLinux2023], sondern läuft intern auf einem spezialisierten Linux-System [@AWS_Nitro]. Microsofts Gegenstück Azure läuft intern auf einem Windows-Server-System; die von Kunden am häufigsten gekauften Lösungen sind jedoch ebenfalls Linux-Server [@AzureLinux].
 
-Supercomputers, such as the Alps Supercomputer (currently — February 2026 — number 8 on the world rankings of the most powerful computers), also run with Linux as their operating system.
+Supercomputer wie der Alps-Supercomputer (derzeit – Februar 2026 – Platz 8 der Weltrangliste der leistungsstärksten Computer) laufen ebenfalls mit Linux als Betriebssystem.
 
-Android is likewise a variant of Linux and is therefore based at its core on Open Source software.
+Android ist gleichermaßen eine Variante von Linux und basiert daher im Kern auf Open-Source-Software.
 
-However, Open Source software is particularly widespread in the countless chips of smart devices, which form the basis of the Internet of Things.
+Besonders verbreitet ist Open-Source-Software jedoch in den unzähligen Chips von Smart-Geräten, die die Basis für das Internet der Dinge (Internet of Things) bilden.
 
-## Examples of Open Source Software
+## Beispiele für Open-Source-Software
 
-Well-known examples of established Open Source software include the Firefox browser and the Python programming language. These two examples show that Open Source software performs just as well as its proprietary counterparts in many areas. With a market share of approximately 3% in 2025, Firefox is admittedly only a shadow of its former self. Nevertheless, Firefox remains a well-known and established browser. In contrast, according to the Tiobe ranking [@TIOBE26-02], Python is by far the most significant programming language with a share of a good 20% of search queries[^1].
+Bekannte Beispiele für etablierte Open-Source-Software sind der Firefox-Browser und die Programmiersprache Python. Diese beiden Beispiele zeigen, dass Open-Source-Software in vielen Bereichen ebenso leistungsfähig ist wie ihre proprietären Gegenstücke. Mit einem Marktanteil von ca. 3 % im Jahr 2025 ist Firefox zwar nur noch ein Schatten seiner selbst, dennoch bleibt Firefox ein bekannter und etablierter Browser. Im Gegensatz dazu ist Python laut dem Tiobe-Ranking [@TIOBE26-02] mit einem Anteil von gut 20 % der Suchanfragen die mit Abstand bedeutendste Programmiersprache[^1].
 
-## Open Source Licences
+## Open-Source-Lizenzen
 
-One must distinguish between different Open Source licences. The strictest principle is referred to as Copyleft. Licences following this principle require that all products based on such licensed software must also be provided with a Copyleft. This stands in contrast to the usual understanding of Copyright, with which authors generally seek to restrict the use of their intellectual property. An example of this licence is the GNU General Public License (GPL). However, there are also Open Source licences that allow largely free use, modification, and redistribution, particularly in proprietary applications. An example of this is the MIT Licence (named after the Massachusetts Institute of Technology, MIT).
+Man muss zwischen verschiedenen Open-Source-Lizenzen unterscheiden. Das strengste Prinzip wird als Copyleft bezeichnet. Lizenzen, die diesem Prinzip folgen, verlangen, dass alle Produkte, die auf einer so lizenzierten Software basieren, ebenfalls mit einem Copyleft versehen werden müssen. Dies steht im Gegensatz zum üblichen Verständnis von Copyright, mit dem Urheber in der Regel die Nutzung ihres geistigen Eigentums einschränken wollen. Ein Beispiel für diese Lizenz ist die GNU General Public License (GPL). Es gibt jedoch auch Open-Source-Lizenzen, die eine weitgehend freie Nutzung, Modifikation und Weiterverbreitung erlauben, insbesondere in proprietären Anwendungen. Ein Beispiel hierfür ist die MIT-Lizenz (benannt nach dem Massachusetts Institute of Technology, MIT).
 
-## Business Models Based on Open Source Software
+## Geschäftsmodelle auf Basis von Open-Source-Software
 
-Contrary to widespread assumptions, it is possible to make money with software that is provided to users without payment. Many of the corresponding business models are based on the fact that companies need consultancy for the deployment of their IT infrastructure — regardless of whether it involves proprietary software or Open Source software. Software almost always needs to be adapted to the specific circumstances of the respective company. Money can be earned through these adaptation services.
+Entgegen weit verbreiteter Annahmen ist es möglich, mit Software Geld zu verdienen, die den Nutzern kostenlos zur Verfügung gestellt wird. Viele der entsprechenden Geschäftsmodelle basieren darauf, dass Unternehmen Beratung für den Einsatz ihrer IT-Infrastruktur benötigen – unabhängig davon, ob es sich um proprietäre Software oder Open-Source-Software handelt. Software muss fast immer an die spezifischen Gegebenheiten des jeweiligen Unternehmens angepasst werden. Durch diese Anpassungsleistungen kann Geld verdient werden.
 
-Another business model — though not specific to Open Source software — is the so-called Freemium model. In this case, part of the service is offered for free, while the full range of functions is subject to a fee. Zotero represents an example of this model. Zotero is fundamentally free to use. However, if one wishes to synchronise more than a given maximum of data, a fee must be paid for the corresponding storage space.
+Ein weiteres Geschäftsmodell – wenn auch nicht spezifisch für Open-Source-Software – ist das sogenannte Freemium-Modell. Dabei wird ein Teil der Leistung kostenlos angeboten, während der volle Funktionsumfang kostenpflichtig ist. Zotero stellt ein Beispiel für dieses Modell dar. Zotero ist grundsätzlich kostenlos nutzbar. Möchte man jedoch mehr als ein bestimmtes Maximum an Daten synchronisieren, muss für den entsprechenden Speicherplatz eine Gebühr entrichtet werden.
 
-Other models differentiate between private and commercial use. Private use is then free of charge, whereas a licence fee must be paid for commercial use.
+Andere Modelle unterscheiden zwischen privater und kommerzieller Nutzung. Die private Nutzung ist dann kostenlos, während für die kommerzielle Nutzung eine Lizenzgebühr gezahlt werden muss.
 
-## Outlook
+## Ausblick
 
-A deeper engagement with Open Source software arises from the assignment in the following section.
+Eine vertiefte Auseinandersetzung mit Open-Source-Software ergibt sich aus der Aufgabe im folgenden Abschnitt.
 
-[^1]: Regarding criticism of the Tiobe Index, cf. [Wikipedia on Tiobe](https://en.wikipedia.org/wiki/TIOBE_index#Criticism)
+[^1]: Zur Kritik am Tiobe-Index vgl. [Wikipedia zu Tiobe](https://en.wikipedia.org/wiki/TIOBE_index#Criticism)
