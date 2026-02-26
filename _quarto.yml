@@ -26,6 +26,8 @@ book:
       chapters:
         - files/260220_green_it/green_it.qmd
         - files/260220_green_it_ex/green_it.ipynb
+        - files/260227_oss/oss.md
+        - files/260227_redaktionsauftrag/redaktionsauftrag.md
     
     - part: "Kryptologie"
       chapters:

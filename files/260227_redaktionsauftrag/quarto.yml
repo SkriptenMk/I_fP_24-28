@@ -1,0 +1,75 @@
+# === Project Settings ===
+# Output directory for rendered files (PDF, HTML, etc.)
+project:
+  type: default
+  output-dir: output
+
+# === Output Format ===
+# Renders to PDF using LaTeX with KOMA-Script document class.
+# Switch to 'html' if you prefer HTML output.
+format:
+  pdf:
+    # KOMA-Script article class, well suited for German typographic conventions
+    documentclass: scrartcl
+    papersize: a4
+    fontsize: 11pt
+    lang: de
+
+    # --- Tables of Contents ---
+    # toc: Table of Contents | lof: List of Figures | lot: List of Tables
+    # These are required by the assignment ("alle erforderlichen Verzeichnisse").
+    toc: true
+    toc-depth: 3
+    toc-title: "Inhaltsverzeichnis"
+    number-sections: true
+    lof: true
+    lot: true
+
+    # --- Link Colors ---
+    colorlinks: true
+    linkcolor: "darkblue"
+    urlcolor: "darkblue"
+    citecolor: "darkblue"
+
+    # Preferred float placement for figures: here, top, bottom, page
+    fig-pos: "htbp"
+
+    # --- Additional LaTeX Packages ---
+    # fancyhdr: custom header with title and page number
+    # bookmark: improved PDF bookmarks
+    header-includes: |
+      \usepackage{bookmark}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhead[L]{Open Source Software -- Chancen und Risiken}
+      \fancyhead[R]{\thepage}
+      \fancyfoot[C]{}
+
+# === Bibliography ===
+# Create a file 'references.bib' with your BibTeX entries.
+# Download 'apa.csl' from https://www.zotero.org/styles/apa
+# or use another CSL style of your choice.
+bibliography: references.bib
+csl: apa.csl
+
+# === Code Execution ===
+# echo: show source code in the output (required by the assignment)
+# warning/message: suppress noisy Python output
+execute:
+  echo: true
+  warning: false
+  message: false
+
+# === Jupyter Kernel ===
+# Make sure you have a Python 3 kernel available.
+# Install required packages (e.g. pandas, matplotlib) in the same environment.
+jupyter: python3
+
+# === Document Metadata ===
+# Replace 'Vorname Nachname' with your actual name.
+metadata:
+  title: "Chancen und Risiken von Open Source Software"
+  subtitle: "Im privaten und unternehmerischen Umfeld"
+  author: "Vorname Nachname"
+  date: today
+  date-format: "D. MMMM YYYY"
