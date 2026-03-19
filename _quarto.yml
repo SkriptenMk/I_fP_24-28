@@ -22,6 +22,10 @@ book:
       chapters:
         - index.qmd
 
+    - part: "Datenbanken II"
+      chapters:
+        - files/260320_sql_af/260320_sql_af.ipynb
+
     - part: "Nachhaltige IT"
       chapters:
         - files/260220_green_it/green_it.qmd
