@@ -24,6 +24,7 @@ book:
 
     - part: "Datenbanken II"
       chapters:
+        - files/260403_sql/260403_sql.ipynb
         - files/260320_sql_af/260320_sql_af.ipynb
 
     - part: "Nachhaltige IT"
