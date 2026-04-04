@@ -1,0 +1,13 @@
+title: "SQL Repetitorium"
+author: "Jacques Mock Schindler"
+date: 2026-04-03
+date-format: DD.MM.YYYY
+callout-icon: false
+format:
+  html:
+    code-tools:
+      source: true
+    other-links:
+      - text: "Download Notebook (right click to download)"
+        icon: journal-code
+        href: 260403_sql.ipynb
