@@ -110,11 +110,13 @@ format:
   pdf:
     pdf-engine: lualatex
     documentclass: scrreprt
+    include-before-body: breakcode.tex
     classoption: [ngerman]
     papersize: a4
     number-sections: true
     colorlinks: true
     code-line-numbers: true
-    # include-in-header: preamble.tex
+    include-in-header: preamble.tex
     mainfont: "Libertinus Serif"
     monofont: "Libertinus Mono"
+    code-overflow: wrap
