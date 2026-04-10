@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jonathan Rappl">
+
+<title>3&nbsp; 📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/260220_green_it/green_it.html" rel="next">
+<link href="../../files/260320_sql_af/260320_sql_af.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c25b1cc7189173f1b155a78bf3851d93.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html">Datenbanken II</a></li><li class="breadcrumb-item"><a href="../../files/260410/joins_intro_2fP.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Unterlagen für den Informatikunterricht in der Klasse 2fP</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/SkriptenMk/I_fP_24-28" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../Unterlagen-für-den-Informatikunterricht-in-der-Klasse-2fP.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Start</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Obligatorisches Fach Informatik (2fP)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenbanken II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260320_sql_af/260320_sql_af.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260410/joins_intro_2fP.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Nachhaltige IT</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260220_green_it/green_it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Green IT</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260220_green_it_ex/green_it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Green IT – Datenvisualisierungsprojekt</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260227_oss/oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Open Source Software</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260227_redaktionsauftrag/redaktionsauftrag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Redaktionsübung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kryptologie</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250912/files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">File Handling in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250912/caesar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250919_vigenere/vigenere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Polyalphabetische Chiffren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250918_implementation/250918_python_implementation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Vigenère Chiffre Implementierung in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250926_break_vigenere/break.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Die Vigenère-Verschlüsselung brechen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251031/asymmetrie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Public-Key-Kryptographie</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251114_rsa/rsa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">RSA</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Computernetzwerke</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/netzwerke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Computernetzwerke</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/tcpip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">IP Adressen und DNS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/nat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Network Address Translation (NAT)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/tld.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Top Level Domains und ihre Vergabe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250829/three_way_handshake.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Beobachten von Internetverbindungen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250905/sockets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Python Sockets: Ein Einfaches Client-Server Beispiel</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenbanken</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250416/datenbank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Einführung in Datenbanken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250507/sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Abfrage von Daten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250521/lernziele.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lernziele für die Prüfung vom 21. Mai 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenstrukturen und Codierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250122/speicherstrukturen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Datenstrukturen Stack und Queue</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250219/queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Queues in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250305/bst.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Binary Search Tree</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/binaersystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Das Binärsystem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/umrechnungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/muloe_umrechnungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250319/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Base64-Codierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250326/lernziele.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lernziele für die Prüfung vom 26. März 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Künstliche Intelligenz</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251107/soziale_medien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">The Social Dilemma</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251128/ki_beispiel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Was ist eine Künstliche Intelligenz?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Installation von Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/kurzanleitung_venv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Anleitung zum Arbeiten mit Python Virtual Environments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Jupyter Notebook</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260109_plain_text_writing/plain_text_writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Plain Text Writing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260116_referenzen/referenzen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Referenzen in Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260116_referenzen/zotero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Literaturverwaltung mit Zotero</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Alte Programme</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/archiv/fs25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Programm im Frühlingssemester 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#kontext" id="toc-kontext" class="nav-link active" data-scroll-target="#kontext"><span class="header-section-number">3.0.1</span> Kontext</a></li>
+  <li><a href="#das-wichtigste-auf-einen-blick" id="toc-das-wichtigste-auf-einen-blick" class="nav-link" data-scroll-target="#das-wichtigste-auf-einen-blick"><span class="header-section-number">3.0.2</span> Das Wichtigste auf einen Blick</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">3.0.3</span> Setup</a></li>
+  <li><a href="#aufgabe-1-inner-join-wer-hat-die-prüfung-geschrieben" id="toc-aufgabe-1-inner-join-wer-hat-die-prüfung-geschrieben" class="nav-link" data-scroll-target="#aufgabe-1-inner-join-wer-hat-die-prüfung-geschrieben"><span class="header-section-number">3.0.4</span> Aufgabe 1: INNER JOIN — Wer hat die Prüfung geschrieben?</a></li>
+  <li><a href="#aufgabe-2-left-join-die-vollständige-übersicht" id="toc-aufgabe-2-left-join-die-vollständige-übersicht" class="nav-link" data-scroll-target="#aufgabe-2-left-join-die-vollständige-übersicht"><span class="header-section-number">3.0.5</span> Aufgabe 2: LEFT JOIN — Die vollständige Übersicht</a></li>
+  <li><a href="#aufgabe-3-online-shop-join-group-by" id="toc-aufgabe-3-online-shop-join-group-by" class="nav-link" data-scroll-target="#aufgabe-3-online-shop-join-group-by"><span class="header-section-number">3.0.6</span> Aufgabe 3: Online-Shop — JOIN + GROUP BY</a></li>
+  <li><a href="#aufgabe-4-sportverein-wer-hat-nicht-am-turnier-teilgenommen" id="toc-aufgabe-4-sportverein-wer-hat-nicht-am-turnier-teilgenommen" class="nav-link" data-scroll-target="#aufgabe-4-sportverein-wer-hat-nicht-am-turnier-teilgenommen"><span class="header-section-number">3.0.7</span> Aufgabe 4: Sportverein — Wer hat (nicht) am Turnier teilgenommen?</a></li>
+  <li><a href="#aufgabe-5-bibliothek-welche-bücher-wurden-nie-ausgeliehen" id="toc-aufgabe-5-bibliothek-welche-bücher-wurden-nie-ausgeliehen" class="nav-link" data-scroll-target="#aufgabe-5-bibliothek-welche-bücher-wurden-nie-ausgeliehen"><span class="header-section-number">3.0.8</span> Aufgabe 5: Bibliothek — Welche Bücher wurden nie ausgeliehen?</a></li>
+  <li><a href="#bonus-join-über-drei-tabellen" id="toc-bonus-join-über-drei-tabellen" class="nav-link" data-scroll-target="#bonus-join-über-drei-tabellen"><span class="header-section-number">3.0.9</span> Bonus: JOIN über drei Tabellen</a></li>
+  <li><a href="#reflexion" id="toc-reflexion" class="nav-link" data-scroll-target="#reflexion"><span class="header-section-number">3.1</span> Reflexion</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260410/joins_intro_2fP.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="joins_intro_2fP.ipynb"><i class="bi bi-journal-code"></i>Download Notebook (right click to download)</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html">Datenbanken II</a></li><li class="breadcrumb-item"><a href="../../files/260410/joins_intro_2fP.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jonathan Rappl </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10.04.2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Wie man dieses Notebook lokal ausführt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Erstelle einen Ordner</li>
+<li>Erstelle eine virtuelle Python-Umgebung<br>
+<code>python -m venv .venv</code></li>
+<li>Aktiviere die virtuelle Umgebung<br>
+<code>.venv\Scripts\activate</code></li>
+<li>Installiere Jupyter und pandas<br>
+<code>pip install jupyter pandas</code></li>
+<li>Lade diese Datei in deinen Ordner herunter</li>
+<li>Starte den lokalen Jupyter-Server<br>
+<code>jupyter-lab</code></li>
+</ol>
+</div>
+</div>
+<section id="kontext" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="kontext"><span class="header-section-number">3.0.1</span> Kontext</h3>
+<p>In der realen Welt sind Daten fast nie in einer einzigen Tabelle gespeichert. Kundendaten liegen getrennt von Bestelldaten, Klassenlisten getrennt von Noten. Um sinnvolle Analysen zu machen, müssen wir Tabellen <strong>verknüpfen</strong> — das nennt man einen <strong>JOIN</strong>.</p>
+</section>
+<section id="das-wichtigste-auf-einen-blick" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="das-wichtigste-auf-einen-blick"><span class="header-section-number">3.0.2</span> Das Wichtigste auf einen Blick</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Was ich will</th>
+<th>SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nur übereinstimmende Zeilen</td>
+<td><code>SELECT ... FROM A INNER JOIN B ON A.key = B.key</code></td>
+</tr>
+<tr class="even">
+<td>Alle Zeilen der linken Tabelle</td>
+<td><code>SELECT ... FROM A LEFT JOIN B ON A.key = B.key</code></td>
+</tr>
+<tr class="odd">
+<td>Fehlende Einträge finden</td>
+<td><code>... LEFT JOIN ... WHERE B.spalte IS NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dauer:</strong> ca. 40–50 Minuten</p>
+<p><strong>Voraussetzungen:</strong> SQL-Grundlagen (<code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, Aggregatfunktionen), grundlegende Python-Kenntnisse</p>
+<hr>
+</section>
+<section id="setup" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.0.3</span> Setup</h3>
+<p>Führe die folgende Zelle aus, um die Datenbank vorzubereiten. <strong>Nicht verändern.</strong></p>
+<div id="42ba9bd6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># --- Setup (nicht verändern) ---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Hilfsfunktion: Führt eine SQL-Abfrage aus und gibt ein DataFrame zurück.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">def</span> sql(query):</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    cursor.execute(query)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    cols <span class="op">=</span> [d[<span class="dv">0</span>] <span class="cf">for</span> d <span class="kw">in</span> cursor.description]</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">return</span> pd.DataFrame(cursor.fetchall(), columns<span class="op">=</span>cols)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Erstelle eine SQLite-Datenbank im Arbeitsspeicher (RAM)</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">':memory:'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>cursor <span class="op">=</span> conn.cursor()</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>cursor.executescript(<span class="st">"""</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="st">-- Tabellen für Aufgaben 1-2: Die Prüfungsliste</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="st">CREATE TABLE klassenliste (</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="st">    schueler_id INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="st">    name        TEXT,</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="st">    klasse      TEXT</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="st">);</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="st">CREATE TABLE noten (</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="st">    schueler_id INTEGER,</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="st">    note        REAL,</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="st">    FOREIGN KEY (schueler_id) REFERENCES klassenliste(schueler_id)</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="st">);</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="st">INSERT INTO klassenliste VALUES</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="st">    (1, 'Lea',   '2fP'),</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="st">    (2, 'Jan',   '2fP'),</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="st">    (3, 'Mira',  '2fP'),</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="st">    (4, 'Noah',  '2fP'),</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="st">    (5, 'Elena', '2fP'),</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="st">    (6, 'Luca',  '2fP');</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="st">INSERT INTO noten VALUES</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="st">    (1, 5.5),</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="st">    (2, 4.0),</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="st">    (5, 5.0);</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="st">-- Tabellen für Aufgabe 3: Der Online-Shop (gleiche Daten wie im SQL-Aggregatfunktionen-Notebook!)</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="st">CREATE TABLE products (</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="st">    product_id   INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="st">    product_name TEXT,</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="st">    category     TEXT,</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="st">    price        REAL</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="st">);</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="st">CREATE TABLE orders (</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="st">    order_id    INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="st">    product_id  INTEGER,</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="st">    quantity    INTEGER,</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="st">    customer    TEXT,</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="st">    FOREIGN KEY (product_id) REFERENCES products(product_id)</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="st">);</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="st">INSERT INTO products VALUES</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="st">    (1, 'Laptop',  'Electronics', 1200.00),</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="st">    (2, 'Mouse',   'Electronics',   25.00),</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="st">    (3, 'Desk',    'Furniture',    450.00),</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="st">    (4, 'Chair',   'Furniture',    320.00),</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="st">    (5, 'Headset', 'Electronics',   80.00);</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="st">INSERT INTO orders VALUES</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="st">    (1, 1, 2, 'Anna'),</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="st">    (2, 2, 5, 'Ben'),</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="st">    (3, 3, 1, 'Clara'),</span></span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="st">    (4, 1, 1, 'Daniel'),</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="st">    (5, 4, 3, 'Anna'),</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="st">    (6, 5, 2, 'Ben'),</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a><span class="st">    (7, 2, 8, 'Clara'),</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="st">    (8, 3, 2, 'Evi'),</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="st">    (9, 5, 1, 'Anna');</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a></span>
+<span id="cb1-70"><a href="#cb1-70"></a><span class="st">-- Tabellen für Aufgabe 4: Sportverein</span></span>
+<span id="cb1-71"><a href="#cb1-71"></a><span class="st">CREATE TABLE mitglieder (</span></span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="st">    mitglied_id INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-73"><a href="#cb1-73"></a><span class="st">    name        TEXT,</span></span>
+<span id="cb1-74"><a href="#cb1-74"></a><span class="st">    sportart    TEXT</span></span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="st">);</span></span>
+<span id="cb1-76"><a href="#cb1-76"></a><span class="st">CREATE TABLE turnier_ergebnisse (</span></span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="st">    mitglied_id INTEGER,</span></span>
+<span id="cb1-78"><a href="#cb1-78"></a><span class="st">    turnier     TEXT,</span></span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="st">    rang        INTEGER,</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a><span class="st">    FOREIGN KEY (mitglied_id) REFERENCES mitglieder(mitglied_id)</span></span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="st">);</span></span>
+<span id="cb1-82"><a href="#cb1-82"></a><span class="st">INSERT INTO mitglieder VALUES</span></span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="st">    (1, 'Anna',   'Fussball'),</span></span>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="st">    (2, 'Ben',    'Tennis'),</span></span>
+<span id="cb1-85"><a href="#cb1-85"></a><span class="st">    (3, 'Chiara', 'Fussball'),</span></span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="st">    (4, 'David',  'Schwimmen'),</span></span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="st">    (5, 'Eva',    'Tennis'),</span></span>
+<span id="cb1-88"><a href="#cb1-88"></a><span class="st">    (6, 'Finn',   'Fussball');</span></span>
+<span id="cb1-89"><a href="#cb1-89"></a><span class="st">INSERT INTO turnier_ergebnisse VALUES</span></span>
+<span id="cb1-90"><a href="#cb1-90"></a><span class="st">    (1, 'Kantonalmeisterschaft', 2),</span></span>
+<span id="cb1-91"><a href="#cb1-91"></a><span class="st">    (2, 'Vereinsturnier', 5),</span></span>
+<span id="cb1-92"><a href="#cb1-92"></a><span class="st">    (3, 'Kantonalmeisterschaft', 8),</span></span>
+<span id="cb1-93"><a href="#cb1-93"></a><span class="st">    (5, 'Vereinsturnier', 3);</span></span>
+<span id="cb1-94"><a href="#cb1-94"></a></span>
+<span id="cb1-95"><a href="#cb1-95"></a><span class="st">-- Tabellen für Aufgabe 5: Bibliothek</span></span>
+<span id="cb1-96"><a href="#cb1-96"></a><span class="st">CREATE TABLE buecher (</span></span>
+<span id="cb1-97"><a href="#cb1-97"></a><span class="st">    buch_id INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="st">    titel   TEXT,</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="st">    autor   TEXT,</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="st">    genre   TEXT</span></span>
+<span id="cb1-101"><a href="#cb1-101"></a><span class="st">);</span></span>
+<span id="cb1-102"><a href="#cb1-102"></a><span class="st">CREATE TABLE ausleihen (</span></span>
+<span id="cb1-103"><a href="#cb1-103"></a><span class="st">    ausleihe_id INTEGER PRIMARY KEY,</span></span>
+<span id="cb1-104"><a href="#cb1-104"></a><span class="st">    buch_id     INTEGER,</span></span>
+<span id="cb1-105"><a href="#cb1-105"></a><span class="st">    schueler    TEXT,</span></span>
+<span id="cb1-106"><a href="#cb1-106"></a><span class="st">    datum       TEXT,</span></span>
+<span id="cb1-107"><a href="#cb1-107"></a><span class="st">    FOREIGN KEY (buch_id) REFERENCES buecher(buch_id)</span></span>
+<span id="cb1-108"><a href="#cb1-108"></a><span class="st">);</span></span>
+<span id="cb1-109"><a href="#cb1-109"></a><span class="st">INSERT INTO buecher VALUES</span></span>
+<span id="cb1-110"><a href="#cb1-110"></a><span class="st">    (1, 'Harry Potter', 'J.K. Rowling', 'Fantasy'),</span></span>
+<span id="cb1-111"><a href="#cb1-111"></a><span class="st">    (2, 'Gregs Tagebuch', 'Jeff Kinney', 'Humor'),</span></span>
+<span id="cb1-112"><a href="#cb1-112"></a><span class="st">    (3, 'Die drei ???', 'Verschiedene', 'Krimi'),</span></span>
+<span id="cb1-113"><a href="#cb1-113"></a><span class="st">    (4, 'Eragon', 'C. Paolini', 'Fantasy'),</span></span>
+<span id="cb1-114"><a href="#cb1-114"></a><span class="st">    (5, 'Tintenherz', 'C. Funke', 'Fantasy'),</span></span>
+<span id="cb1-115"><a href="#cb1-115"></a><span class="st">    (6, 'Rico, Oskar und die Tieferschatten', 'A. Steinhöfel', 'Krimi');</span></span>
+<span id="cb1-116"><a href="#cb1-116"></a><span class="st">INSERT INTO ausleihen VALUES</span></span>
+<span id="cb1-117"><a href="#cb1-117"></a><span class="st">    (1, 1, 'Lea',   '2026-03-10'),</span></span>
+<span id="cb1-118"><a href="#cb1-118"></a><span class="st">    (2, 2, 'Jan',   '2026-03-12'),</span></span>
+<span id="cb1-119"><a href="#cb1-119"></a><span class="st">    (3, 1, 'Mira',  '2026-03-15'),</span></span>
+<span id="cb1-120"><a href="#cb1-120"></a><span class="st">    (4, 3, 'Noah',  '2026-03-18'),</span></span>
+<span id="cb1-121"><a href="#cb1-121"></a><span class="st">    (5, 2, 'Elena', '2026-03-20');</span></span>
+<span id="cb1-122"><a href="#cb1-122"></a><span class="st">"""</span>)</span>
+<span id="cb1-123"><a href="#cb1-123"></a>conn.commit()</span>
+<span id="cb1-124"><a href="#cb1-124"></a><span class="bu">print</span>(<span class="st">'Datenbank bereit. Viel Erfolg!'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="aufgabe-1-inner-join-wer-hat-die-prüfung-geschrieben" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="aufgabe-1-inner-join-wer-hat-die-prüfung-geschrieben"><span class="header-section-number">3.0.4</span> Aufgabe 1: INNER JOIN — Wer hat die Prüfung geschrieben?</h3>
+<p><strong>Tabellen:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tabelle</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>klassenliste</code></td>
+<td><code>schueler_id</code>, <code>name</code>, <code>klasse</code></td>
+</tr>
+<tr class="even">
+<td><code>noten</code></td>
+<td><code>schueler_id</code>, <code>note</code></td>
+</tr>
+</tbody>
+</table>
+<p>Frau Müller will nur die Schüler sehen, die die Prüfung <strong>tatsächlich geschrieben haben</strong>, zusammen mit ihren Namen und Noten.</p>
+<p>Schreibe ein <code>SELECT</code> mit <code>INNER JOIN</code>, um <code>klassenliste</code> und <code>noten</code> über die Spalte <code>schueler_id</code> zu verknüpfen. Zeige <code>name</code> und <code>note</code>.</p>
+<p><strong>Erwartetes Ergebnis:</strong> 3 Zeilen (Lea, Jan, Elena).</p>
+<div id="7a081cd0" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># AUFGABE 1: INNER JOIN von klassenliste und noten.</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Nutze sql(""" ... """) um deine Abfrage auszuführen.</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>result1 <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">"""</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">'Aufgabe 1:</span><span class="ch">\n</span><span class="st">'</span>, result1)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> klassenliste.name, noten.note</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> klassenliste</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> noten</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="kw">ON</span> klassenliste.schueler_id <span class="op">=</span> noten.schueler_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 3 Zeilen — nur Lea (5.5), Jan (4.0) und Elena (5.0), weil nur diese in <strong>beiden</strong> Tabellen vorkommen.</p>
+</details>
+</section>
+<section id="aufgabe-2-left-join-die-vollständige-übersicht" class="level3" data-number="3.0.5">
+<h3 data-number="3.0.5" class="anchored" data-anchor-id="aufgabe-2-left-join-die-vollständige-übersicht"><span class="header-section-number">3.0.5</span> Aufgabe 2: LEFT JOIN — Die vollständige Übersicht</h3>
+<p>Frau Müller braucht <strong>alle 6 Schüler</strong> in ihrer Übersicht — auch die, die nicht an der Prüfung teilgenommen haben. Bei fehlenden Noten soll <code>NULL</code> stehen.</p>
+<p><strong>2a)</strong> Schreibe ein <code>SELECT</code> mit <code>LEFT JOIN</code>, um alle Schüler mit ihren Noten zu sehen.</p>
+<p><strong>2b)</strong> Erweitere die Abfrage mit einer <code>WHERE</code>-Klausel, um nur die Schüler zu finden, die <strong>keine Note</strong> haben (<code>IS NULL</code>).</p>
+<p><strong>2c)</strong> Beantworte: Warum stehen dort <code>NULL</code>-Werte?</p>
+<div id="3d261c8e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># AUFGABE 2a: LEFT JOIN von klassenliste und noten.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>result2a <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="st">"""</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 2a:</span><span class="ch">\n</span><span class="st">'</span>, result2a)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (2a)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> klassenliste.name, noten.note</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">FROM</span> klassenliste</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> noten</span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="kw">ON</span> klassenliste.schueler_id <span class="op">=</span> noten.schueler_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 6 Zeilen. Mira, Noah und Luca haben <code>None</code> (= NULL) in der Notenspalte, weil sie nicht in der <code>noten</code>-Tabelle vorkommen.</p>
+</details>
+<div id="5913138b" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># AUFGABE 2b: Nur Schüler OHNE Note finden (LEFT JOIN + WHERE IS NULL).</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a>result2b <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="st">"""</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 2b:</span><span class="ch">\n</span><span class="st">'</span>, result2b)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (2b)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">SELECT</span> klassenliste.name</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">FROM</span> klassenliste</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> noten</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="kw">ON</span> klassenliste.schueler_id <span class="op">=</span> noten.schueler_id</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">WHERE</span> noten.note <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ausgabe: Mira, Noah, Luca — die drei Schüler, die krank waren und die Prüfung nicht geschrieben haben.</p>
+</details>
+<p><strong>Aufgabe 2c:</strong> Warum stehen bei diesen Schülern <code>NULL</code>-Werte?</p>
+<p><em>Deine Antwort:</em></p>
+<hr>
+</section>
+<section id="aufgabe-3-online-shop-join-group-by" class="level3" data-number="3.0.6">
+<h3 data-number="3.0.6" class="anchored" data-anchor-id="aufgabe-3-online-shop-join-group-by"><span class="header-section-number">3.0.6</span> Aufgabe 3: Online-Shop — JOIN + GROUP BY</h3>
+<p><strong>Tabellen:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tabelle</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>products</code></td>
+<td><code>product_id</code>, <code>product_name</code>, <code>category</code>, <code>price</code></td>
+</tr>
+<tr class="even">
+<td><code>orders</code></td>
+<td><code>order_id</code>, <code>product_id</code>, <code>quantity</code>, <code>customer</code></td>
+</tr>
+</tbody>
+</table>
+<p>Du kennst diese Tabellen bereits vom SQL-Aggregatfunktionen-Notebook. Jetzt verknüpfen wir sie mit einem JOIN!</p>
+<p><strong>3a)</strong> Schreibe einen <code>INNER JOIN</code>, um jede Bestellung mit dem zugehörigen Produktnamen und Preis anzuzeigen. Zeige: <code>product_name</code>, <code>quantity</code>, <code>price</code>, <code>customer</code>.</p>
+<p><strong>3b)</strong> Berechne den <strong>Gesamtumsatz pro Kategorie</strong>. Tipp: Umsatz = <code>price * quantity</code>. Nutze <code>SUM()</code> und <code>GROUP BY</code>.</p>
+<div id="c8076490" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># AUFGABE 3a: INNER JOIN von orders und products.</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>result3a <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="st">"""</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 3a:</span><span class="ch">\n</span><span class="st">'</span>, result3a)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (3a)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SELECT</span> products.product_name, orders.quantity, products.price, orders.customer</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">FROM</span> orders</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> products</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="kw">ON</span> orders.product_id <span class="op">=</span> products.product_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 9 Zeilen — jede Bestellung jetzt mit Produktname und Preis.</p>
+</details>
+<div id="ed56c929" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># AUFGABE 3b: Gesamtumsatz pro Kategorie (JOIN + GROUP BY).</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>result3b <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">"""</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 3b:</span><span class="ch">\n</span><span class="st">'</span>, result3b)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (3b)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">SELECT</span> products.<span class="kw">category</span>,</span>
+<span id="cb11-2"><a href="#cb11-2"></a>       <span class="fu">SUM</span>(orders.quantity <span class="op">*</span> products.price) <span class="kw">AS</span> umsatz</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">FROM</span> orders</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> products</span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="kw">ON</span> orders.product_id <span class="op">=</span> products.product_id</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">GROUP</span> <span class="kw">BY</span> products.<span class="kw">category</span>;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: Electronics = 4165.00, Furniture = 2310.00.</p>
+</details>
+<hr>
+</section>
+<section id="aufgabe-4-sportverein-wer-hat-nicht-am-turnier-teilgenommen" class="level3" data-number="3.0.7">
+<h3 data-number="3.0.7" class="anchored" data-anchor-id="aufgabe-4-sportverein-wer-hat-nicht-am-turnier-teilgenommen"><span class="header-section-number">3.0.7</span> Aufgabe 4: Sportverein — Wer hat (nicht) am Turnier teilgenommen?</h3>
+<p><strong>Tabellen:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tabelle</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mitglieder</code></td>
+<td><code>mitglied_id</code>, <code>name</code>, <code>sportart</code></td>
+</tr>
+<tr class="even">
+<td><code>turnier_ergebnisse</code></td>
+<td><code>mitglied_id</code>, <code>turnier</code>, <code>rang</code></td>
+</tr>
+</tbody>
+</table>
+<p>Der Sportverein will eine Übersicht über alle Mitglieder und ihre Turnierergebnisse. Nicht alle Mitglieder haben an einem Turnier teilgenommen!</p>
+<p><strong>4a)</strong> Zeige alle Mitglieder mit ihren Turnierergebnissen. Auch Mitglieder ohne Turnierergebnis sollen erscheinen. Welchen JOIN-Typ brauchst du?</p>
+<p><strong>4b)</strong> Finde heraus: Welche Mitglieder haben noch <strong>nie</strong> an einem Turnier teilgenommen?</p>
+<div id="aee9e736" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># AUFGABE 4a: Alle Mitglieder mit Turnierergebnissen (auch ohne!).</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>result4a <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="st">"""</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 4a:</span><span class="ch">\n</span><span class="st">'</span>, result4a)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (4a)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">SELECT</span> mitglieder.name, mitglieder.sportart,</span>
+<span id="cb13-2"><a href="#cb13-2"></a>       turnier_ergebnisse.turnier, turnier_ergebnisse.rang</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">FROM</span> mitglieder</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> turnier_ergebnisse</span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="kw">ON</span> mitglieder.mitglied_id <span class="op">=</span> turnier_ergebnisse.mitglied_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 6 Zeilen. David und Finn haben <code>NULL</code> bei Turnier und Rang.</p>
+</details>
+<div id="2d28a18a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># AUFGABE 4b: Mitglieder, die NIE an einem Turnier teilgenommen haben.</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a>result4b <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="st">"""</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 4b:</span><span class="ch">\n</span><span class="st">'</span>, result4b)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (4b)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SELECT</span> mitglieder.name, mitglieder.sportart</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">FROM</span> mitglieder</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> turnier_ergebnisse</span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="kw">ON</span> mitglieder.mitglied_id <span class="op">=</span> turnier_ergebnisse.mitglied_id</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="kw">WHERE</span> turnier_ergebnisse.turnier <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: David (Schwimmen) und Finn (Fussball) — sie haben kein Turnierergebnis.</p>
+</details>
+<hr>
+</section>
+<section id="aufgabe-5-bibliothek-welche-bücher-wurden-nie-ausgeliehen" class="level3" data-number="3.0.8">
+<h3 data-number="3.0.8" class="anchored" data-anchor-id="aufgabe-5-bibliothek-welche-bücher-wurden-nie-ausgeliehen"><span class="header-section-number">3.0.8</span> Aufgabe 5: Bibliothek — Welche Bücher wurden nie ausgeliehen?</h3>
+<p><strong>Tabellen:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tabelle</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>buecher</code></td>
+<td><code>buch_id</code>, <code>titel</code>, <code>autor</code>, <code>genre</code></td>
+</tr>
+<tr class="even">
+<td><code>ausleihen</code></td>
+<td><code>ausleihe_id</code>, <code>buch_id</code>, <code>schueler</code>, <code>datum</code></td>
+</tr>
+</tbody>
+</table>
+<p>Die Schulbibliothek will herausfinden, welche Bücher noch nie ausgeliehen wurden, um sie besser zu bewerben.</p>
+<p><strong>5a)</strong> Zeige alle Bücher mit ihren Ausleihen an (auch Bücher ohne Ausleihe).</p>
+<p><strong>5b)</strong> Finde die Bücher, die <strong>noch nie</strong> ausgeliehen wurden.</p>
+<p><strong>5c)</strong> Zähle, wie oft jedes Buch ausgeliehen wurde. Sortiere absteigend nach der Ausleihzahl. Tipp: Nutze <code>COUNT()</code>, <code>GROUP BY</code> und <code>ORDER BY</code>.</p>
+<div id="7dfc3b3f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># AUFGABE 5a: Alle Bücher mit ihren Ausleihen (auch ohne!).</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>result5a <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="st">"""</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 5a:</span><span class="ch">\n</span><span class="st">'</span>, result5a)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (5a)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">SELECT</span> buecher.titel, buecher.autor,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>       ausleihen.schueler, ausleihen.datum</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">FROM</span> buecher</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> ausleihen</span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="kw">ON</span> buecher.buch_id <span class="op">=</span> ausleihen.buch_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 8 Zeilen. Eragon, Tintenherz und Rico haben <code>NULL</code> bei Schüler und Datum.</p>
+</details>
+<div id="b248fc48" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># AUFGABE 5b: Bücher, die noch NIE ausgeliehen wurden.</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>result5b <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="st">"""</span>)</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 5b:</span><span class="ch">\n</span><span class="st">'</span>, result5b)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (5b)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">SELECT</span> buecher.titel, buecher.autor</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="kw">FROM</span> buecher</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> ausleihen</span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="kw">ON</span> buecher.buch_id <span class="op">=</span> ausleihen.buch_id</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="kw">WHERE</span> ausleihen.ausleihe_id <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: Eragon, Tintenherz und Rico, Oskar und die Tieferschatten — diese drei wurden noch nie ausgeliehen.</p>
+</details>
+<div id="a3f3e9df" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># AUFGABE 5c: Wie oft wurde jedes Buch ausgeliehen? (JOIN + GROUP BY + ORDER BY)</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>result5c <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="st">"""</span>)</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 5c:</span><span class="ch">\n</span><span class="st">'</span>, result5c)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen (5c)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> buecher.titel,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>       <span class="fu">COUNT</span>(ausleihen.ausleihe_id) <span class="kw">AS</span> anzahl_ausleihen</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="kw">FROM</span> buecher</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> ausleihen</span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="kw">ON</span> buecher.buch_id <span class="op">=</span> ausleihen.buch_id</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="kw">GROUP</span> <span class="kw">BY</span> buecher.titel</span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="kw">ORDER</span> <span class="kw">BY</span> anzahl_ausleihen <span class="kw">DESC</span>;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: Harry Potter und Gregs Tagebuch je 2×, Die drei ??? 1×, die restlichen drei 0×.</p>
+</details>
+<hr>
+</section>
+<section id="bonus-join-über-drei-tabellen" class="level3" data-number="3.0.9">
+<h3 data-number="3.0.9" class="anchored" data-anchor-id="bonus-join-über-drei-tabellen"><span class="header-section-number">3.0.9</span> Bonus: JOIN über drei Tabellen</h3>
+<p>Für diese Aufgabe erstellen wir eine zusätzliche Tabelle. Führe zuerst die nächste Zelle aus.</p>
+<div id="c6dbcff8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Bonus-Setup (nicht verändern)</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>cursor.executescript(<span class="st">"""</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="st">CREATE TABLE hausaufgaben (</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="st">    schueler_id INTEGER,</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="st">    punkte      INTEGER,</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="st">    FOREIGN KEY (schueler_id) REFERENCES klassenliste(schueler_id)</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="st">);</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="st">INSERT INTO hausaufgaben VALUES</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="st">    (1, 18),</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="st">    (2, 12),</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="st">    (3, 20),</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="st">    (4, 15),</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="st">    (5, 17),</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="st">    (6, 10);</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="st">"""</span>)</span>
+<span id="cb22-16"><a href="#cb22-16"></a>conn.commit()</span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="bu">print</span>(<span class="st">'Bonus-Tabelle erstellt!'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Tabellen:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tabelle</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>klassenliste</code></td>
+<td><code>schueler_id</code>, <code>name</code>, <code>klasse</code></td>
+</tr>
+<tr class="even">
+<td><code>noten</code></td>
+<td><code>schueler_id</code>, <code>note</code></td>
+</tr>
+<tr class="odd">
+<td><code>hausaufgaben</code></td>
+<td><code>schueler_id</code>, <code>punkte</code></td>
+</tr>
+</tbody>
+</table>
+<p>Frau Müller will jetzt eine <strong>Gesamtübersicht</strong>: Name, Prüfungsnote UND Hausaufgabenpunkte — für alle 6 Schüler.</p>
+<p>Tipp: Du kannst zwei JOINs hintereinander schreiben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">FROM</span> tabelle_a</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> tabelle_b <span class="kw">ON</span> <span class="op">..</span>.</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> tabelle_c <span class="kw">ON</span> <span class="op">..</span>.;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e25b046e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># BONUS: JOIN über drei Tabellen.</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a>bonus <span class="op">=</span> sql(<span class="st">"""</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="st">-- Deine Abfrage hier</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="st">"""</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="bu">print</span>(<span class="st">'Bonus:</span><span class="ch">\n</span><span class="st">'</span>, bonus)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<details>
+<summary>
+Lösung anzeigen
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">SELECT</span> klassenliste.name, noten.note, hausaufgaben.punkte</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">FROM</span> klassenliste</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> noten</span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="kw">ON</span> klassenliste.schueler_id <span class="op">=</span> noten.schueler_id</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> hausaufgaben</span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="kw">ON</span> klassenliste.schueler_id <span class="op">=</span> hausaufgaben.schueler_id;</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ergebnis: 6 Zeilen. Alle Schüler haben Hausaufgabenpunkte, aber nur 3 haben Noten. Bei den Kranken steht <code>NULL</code> in der Notenspalte.</p>
+</details>
+<hr>
+</section>
+<section id="reflexion" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="reflexion"><span class="header-section-number">3.1</span> Reflexion</h2>
+<p>Beantworte die folgenden Fragen in dieser Zelle:</p>
+<ol type="1">
+<li><p>Erkläre in eigenen Worten: Was ist der Unterschied zwischen einem <code>INNER JOIN</code> und einem <code>LEFT JOIN</code>?</p>
+<p><em>Deine Antwort:</em></p></li>
+<li><p>Nenne eine Situation aus deinem Alltag, in der du zwei Listen zusammenführen müsstest. Welchen JOIN-Typ würdest du verwenden?</p>
+<p><em>Deine Antwort:</em></p></li>
+<li><p>In Aufgabe 3 hast du einen JOIN mit GROUP BY kombiniert. Warum brauchst du zuerst den JOIN, bevor du gruppieren kannst?</p>
+<p><em>Deine Antwort:</em></p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../files/260320_sql_af/260320_sql_af.html" class="pagination-link" aria-label="💻 Notebook-Übung: SQL-Aggregatfunktionen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../files/260220_green_it/green_it.html" class="pagination-link" aria-label="Green IT">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Green IT</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260410/joins_intro_2fP.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
