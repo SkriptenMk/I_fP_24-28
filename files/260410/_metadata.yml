@@ -1,0 +1,13 @@
+title: "SQL-JOINs"
+author: "Jonathan Rappl"
+date: 2026-04-10
+date-format: DD.MM.YYYY
+callout-icon: false
+format:
+  html:
+    code-tools:
+      source: true
+    other-links:
+      - text: "Download Notebook (right click to download)"
+        icon: journal-code
+        href: joins_intro_2fP.ipynb
