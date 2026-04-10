@@ -301,7 +301,7 @@
     "href": "files/260227_oss/oss.html#footnotes",
     "title": "5  Open-Source-Software",
     "section": "",
-    "text": "«Amazon Linux 2023», in Amazon Web Services, Inc., https://aws.amazon.com/linux/amazon-linux-2023/, 2023.↩︎\n«Leichter Hypervisor – AWS Nitro System – AWS», in Amazon Web Services, Inc., https://aws.amazon.com/de/ec2/nitro/, 2026.↩︎\nSuhuruli, Einführung in den Azure Linux-Containerhost für AKS, https://learn.microsoft.com/de-de/azure/azure-linux/intro-azure-linux, o. J.↩︎\n«TIOBE Index», in TIOBE, 2026.↩︎\nZur Kritik am Tiobe-Index vgl. Wikipedia zu Tiobe↩︎",
+    "text": "«Amazon Linux 2023», in Amazon Web Services, Inc., https://aws.amazon.com/linux/amazon-linux-2023/, 2023.↩︎\n«Leichter Hypervisor – AWS Nitro System – AWS», in Amazon Web Services, Inc., https://aws.amazon.com/de/ec2/nitro/, 2026.↩︎\nsuhuruli, Einführung in den Azure Linux-Containerhost für AKS, https://learn.microsoft.com/de-de/azure/azure-linux/intro-azure-linux, o. J.↩︎\n«TIOBE Index», in TIOBE, 2026.↩︎\nZur Kritik am Tiobe-Index vgl. Wikipedia zu Tiobe↩︎",
     "crumbs": [
       "Nachhaltige IT",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Open Source Software</span>"
