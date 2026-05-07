@@ -1,0 +1,9 @@
+title: "Cybergefahren"
+author: "Jacques Mock Schindler"
+date: 2026-05-08
+date-format: DD.MM.YYYY
+callout-icon: false
+format:
+  html:
+    code-tools:
+      source: true

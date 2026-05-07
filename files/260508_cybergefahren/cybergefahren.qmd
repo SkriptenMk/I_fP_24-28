@@ -1,0 +1,56 @@
+---
+title: "Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem"
+subtitle: "Unterlagentext für den Unterricht an der Gymnasialen Oberstufe"
+lang: de-CH
+date: last-modified
+date-format: "D. MMMM YYYY"
+---
+
+## Cyberrisiken im Alltag von Gymnasiastinnen und Gymnasiasten
+
+Das Smartphone liegt auf dem Pult, Benachrichtigungen popen auf, und nebenbei läuft noch ein Tab mit dem nächsten YouTube-Video. Die digitale Welt ist für Schülerinnen und Schüler an Gymnasien selbstverständlicher Lebensraum – und genau deshalb ist sie auch ein Raum mit realen Risiken [@jugendmedien2023].
+
+**Phishing und Social Engineering** begegnen Jugendlichen häufiger, als sie denken. Eine gefälschte E-Mail vom «Spotify-Support», eine SMS mit einem Link zu einem angeblichen Paketdienst, oder eine Instagram-Nachricht eines unbekannten Accounts mit einem «exklusiven Gewinn» – hinter all diesen Kontaktversuchen steckt dasselbe Ziel: die Empfängerin oder den Empfänger dazu zu bringen, Zugangsdaten preiszugeben oder Schadsoftware zu installieren [@bacs2024; @skp2023].
+
+Der entscheidende Punkt: Social Engineering funktioniert nicht durch technische Überlegenheit, sondern durch gezielte psychologische Manipulation. Angreifer nutzen dabei eine Handvoll bewährter Mechanismen. *Dringlichkeit* erzeugt Stress und verhindert ruhiges Nachdenken («Ihr Konto wird in 24 Stunden gesperrt»). *Autorität* senkt die Hemmschwelle zu reagieren («Schreiben von der IT-Abteilung der Schule»). *Verknappung* weckt Angst, etwas zu verpassen («Nur noch 2 Plätze verfügbar»). *Vertrautheit* täuscht eine bestehende Beziehung vor – etwa indem ein Angreifer den Namen einer echten Kollegin oder eines echten Kollegen verwendet, dessen Profil er zuvor ausgespäht hat [@enisa2024]. Wer diese Muster kennt, kann innehalten und eine vermeintlich dringende Nachricht mit kühlem Kopf beurteilen, bevor er handelt.
+
+**Identitätsdiebstahl** ist eine unmittelbare Konsequenz erfolgreicher Phishing-Angriffe. Wer die Zugangsdaten eines fremden Accounts übernimmt, kann im Namen der betroffenen Person kommunizieren, einkaufen oder in sozialen Netzwerken Schaden anrichten. Für Jugendliche besonders heikel: Ein kompromittierter Account kann peinliche oder rufschädigende Inhalte verbreiten, die lange nachwirken [@skp2023].
+
+**Cybermobbing und Deepfakes** – Cybermobbing ist technisch gesehen kein klassischer «Cyberangriff», aber eines der wirkungsmächtigsten digitalen Risiken in der Altersgruppe der 15- bis 20-Jährigen [@projuventute2022]. Die Möglichkeit, anonym zu agieren, Inhalte sekundenschnell zu verbreiten und Betroffene rund um die Uhr zu erreichen, verschärft die psychischen Folgen erheblich gegenüber traditionellem Mobbing.
+
+Eine neue, besonders gravierende Dimension kommt durch **Deepfakes** hinzu. Mit frei verfügbaren KI-Tools lassen sich heute täuschend echte Bild-, Audio- und Videoaufnahmen erstellen, die eine reale Person in Situationen zeigen oder sprechen lassen, die nie stattgefunden haben [@enisa2024]. Im schulischen Umfeld bedeutet das: Mitschülerinnen oder Mitschüler können ohne technisches Vorwissen kompromittierende Aufnahmen von anderen erstellen und verbreiten. Die Folgen für die Betroffenen – Rufschädigung, sozialer Rückzug, psychische Belastung – sind real, auch wenn die Aufnahmen gefälscht sind. In rechtlicher Hinsicht steht in der Schweiz in erster Linie das Instrumentarium des Persönlichkeitsschutzes nach den Art. 28 ff. ZGB zur Verfügung. Dieses stammt aber noch aus einer Zeit der analogen Kommunikation. Ausserdem scheitert die Geltendmachung der dort garantierten Rechte meist an technischen Hürden.
+
+**Unsichere Passwörter und Mehrfachverwendung** sind in dieser Altersgruppe weit verbreitet [@jugendmedien2023]. Wer dasselbe Passwort für Netflix, den Schul-Account und das E-Banking verwendet, riskiert, dass ein einziger Datenleck eine Kettenreaktion auslöst. Datenlecks sind keine Ausnahme: Grosse Plattformen werden regelmässig kompromittiert, und die gestohlenen Zugangsdaten landen innerhalb von Stunden im Darknet [@bacs2024].
+
+**Daten als Währung** – viele Jugendliche nutzen Apps und Dienste *gratis*, sie lesen deren Datenschutzbestimmungen nicht und erlauben den Zugriff auf Standortdaten, Nutzungsprofile und persönliche Vorlieben. Diese Daten werden dann an Dritte weitergegeben [@jugendmedien2023]. Werbetreibende, aber auch Datenhändler, bezahlen für diese Information – das Produkt ist hier nicht die App, sondern die Daten der Nutzerin oder des Nutzers.
+
+## Von der persönlichen Bedrohung zum gesellschaftlichen Risiko
+
+Die beschriebenen Risiken betreffen einzelne Personen – aber sie sind Ausdruck eines viel grösseren Phänomens. Cyberrisiken sind längst zu einer gesamtgesellschaftlichen Herausforderung geworden, die Wirtschaft, Staat und kritische Infrastrukturen gleichermassen bedroht [@enisa2024; @css2024].
+
+Wo im privaten Bereich ein Phishing-Angriff ein Bankkonto leert, zielt **Ransomware** auf Unternehmen und Behörden: Angreifer verschlüsseln sämtliche Daten eines Systems und fordern Lösegeld für die Freigabe [@bacsransomware2024]. Spitäler, Gemeinden und Industriebetriebe waren in der Schweiz bereits Opfer solcher Angriffe – mit teils gravierenden Folgen für die Betriebsfähigkeit.
+
+**Kritische Infrastrukturen** wie Stromversorgung, Wasserversorgung, Verkehrsleitsysteme oder Finanzmarktinfrastrukturen sind zunehmend vernetzt und damit angreifbar [@css2024]. Ein erfolgreicher Angriff auf ein Umspannwerk oder ein Klärwerk ist kein Science-Fiction-Szenario mehr, sondern ein ernst zu nehmendes Risiko, dem in den staatlichen Sicherheitsstrategien Rechnung getragen werden muss.
+
+**Desinformation und Manipulation** sind die digitale Entsprechung zum Social Engineering im privaten Bereich: Koordinierte Kampagnen nutzen soziale Netzwerke, um die öffentliche Meinung zu beeinflussen, Vertrauen in Institutionen zu untergraben oder politische Prozesse zu destabilisieren [@europol2023]. Deepfakes spielen auch hier eine wachsende Rolle – gefälschte Aussagen von Politikerinnen und Politikern können innerhalb von Minuten Millionen von Menschen erreichen [@enisa2024].
+
+Schliesslich verursacht die **zunehmende Vernetzung** («Internet of Things») neue Risiken: Industrieanlagen, Fahrzeuge, medizinische Geräte – je mehr Geräte online sind, desto grösser die potenzielle Angriffsfläche [@enisa2024].
+
+## Wer steckt dahinter? Ein Blick auf die Täterseite
+
+Cyberangriffe werden oft mit dem Bild des einsamen Hackers im dunklen Keller assoziiert. Die Realität ist erheblich vielschichtiger. Täterinnen und Täter lassen sich grob in vier Kategorien einteilen, die sich in Motivation, Ressourcen und Professionalität stark unterscheiden – und die je nach Kontext ganz unterschiedliche Risikogruppen ins Visier nehmen [@europol2023; @enisa2024].
+
+**Gelegenheitstäter und Jugendliche** stehen am einen Ende des Spektrums. Technische Hilfsmittel – Phishing-Kits, Deepfake-Apps, Hacking-Tutorials – sind online frei verfügbar [@skp2023]. Cybermobbing oder das Erstellen und Verbreiten von Deepfakes erfordert heute kein technisches Fachwissen mehr. Ihre primären Opfer sind Gleichaltrige aus dem sozialen Nahbereich: Mitschülerinnen und Mitschüler, Bekannte, Ex-Partnerinnen und Ex-Partner [@projuventute2022]. Oft fehlt es an einem Unrechtsbewusstsein – was als Streich oder Spass beginnt, kann nach Art. 143, 143bis, 144bis und 179quater StGB strafbar sein und bei den Betroffenen erheblichen und dauerhaften psychischen Schaden anrichten.
+
+**Cyberkriminelle** handeln mit klarer wirtschaftlicher Motivation. Organisierte Gruppen verkaufen gestohlene Zugangsdaten, betreiben Ransomware-as-a-Service – das heisst, sie vermieten ihre Angriffswerkzeuge an andere Kriminelle – oder ergaunern über Phishing-Kampagnen in industriellem Massstab Millionenbeträge [@europol2023]. Jugendliche sind für diese Tätergruppe insbesondere als leichtgläubige Opfer von Phishing interessant: Sie verfügen über Zahlungsmittel, sind weniger misstrauisch als Erwachsene und haben oft unsichere Zugangsdaten [@jugendmedien2023]. Gleichzeitig stehen Unternehmen und Behörden im Fokus von Ransomware-Angriffen – hier ist der finanzielle Ertrag eines erfolgreichen Angriffs um ein Vielfaches höher [@bacsransomware2024].
+
+**Hacktivisten** verfolgen politische oder ideologische Ziele. Sie legen Websites von Organisationen lahm, die sie ablehnen, oder veröffentlichen gestohlene Daten, um Aufmerksamkeit auf ein Anliegen zu lenken. Schulen und Jugendliche sind für diese Gruppe in der Regel kein primäres Ziel; im Fokus stehen staatliche Institutionen, Unternehmen oder Medienorganisationen [@europol2023]. Die Grenze zwischen politischem Protest und krimineller Handlung ist dabei fliessend und juristisch oft umstritten.
+
+**Staatliche Akteure** – Nachrichtendienste und spezialisierte Militäreinheiten – betreiben Cyberspionage, sabotieren ausländische Infrastrukturen oder beeinflussen durch Desinformationskampagnen politische Prozesse in anderen Ländern [@css2024]. Sie sind die einzige Tätergruppe, die gezielt kritische Infrastrukturen angreift: Stromnetze, Wasserversorgung, Finanzsysteme oder militärische Kommunikation. Solche Operationen sind hochprofessionell, langfristig angelegt und mit erheblichen staatlichen Ressourcen ausgestattet [@css2024; @enisa2024]. Für Einzelpersonen und Jugendliche sind sie in der Regel keine unmittelbare Bedrohung – wohl aber für die Gesellschaft als Ganzes, auf deren funktionierende Infrastruktur alle angewiesen sind.
+
+Was alle Kategorien verbindet: Der Cyberraum senkt die Einstiegshürde für Angriffe erheblich. Anonymität, globale Reichweite und die Tatsache, dass Angriffe oft grenzüberschreitend stattfinden und damit schwer verfolgbar sind, machen ihn attraktiv – für Jugendliche mit schlechten Absichten ebenso wie für staatlich finanzierte Geheimdienste [@bacs2024]. Cyberrisiken sind damit nicht nur ein technisches Problem, sondern eine **rechtliche, wirtschaftliche und politische Herausforderung** ersten Ranges. Wer die Täter, ihre Methoden und ihre Ziele versteht, versteht einen wesentlichen Teil der Risiken unserer vernetzten Gegenwart.
+
+## Literatur und Quellen {.unnumbered}
+
+::: {#refs}
+:::
