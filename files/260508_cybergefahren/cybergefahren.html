@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jacques Mock Schindler">
 
-<title>3&nbsp; 💻 Notebook-Übung: SQL-Aggregatfunktionen – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
+<title>2&nbsp; Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -59,7 +59,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,8 +88,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../files/260410/joins_intro_2fP.html" rel="next">
-<link href="../../files/260508_cybergefahren/cybergefahren.html" rel="prev">
+<link href="../../files/260320_sql_af/260320_sql_af.html" rel="next">
+<link href="../../index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html">Datenbanken II</a></li><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html">Cybersicherheit</a></li><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -178,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../files/260508_cybergefahren/cybergefahren.html" class="sidebar-item-text sidebar-link">
+  <a href="../../files/260508_cybergefahren/cybergefahren.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></span></a>
   </div>
 </li>
@@ -195,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../files/260320_sql_af/260320_sql_af.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../files/260320_sql_af/260320_sql_af.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span></a>
   </div>
 </li>
@@ -527,21 +546,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#analyse-einer-verkaufsdatenbank" id="toc-analyse-einer-verkaufsdatenbank" class="nav-link active" data-scroll-target="#analyse-einer-verkaufsdatenbank"><span class="header-section-number">3.1</span> Analyse einer Verkaufsdatenbank</a></li>
-  <li><a href="#datenbank-schema" id="toc-datenbank-schema" class="nav-link" data-scroll-target="#datenbank-schema"><span class="header-section-number">3.2</span> Datenbank-Schema</a></li>
-  <li><a href="#datenbank-im-notebook" id="toc-datenbank-im-notebook" class="nav-link" data-scroll-target="#datenbank-im-notebook"><span class="header-section-number">3.3</span> Datenbank im Notebook</a></li>
-  <li><a href="#abfrageübungen" id="toc-abfrageübungen" class="nav-link" data-scroll-target="#abfrageübungen"><span class="header-section-number">3.4</span> Abfrageübungen</a></li>
-  <li><a href="#weiterführendes-training" id="toc-weiterführendes-training" class="nav-link" data-scroll-target="#weiterführendes-training"><span class="header-section-number">3.5</span> Weiterführendes Training</a></li>
-  <li><a href="#reflexion" id="toc-reflexion" class="nav-link" data-scroll-target="#reflexion"><span class="header-section-number">3.6</span> Reflexion</a></li>
+  <li><a href="#cyberrisiken-im-alltag-von-gymnasiastinnen-und-gymnasiasten" id="toc-cyberrisiken-im-alltag-von-gymnasiastinnen-und-gymnasiasten" class="nav-link active" data-scroll-target="#cyberrisiken-im-alltag-von-gymnasiastinnen-und-gymnasiasten"><span class="header-section-number">2.1</span> Cyberrisiken im Alltag von Gymnasiastinnen und Gymnasiasten</a></li>
+  <li><a href="#von-der-persönlichen-bedrohung-zum-gesellschaftlichen-risiko" id="toc-von-der-persönlichen-bedrohung-zum-gesellschaftlichen-risiko" class="nav-link" data-scroll-target="#von-der-persönlichen-bedrohung-zum-gesellschaftlichen-risiko"><span class="header-section-number">2.2</span> Von der persönlichen Bedrohung zum gesellschaftlichen Risiko</a></li>
+  <li><a href="#wer-steckt-dahinter-ein-blick-auf-die-täterseite" id="toc-wer-steckt-dahinter-ein-blick-auf-die-täterseite" class="nav-link" data-scroll-target="#wer-steckt-dahinter-ein-blick-auf-die-täterseite"><span class="header-section-number">2.3</span> Wer steckt dahinter? Ein Blick auf die Täterseite</a></li>
+  <li><a href="#literatur-und-quellen" id="toc-literatur-und-quellen" class="nav-link" data-scroll-target="#literatur-und-quellen">Literatur und Quellen</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260320_sql_af/260320_sql_af.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div><div class="quarto-other-links"><h2>Weitere Links</h2><ul><li><a href="260320_sql_af.ipynb"><i class="bi bi-journal-code"></i>Download Notebook (right click to download)</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/260508_cybergefahren/cybergefahren.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html">Datenbanken II</a></li><li class="breadcrumb-item"><a href="../../files/260320_sql_af/260320_sql_af.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html">Cybersicherheit</a></li><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Unterlagentext für den Unterricht an der Gymnasialen Oberstufe</p>
 </div>
 
 
@@ -558,7 +576,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20.03.2026</p>
+      <p class="date">7. Mai 2026</p>
     </div>
   </div>
   
@@ -570,271 +588,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Wie man dieses Notebook lokal ausführt
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Erstelle einen Ordner</li>
-<li>Erstelle eine virtuelle Python-Umgebung<br>
-<code>python -m venv .venv</code></li>
-<li>Aktiviere die virtuelle Umgebung<br>
-<code>.venv\Scripts\activate</code><br>
-</li>
-<li>Installiere Jupyter und Pandas in dieser Umgebung<br>
-<code>pip install jupyter pandas</code></li>
-<li>Lade diese Datei in deinen neu erstellten Ordner herunter</li>
-<li>Starte den lokalen Jupyter-Server<br>
-<code>jupyter-lab</code></li>
-</ol>
-</div>
-</div>
-<section id="analyse-einer-verkaufsdatenbank" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="analyse-einer-verkaufsdatenbank"><span class="header-section-number">3.1</span> Analyse einer Verkaufsdatenbank</h2>
-<p><strong>Kontext:</strong> Du analysierst eine vereinfachte Verkaufsdatenbank für einen Online-Shop. Die Datenbank enthält zwei Tabellen: <code>products</code> (Produktkatalog) und <code>orders</code> (Kundenbestellungen).</p>
-<p><strong>Ziel:</strong> Anwendung der SQL-Aggregatfunktionen <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code> und <code>MAX</code> in Kombination mit <code>GROUP BY</code> und <code>HAVING</code> in einer SQLite-Datenbank direkt in diesem Notebook.</p>
-<p><strong>Dauer:</strong> ca. 15–20 Minuten</p>
-<p><strong>Voraussetzungen:</strong> Grundkenntnisse in Python und pandas (DataFrame);<br>
-SQL-Grundlagen: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code></p>
-<p><strong>Bootcamp</strong> Um deine SQL-Kenntnisse aufzufrischen, kannst du folgende Übungen machen:</p>
-<ol type="1">
-<li><a href="https://sqlzoo.net/wiki/SELECT_basics">Basics</a></li>
-<li><a href="https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">SELECT</a></li>
-</ol>
-<hr>
+<section id="cyberrisiken-im-alltag-von-gymnasiastinnen-und-gymnasiasten" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="cyberrisiken-im-alltag-von-gymnasiastinnen-und-gymnasiasten"><span class="header-section-number">2.1</span> Cyberrisiken im Alltag von Gymnasiastinnen und Gymnasiasten</h2>
+<p>Das Smartphone liegt auf dem Pult, Benachrichtigungen popen auf, und nebenbei läuft noch ein Tab mit dem nächsten YouTube-Video. Die digitale Welt ist für Schülerinnen und Schüler an Gymnasien selbstverständlicher Lebensraum – und genau deshalb ist sie auch ein Raum mit realen Risiken.<span class="citation" data-cites="jugendmedien2023"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></p>
+<p><strong>Phishing und Social Engineering</strong> begegnen Jugendlichen häufiger, als sie denken. Eine gefälschte E-Mail vom «Spotify-Support», eine SMS mit einem Link zu einem angeblichen Paketdienst, oder eine Instagram-Nachricht eines unbekannten Accounts mit einem «exklusiven Gewinn» – hinter all diesen Kontaktversuchen steckt dasselbe Ziel: die Empfängerin oder den Empfänger dazu zu bringen, Zugangsdaten preiszugeben oder Schadsoftware zu installieren.<span class="citation" data-cites="bacs2024 skp2023"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></span></p>
+<p>Der entscheidende Punkt: Social Engineering funktioniert nicht durch technische Überlegenheit, sondern durch gezielte psychologische Manipulation. Angreifer nutzen dabei eine Handvoll bewährter Mechanismen. <em>Dringlichkeit</em> erzeugt Stress und verhindert ruhiges Nachdenken («Ihr Konto wird in 24 Stunden gesperrt»). <em>Autorität</em> senkt die Hemmschwelle zu reagieren («Schreiben von der IT-Abteilung der Schule»). <em>Verknappung</em> weckt Angst, etwas zu verpassen («Nur noch 2 Plätze verfügbar»). <em>Vertrautheit</em> täuscht eine bestehende Beziehung vor – etwa indem ein Angreifer den Namen einer echten Kollegin oder eines echten Kollegen verwendet, dessen Profil er zuvor ausgespäht hat.<span class="citation" data-cites="enisa2024"><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></span> Wer diese Muster kennt, kann innehalten und eine vermeintlich dringende Nachricht mit kühlem Kopf beurteilen, bevor er handelt.</p>
+<p><strong>Identitätsdiebstahl</strong> ist eine unmittelbare Konsequenz erfolgreicher Phishing-Angriffe. Wer die Zugangsdaten eines fremden Accounts übernimmt, kann im Namen der betroffenen Person kommunizieren, einkaufen oder in sozialen Netzwerken Schaden anrichten. Für Jugendliche besonders heikel: Ein kompromittierter Account kann peinliche oder rufschädigende Inhalte verbreiten, die lange nachwirken.<span class="citation" data-cites="skp2023"><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></span></p>
+<p><strong>Cybermobbing und Deepfakes</strong> – Cybermobbing ist technisch gesehen kein klassischer «Cyberangriff», aber eines der wirkungsmächtigsten digitalen Risiken in der Altersgruppe der 15- bis 20-Jährigen.<span class="citation" data-cites="projuventute2022"><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></span> Die Möglichkeit, anonym zu agieren, Inhalte sekundenschnell zu verbreiten und Betroffene rund um die Uhr zu erreichen, verschärft die psychischen Folgen erheblich gegenüber traditionellem Mobbing.</p>
+<p>Eine neue, besonders gravierende Dimension kommt durch <strong>Deepfakes</strong> hinzu. Mit frei verfügbaren KI-Tools lassen sich heute täuschend echte Bild-, Audio- und Videoaufnahmen erstellen, die eine reale Person in Situationen zeigen oder sprechen lassen, die nie stattgefunden haben.<span class="citation" data-cites="enisa2024"><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></span> Im schulischen Umfeld bedeutet das: Mitschülerinnen oder Mitschüler können ohne technisches Vorwissen kompromittierende Aufnahmen von anderen erstellen und verbreiten. Die Folgen für die Betroffenen – Rufschädigung, sozialer Rückzug, psychische Belastung – sind real, auch wenn die Aufnahmen gefälscht sind. In rechtlicher Hinsicht steht in der Schweiz in erster Linie das Instrumentarium des Persönlichkeitsschutzes nach den Art. 28 ff.&nbsp;ZGB zur Verfügung. Dieses stammt aber noch aus einer Zeit der analogen Kommunikation. Ausserdem scheitert die Geltendmachung der dort garantierten Rechte meist an technischen Hürden.</p>
+<p><strong>Unsichere Passwörter und Mehrfachverwendung</strong> sind in dieser Altersgruppe weit verbreitet.<span class="citation" data-cites="jugendmedien2023"><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></span> Wer dasselbe Passwort für Netflix, den Schul-Account und das E-Banking verwendet, riskiert, dass ein einziger Datenleck eine Kettenreaktion auslöst. Datenlecks sind keine Ausnahme: Grosse Plattformen werden regelmässig kompromittiert, und die gestohlenen Zugangsdaten landen innerhalb von Stunden im Darknet.<span class="citation" data-cites="bacs2024"><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></span></p>
+<p><strong>Daten als Währung</strong> – viele Jugendliche nutzen Apps und Dienste <em>gratis</em>, sie lesen deren Datenschutzbestimmungen nicht und erlauben den Zugriff auf Standortdaten, Nutzungsprofile und persönliche Vorlieben. Diese Daten werden dann an Dritte weitergegeben.<span class="citation" data-cites="jugendmedien2023"><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></span> Werbetreibende, aber auch Datenhändler, bezahlen für diese Information – das Produkt ist hier nicht die App, sondern die Daten der Nutzerin oder des Nutzers.</p>
 </section>
-<section id="datenbank-schema" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="datenbank-schema"><span class="header-section-number">3.2</span> Datenbank-Schema</h2>
-<p><strong>Tabelle: <code>products</code></strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>product_id</th>
-<th>product_name</th>
-<th>category</th>
-<th>price</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Laptop</td>
-<td>Electronics</td>
-<td>1200.00</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Mouse</td>
-<td>Electronics</td>
-<td>25.00</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Desk</td>
-<td>Furniture</td>
-<td>450.00</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Chair</td>
-<td>Furniture</td>
-<td>320.00</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Headset</td>
-<td>Electronics</td>
-<td>80.00</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Tabelle: <code>orders</code></strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>order_id</th>
-<th>product_id</th>
-<th>quantity</th>
-<th>customer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>1</td>
-<td>2</td>
-<td>Anna</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>2</td>
-<td>5</td>
-<td>Ben</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>3</td>
-<td>1</td>
-<td>Clara</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>1</td>
-<td>1</td>
-<td>Daniel</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>4</td>
-<td>3</td>
-<td>Anna</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>5</td>
-<td>2</td>
-<td>Ben</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>2</td>
-<td>8</td>
-<td>Clara</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>3</td>
-<td>2</td>
-<td>Evi</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>5</td>
-<td>1</td>
-<td>Anna</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<section id="von-der-persönlichen-bedrohung-zum-gesellschaftlichen-risiko" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="von-der-persönlichen-bedrohung-zum-gesellschaftlichen-risiko"><span class="header-section-number">2.2</span> Von der persönlichen Bedrohung zum gesellschaftlichen Risiko</h2>
+<p>Die beschriebenen Risiken betreffen einzelne Personen – aber sie sind Ausdruck eines viel grösseren Phänomens. Cyberrisiken sind längst zu einer gesamtgesellschaftlichen Herausforderung geworden, die Wirtschaft, Staat und kritische Infrastrukturen gleichermassen bedroht.<span class="citation" data-cites="enisa2024 css2024"><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></span></p>
+<p>Wo im privaten Bereich ein Phishing-Angriff ein Bankkonto leert, zielt <strong>Ransomware</strong> auf Unternehmen und Behörden: Angreifer verschlüsseln sämtliche Daten eines Systems und fordern Lösegeld für die Freigabe.<span class="citation" data-cites="bacsransomware2024"><a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></span> Spitäler, Gemeinden und Industriebetriebe waren in der Schweiz bereits Opfer solcher Angriffe – mit teils gravierenden Folgen für die Betriebsfähigkeit.</p>
+<p><strong>Kritische Infrastrukturen</strong> wie Stromversorgung, Wasserversorgung, Verkehrsleitsysteme oder Finanzmarktinfrastrukturen sind zunehmend vernetzt und damit angreifbar.<span class="citation" data-cites="css2024"><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></span> Ein erfolgreicher Angriff auf ein Umspannwerk oder ein Klärwerk ist kein Science-Fiction-Szenario mehr, sondern ein ernst zu nehmendes Risiko, dem in den staatlichen Sicherheitsstrategien Rechnung getragen werden muss.</p>
+<p><strong>Desinformation und Manipulation</strong> sind die digitale Entsprechung zum Social Engineering im privaten Bereich: Koordinierte Kampagnen nutzen soziale Netzwerke, um die öffentliche Meinung zu beeinflussen, Vertrauen in Institutionen zu untergraben oder politische Prozesse zu destabilisieren.<span class="citation" data-cites="europol2023"><a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></span> Deepfakes spielen auch hier eine wachsende Rolle – gefälschte Aussagen von Politikerinnen und Politikern können innerhalb von Minuten Millionen von Menschen erreichen.<span class="citation" data-cites="enisa2024"><a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></span></p>
+<p>Schliesslich verursacht die <strong>zunehmende Vernetzung</strong> («Internet of Things») neue Risiken: Industrieanlagen, Fahrzeuge, medizinische Geräte – je mehr Geräte online sind, desto grösser die potenzielle Angriffsfläche.<span class="citation" data-cites="enisa2024"><a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></span></p>
 </section>
-<section id="datenbank-im-notebook" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="datenbank-im-notebook"><span class="header-section-number">3.3</span> Datenbank im Notebook</h2>
-<p>Die folgende Zelle stellt im Jupyter Notebook eine abfragbare Datenbank zur Verfügung.</p>
-<div id="cell-02" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># --- Setup (nicht verändern) ---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Hilfsfunktion: Führt eine SQL-Abfrage aus und gibt ein DataFrame zurück.</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">def</span> sql(query):</span>
-<span id="cb1-7"><a href="#cb1-7"></a>    cursor.execute(query)</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    cols <span class="op">=</span> [d[<span class="dv">0</span>] <span class="cf">for</span> d <span class="kw">in</span> cursor.description]</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">return</span> pd.DataFrame(cursor.fetchall(), columns<span class="op">=</span>cols)</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Erstelle eine SQLite-Datenbank im Arbeitsspeicher (RAM)</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">':memory:'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13"></a>cursor <span class="op">=</span> conn.cursor()</span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a>cursor.executescript(<span class="st">"""</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="st">CREATE TABLE products (</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="st">    product_id   INTEGER PRIMARY KEY,</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="st">    product_name TEXT,</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="st">    category     TEXT,</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="st">    price        REAL</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="st">);</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="st">CREATE TABLE orders (</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="st">    order_id    INTEGER PRIMARY KEY,</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="st">    product_id  INTEGER,</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="st">    quantity    INTEGER,</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="st">    customer    TEXT,</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="st">    FOREIGN KEY (product_id)</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="st">        REFERENCES products(product_id)</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="st">);</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="st">INSERT INTO products VALUES</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="st">    (1, 'Laptop',   'Electronics', 1200.00),</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="st">    (2, 'Mouse',    'Electronics',   25.00),</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="st">    (3, 'Desk',     'Furniture',    450.00),</span></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="st">    (4, 'Chair',    'Furniture',    320.00),</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="st">    (5, 'Headset',  'Electronics',   80.00);</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a><span class="st">INSERT INTO orders VALUES</span></span>
-<span id="cb1-37"><a href="#cb1-37"></a><span class="st">    (1, 1, 2, 'Anna'),</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="st">    (2, 2, 5, 'Ben'),</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="st">    (3, 3, 1, 'Clara'),</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="st">    (4, 1, 1, 'Daniel'),</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a><span class="st">    (5, 4, 3, 'Anna'),</span></span>
-<span id="cb1-42"><a href="#cb1-42"></a><span class="st">    (6, 5, 2, 'Ben'),</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a><span class="st">    (7, 2, 8, 'Clara'),</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a><span class="st">    (8, 3, 2, 'Evi'),</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="st">    (9, 5, 1, 'Anna');</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="st">"""</span>)</span>
-<span id="cb1-47"><a href="#cb1-47"></a>conn.commit()</span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="bu">print</span>(<span class="st">'Datenbank bereit. Viel Erfolg!'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="wer-steckt-dahinter-ein-blick-auf-die-täterseite" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="wer-steckt-dahinter-ein-blick-auf-die-täterseite"><span class="header-section-number">2.3</span> Wer steckt dahinter? Ein Blick auf die Täterseite</h2>
+<p>Cyberangriffe werden oft mit dem Bild des einsamen Hackers im dunklen Keller assoziiert. Die Realität ist erheblich vielschichtiger. Täterinnen und Täter lassen sich grob in vier Kategorien einteilen, die sich in Motivation, Ressourcen und Professionalität stark unterscheiden – und die je nach Kontext ganz unterschiedliche Risikogruppen ins Visier nehmen.<span class="citation" data-cites="europol2023 enisa2024"><a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a></span></p>
+<p><strong>Gelegenheitstäter und Jugendliche</strong> stehen am einen Ende des Spektrums. Technische Hilfsmittel – Phishing-Kits, Deepfake-Apps, Hacking-Tutorials – sind online frei verfügbar.<span class="citation" data-cites="skp2023"><a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a></span> Cybermobbing oder das Erstellen und Verbreiten von Deepfakes erfordert heute kein technisches Fachwissen mehr. Ihre primären Opfer sind Gleichaltrige aus dem sozialen Nahbereich: Mitschülerinnen und Mitschüler, Bekannte, Ex-Partnerinnen und Ex-Partner.<span class="citation" data-cites="projuventute2022"><a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a></span> Oft fehlt es an einem Unrechtsbewusstsein – was als Streich oder Spass beginnt, kann nach Art. 143, 143bis, 144bis und 179quater StGB strafbar sein und bei den Betroffenen erheblichen und dauerhaften psychischen Schaden anrichten.</p>
+<p><strong>Cyberkriminelle</strong> handeln mit klarer wirtschaftlicher Motivation. Organisierte Gruppen verkaufen gestohlene Zugangsdaten, betreiben Ransomware-as-a-Service – das heisst, sie vermieten ihre Angriffswerkzeuge an andere Kriminelle – oder ergaunern über Phishing-Kampagnen in industriellem Massstab Millionenbeträge.<span class="citation" data-cites="europol2023"><a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a></span> Jugendliche sind für diese Tätergruppe insbesondere als leichtgläubige Opfer von Phishing interessant: Sie verfügen über Zahlungsmittel, sind weniger misstrauisch als Erwachsene und haben oft unsichere Zugangsdaten.<span class="citation" data-cites="jugendmedien2023"><a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a></span> Gleichzeitig stehen Unternehmen und Behörden im Fokus von Ransomware-Angriffen – hier ist der finanzielle Ertrag eines erfolgreichen Angriffs um ein Vielfaches höher.<span class="citation" data-cites="bacsransomware2024"><a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a></span></p>
+<p><strong>Hacktivisten</strong> verfolgen politische oder ideologische Ziele. Sie legen Websites von Organisationen lahm, die sie ablehnen, oder veröffentlichen gestohlene Daten, um Aufmerksamkeit auf ein Anliegen zu lenken. Schulen und Jugendliche sind für diese Gruppe in der Regel kein primäres Ziel; im Fokus stehen staatliche Institutionen, Unternehmen oder Medienorganisationen.<span class="citation" data-cites="europol2023"><a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a></span> Die Grenze zwischen politischem Protest und krimineller Handlung ist dabei fliessend und juristisch oft umstritten.</p>
+<p><strong>Staatliche Akteure</strong> – Nachrichtendienste und spezialisierte Militäreinheiten – betreiben Cyberspionage, sabotieren ausländische Infrastrukturen oder beeinflussen durch Desinformationskampagnen politische Prozesse in anderen Ländern.<span class="citation" data-cites="css2024"><a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a></span> Sie sind die einzige Tätergruppe, die gezielt kritische Infrastrukturen angreift: Stromnetze, Wasserversorgung, Finanzsysteme oder militärische Kommunikation. Solche Operationen sind hochprofessionell, langfristig angelegt und mit erheblichen staatlichen Ressourcen ausgestattet.<span class="citation" data-cites="css2024 enisa2024"><a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a></span> Für Einzelpersonen und Jugendliche sind sie in der Regel keine unmittelbare Bedrohung – wohl aber für die Gesellschaft als Ganzes, auf deren funktionierende Infrastruktur alle angewiesen sind.</p>
+<p>Was alle Kategorien verbindet: Der Cyberraum senkt die Einstiegshürde für Angriffe erheblich. Anonymität, globale Reichweite und die Tatsache, dass Angriffe oft grenzüberschreitend stattfinden und damit schwer verfolgbar sind, machen ihn attraktiv – für Jugendliche mit schlechten Absichten ebenso wie für staatlich finanzierte Geheimdienste.<span class="citation" data-cites="bacs2024"><a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></span> Cyberrisiken sind damit nicht nur ein technisches Problem, sondern eine <strong>rechtliche, wirtschaftliche und politische Herausforderung</strong> ersten Ranges. Wer die Täter, ihre Methoden und ihre Ziele versteht, versteht einen wesentlichen Teil der Risiken unserer vernetzten Gegenwart.</p>
 </section>
-<section id="abfrageübungen" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="abfrageübungen"><span class="header-section-number">3.4</span> Abfrageübungen</h2>
-<div id="cell-03" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># --- Übungen ---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Nutze sql(""" ... """) um deine Abfragen auszuführen.</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Ersetze den Platzhalter-Kommentar mit deinem SQL-Code.</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># AUFGABE 1: Wie viele Bestellungen gibt es insgesamt?</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># Nutze COUNT(*) auf der Tabelle 'orders'.</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>result1 <span class="op">=</span> sql(<span class="st">"""</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="st">-- Deine Abfrage hier</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="st">"""</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">'Aufgabe 1:</span><span class="ch">\n</span><span class="st">'</span>, result1)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="literatur-und-quellen" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="literatur-und-quellen">Literatur und Quellen</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-AmazonLinux2023" class="csl-entry" role="listitem">
+<span>“Amazon <span>Linux</span> 2023.”</span> In <em>Amazon Web
+Services, Inc.</em> Https://aws.amazon.com/linux/amazon-linux-2023/,
+2023.
 </div>
-<div id="ef71f1a6" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># AUFGABE 2: Was ist der günstigste und der teuerste</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># Produktpreis? Nutze MIN und MAX.</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>result2 <span class="op">=</span> sql(<span class="st">"""</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">-- Deine Abfrage hier              </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">"""</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="bu">print</span>(<span class="st">'Aufgabe 2:</span><span class="ch">\n</span><span class="st">'</span>, result2)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ref-bacs2024" class="csl-entry" role="listitem">
+Bundesamt für Cybersicherheit (BACS). <em>Halbjahresbericht
+2024/<span>I</span>: <span>Lage</span> Der Informationssicherheit in Der
+Schweiz</em>. Bundesamt für Cybersicherheit, 2024.
 </div>
-<div id="ed0c79b1" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># AUFGABE 3: Wie viele Bestellungen und welche Gesamtmenge</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># wurden pro Kategorie aufgegeben?</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Verbinde (JOIN) 'orders' und 'products', gruppiere nach 'category'.</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>result3 <span class="op">=</span> sql(<span class="st">"""</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="st">-- Deine Abfrage hier</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="st">"""</span>)</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">print</span>(<span class="st">'Aufgabe 3:</span><span class="ch">\n</span><span class="st">'</span>, result3)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ref-bacsransomware2024" class="csl-entry" role="listitem">
+Bundesamt für Cybersicherheit (BACS). <em>Halbjahresbericht
+2024/<span>II</span>: <span>Schwerpunktthema</span> Ransomware</em>.
+Bundesamt für Cybersicherheit, 2024.
 </div>
-<div id="5237fa9a" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># AUFGABE 4: Zeige nur die Kategorien an, in denen die</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># bestellte Gesamtmenge (quantity) größer als 5 ist.</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Nutze HAVING (nicht WHERE!).</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>result4 <span class="op">=</span> sql(<span class="st">"""</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">-- Deine Abfrage hier</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="st">"""</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="bu">print</span>(<span class="st">'Aufgabe 4:</span><span class="ch">\n</span><span class="st">'</span>, result4)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ref-jugendmedien2023" class="csl-entry" role="listitem">
+Bundesamt für Sozialversicherungen (BSV). <em>Jugend Und Medien:
+<span>Chancen</span> Und Risiken Der Digitalen Welt</em>. Bundesamt für
+Sozialversicherungen / Nationales Programm zur Förderung von
+Medienkompetenz, 2023.
 </div>
-</section>
-<section id="weiterführendes-training" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="weiterführendes-training"><span class="header-section-number">3.5</span> Weiterführendes Training</h2>
-<p>Für weiteres Training zu Aggregatfunktionen siehe <a href="https://sqlzoo.net/wiki/SUM_and_COUNT">SUM and COUNT</a> auf sqlzoo.net.</p>
-</section>
-<section id="reflexion" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="reflexion"><span class="header-section-number">3.6</span> Reflexion</h2>
-<p>Beantworte die folgenden Fragen in dieser Zelle:</p>
-<ol type="1">
-<li><p>Warum erzeugt <code>WHERE category = 'Electronics'</code> vor dem <code>GROUP BY</code> ein anderes Ergebnis als <code>HAVING category = 'Electronics'</code> nach dem <code>GROUP BY</code>?</p>
-<p><em>Ihre Antwort:</em></p></li>
-<li><p>Was ist der Unterschied zwischen <code>COUNT(*)</code> und <code>COUNT(product_id)</code>? Wann könnte dies einen Unterschied machen?</p>
-<p><em>Ihre Antwort:</em></p></li>
-<li><p>In welchen realen beruflichen Situationen würdest du Abfragen wie diese verwenden? Nenne zwei konkrete Beispiele.</p>
-<p><em>Ihre Antwort:</em></p></li>
-</ol>
+<div id="ref-css2024" class="csl-entry" role="listitem">
+Center for Security Studies (CSS), ETH Zürich. <em>Cyber Defence:
+<span>Challenges</span> for Switzerland</em>. ETH Zürich, Center for
+Security Studies, 2024.
+</div>
+<div id="ref-enisa2024" class="csl-entry" role="listitem">
+European Union Agency for Cybersecurity (ENISA). <em><span>ENISA</span>
+Threat Landscape 2024</em>. ENISA, 2024.
+</div>
+<div id="ref-europol2023" class="csl-entry" role="listitem">
+Europol. <em>Internet Organised Crime Threat Assessment
+(<span>IOCTA</span>) 2023</em>. Europol, 2023.
+</div>
+<div id="ref-fix2020" class="csl-entry" role="listitem">
+Fix, Blair. <span>“Why and <span>How I Write Scientific Documents</span>
+in <span>Plain Text</span>.”</span> In <em>Economics from the Top
+Down</em>. 2020.
+</div>
+<div id="ref-freiermuth2014" class="csl-entry" role="listitem">
+Freiermuth, Karin. <em><span>Einführung in die Kryptologie: Lehrbuch für
+Unterricht und Selbststudium</span></em>. 2., überarb. Aufl.
+<span>Einführung in die Kryptologie</span>. Vieweg, 2014.
+</div>
+<div id="ref-healy2020" class="csl-entry" role="listitem">
+Healy, Kieran. <em>The <span>Plain Person</span>’s <span>Guide</span> to
+<span>Plain Text Social Science</span></em>. 2020.
+</div>
+<div id="ref-AWS_Nitro" class="csl-entry" role="listitem">
+<span>“<span>Leichter Hypervisor – AWS Nitro System –
+AWS</span>.”</span> In <em>Amazon Web Services, Inc.</em>
+Https://aws.amazon.com/de/ec2/nitro/, 2026.
+</div>
+<div id="ref-projuventute2022" class="csl-entry" role="listitem">
+Pro Juventute. <em>Cybermobbing Unter Jugendlichen in Der Schweiz:
+<span>Aktuelle</span> Zahlen Und Trends</em>. Pro Juventute, 2022.
+</div>
+<div id="ref-skp2023" class="csl-entry" role="listitem">
+Schweizerische Kriminalprävention (SKP). <em>Cyberkriminalität:
+<span>Prävention</span> Und Schutz</em>. Schweizerische
+Kriminalprävention, 2023.
+</div>
+<div id="ref-AzureLinux" class="csl-entry" role="listitem">
+<span class="nocase">suhuruli</span>. <em><span>Einführung in den Azure
+Linux-Containerhost für AKS</span></em>.
+Https://learn.microsoft.com/de-de/azure/azure-linux/intro-azure-linux,
+n.d.
+</div>
+<div id="ref-TIOBE26-02" class="csl-entry" role="listitem">
+<span>“<span>TIOBE Index</span>.”</span> In <em>TIOBE</em>. 2026.
+</div>
+</div>
 
 
+<!-- -->
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="#ref-jugendmedien2023" role="doc-biblioref">Bundesamt für Sozialversicherungen (BSV), <em>Jugend Und Medien: <span>Chancen</span> Und Risiken Der Digitalen Welt</em> (Bundesamt für Sozialversicherungen / Nationales Programm zur Förderung von Medienkompetenz, 2023)</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="#ref-bacs2024" role="doc-biblioref">Bundesamt für Cybersicherheit (BACS), <em>Halbjahresbericht 2024/<span>I</span>: <span>Lage</span> Der Informationssicherheit in Der Schweiz</em> (Bundesamt für Cybersicherheit, 2024)</a>; <a href="#ref-skp2023" role="doc-biblioref">Schweizerische Kriminalprävention (SKP), <em>Cyberkriminalität: <span>Prävention</span> Und Schutz</em> (Schweizerische Kriminalprävention, 2023)</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em> (ENISA, 2024)</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="#ref-skp2023" role="doc-biblioref">Schweizerische Kriminalprävention (SKP), <em>Cyberkriminalität</em></a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="#ref-projuventute2022" role="doc-biblioref">Pro Juventute, <em>Cybermobbing Unter Jugendlichen in Der Schweiz: <span>Aktuelle</span> Zahlen Und Trends</em> (Pro Juventute, 2022)</a>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="#ref-jugendmedien2023" role="doc-biblioref">Bundesamt für Sozialversicherungen (BSV), <em>Jugend Und Medien</em></a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="#ref-bacs2024" role="doc-biblioref">Bundesamt für Cybersicherheit (BACS), <em>Halbjahresbericht 2024/<span>I</span></em></a>.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="#ref-jugendmedien2023" role="doc-biblioref">Bundesamt für Sozialversicherungen (BSV), <em>Jugend Und Medien</em></a>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>; <a href="#ref-css2024" role="doc-biblioref">Center for Security Studies (CSS), ETH Zürich, <em>Cyber Defence: <span>Challenges</span> for Switzerland</em> (ETH Zürich, Center for Security Studies, 2024)</a>.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="#ref-bacsransomware2024" role="doc-biblioref">Bundesamt für Cybersicherheit (BACS), <em>Halbjahresbericht 2024/<span>II</span>: <span>Schwerpunktthema</span> Ransomware</em> (Bundesamt für Cybersicherheit, 2024)</a>.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="#ref-css2024" role="doc-biblioref">Center for Security Studies (CSS), ETH Zürich, <em>Cyber Defence</em></a>.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><a href="#ref-europol2023" role="doc-biblioref">Europol, <em>Internet Organised Crime Threat Assessment (<span>IOCTA</span>) 2023</em> (Europol, 2023)</a>.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>.<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>.<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><a href="#ref-europol2023" role="doc-biblioref">Europol, <em>Internet Organised Crime Threat Assessment (<span>IOCTA</span>) 2023</em></a>; <a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>.<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><a href="#ref-skp2023" role="doc-biblioref">Schweizerische Kriminalprävention (SKP), <em>Cyberkriminalität</em></a>.<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><a href="#ref-projuventute2022" role="doc-biblioref">Pro Juventute, <em>Cybermobbing Unter Jugendlichen in Der Schweiz</em></a>.<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p><a href="#ref-europol2023" role="doc-biblioref">Europol, <em>Internet Organised Crime Threat Assessment (<span>IOCTA</span>) 2023</em></a>.<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p><a href="#ref-jugendmedien2023" role="doc-biblioref">Bundesamt für Sozialversicherungen (BSV), <em>Jugend Und Medien</em></a>.<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p><a href="#ref-bacsransomware2024" role="doc-biblioref">Bundesamt für Cybersicherheit (BACS), <em>Halbjahresbericht 2024/<span>II</span></em></a>.<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p><a href="#ref-europol2023" role="doc-biblioref">Europol, <em>Internet Organised Crime Threat Assessment (<span>IOCTA</span>) 2023</em></a>.<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p><a href="#ref-css2024" role="doc-biblioref">Center for Security Studies (CSS), ETH Zürich, <em>Cyber Defence</em></a>.<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p><a href="#ref-css2024" role="doc-biblioref">Center for Security Studies (CSS), ETH Zürich, <em>Cyber Defence</em></a>; <a href="#ref-enisa2024" role="doc-biblioref">European Union Agency for Cybersecurity (ENISA), <em><span>ENISA</span> Threat Landscape 2024</em></a>.<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p><a href="#ref-bacs2024" role="doc-biblioref">Bundesamt für Cybersicherheit (BACS), <em>Halbjahresbericht 2024/<span>I</span></em></a>.<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1291,19 +1181,76 @@ SQL-Grundlagen: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code></p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../files/260508_cybergefahren/cybergefahren.html" class="pagination-link" aria-label="Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></span>
+      <a href="../../index.html" class="pagination-link" aria-label="Obligatorisches Fach Informatik (2fP)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Obligatorisches Fach Informatik (2fP)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../files/260410/joins_intro_2fP.html" class="pagination-link" aria-label="📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../files/260320_sql_af/260320_sql_af.html" class="pagination-link" aria-label="💻 Notebook-Übung: SQL-Aggregatfunktionen">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">subtitle:</span><span class="co"> "Unterlagentext für den Unterricht an der Gymnasialen Oberstufe"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="an">lang:</span><span class="co"> de-CH</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="an">date-format:</span><span class="co"> "D. MMMM YYYY"</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">---</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">## Cyberrisiken im Alltag von Gymnasiastinnen und Gymnasiasten</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>Das Smartphone liegt auf dem Pult, Benachrichtigungen popen auf, und nebenbei läuft noch ein Tab mit dem nächsten YouTube-Video. Die digitale Welt ist für Schülerinnen und Schüler an Gymnasien selbstverständlicher Lebensraum – und genau deshalb ist sie auch ein Raum mit realen Risiken <span class="co">[</span><span class="ot">@jugendmedien2023</span><span class="co">]</span>.</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>**Phishing und Social Engineering** begegnen Jugendlichen häufiger, als sie denken. Eine gefälschte E-Mail vom «Spotify-Support», eine SMS mit einem Link zu einem angeblichen Paketdienst, oder eine Instagram-Nachricht eines unbekannten Accounts mit einem «exklusiven Gewinn» – hinter all diesen Kontaktversuchen steckt dasselbe Ziel: die Empfängerin oder den Empfänger dazu zu bringen, Zugangsdaten preiszugeben oder Schadsoftware zu installieren <span class="co">[</span><span class="ot">@bacs2024; @skp2023</span><span class="co">]</span>.</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>Der entscheidende Punkt: Social Engineering funktioniert nicht durch technische Überlegenheit, sondern durch gezielte psychologische Manipulation. Angreifer nutzen dabei eine Handvoll bewährter Mechanismen. *Dringlichkeit* erzeugt Stress und verhindert ruhiges Nachdenken («Ihr Konto wird in 24 Stunden gesperrt»). *Autorität* senkt die Hemmschwelle zu reagieren («Schreiben von der IT-Abteilung der Schule»). *Verknappung* weckt Angst, etwas zu verpassen («Nur noch 2 Plätze verfügbar»). *Vertrautheit* täuscht eine bestehende Beziehung vor – etwa indem ein Angreifer den Namen einer echten Kollegin oder eines echten Kollegen verwendet, dessen Profil er zuvor ausgespäht hat <span class="co">[</span><span class="ot">@enisa2024</span><span class="co">]</span>. Wer diese Muster kennt, kann innehalten und eine vermeintlich dringende Nachricht mit kühlem Kopf beurteilen, bevor er handelt.</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>**Identitätsdiebstahl** ist eine unmittelbare Konsequenz erfolgreicher Phishing-Angriffe. Wer die Zugangsdaten eines fremden Accounts übernimmt, kann im Namen der betroffenen Person kommunizieren, einkaufen oder in sozialen Netzwerken Schaden anrichten. Für Jugendliche besonders heikel: Ein kompromittierter Account kann peinliche oder rufschädigende Inhalte verbreiten, die lange nachwirken <span class="co">[</span><span class="ot">@skp2023</span><span class="co">]</span>.</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>**Cybermobbing und Deepfakes** – Cybermobbing ist technisch gesehen kein klassischer «Cyberangriff», aber eines der wirkungsmächtigsten digitalen Risiken in der Altersgruppe der 15- bis 20-Jährigen <span class="co">[</span><span class="ot">@projuventute2022</span><span class="co">]</span>. Die Möglichkeit, anonym zu agieren, Inhalte sekundenschnell zu verbreiten und Betroffene rund um die Uhr zu erreichen, verschärft die psychischen Folgen erheblich gegenüber traditionellem Mobbing.</span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a>Eine neue, besonders gravierende Dimension kommt durch **Deepfakes** hinzu. Mit frei verfügbaren KI-Tools lassen sich heute täuschend echte Bild-, Audio- und Videoaufnahmen erstellen, die eine reale Person in Situationen zeigen oder sprechen lassen, die nie stattgefunden haben <span class="co">[</span><span class="ot">@enisa2024</span><span class="co">]</span>. Im schulischen Umfeld bedeutet das: Mitschülerinnen oder Mitschüler können ohne technisches Vorwissen kompromittierende Aufnahmen von anderen erstellen und verbreiten. Die Folgen für die Betroffenen – Rufschädigung, sozialer Rückzug, psychische Belastung – sind real, auch wenn die Aufnahmen gefälscht sind. In rechtlicher Hinsicht steht in der Schweiz in erster Linie das Instrumentarium des Persönlichkeitsschutzes nach den Art. 28 ff. ZGB zur Verfügung. Dieses stammt aber noch aus einer Zeit der analogen Kommunikation. Ausserdem scheitert die Geltendmachung der dort garantierten Rechte meist an technischen Hürden.</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a>**Unsichere Passwörter und Mehrfachverwendung** sind in dieser Altersgruppe weit verbreitet <span class="co">[</span><span class="ot">@jugendmedien2023</span><span class="co">]</span>. Wer dasselbe Passwort für Netflix, den Schul-Account und das E-Banking verwendet, riskiert, dass ein einziger Datenleck eine Kettenreaktion auslöst. Datenlecks sind keine Ausnahme: Grosse Plattformen werden regelmässig kompromittiert, und die gestohlenen Zugangsdaten landen innerhalb von Stunden im Darknet <span class="co">[</span><span class="ot">@bacs2024</span><span class="co">]</span>.</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a>**Daten als Währung** – viele Jugendliche nutzen Apps und Dienste *gratis*, sie lesen deren Datenschutzbestimmungen nicht und erlauben den Zugriff auf Standortdaten, Nutzungsprofile und persönliche Vorlieben. Diese Daten werden dann an Dritte weitergegeben <span class="co">[</span><span class="ot">@jugendmedien2023</span><span class="co">]</span>. Werbetreibende, aber auch Datenhändler, bezahlen für diese Information – das Produkt ist hier nicht die App, sondern die Daten der Nutzerin oder des Nutzers.</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="fu">## Von der persönlichen Bedrohung zum gesellschaftlichen Risiko</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>Die beschriebenen Risiken betreffen einzelne Personen – aber sie sind Ausdruck eines viel grösseren Phänomens. Cyberrisiken sind längst zu einer gesamtgesellschaftlichen Herausforderung geworden, die Wirtschaft, Staat und kritische Infrastrukturen gleichermassen bedroht <span class="co">[</span><span class="ot">@enisa2024; @css2024</span><span class="co">]</span>.</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>Wo im privaten Bereich ein Phishing-Angriff ein Bankkonto leert, zielt **Ransomware** auf Unternehmen und Behörden: Angreifer verschlüsseln sämtliche Daten eines Systems und fordern Lösegeld für die Freigabe <span class="co">[</span><span class="ot">@bacsransomware2024</span><span class="co">]</span>. Spitäler, Gemeinden und Industriebetriebe waren in der Schweiz bereits Opfer solcher Angriffe – mit teils gravierenden Folgen für die Betriebsfähigkeit.</span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a>**Kritische Infrastrukturen** wie Stromversorgung, Wasserversorgung, Verkehrsleitsysteme oder Finanzmarktinfrastrukturen sind zunehmend vernetzt und damit angreifbar <span class="co">[</span><span class="ot">@css2024</span><span class="co">]</span>. Ein erfolgreicher Angriff auf ein Umspannwerk oder ein Klärwerk ist kein Science-Fiction-Szenario mehr, sondern ein ernst zu nehmendes Risiko, dem in den staatlichen Sicherheitsstrategien Rechnung getragen werden muss.</span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>**Desinformation und Manipulation** sind die digitale Entsprechung zum Social Engineering im privaten Bereich: Koordinierte Kampagnen nutzen soziale Netzwerke, um die öffentliche Meinung zu beeinflussen, Vertrauen in Institutionen zu untergraben oder politische Prozesse zu destabilisieren <span class="co">[</span><span class="ot">@europol2023</span><span class="co">]</span>. Deepfakes spielen auch hier eine wachsende Rolle – gefälschte Aussagen von Politikerinnen und Politikern können innerhalb von Minuten Millionen von Menschen erreichen <span class="co">[</span><span class="ot">@enisa2024</span><span class="co">]</span>.</span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a>Schliesslich verursacht die **zunehmende Vernetzung** («Internet of Things») neue Risiken: Industrieanlagen, Fahrzeuge, medizinische Geräte – je mehr Geräte online sind, desto grösser die potenzielle Angriffsfläche <span class="co">[</span><span class="ot">@enisa2024</span><span class="co">]</span>.</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">## Wer steckt dahinter? Ein Blick auf die Täterseite</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>Cyberangriffe werden oft mit dem Bild des einsamen Hackers im dunklen Keller assoziiert. Die Realität ist erheblich vielschichtiger. Täterinnen und Täter lassen sich grob in vier Kategorien einteilen, die sich in Motivation, Ressourcen und Professionalität stark unterscheiden – und die je nach Kontext ganz unterschiedliche Risikogruppen ins Visier nehmen <span class="co">[</span><span class="ot">@europol2023; @enisa2024</span><span class="co">]</span>.</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>**Gelegenheitstäter und Jugendliche** stehen am einen Ende des Spektrums. Technische Hilfsmittel – Phishing-Kits, Deepfake-Apps, Hacking-Tutorials – sind online frei verfügbar <span class="co">[</span><span class="ot">@skp2023</span><span class="co">]</span>. Cybermobbing oder das Erstellen und Verbreiten von Deepfakes erfordert heute kein technisches Fachwissen mehr. Ihre primären Opfer sind Gleichaltrige aus dem sozialen Nahbereich: Mitschülerinnen und Mitschüler, Bekannte, Ex-Partnerinnen und Ex-Partner <span class="co">[</span><span class="ot">@projuventute2022</span><span class="co">]</span>. Oft fehlt es an einem Unrechtsbewusstsein – was als Streich oder Spass beginnt, kann nach Art. 143, 143bis, 144bis und 179quater StGB strafbar sein und bei den Betroffenen erheblichen und dauerhaften psychischen Schaden anrichten.</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a>**Cyberkriminelle** handeln mit klarer wirtschaftlicher Motivation. Organisierte Gruppen verkaufen gestohlene Zugangsdaten, betreiben Ransomware-as-a-Service – das heisst, sie vermieten ihre Angriffswerkzeuge an andere Kriminelle – oder ergaunern über Phishing-Kampagnen in industriellem Massstab Millionenbeträge <span class="co">[</span><span class="ot">@europol2023</span><span class="co">]</span>. Jugendliche sind für diese Tätergruppe insbesondere als leichtgläubige Opfer von Phishing interessant: Sie verfügen über Zahlungsmittel, sind weniger misstrauisch als Erwachsene und haben oft unsichere Zugangsdaten <span class="co">[</span><span class="ot">@jugendmedien2023</span><span class="co">]</span>. Gleichzeitig stehen Unternehmen und Behörden im Fokus von Ransomware-Angriffen – hier ist der finanzielle Ertrag eines erfolgreichen Angriffs um ein Vielfaches höher <span class="co">[</span><span class="ot">@bacsransomware2024</span><span class="co">]</span>.</span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a>**Hacktivisten** verfolgen politische oder ideologische Ziele. Sie legen Websites von Organisationen lahm, die sie ablehnen, oder veröffentlichen gestohlene Daten, um Aufmerksamkeit auf ein Anliegen zu lenken. Schulen und Jugendliche sind für diese Gruppe in der Regel kein primäres Ziel; im Fokus stehen staatliche Institutionen, Unternehmen oder Medienorganisationen <span class="co">[</span><span class="ot">@europol2023</span><span class="co">]</span>. Die Grenze zwischen politischem Protest und krimineller Handlung ist dabei fliessend und juristisch oft umstritten.</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>**Staatliche Akteure** – Nachrichtendienste und spezialisierte Militäreinheiten – betreiben Cyberspionage, sabotieren ausländische Infrastrukturen oder beeinflussen durch Desinformationskampagnen politische Prozesse in anderen Ländern <span class="co">[</span><span class="ot">@css2024</span><span class="co">]</span>. Sie sind die einzige Tätergruppe, die gezielt kritische Infrastrukturen angreift: Stromnetze, Wasserversorgung, Finanzsysteme oder militärische Kommunikation. Solche Operationen sind hochprofessionell, langfristig angelegt und mit erheblichen staatlichen Ressourcen ausgestattet <span class="co">[</span><span class="ot">@css2024; @enisa2024</span><span class="co">]</span>. Für Einzelpersonen und Jugendliche sind sie in der Regel keine unmittelbare Bedrohung – wohl aber für die Gesellschaft als Ganzes, auf deren funktionierende Infrastruktur alle angewiesen sind.</span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a>Was alle Kategorien verbindet: Der Cyberraum senkt die Einstiegshürde für Angriffe erheblich. Anonymität, globale Reichweite und die Tatsache, dass Angriffe oft grenzüberschreitend stattfinden und damit schwer verfolgbar sind, machen ihn attraktiv – für Jugendliche mit schlechten Absichten ebenso wie für staatlich finanzierte Geheimdienste <span class="co">[</span><span class="ot">@bacs2024</span><span class="co">]</span>. Cyberrisiken sind damit nicht nur ein technisches Problem, sondern eine **rechtliche, wirtschaftliche und politische Herausforderung** ersten Ranges. Wer die Täter, ihre Methoden und ihre Ziele versteht, versteht einen wesentlichen Teil der Risiken unserer vernetzten Gegenwart.</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="fu">## Literatur und Quellen {.unnumbered}</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a>::: {#refs}</span>
+<span id="cb1-56"><a href="#cb1-56"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260320_sql_af/260320_sql_af.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/260508_cybergefahren/cybergefahren.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
