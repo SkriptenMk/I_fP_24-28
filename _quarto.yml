@@ -22,6 +22,10 @@ book:
       chapters:
         - index.qmd
 
+    - part: "Cybersicherheit"
+      chapters:
+        - files/260508_cybergefahren/cybergefahren.qmd
+
     - part: "Datenbanken II"
       chapters:
         - files/260320_sql_af/260320_sql_af.ipynb
