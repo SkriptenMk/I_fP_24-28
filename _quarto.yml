@@ -25,6 +25,7 @@ book:
     - part: "Cybersicherheit"
       chapters:
         - files/260508_cybergefahren/cybergefahren.qmd
+        - files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.md
 
     - part: "Datenbanken II"
       chapters:

@@ -31,7 +31,7 @@ Nach diesem Versuch können Sie
 - mit Display-Filtern in Wireshark gezielt DNS-, TLS- und Tracker-Verkehr sichtbar machen;
 - begründen, warum heutige Schutzmassnahmen weit mehr umfassen als «alle Ports zu».
 
-## * Rechtlicher und ethischer Rahmen — **bitte zuerst lesen**
+## Rechtlicher und ethischer Rahmen — **bitte zuerst lesen**
 
 Portscans und Netzwerkmitschnitte sind in der Schweiz nur auf **eigenen** Systemen und im **eigenen** Netzwerk unproblematisch. Bereits ein Scan auf einen fremden Rechner kann den Tatbestand des unbefugten Eindringens in ein Datenverarbeitungssystem (Art. 143bis StGB) erfüllen.
 
