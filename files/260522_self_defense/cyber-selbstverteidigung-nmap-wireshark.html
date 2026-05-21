@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-CH" xml:lang="de-CH"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacques Mock Schindler">
+
+<title>3&nbsp; Cyber-Selbstverteidigung: Was der eigene Rechner verrät – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/260320_sql_af/260320_sql_af.html" rel="next">
+<link href="../../files/260508_cybergefahren/cybergefahren.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ec7197b4c9a4d9aa83b0ea453d2b0b0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html">Cybersicherheit</a></li><li class="breadcrumb-item"><a href="../../files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cyber-Selbstverteidigung: Was der eigene Rechner verrät</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Unterlagen für den Informatikunterricht in der Klasse 2fP</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/SkriptenMk/I_fP_24-28" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../Unterlagen-für-den-Informatikunterricht-in-der-Klasse-2fP.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Start</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Obligatorisches Fach Informatik (2fP)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cybersicherheit</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260508_cybergefahren/cybergefahren.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cyber-Selbstverteidigung: Was der eigene Rechner verrät</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenbanken II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260320_sql_af/260320_sql_af.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260410/joins_intro_2fP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">📊 Notebook-Übung: Tabellen verknüpfen mit SQL JOINs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Nachhaltige IT</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260220_green_it/green_it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Green IT</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260220_green_it_ex/green_it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Green IT – Datenvisualisierungsprojekt</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260227_oss/oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Open Source Software</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260227_redaktionsauftrag/redaktionsauftrag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Redaktionsübung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kryptologie</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250912/files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File Handling in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250912/caesar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Caesar Chiffre</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250919_vigenere/vigenere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Polyalphabetische Chiffren</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250918_implementation/250918_python_implementation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Vigenère Chiffre Implementierung in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250926_break_vigenere/break.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Die Vigenère-Verschlüsselung brechen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251031/asymmetrie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Public-Key-Kryptographie</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251114_rsa/rsa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">RSA</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Computernetzwerke</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/netzwerke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Computernetzwerke</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/tcpip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">IP Adressen und DNS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/nat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network Address Translation (NAT)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250822/tld.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Top Level Domains und ihre Vergabe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250829/three_way_handshake.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Beobachten von Internetverbindungen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250905/sockets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Python Sockets: Ein Einfaches Client-Server Beispiel</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenbanken</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250416/datenbank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Einführung in Datenbanken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250507/sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Abfrage von Daten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250521/lernziele.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Lernziele für die Prüfung vom 21. Mai 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Datenstrukturen und Codierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250122/speicherstrukturen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Datenstrukturen Stack und Queue</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250219/queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Queues in Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250305/bst.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Binary Search Tree</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/binaersystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Das Binärsystem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/umrechnungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250312/muloe_umrechnungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Python Funktionen zum Umrechnen zwichen den Zahlensystemen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250319/base64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Base64-Codierung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/250326/lernziele.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Lernziele für die Prüfung vom 26. März 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Künstliche Intelligenz</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251107/soziale_medien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The Social Dilemma</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/251128/ki_beispiel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Was ist eine Künstliche Intelligenz?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anleitungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Installation von Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/kurzanleitung_venv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Anleitung zum Arbeiten mit Python Virtual Environments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/anleitungen/jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Jupyter Notebook</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260109_plain_text_writing/plain_text_writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Plain Text Writing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260116_referenzen/referenzen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Referenzen in Markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/260116_referenzen/zotero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Literaturverwaltung mit Zotero</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Alte Programme</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../files/archiv/fs25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Programm im Frühlingssemester 2025</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#worum-es-geht" id="toc-worum-es-geht" class="nav-link active" data-scroll-target="#worum-es-geht"><span class="header-section-number">3.1</span> Worum es geht</a>
+  <ul class="collapse">
+  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele"><span class="header-section-number">3.1.1</span> Lernziele</a></li>
+  </ul></li>
+  <li><a href="#rechtlicher-und-ethischer-rahmen-bitte-zuerst-lesen" id="toc-rechtlicher-und-ethischer-rahmen-bitte-zuerst-lesen" class="nav-link" data-scroll-target="#rechtlicher-und-ethischer-rahmen-bitte-zuerst-lesen"><span class="header-section-number">3.2</span> Rechtlicher und ethischer Rahmen — <strong>bitte zuerst lesen</strong></a></li>
+  <li><a href="#vorbereitung-software-installieren" id="toc-vorbereitung-software-installieren" class="nav-link" data-scroll-target="#vorbereitung-software-installieren"><span class="header-section-number">3.3</span> Vorbereitung: Software installieren</a>
+  <ul class="collapse">
+  <li><a href="#windows-11" id="toc-windows-11" class="nav-link" data-scroll-target="#windows-11"><span class="header-section-number">3.3.1</span> Windows 11</a></li>
+  </ul></li>
+  <li><a href="#teil-1-welche-dienste-lauschen-auf-meinem-rechner" id="toc-teil-1-welche-dienste-lauschen-auf-meinem-rechner" class="nav-link" data-scroll-target="#teil-1-welche-dienste-lauschen-auf-meinem-rechner"><span class="header-section-number">3.4</span> Teil 1 — Welche Dienste lauschen auf meinem Rechner?</a>
+  <ul class="collapse">
+  <li><a href="#beobachtungsfragen" id="toc-beobachtungsfragen" class="nav-link" data-scroll-target="#beobachtungsfragen"><span class="header-section-number">3.4.1</span> Beobachtungsfragen</a></li>
+  </ul></li>
+  <li><a href="#teil-2-portscan-auf-den-eigenen-rechner" id="toc-teil-2-portscan-auf-den-eigenen-rechner" class="nav-link" data-scroll-target="#teil-2-portscan-auf-den-eigenen-rechner"><span class="header-section-number">3.5</span> Teil 2 — Portscan auf den eigenen Rechner</a>
+  <ul class="collapse">
+  <li><a href="#beobachtungsfragen-1" id="toc-beobachtungsfragen-1" class="nav-link" data-scroll-target="#beobachtungsfragen-1"><span class="header-section-number">3.5.1</span> Beobachtungsfragen</a></li>
+  </ul></li>
+  <li><a href="#teil-3-wireshark-beobachtet-den-scan" id="toc-teil-3-wireshark-beobachtet-den-scan" class="nav-link" data-scroll-target="#teil-3-wireshark-beobachtet-den-scan"><span class="header-section-number">3.6</span> Teil 3 — Wireshark beobachtet den Scan</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-wireshark-starten-und-interface-wählen" id="toc-schritt-1-wireshark-starten-und-interface-wählen" class="nav-link" data-scroll-target="#schritt-1-wireshark-starten-und-interface-wählen"><span class="header-section-number">3.6.1</span> Schritt 1: Wireshark starten und Interface wählen</a></li>
+  <li><a href="#schritt-2-optional-capture-filter-setzen" id="toc-schritt-2-optional-capture-filter-setzen" class="nav-link" data-scroll-target="#schritt-2-optional-capture-filter-setzen"><span class="header-section-number">3.6.2</span> Schritt 2: (Optional) Capture-Filter setzen</a></li>
+  <li><a href="#schritt-3-aufzeichnung-starten" id="toc-schritt-3-aufzeichnung-starten" class="nav-link" data-scroll-target="#schritt-3-aufzeichnung-starten"><span class="header-section-number">3.6.3</span> Schritt 3: Aufzeichnung starten</a></li>
+  <li><a href="#schritt-4-im-zweiten-fenster-den-scan-ausführen" id="toc-schritt-4-im-zweiten-fenster-den-scan-ausführen" class="nav-link" data-scroll-target="#schritt-4-im-zweiten-fenster-den-scan-ausführen"><span class="header-section-number">3.6.4</span> Schritt 4: Im zweiten Fenster den Scan ausführen</a></li>
+  <li><a href="#schritt-5-aufzeichnung-stoppen-und-analysieren" id="toc-schritt-5-aufzeichnung-stoppen-und-analysieren" class="nav-link" data-scroll-target="#schritt-5-aufzeichnung-stoppen-und-analysieren"><span class="header-section-number">3.6.5</span> Schritt 5: Aufzeichnung stoppen und analysieren</a></li>
+  <li><a href="#beobachtungsfragen-2" id="toc-beobachtungsfragen-2" class="nav-link" data-scroll-target="#beobachtungsfragen-2"><span class="header-section-number">3.6.6</span> Beobachtungsfragen</a></li>
+  </ul></li>
+  <li><a href="#teil-4-was-tut-der-rechner-wenn-ich-gar-nichts-tue" id="toc-teil-4-was-tut-der-rechner-wenn-ich-gar-nichts-tue" class="nav-link" data-scroll-target="#teil-4-was-tut-der-rechner-wenn-ich-gar-nichts-tue"><span class="header-section-number">3.7</span> Teil 4 — Was tut der Rechner, wenn ich gar nichts tue?</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-vorbereitung" id="toc-schritt-1-vorbereitung" class="nav-link" data-scroll-target="#schritt-1-vorbereitung"><span class="header-section-number">3.7.1</span> Schritt 1: Vorbereitung</a></li>
+  <li><a href="#schritt-2-wireshark-neu-starten" id="toc-schritt-2-wireshark-neu-starten" class="nav-link" data-scroll-target="#schritt-2-wireshark-neu-starten"><span class="header-section-number">3.7.2</span> Schritt 2: Wireshark neu starten</a></li>
+  <li><a href="#schritt-3-zwei-minuten-warten" id="toc-schritt-3-zwei-minuten-warten" class="nav-link" data-scroll-target="#schritt-3-zwei-minuten-warten"><span class="header-section-number">3.7.3</span> Schritt 3: Zwei Minuten warten</a></li>
+  <li><a href="#schritt-4-mit-display-filtern-erkunden" id="toc-schritt-4-mit-display-filtern-erkunden" class="nav-link" data-scroll-target="#schritt-4-mit-display-filtern-erkunden"><span class="header-section-number">3.7.4</span> Schritt 4: Mit Display-Filtern erkunden</a></li>
+  <li><a href="#beobachtungsfragen-3" id="toc-beobachtungsfragen-3" class="nav-link" data-scroll-target="#beobachtungsfragen-3"><span class="header-section-number">3.7.5</span> Beobachtungsfragen</a></li>
+  </ul></li>
+  <li><a href="#teil-5-eine-harmlose-website-besuchen" id="toc-teil-5-eine-harmlose-website-besuchen" class="nav-link" data-scroll-target="#teil-5-eine-harmlose-website-besuchen"><span class="header-section-number">3.8</span> Teil 5 — Eine «harmlose» Website besuchen</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-vorbereitung-1" id="toc-schritt-1-vorbereitung-1" class="nav-link" data-scroll-target="#schritt-1-vorbereitung-1"><span class="header-section-number">3.8.1</span> Schritt 1: Vorbereitung</a></li>
+  <li><a href="#schritt-2-eine-website-öffnen" id="toc-schritt-2-eine-website-öffnen" class="nav-link" data-scroll-target="#schritt-2-eine-website-öffnen"><span class="header-section-number">3.8.2</span> Schritt 2: Eine Website öffnen</a></li>
+  <li><a href="#schritt-3-drittparteien-sichtbar-machen" id="toc-schritt-3-drittparteien-sichtbar-machen" class="nav-link" data-scroll-target="#schritt-3-drittparteien-sichtbar-machen"><span class="header-section-number">3.8.3</span> Schritt 3: Drittparteien sichtbar machen</a></li>
+  <li><a href="#beobachtungsfragen-4" id="toc-beobachtungsfragen-4" class="nav-link" data-scroll-target="#beobachtungsfragen-4"><span class="header-section-number">3.8.4</span> Beobachtungsfragen</a></li>
+  <li><a href="#optionaler-vergleich" id="toc-optionaler-vergleich" class="nav-link" data-scroll-target="#optionaler-vergleich"><span class="header-section-number">3.8.5</span> Optionaler Vergleich</a></li>
+  </ul></li>
+  <li><a href="#synthese-was-nehmen-wir-mit" id="toc-synthese-was-nehmen-wir-mit" class="nav-link" data-scroll-target="#synthese-was-nehmen-wir-mit"><span class="header-section-number">3.9</span> Synthese: Was nehmen wir mit?</a></li>
+  <li><a href="#optional-weiterführendes" id="toc-optional-weiterführendes" class="nav-link" data-scroll-target="#optional-weiterführendes"><span class="header-section-number">3.10</span> Optional / Weiterführendes</a></li>
+  <li><a href="#anhang-häufige-stolpersteine" id="toc-anhang-häufige-stolpersteine" class="nav-link" data-scroll-target="#anhang-häufige-stolpersteine"><span class="header-section-number">3.11</span> Anhang: Häufige Stolpersteine</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260508_cybergefahren/cybergefahren.html">Cybersicherheit</a></li><li class="breadcrumb-item"><a href="../../files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cyber-Selbstverteidigung: Was der eigene Rechner verrät</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cyber-Selbstverteidigung: Was der eigene Rechner verrät</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Praktische Anleitung mit <code>nmap</code> und Wireshark – für Windows 11 und Linux</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21.05.2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="worum-es-geht" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="worum-es-geht"><span class="header-section-number">3.1</span> Worum es geht</h2>
+<p>In diesem Selbstversuch beobachten Sie Ihren eigenen Rechner aus zwei Perspektiven:</p>
+<ol type="1">
+<li><strong>Aktiv</strong>, indem Sie ihn mit <code>nmap</code> von «aussen» scannen und sehen, welche Dienste auf dem Gerät lauschen.</li>
+<li><strong>Passiv</strong>, indem Sie mit Wireshark den Netzwerkverkehr mitschneiden und sichtbar machen, was der Rechner und einzelne Programme <em>ohne Ihre Aufforderung</em> mit der Welt austauschen.</li>
+</ol>
+<p>Ziel ist nicht, Hacker:in zu werden, sondern ein realistisches Bild der eigenen Angriffsfläche und der eigenen Datenspur zu gewinnen. Daraus folgen die konkreten Massnahmen der «Cyber-Selbstverteidigung» – Firewall, Updates, Tracker-Schutz, Verschlüsselung – fast von selbst.</p>
+<section id="lernziele" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="lernziele"><span class="header-section-number">3.1.1</span> Lernziele</h3>
+<p>Nach diesem Versuch können Sie</p>
+<ul>
+<li>den Unterschied zwischen aktivem Scannen und passivem Mitschneiden erklären;</li>
+<li>die offenen Ports Ihres eigenen Geräts identifizieren und die zugehörigen Dienste benennen;</li>
+<li>einen Portscan im Netzwerkverkehr wiedererkennen (SYN / SYN-ACK / RST);</li>
+<li>mit Display-Filtern in Wireshark gezielt DNS-, TLS- und Tracker-Verkehr sichtbar machen;</li>
+<li>begründen, warum heutige Schutzmassnahmen weit mehr umfassen als «alle Ports zu».</li>
+</ul>
+</section>
+</section>
+<section id="rechtlicher-und-ethischer-rahmen-bitte-zuerst-lesen" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="rechtlicher-und-ethischer-rahmen-bitte-zuerst-lesen"><span class="header-section-number">3.2</span> Rechtlicher und ethischer Rahmen — <strong>bitte zuerst lesen</strong></h2>
+<p>Portscans und Netzwerkmitschnitte sind in der Schweiz nur auf <strong>eigenen</strong> Systemen und im <strong>eigenen</strong> Netzwerk unproblematisch. Bereits ein Scan auf einen fremden Rechner kann den Tatbestand des unbefugten Eindringens in ein Datenverarbeitungssystem (Art. 143bis StGB) erfüllen.</p>
+<p><strong>Regeln für diesen Selbstversuch</strong></p>
+<ul>
+<li>Scans und Mitschnitte ausschliesslich auf dem <strong>eigenen Gerät</strong> (<code>127.0.0.1</code> / <code>localhost</code>).</li>
+<li>Im Schulnetz nur nach ausdrücklicher Erlaubnis und nur auf das eigene Notebook.</li>
+<li>Mitschnitte können fremde Daten enthalten (z. B. Geräte von Mitschüler:innen im selben WLAN). Mitschnittdateien deshalb <strong>nicht weitergeben</strong> und nach dem Versuch löschen.</li>
+</ul>
+</section>
+<section id="vorbereitung-software-installieren" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="vorbereitung-software-installieren"><span class="header-section-number">3.3</span> Vorbereitung: Software installieren</h2>
+<p>Sie brauchen zwei Werkzeuge: <strong>Wireshark</strong> (passiver Netzwerk-Sniffer) und <strong>Nmap</strong> (aktiver Portscanner).</p>
+<section id="windows-11" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="windows-11"><span class="header-section-number">3.3.1</span> Windows 11</h3>
+<ol type="1">
+<li><p>Wireshark von <a href="https://www.wireshark.org/download.html" class="uri">https://www.wireshark.org/download.html</a> herunterladen (64-bit Windows Installer).</p></li>
+<li><p>Installer ausführen. Während der Installation wird <strong>Npcap</strong> mitinstalliert. Wichtig:</p>
+<ul>
+<li>Im Npcap-Dialog die Option <strong>«Support loopback traffic (‘Npcap Loopback Adapter’)»</strong> aktivieren.</li>
+<li>Falls Wireshark bei Ihnen bereits installiert ist, aber kein «Adapter for loopback traffic capture» erscheint: Npcap separat von <a href="https://npcap.com/" class="uri">https://npcap.com/</a> neu installieren und die Loopback-Option setzen.</li>
+</ul></li>
+<li><p>Nmap von <a href="https://nmap.org/download.html" class="uri">https://nmap.org/download.html</a> herunterladen («Latest stable release self-installer»). Zenmap (GUI) kann mitinstalliert werden, ist für unseren Zweck aber nicht nötig.</p>
+<ul>
+<li>Falls Nmap fragt, ob es ein eigenes Npcap installieren soll: das bereits von Wireshark installierte Npcap behalten.</li>
+</ul></li>
+<li><p>Schnelltest in der <strong>PowerShell</strong> (Windows-Taste, dann «PowerShell» eingeben):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1"></a>nmap <span class="op">--</span>version</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>sollte die Versionsnummer ausgeben.</p></li>
+</ol>
+</section>
+</section>
+<section id="teil-1-welche-dienste-lauschen-auf-meinem-rechner" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="teil-1-welche-dienste-lauschen-auf-meinem-rechner"><span class="header-section-number">3.4</span> Teil 1 — Welche Dienste lauschen auf meinem Rechner?</h2>
+<p>Bevor wir scannen, schauen wir mit Bordmitteln, welche Programme aktuell auf eingehende Verbindungen warten.</p>
+<p>PowerShell als normaler Benutzer öffnen und dann die folgenden Befehle eingeben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1"></a>Get-NetTCPConnection <span class="op">-</span>State Listen <span class="op">|</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">Select-Object</span> LocalAddress<span class="op">,</span> LocalPort<span class="op">,</span> OwningProcess <span class="op">|</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">Sort-Object</span> LocalPort <span class="op">|</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">Format-Table</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Den Prozessnamen zu einer PID ermitteln:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">Get-Process</span> <span class="op">-</span>Id <span class="op">&lt;</span>PID<span class="op">&gt;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Klassisch funktioniert auch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource cmd number-lines code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1"></a>netstat <span class="at">-ano</span> <span class="kw">|</span> <span class="kw">findstr</span> LISTENING</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="beobachtungsfragen" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="beobachtungsfragen"><span class="header-section-number">3.4.1</span> Beobachtungsfragen</h3>
+<ul>
+<li>Welche Ports sind bei Ihnen offen? Welche Dienste vermuten Sie dahinter?</li>
+<li>Recherchieren Sie unbekannte Ports (<code>5353</code>, <code>631</code>, <code>139</code>, <code>445</code>, <code>5355</code>, <code>5040</code> …). Brauchen Sie den jeweiligen Dienst?</li>
+<li>Auf welcher Adresse lauscht der Dienst? <code>127.0.0.1</code> (nur lokal), <code>0.0.0.0</code> (alle Netzwerkkarten) oder eine konkrete IP?</li>
+</ul>
+</section>
+</section>
+<section id="teil-2-portscan-auf-den-eigenen-rechner" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="teil-2-portscan-auf-den-eigenen-rechner"><span class="header-section-number">3.5</span> Teil 2 — Portscan auf den eigenen Rechner</h2>
+<p>Wir prüfen jetzt aus «Aussenperspektive», was tatsächlich antwortet.</p>
+<p>Auf beiden Betriebssystemen, Terminal bzw. PowerShell:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-p</span> 1-1024 127.0.0.1</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>-sT</code> macht einen <strong>TCP-Connect-Scan</strong>: Nmap baut für jeden Port eine richtige TCP-Verbindung auf. Vorteil: funktioniert ohne Administrationsrechte.</li>
+<li><code>-p 1-1024</code> beschränkt auf die ersten 1024 Ports (die «well-known ports»). Mit <code>-p-</code> werden alle 65 535 gescannt – dauert länger.</li>
+</ul>
+<p>Variante mit Versionserkennung (langsamer):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-sV</span> <span class="at">-p</span> 1-1024 127.0.0.1</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>-sV</code> versucht, beim offenen Port die laufende Software inkl. Version zu erraten.</p>
+<section id="beobachtungsfragen-1" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="beobachtungsfragen-1"><span class="header-section-number">3.5.1</span> Beobachtungsfragen</h3>
+<ul>
+<li>Stimmt das Ergebnis mit Ihrer Liste aus Teil 1 überein? Wo nicht – warum?</li>
+<li>Was bedeuten <code>open</code>, <code>closed</code>, <code>filtered</code>?</li>
+<li>Was würde sich vermutlich ändern, wenn Sie <code>localhost</code> durch die <strong>IP im WLAN</strong> ersetzen würden? (Hinweis: Firewall des Betriebssystems.)</li>
+</ul>
+</section>
+</section>
+<section id="teil-3-wireshark-beobachtet-den-scan" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="teil-3-wireshark-beobachtet-den-scan"><span class="header-section-number">3.6</span> Teil 3 — Wireshark beobachtet den Scan</h2>
+<p>Jetzt schauen wir uns denselben Scan aus der Netzwerk-Perspektive an. Wireshark zeichnet auf, <em>was tatsächlich auf der Leitung passiert</em>.</p>
+<section id="schritt-1-wireshark-starten-und-interface-wählen" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="schritt-1-wireshark-starten-und-interface-wählen"><span class="header-section-number">3.6.1</span> Schritt 1: Wireshark starten und Interface wählen</h3>
+<ul>
+<li><strong>Linux</strong>: Im Wireshark-Startfenster die Schnittstelle <strong><code>lo</code></strong> (Loopback) doppelklicken.</li>
+<li><strong>Windows 11</strong>: Den Eintrag <strong>«Adapter for loopback traffic capture»</strong> doppelklicken. Falls dieser nicht erscheint, fehlt die Loopback-Option in Npcap (siehe Installation).</li>
+</ul>
+</section>
+<section id="schritt-2-optional-capture-filter-setzen" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="schritt-2-optional-capture-filter-setzen"><span class="header-section-number">3.6.2</span> Schritt 2: (Optional) Capture-Filter setzen</h3>
+<p>Im Startfenster im Feld neben dem Interface den Capture-Filter eingeben:</p>
+<pre><code>tcp</code></pre>
+<p>Damit wird ARP-, mDNS- und IPv6-Hintergrundrauschen schon beim Aufzeichnen weggeschnitten.</p>
+</section>
+<section id="schritt-3-aufzeichnung-starten" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="schritt-3-aufzeichnung-starten"><span class="header-section-number">3.6.3</span> Schritt 3: Aufzeichnung starten</h3>
+<p>Auf das blaue Haifischflossen-Symbol oben links klicken. Wireshark zeigt jetzt live alle Pakete.</p>
+</section>
+<section id="schritt-4-im-zweiten-fenster-den-scan-ausführen" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="schritt-4-im-zweiten-fenster-den-scan-ausführen"><span class="header-section-number">3.6.4</span> Schritt 4: Im zweiten Fenster den Scan ausführen</h3>
+<p>Terminal/PowerShell öffnen und erneut:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-p</span> 1-1024 127.0.0.1</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="schritt-5-aufzeichnung-stoppen-und-analysieren" class="level3" data-number="3.6.5">
+<h3 data-number="3.6.5" class="anchored" data-anchor-id="schritt-5-aufzeichnung-stoppen-und-analysieren"><span class="header-section-number">3.6.5</span> Schritt 5: Aufzeichnung stoppen und analysieren</h3>
+<p>Auf das rote Quadrat klicken. Sie sehen jetzt mehrere tausend Pakete. Mit <strong>Display-Filtern</strong> machen wir Struktur sichtbar:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Display-Filter</th>
+<th>Was Sie sehen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tcp.flags.syn == 1 and tcp.flags.ack == 0</code></td>
+<td>Die SYN-Pakete des Scans: einer pro geprüftem Port</td>
+</tr>
+<tr class="even">
+<td><code>tcp.flags.syn == 1 and tcp.flags.ack == 1</code></td>
+<td>SYN-ACK von <strong>offenen</strong> Ports</td>
+</tr>
+<tr class="odd">
+<td><code>tcp.flags.reset == 1</code></td>
+<td>RST von <strong>geschlossenen</strong> Ports</td>
+</tr>
+<tr class="even">
+<td><code>tcp.port == 80</code></td>
+<td>Nur Verkehr für einen konkreten Port</td>
+</tr>
+</tbody>
+</table>
+<p>Den Filter ins Feld direkt unter der Symbolleiste eingeben und Enter drücken.</p>
+</section>
+<section id="beobachtungsfragen-2" class="level3" data-number="3.6.6">
+<h3 data-number="3.6.6" class="anchored" data-anchor-id="beobachtungsfragen-2"><span class="header-section-number">3.6.6</span> Beobachtungsfragen</h3>
+<ul>
+<li>Wie viele SYN-Pakete schickt nmap pro Sekunde? Was würde das für einen Scan auf alle 65 535 Ports bedeuten?</li>
+<li>Welche der von Ihnen in Teil 2 als <code>open</code> identifizierten Ports sehen Sie jetzt mit SYN-ACK?</li>
+<li>Was passiert nach dem Drei-Wege-Handshake bei <code>-sT</code> an einem offenen Port? (Tipp: schauen Sie auf die FIN- bzw. RST-Pakete am Ende.)</li>
+</ul>
+</section>
+</section>
+<section id="teil-4-was-tut-der-rechner-wenn-ich-gar-nichts-tue" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="teil-4-was-tut-der-rechner-wenn-ich-gar-nichts-tue"><span class="header-section-number">3.7</span> Teil 4 — Was tut der Rechner, wenn ich gar nichts tue?</h2>
+<p>Jetzt drehen wir den Aufbau: keine Aktion am Rechner, aber Wireshark hört auf der <strong>echten Netzwerkkarte</strong>.</p>
+<section id="schritt-1-vorbereitung" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="schritt-1-vorbereitung"><span class="header-section-number">3.7.1</span> Schritt 1: Vorbereitung</h3>
+<ul>
+<li>Schliessen Sie <strong>alle</strong> Browserfenster.</li>
+<li>Lassen Sie aber Mail-Client, Cloud-Sync (OneDrive, Nextcloud, …), Messenger u.ä. laufen, falls vorhanden – die wollen wir ja gerade beobachten.</li>
+</ul>
+</section>
+<section id="schritt-2-wireshark-neu-starten" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="schritt-2-wireshark-neu-starten"><span class="header-section-number">3.7.2</span> Schritt 2: Wireshark neu starten</h3>
+<p>Diesmal Interface:</p>
+<ul>
+<li><strong>Linux</strong>: <code>wlan0</code>, <code>wlp…</code> oder <code>eth0</code> (die echte Karte, <em>nicht</em> <code>lo</code>).</li>
+<li><strong>Windows 11</strong>: «Wi-Fi» oder «Ethernet».</li>
+</ul>
+<p>Kein Capture-Filter setzen.</p>
+</section>
+<section id="schritt-3-zwei-minuten-warten" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="schritt-3-zwei-minuten-warten"><span class="header-section-number">3.7.3</span> Schritt 3: Zwei Minuten warten</h3>
+<p>Zwei Minuten lang den Rechner in Ruhe lassen. Dann Capture stoppen.</p>
+</section>
+<section id="schritt-4-mit-display-filtern-erkunden" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="schritt-4-mit-display-filtern-erkunden"><span class="header-section-number">3.7.4</span> Schritt 4: Mit Display-Filtern erkunden</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Display-Filter</th>
+<th>Was Sie sehen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dns</code></td>
+<td>Alle DNS-Anfragen: welche Hostnamen werden aufgelöst?</td>
+</tr>
+<tr class="even">
+<td><code>tls.handshake.type == 1</code></td>
+<td>TLS-«Client Hello»: mit welchen Servern wird verschlüsselt gesprochen?</td>
+</tr>
+<tr class="odd">
+<td><code>mdns</code></td>
+<td>Geräte im lokalen Netz, die sich gegenseitig ankündigen</td>
+</tr>
+<tr class="even">
+<td><code>dhcp</code></td>
+<td>Adressvergabe im lokalen Netz</td>
+</tr>
+<tr class="odd">
+<td><code>!arp &amp;&amp; !ipv6.dst == ff02::/16</code></td>
+<td>Alles ausser dem grössten Rauschen</td>
+</tr>
+</tbody>
+</table>
+<p>Besonders aufschlussreich: <strong>rechte Maustaste auf eine DNS-Zeile → Follow → UDP Stream</strong>, oder <strong>rechte Maustaste auf ein TLS-Hello → Expand → Server Name Indication</strong>.</p>
+</section>
+<section id="beobachtungsfragen-3" class="level3" data-number="3.7.5">
+<h3 data-number="3.7.5" class="anchored" data-anchor-id="beobachtungsfragen-3"><span class="header-section-number">3.7.5</span> Beobachtungsfragen</h3>
+<ul>
+<li>Welche Hostnamen erscheinen, obwohl Sie nichts machen? Welche Applikationen verraten sich dadurch?</li>
+<li>Finden Sie Update-Checks, Cloud-Sync, Telemetrie? Notieren Sie drei konkrete Beispiele.</li>
+<li>Welche Hostnamen erkennen Sie <em>nicht</em>? Wie könnten Sie sie zuordnen?</li>
+</ul>
+</section>
+</section>
+<section id="teil-5-eine-harmlose-website-besuchen" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="teil-5-eine-harmlose-website-besuchen"><span class="header-section-number">3.8</span> Teil 5 — Eine «harmlose» Website besuchen</h2>
+<p>Jetzt sehen wir uns an, was der Browser tut, wenn Sie eine einzige Newsseite öffnen.</p>
+<section id="schritt-1-vorbereitung-1" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="schritt-1-vorbereitung-1"><span class="header-section-number">3.8.1</span> Schritt 1: Vorbereitung</h3>
+<ul>
+<li>Wireshark läuft weiterhin auf der echten Netzwerkkarte.</li>
+<li>Browser noch <strong>geschlossen</strong>.</li>
+<li>Aufzeichnung starten.</li>
+</ul>
+</section>
+<section id="schritt-2-eine-website-öffnen" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="schritt-2-eine-website-öffnen"><span class="header-section-number">3.8.2</span> Schritt 2: Eine Website öffnen</h3>
+<p>Browser starten und <strong>eine</strong> Webseite besuchen, zum Beispiel eine Schweizer Nachrichtenseite. Warten, bis die Seite vollständig geladen ist, dann Aufzeichnung stoppen.</p>
+</section>
+<section id="schritt-3-drittparteien-sichtbar-machen" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="schritt-3-drittparteien-sichtbar-machen"><span class="header-section-number">3.8.3</span> Schritt 3: Drittparteien sichtbar machen</h3>
+<p>Display-Filter:</p>
+<pre><code>tls.handshake.extensions_server_name</code></pre>
+<p>Wireshark zeigt jetzt nur noch TLS-Handshakes, bei denen sichtbar ist, mit welchem Hostnamen verhandelt wird. Diese Information (SNI, <em>Server Name Indication</em>) wird <strong>vor</strong> der Verschlüsselung übertragen und ist deshalb für uns lesbar – obwohl der Inhalt der Verbindung selbst verschlüsselt ist.</p>
+<p>Zusätzlich praktisch: <strong>Statistics → Endpoints → IPv4</strong> zeigt eine Liste aller kontaktierten Gegenstellen mit Paketzahlen.</p>
+</section>
+<section id="beobachtungsfragen-4" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="beobachtungsfragen-4"><span class="header-section-number">3.8.4</span> Beobachtungsfragen</h3>
+<ul>
+<li>Wie viele unterschiedliche Hostnamen wurden für <em>eine</em> Seite kontaktiert?</li>
+<li>Welche davon sind die Newsseite selbst, welche sind Drittparteien?</li>
+<li>Welche Drittparteien sind erkennbar Werbe- oder Tracking-Anbieter (<code>doubleclick.net</code>, <code>googletagmanager.com</code>, <code>facebook.net</code>, <code>criteo.com</code>, <code>adnxs.com</code> …)?</li>
+<li>Was sagt das über das Geschäftsmodell der Seite?</li>
+</ul>
+</section>
+<section id="optionaler-vergleich" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="optionaler-vergleich"><span class="header-section-number">3.8.5</span> Optionaler Vergleich</h3>
+<p>Installieren Sie im Browser <strong>uBlock Origin</strong>, leeren Sie den Cache, wiederholen Sie Schritt 2 mit derselben Seite und vergleichen Sie die Anzahl Drittparteien.</p>
+</section>
+</section>
+<section id="synthese-was-nehmen-wir-mit" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="synthese-was-nehmen-wir-mit"><span class="header-section-number">3.9</span> Synthese: Was nehmen wir mit?</h2>
+<ol type="1">
+<li><strong>Aktive Sicht (Portscan).</strong> Der Rechner hat eine Angriffsfläche aus <em>lauschenden Diensten</em>. Schutz: nicht benötigte Dienste deaktivieren, Firewall einschalten, Updates fahren.</li>
+<li><strong>Passive Sicht (Mitschnitt im Leerlauf).</strong> Der Rechner spricht ohne mein Zutun mit Dutzenden Servern. Schutz: Telemetrie minimieren, Cloud-Dienste bewusst wählen, evtl. Pi-hole oder NextDNS einsetzen.</li>
+<li><strong>Passive Sicht (Webseiten-Aufruf).</strong> Beim Surfen entstehen Datenspuren über ganze Werbe-Ökosysteme hinweg. Schutz: Content-Blocker, datenschutzfreundlicher Browser, Tracking-Schutz, ggf. eigener DNS-Resolver.</li>
+<li><strong>Was Wireshark <em>nicht</em> zeigt.</strong> Phishing-Mails, Social Engineering, kompromittierte Anmeldedaten, Supply-Chain-Angriffe auf installierte Software. Genau dort liegt heute das grössere Risiko – deshalb ergänzen wir technische Massnahmen um <strong>Verhalten</strong> (Passwortmanager, 2FA / Passkeys, Skepsis bei Mails), <strong>Resilienz</strong> (Backups) und <strong>Hygiene</strong> (Updates, Patch-Management).</li>
+</ol>
+</section>
+<section id="optional-weiterführendes" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="optional-weiterführendes"><span class="header-section-number">3.10</span> Optional / Weiterführendes</h2>
+<ul>
+<li><strong>DNS over HTTPS aktivieren</strong> (im Browser oder system-weit) und Capture wiederholen: Die <code>dns</code>-Filterzeile bleibt leer, der DNS-Verkehr läuft jetzt in TLS verpackt zu einem konfigurierten Resolver.</li>
+<li><strong>Eigenes Heimnetz vermessen</strong> (nur dort!) mit <code>nmap -sn 192.168.1.0/24</code> zur Host-Erkennung. Wie viele Geräte sind angeschlossen? Erkennen Sie alle?</li>
+<li><strong>Mit <code>nmap -O</code> ein Betriebssystem-Fingerprinting</strong> auf den eigenen Rechner versuchen. Wie genau ist die Vermutung?</li>
+<li><strong>Display-Filter-Galerie in Wireshark</strong> (Statistics → Protocol Hierarchy) ansehen: zeigt, welche Protokollanteile Ihr Verkehr in welcher Zeit hatte.</li>
+</ul>
+</section>
+<section id="anhang-häufige-stolpersteine" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="anhang-häufige-stolpersteine"><span class="header-section-number">3.11</span> Anhang: Häufige Stolpersteine</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Ursache / Lösung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wireshark zeigt unter Linux keine Interfaces</td>
+<td>User nicht in Gruppe <code>wireshark</code>, oder Sitzung nicht neu gestartet</td>
+</tr>
+<tr class="even">
+<td>Unter Windows fehlt «Adapter for loopback traffic capture»</td>
+<td>Npcap ohne Loopback-Option installiert; Npcap mit Option neu installieren</td>
+</tr>
+<tr class="odd">
+<td><code>nmap</code> zeigt unter Windows weniger Ports als unter Linux</td>
+<td>Windows Defender Firewall filtert auch lokal; <code>127.0.0.1</code> ist davon meist nicht betroffen, externe IPs schon</td>
+</tr>
+<tr class="even">
+<td>Mitschnitt enthält praktisch nichts</td>
+<td>Falsches Interface (z. B. virtuelle Schnittstelle statt WLAN) gewählt</td>
+</tr>
+<tr class="odd">
+<td>Wireshark wird auf grossen Capture-Dateien extrem langsam</td>
+<td>Mit Capture-Filter (nicht Display-Filter!) schon beim Aufzeichnen einschränken</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../files/260508_cybergefahren/cybergefahren.html" class="pagination-link" aria-label="Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../files/260320_sql_af/260320_sql_af.html" class="pagination-link" aria-label="💻 Notebook-Übung: SQL-Aggregatfunktionen">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">💻 Notebook-Übung: SQL-Aggregatfunktionen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="an">title:</span><span class="co"> "Cyber-Selbstverteidigung: Was der eigene Rechner verrät"</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="an">subtitle:</span><span class="co"> "Praktische Anleitung mit `nmap` und Wireshark – für Windows 11 und Linux"</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="an">format:</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">  html:</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">    toc: true</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">    number-sections: true</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">  pdf:</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">    toc: true</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">    number-sections: true</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">    documentclass: scrartcl</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">---</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="fu">## Worum es geht</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a></span>
+<span id="cb10-17"><a href="#cb10-17"></a>In diesem Selbstversuch beobachten Sie Ihren eigenen Rechner aus zwei Perspektiven:</span>
+<span id="cb10-18"><a href="#cb10-18"></a></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="ss">1. </span>**Aktiv**, indem Sie ihn mit <span class="in">`nmap`</span> von «aussen» scannen und sehen, welche Dienste auf dem Gerät lauschen.</span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="ss">2. </span>**Passiv**, indem Sie mit Wireshark den Netzwerkverkehr mitschneiden und sichtbar machen, was der Rechner und einzelne Programme *ohne Ihre Aufforderung* mit der Welt austauschen.</span>
+<span id="cb10-21"><a href="#cb10-21"></a></span>
+<span id="cb10-22"><a href="#cb10-22"></a>Ziel ist nicht, Hacker:in zu werden, sondern ein realistisches Bild der eigenen Angriffsfläche und der eigenen Datenspur zu gewinnen. Daraus folgen die konkreten Massnahmen der «Cyber-Selbstverteidigung» – Firewall, Updates, Tracker-Schutz, Verschlüsselung – fast von selbst.</span>
+<span id="cb10-23"><a href="#cb10-23"></a></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="fu">### Lernziele</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a></span>
+<span id="cb10-26"><a href="#cb10-26"></a>Nach diesem Versuch können Sie</span>
+<span id="cb10-27"><a href="#cb10-27"></a></span>
+<span id="cb10-28"><a href="#cb10-28"></a><span class="ss">- </span>den Unterschied zwischen aktivem Scannen und passivem Mitschneiden erklären;</span>
+<span id="cb10-29"><a href="#cb10-29"></a><span class="ss">- </span>die offenen Ports Ihres eigenen Geräts identifizieren und die zugehörigen Dienste benennen;</span>
+<span id="cb10-30"><a href="#cb10-30"></a><span class="ss">- </span>einen Portscan im Netzwerkverkehr wiedererkennen (SYN / SYN-ACK / RST);</span>
+<span id="cb10-31"><a href="#cb10-31"></a><span class="ss">- </span>mit Display-Filtern in Wireshark gezielt DNS-, TLS- und Tracker-Verkehr sichtbar machen;</span>
+<span id="cb10-32"><a href="#cb10-32"></a><span class="ss">- </span>begründen, warum heutige Schutzmassnahmen weit mehr umfassen als «alle Ports zu».</span>
+<span id="cb10-33"><a href="#cb10-33"></a></span>
+<span id="cb10-34"><a href="#cb10-34"></a><span class="fu">## Rechtlicher und ethischer Rahmen — **bitte zuerst lesen**</span></span>
+<span id="cb10-35"><a href="#cb10-35"></a></span>
+<span id="cb10-36"><a href="#cb10-36"></a>Portscans und Netzwerkmitschnitte sind in der Schweiz nur auf **eigenen** Systemen und im **eigenen** Netzwerk unproblematisch. Bereits ein Scan auf einen fremden Rechner kann den Tatbestand des unbefugten Eindringens in ein Datenverarbeitungssystem (Art. 143bis StGB) erfüllen.</span>
+<span id="cb10-37"><a href="#cb10-37"></a></span>
+<span id="cb10-38"><a href="#cb10-38"></a>**Regeln für diesen Selbstversuch**</span>
+<span id="cb10-39"><a href="#cb10-39"></a></span>
+<span id="cb10-40"><a href="#cb10-40"></a><span class="ss">- </span>Scans und Mitschnitte ausschliesslich auf dem **eigenen Gerät** (<span class="in">`127.0.0.1`</span> / <span class="in">`localhost`</span>).</span>
+<span id="cb10-41"><a href="#cb10-41"></a><span class="ss">- </span>Im Schulnetz nur nach ausdrücklicher Erlaubnis und nur auf das eigene Notebook.</span>
+<span id="cb10-42"><a href="#cb10-42"></a><span class="ss">- </span>Mitschnitte können fremde Daten enthalten (z. B. Geräte von Mitschüler:innen im selben WLAN). Mitschnittdateien deshalb **nicht weitergeben** und nach dem Versuch löschen.</span>
+<span id="cb10-43"><a href="#cb10-43"></a></span>
+<span id="cb10-44"><a href="#cb10-44"></a><span class="fu">## Vorbereitung: Software installieren</span></span>
+<span id="cb10-45"><a href="#cb10-45"></a></span>
+<span id="cb10-46"><a href="#cb10-46"></a>Sie brauchen zwei Werkzeuge: **Wireshark** (passiver Netzwerk-Sniffer) und **Nmap** (aktiver Portscanner).</span>
+<span id="cb10-47"><a href="#cb10-47"></a></span>
+<span id="cb10-48"><a href="#cb10-48"></a><span class="fu">### Windows 11</span></span>
+<span id="cb10-49"><a href="#cb10-49"></a></span>
+<span id="cb10-50"><a href="#cb10-50"></a><span class="ss">1. </span>Wireshark von <span class="ot">&lt;https://www.wireshark.org/download.html&gt;</span> herunterladen (64-bit Windows Installer).</span>
+<span id="cb10-51"><a href="#cb10-51"></a><span class="ss">2. </span>Installer ausführen. Während der Installation wird **Npcap** mitinstalliert. Wichtig:</span>
+<span id="cb10-52"><a href="#cb10-52"></a><span class="ss">   - </span>Im Npcap-Dialog die Option **«Support loopback traffic ('Npcap Loopback Adapter')»** aktivieren.</span>
+<span id="cb10-53"><a href="#cb10-53"></a><span class="ss">   - </span>Falls Wireshark bei Ihnen bereits installiert ist, aber kein «Adapter for loopback traffic capture» erscheint: Npcap separat von <span class="ot">&lt;https://npcap.com/&gt;</span> neu installieren und die Loopback-Option setzen.</span>
+<span id="cb10-54"><a href="#cb10-54"></a><span class="ss">3. </span>Nmap von <span class="ot">&lt;https://nmap.org/download.html&gt;</span> herunterladen («Latest stable release self-installer»). Zenmap (GUI) kann mitinstalliert werden, ist für unseren Zweck aber nicht nötig.</span>
+<span id="cb10-55"><a href="#cb10-55"></a><span class="ss">   - </span>Falls Nmap fragt, ob es ein eigenes Npcap installieren soll: das bereits von Wireshark installierte Npcap behalten.</span>
+<span id="cb10-56"><a href="#cb10-56"></a><span class="ss">4. </span>Schnelltest in der **PowerShell** (Windows-Taste, dann «PowerShell» eingeben):</span>
+<span id="cb10-57"><a href="#cb10-57"></a></span>
+<span id="cb10-58"><a href="#cb10-58"></a>   <span class="in">```powershell</span></span>
+<span id="cb10-59"><a href="#cb10-59"></a><span class="in">   nmap --version</span></span>
+<span id="cb10-60"><a href="#cb10-60"></a><span class="in">   ```</span></span>
+<span id="cb10-61"><a href="#cb10-61"></a></span>
+<span id="cb10-62"><a href="#cb10-62"></a>   sollte die Versionsnummer ausgeben.</span>
+<span id="cb10-63"><a href="#cb10-63"></a></span>
+<span id="cb10-64"><a href="#cb10-64"></a></span>
+<span id="cb10-65"><a href="#cb10-65"></a><span class="fu">## Teil 1 — Welche Dienste lauschen auf meinem Rechner?</span></span>
+<span id="cb10-66"><a href="#cb10-66"></a></span>
+<span id="cb10-67"><a href="#cb10-67"></a>Bevor wir scannen, schauen wir mit Bordmitteln, welche Programme aktuell auf eingehende Verbindungen warten.</span>
+<span id="cb10-68"><a href="#cb10-68"></a></span>
+<span id="cb10-69"><a href="#cb10-69"></a>PowerShell als normaler Benutzer öffnen und dann die folgenden Befehle eingeben:</span>
+<span id="cb10-70"><a href="#cb10-70"></a></span>
+<span id="cb10-71"><a href="#cb10-71"></a><span class="in">```powershell</span></span>
+<span id="cb10-72"><a href="#cb10-72"></a><span class="in">Get-NetTCPConnection -State Listen |</span></span>
+<span id="cb10-73"><a href="#cb10-73"></a><span class="in">  Select-Object LocalAddress, LocalPort, OwningProcess |</span></span>
+<span id="cb10-74"><a href="#cb10-74"></a><span class="in">  Sort-Object LocalPort |</span></span>
+<span id="cb10-75"><a href="#cb10-75"></a><span class="in">  Format-Table</span></span>
+<span id="cb10-76"><a href="#cb10-76"></a><span class="in">```</span></span>
+<span id="cb10-77"><a href="#cb10-77"></a></span>
+<span id="cb10-78"><a href="#cb10-78"></a>Den Prozessnamen zu einer PID ermitteln:</span>
+<span id="cb10-79"><a href="#cb10-79"></a></span>
+<span id="cb10-80"><a href="#cb10-80"></a><span class="in">```powershell</span></span>
+<span id="cb10-81"><a href="#cb10-81"></a><span class="in">Get-Process -Id &lt;PID&gt;</span></span>
+<span id="cb10-82"><a href="#cb10-82"></a><span class="in">```</span></span>
+<span id="cb10-83"><a href="#cb10-83"></a></span>
+<span id="cb10-84"><a href="#cb10-84"></a>Klassisch funktioniert auch:</span>
+<span id="cb10-85"><a href="#cb10-85"></a></span>
+<span id="cb10-86"><a href="#cb10-86"></a><span class="in">```cmd</span></span>
+<span id="cb10-87"><a href="#cb10-87"></a>netstat <span class="op">-</span>ano <span class="op">|</span> findstr LISTENING</span>
+<span id="cb10-88"><a href="#cb10-88"></a><span class="in">```</span></span>
+<span id="cb10-89"><a href="#cb10-89"></a></span>
+<span id="cb10-90"><a href="#cb10-90"></a><span class="fu">### Beobachtungsfragen</span></span>
+<span id="cb10-91"><a href="#cb10-91"></a></span>
+<span id="cb10-92"><a href="#cb10-92"></a><span class="ss">- </span>Welche Ports sind bei Ihnen offen? Welche Dienste vermuten Sie dahinter?</span>
+<span id="cb10-93"><a href="#cb10-93"></a><span class="ss">- </span>Recherchieren Sie unbekannte Ports (<span class="in">`5353`</span>, <span class="in">`631`</span>, <span class="in">`139`</span>, <span class="in">`445`</span>, <span class="in">`5355`</span>, <span class="in">`5040`</span> …). Brauchen Sie den jeweiligen Dienst?</span>
+<span id="cb10-94"><a href="#cb10-94"></a><span class="ss">- </span>Auf welcher Adresse lauscht der Dienst? <span class="in">`127.0.0.1`</span> (nur lokal), <span class="in">`0.0.0.0`</span> (alle Netzwerkkarten) oder eine konkrete IP?</span>
+<span id="cb10-95"><a href="#cb10-95"></a></span>
+<span id="cb10-96"><a href="#cb10-96"></a><span class="fu">## Teil 2 — Portscan auf den eigenen Rechner</span></span>
+<span id="cb10-97"><a href="#cb10-97"></a></span>
+<span id="cb10-98"><a href="#cb10-98"></a>Wir prüfen jetzt aus «Aussenperspektive», was tatsächlich antwortet.</span>
+<span id="cb10-99"><a href="#cb10-99"></a></span>
+<span id="cb10-100"><a href="#cb10-100"></a>Auf beiden Betriebssystemen, Terminal bzw. PowerShell:</span>
+<span id="cb10-101"><a href="#cb10-101"></a></span>
+<span id="cb10-102"><a href="#cb10-102"></a><span class="in">```bash</span></span>
+<span id="cb10-103"><a href="#cb10-103"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-p</span> 1-1024 127.0.0.1</span>
+<span id="cb10-104"><a href="#cb10-104"></a><span class="in">```</span></span>
+<span id="cb10-105"><a href="#cb10-105"></a></span>
+<span id="cb10-106"><a href="#cb10-106"></a><span class="ss">- </span><span class="in">`-sT`</span> macht einen **TCP-Connect-Scan**: Nmap baut für jeden Port eine richtige TCP-Verbindung auf. Vorteil: funktioniert ohne Administrationsrechte.</span>
+<span id="cb10-107"><a href="#cb10-107"></a><span class="ss">- </span><span class="in">`-p 1-1024`</span> beschränkt auf die ersten 1024 Ports (die «well-known ports»). Mit <span class="in">`-p-`</span> werden alle 65 535 gescannt – dauert länger.</span>
+<span id="cb10-108"><a href="#cb10-108"></a></span>
+<span id="cb10-109"><a href="#cb10-109"></a>Variante mit Versionserkennung (langsamer):</span>
+<span id="cb10-110"><a href="#cb10-110"></a></span>
+<span id="cb10-111"><a href="#cb10-111"></a><span class="in">```bash</span></span>
+<span id="cb10-112"><a href="#cb10-112"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-sV</span> <span class="at">-p</span> 1-1024 127.0.0.1</span>
+<span id="cb10-113"><a href="#cb10-113"></a><span class="in">```</span></span>
+<span id="cb10-114"><a href="#cb10-114"></a></span>
+<span id="cb10-115"><a href="#cb10-115"></a><span class="in">`-sV`</span> versucht, beim offenen Port die laufende Software inkl. Version zu erraten.</span>
+<span id="cb10-116"><a href="#cb10-116"></a></span>
+<span id="cb10-117"><a href="#cb10-117"></a><span class="fu">### Beobachtungsfragen</span></span>
+<span id="cb10-118"><a href="#cb10-118"></a></span>
+<span id="cb10-119"><a href="#cb10-119"></a><span class="ss">- </span>Stimmt das Ergebnis mit Ihrer Liste aus Teil 1 überein? Wo nicht – warum?</span>
+<span id="cb10-120"><a href="#cb10-120"></a><span class="ss">- </span>Was bedeuten <span class="in">`open`</span>, <span class="in">`closed`</span>, <span class="in">`filtered`</span>?</span>
+<span id="cb10-121"><a href="#cb10-121"></a><span class="ss">- </span>Was würde sich vermutlich ändern, wenn Sie <span class="in">`localhost`</span> durch die **IP im WLAN** ersetzen würden? (Hinweis: Firewall des Betriebssystems.)</span>
+<span id="cb10-122"><a href="#cb10-122"></a></span>
+<span id="cb10-123"><a href="#cb10-123"></a><span class="fu">## Teil 3 — Wireshark beobachtet den Scan</span></span>
+<span id="cb10-124"><a href="#cb10-124"></a></span>
+<span id="cb10-125"><a href="#cb10-125"></a>Jetzt schauen wir uns denselben Scan aus der Netzwerk-Perspektive an. Wireshark zeichnet auf, *was tatsächlich auf der Leitung passiert*.</span>
+<span id="cb10-126"><a href="#cb10-126"></a></span>
+<span id="cb10-127"><a href="#cb10-127"></a><span class="fu">### Schritt 1: Wireshark starten und Interface wählen</span></span>
+<span id="cb10-128"><a href="#cb10-128"></a></span>
+<span id="cb10-129"><a href="#cb10-129"></a><span class="ss">- </span>**Linux**: Im Wireshark-Startfenster die Schnittstelle **`lo`** (Loopback) doppelklicken.</span>
+<span id="cb10-130"><a href="#cb10-130"></a><span class="ss">- </span>**Windows 11**: Den Eintrag **«Adapter for loopback traffic capture»** doppelklicken. Falls dieser nicht erscheint, fehlt die Loopback-Option in Npcap (siehe Installation).</span>
+<span id="cb10-131"><a href="#cb10-131"></a></span>
+<span id="cb10-132"><a href="#cb10-132"></a><span class="fu">### Schritt 2: (Optional) Capture-Filter setzen</span></span>
+<span id="cb10-133"><a href="#cb10-133"></a></span>
+<span id="cb10-134"><a href="#cb10-134"></a>Im Startfenster im Feld neben dem Interface den Capture-Filter eingeben:</span>
+<span id="cb10-135"><a href="#cb10-135"></a></span>
+<span id="cb10-136"><a href="#cb10-136"></a><span class="in">```</span></span>
+<span id="cb10-137"><a href="#cb10-137"></a><span class="in">tcp</span></span>
+<span id="cb10-138"><a href="#cb10-138"></a><span class="in">```</span></span>
+<span id="cb10-139"><a href="#cb10-139"></a></span>
+<span id="cb10-140"><a href="#cb10-140"></a>Damit wird ARP-, mDNS- und IPv6-Hintergrundrauschen schon beim Aufzeichnen weggeschnitten.</span>
+<span id="cb10-141"><a href="#cb10-141"></a></span>
+<span id="cb10-142"><a href="#cb10-142"></a><span class="fu">### Schritt 3: Aufzeichnung starten</span></span>
+<span id="cb10-143"><a href="#cb10-143"></a></span>
+<span id="cb10-144"><a href="#cb10-144"></a>Auf das blaue Haifischflossen-Symbol oben links klicken. Wireshark zeigt jetzt live alle Pakete.</span>
+<span id="cb10-145"><a href="#cb10-145"></a></span>
+<span id="cb10-146"><a href="#cb10-146"></a><span class="fu">### Schritt 4: Im zweiten Fenster den Scan ausführen</span></span>
+<span id="cb10-147"><a href="#cb10-147"></a></span>
+<span id="cb10-148"><a href="#cb10-148"></a>Terminal/PowerShell öffnen und erneut:</span>
+<span id="cb10-149"><a href="#cb10-149"></a></span>
+<span id="cb10-150"><a href="#cb10-150"></a><span class="in">```bash</span></span>
+<span id="cb10-151"><a href="#cb10-151"></a><span class="fu">nmap</span> <span class="at">-sT</span> <span class="at">-p</span> 1-1024 127.0.0.1</span>
+<span id="cb10-152"><a href="#cb10-152"></a><span class="in">```</span></span>
+<span id="cb10-153"><a href="#cb10-153"></a></span>
+<span id="cb10-154"><a href="#cb10-154"></a><span class="fu">### Schritt 5: Aufzeichnung stoppen und analysieren</span></span>
+<span id="cb10-155"><a href="#cb10-155"></a></span>
+<span id="cb10-156"><a href="#cb10-156"></a>Auf das rote Quadrat klicken. Sie sehen jetzt mehrere tausend Pakete. Mit **Display-Filtern** machen wir Struktur sichtbar:</span>
+<span id="cb10-157"><a href="#cb10-157"></a></span>
+<span id="cb10-158"><a href="#cb10-158"></a><span class="pp">|</span> Display-Filter <span class="pp">|</span> Was Sie sehen <span class="pp">|</span></span>
+<span id="cb10-159"><a href="#cb10-159"></a><span class="pp">|---|---|</span></span>
+<span id="cb10-160"><a href="#cb10-160"></a><span class="pp">|</span> <span class="in">`tcp.flags.syn == 1 and tcp.flags.ack == 0`</span> <span class="pp">|</span> Die SYN-Pakete des Scans: einer pro geprüftem Port <span class="pp">|</span></span>
+<span id="cb10-161"><a href="#cb10-161"></a><span class="pp">|</span> <span class="in">`tcp.flags.syn == 1 and tcp.flags.ack == 1`</span> <span class="pp">|</span> SYN-ACK von **offenen** Ports <span class="pp">|</span></span>
+<span id="cb10-162"><a href="#cb10-162"></a><span class="pp">|</span> <span class="in">`tcp.flags.reset == 1`</span> <span class="pp">|</span> RST von **geschlossenen** Ports <span class="pp">|</span></span>
+<span id="cb10-163"><a href="#cb10-163"></a><span class="pp">|</span> <span class="in">`tcp.port == 80`</span> <span class="pp">|</span> Nur Verkehr für einen konkreten Port <span class="pp">|</span></span>
+<span id="cb10-164"><a href="#cb10-164"></a></span>
+<span id="cb10-165"><a href="#cb10-165"></a>Den Filter ins Feld direkt unter der Symbolleiste eingeben und Enter drücken.</span>
+<span id="cb10-166"><a href="#cb10-166"></a></span>
+<span id="cb10-167"><a href="#cb10-167"></a><span class="fu">### Beobachtungsfragen</span></span>
+<span id="cb10-168"><a href="#cb10-168"></a></span>
+<span id="cb10-169"><a href="#cb10-169"></a><span class="ss">- </span>Wie viele SYN-Pakete schickt nmap pro Sekunde? Was würde das für einen Scan auf alle 65 535 Ports bedeuten?</span>
+<span id="cb10-170"><a href="#cb10-170"></a><span class="ss">- </span>Welche der von Ihnen in Teil 2 als <span class="in">`open`</span> identifizierten Ports sehen Sie jetzt mit SYN-ACK?</span>
+<span id="cb10-171"><a href="#cb10-171"></a><span class="ss">- </span>Was passiert nach dem Drei-Wege-Handshake bei <span class="in">`-sT`</span> an einem offenen Port? (Tipp: schauen Sie auf die FIN- bzw. RST-Pakete am Ende.)</span>
+<span id="cb10-172"><a href="#cb10-172"></a></span>
+<span id="cb10-173"><a href="#cb10-173"></a><span class="fu">## Teil 4 — Was tut der Rechner, wenn ich gar nichts tue?</span></span>
+<span id="cb10-174"><a href="#cb10-174"></a></span>
+<span id="cb10-175"><a href="#cb10-175"></a>Jetzt drehen wir den Aufbau: keine Aktion am Rechner, aber Wireshark hört auf der **echten Netzwerkkarte**.</span>
+<span id="cb10-176"><a href="#cb10-176"></a></span>
+<span id="cb10-177"><a href="#cb10-177"></a><span class="fu">### Schritt 1: Vorbereitung</span></span>
+<span id="cb10-178"><a href="#cb10-178"></a></span>
+<span id="cb10-179"><a href="#cb10-179"></a><span class="ss">- </span>Schliessen Sie **alle** Browserfenster.</span>
+<span id="cb10-180"><a href="#cb10-180"></a><span class="ss">- </span>Lassen Sie aber Mail-Client, Cloud-Sync (OneDrive, Nextcloud, …), Messenger u.ä. laufen, falls vorhanden – die wollen wir ja gerade beobachten.</span>
+<span id="cb10-181"><a href="#cb10-181"></a></span>
+<span id="cb10-182"><a href="#cb10-182"></a><span class="fu">### Schritt 2: Wireshark neu starten</span></span>
+<span id="cb10-183"><a href="#cb10-183"></a></span>
+<span id="cb10-184"><a href="#cb10-184"></a>Diesmal Interface:</span>
+<span id="cb10-185"><a href="#cb10-185"></a></span>
+<span id="cb10-186"><a href="#cb10-186"></a><span class="ss">- </span>**Linux**: <span class="in">`wlan0`</span>, <span class="in">`wlp…`</span> oder <span class="in">`eth0`</span> (die echte Karte, *nicht* <span class="in">`lo`</span>).</span>
+<span id="cb10-187"><a href="#cb10-187"></a><span class="ss">- </span>**Windows 11**: «Wi-Fi» oder «Ethernet».</span>
+<span id="cb10-188"><a href="#cb10-188"></a></span>
+<span id="cb10-189"><a href="#cb10-189"></a>Kein Capture-Filter setzen.</span>
+<span id="cb10-190"><a href="#cb10-190"></a></span>
+<span id="cb10-191"><a href="#cb10-191"></a><span class="fu">### Schritt 3: Zwei Minuten warten</span></span>
+<span id="cb10-192"><a href="#cb10-192"></a></span>
+<span id="cb10-193"><a href="#cb10-193"></a>Zwei Minuten lang den Rechner in Ruhe lassen. Dann Capture stoppen.</span>
+<span id="cb10-194"><a href="#cb10-194"></a></span>
+<span id="cb10-195"><a href="#cb10-195"></a><span class="fu">### Schritt 4: Mit Display-Filtern erkunden</span></span>
+<span id="cb10-196"><a href="#cb10-196"></a></span>
+<span id="cb10-197"><a href="#cb10-197"></a><span class="pp">|</span> Display-Filter <span class="pp">|</span> Was Sie sehen <span class="pp">|</span></span>
+<span id="cb10-198"><a href="#cb10-198"></a><span class="pp">|---|---|</span></span>
+<span id="cb10-199"><a href="#cb10-199"></a><span class="pp">|</span> <span class="in">`dns`</span> <span class="pp">|</span> Alle DNS-Anfragen: welche Hostnamen werden aufgelöst? <span class="pp">|</span></span>
+<span id="cb10-200"><a href="#cb10-200"></a><span class="pp">|</span> <span class="in">`tls.handshake.type == 1`</span> <span class="pp">|</span> TLS-«Client Hello»: mit welchen Servern wird verschlüsselt gesprochen? <span class="pp">|</span></span>
+<span id="cb10-201"><a href="#cb10-201"></a><span class="pp">|</span> <span class="in">`mdns`</span> <span class="pp">|</span> Geräte im lokalen Netz, die sich gegenseitig ankündigen <span class="pp">|</span></span>
+<span id="cb10-202"><a href="#cb10-202"></a><span class="pp">|</span> <span class="in">`dhcp`</span> <span class="pp">|</span> Adressvergabe im lokalen Netz <span class="pp">|</span></span>
+<span id="cb10-203"><a href="#cb10-203"></a><span class="pp">|</span> <span class="in">`!arp &amp;&amp; !ipv6.dst == ff02::/16`</span> <span class="pp">|</span> Alles ausser dem grössten Rauschen <span class="pp">|</span></span>
+<span id="cb10-204"><a href="#cb10-204"></a></span>
+<span id="cb10-205"><a href="#cb10-205"></a>Besonders aufschlussreich: **rechte Maustaste auf eine DNS-Zeile → Follow → UDP Stream**, oder **rechte Maustaste auf ein TLS-Hello → Expand → Server Name Indication**.</span>
+<span id="cb10-206"><a href="#cb10-206"></a></span>
+<span id="cb10-207"><a href="#cb10-207"></a><span class="fu">### Beobachtungsfragen</span></span>
+<span id="cb10-208"><a href="#cb10-208"></a></span>
+<span id="cb10-209"><a href="#cb10-209"></a><span class="ss">- </span>Welche Hostnamen erscheinen, obwohl Sie nichts machen? Welche Applikationen verraten sich dadurch?</span>
+<span id="cb10-210"><a href="#cb10-210"></a><span class="ss">- </span>Finden Sie Update-Checks, Cloud-Sync, Telemetrie? Notieren Sie drei konkrete Beispiele.</span>
+<span id="cb10-211"><a href="#cb10-211"></a><span class="ss">- </span>Welche Hostnamen erkennen Sie *nicht*? Wie könnten Sie sie zuordnen?</span>
+<span id="cb10-212"><a href="#cb10-212"></a></span>
+<span id="cb10-213"><a href="#cb10-213"></a><span class="fu">## Teil 5 — Eine «harmlose» Website besuchen</span></span>
+<span id="cb10-214"><a href="#cb10-214"></a></span>
+<span id="cb10-215"><a href="#cb10-215"></a>Jetzt sehen wir uns an, was der Browser tut, wenn Sie eine einzige Newsseite öffnen.</span>
+<span id="cb10-216"><a href="#cb10-216"></a></span>
+<span id="cb10-217"><a href="#cb10-217"></a><span class="fu">### Schritt 1: Vorbereitung</span></span>
+<span id="cb10-218"><a href="#cb10-218"></a></span>
+<span id="cb10-219"><a href="#cb10-219"></a><span class="ss">- </span>Wireshark läuft weiterhin auf der echten Netzwerkkarte.</span>
+<span id="cb10-220"><a href="#cb10-220"></a><span class="ss">- </span>Browser noch **geschlossen**.</span>
+<span id="cb10-221"><a href="#cb10-221"></a><span class="ss">- </span>Aufzeichnung starten.</span>
+<span id="cb10-222"><a href="#cb10-222"></a></span>
+<span id="cb10-223"><a href="#cb10-223"></a><span class="fu">### Schritt 2: Eine Website öffnen</span></span>
+<span id="cb10-224"><a href="#cb10-224"></a></span>
+<span id="cb10-225"><a href="#cb10-225"></a>Browser starten und **eine** Webseite besuchen, zum Beispiel eine Schweizer Nachrichtenseite. Warten, bis die Seite vollständig geladen ist, dann Aufzeichnung stoppen.</span>
+<span id="cb10-226"><a href="#cb10-226"></a></span>
+<span id="cb10-227"><a href="#cb10-227"></a><span class="fu">### Schritt 3: Drittparteien sichtbar machen</span></span>
+<span id="cb10-228"><a href="#cb10-228"></a></span>
+<span id="cb10-229"><a href="#cb10-229"></a>Display-Filter:</span>
+<span id="cb10-230"><a href="#cb10-230"></a></span>
+<span id="cb10-231"><a href="#cb10-231"></a><span class="in">```</span></span>
+<span id="cb10-232"><a href="#cb10-232"></a><span class="in">tls.handshake.extensions_server_name</span></span>
+<span id="cb10-233"><a href="#cb10-233"></a><span class="in">```</span></span>
+<span id="cb10-234"><a href="#cb10-234"></a></span>
+<span id="cb10-235"><a href="#cb10-235"></a>Wireshark zeigt jetzt nur noch TLS-Handshakes, bei denen sichtbar ist, mit welchem Hostnamen verhandelt wird. Diese Information (SNI, *Server Name Indication*) wird **vor** der Verschlüsselung übertragen und ist deshalb für uns lesbar – obwohl der Inhalt der Verbindung selbst verschlüsselt ist.</span>
+<span id="cb10-236"><a href="#cb10-236"></a></span>
+<span id="cb10-237"><a href="#cb10-237"></a>Zusätzlich praktisch: **Statistics → Endpoints → IPv4** zeigt eine Liste aller kontaktierten Gegenstellen mit Paketzahlen.</span>
+<span id="cb10-238"><a href="#cb10-238"></a></span>
+<span id="cb10-239"><a href="#cb10-239"></a><span class="fu">### Beobachtungsfragen</span></span>
+<span id="cb10-240"><a href="#cb10-240"></a></span>
+<span id="cb10-241"><a href="#cb10-241"></a><span class="ss">- </span>Wie viele unterschiedliche Hostnamen wurden für *eine* Seite kontaktiert?</span>
+<span id="cb10-242"><a href="#cb10-242"></a><span class="ss">- </span>Welche davon sind die Newsseite selbst, welche sind Drittparteien?</span>
+<span id="cb10-243"><a href="#cb10-243"></a><span class="ss">- </span>Welche Drittparteien sind erkennbar Werbe- oder Tracking-Anbieter (<span class="in">`doubleclick.net`</span>, <span class="in">`googletagmanager.com`</span>, <span class="in">`facebook.net`</span>, <span class="in">`criteo.com`</span>, <span class="in">`adnxs.com`</span> …)?</span>
+<span id="cb10-244"><a href="#cb10-244"></a><span class="ss">- </span>Was sagt das über das Geschäftsmodell der Seite?</span>
+<span id="cb10-245"><a href="#cb10-245"></a></span>
+<span id="cb10-246"><a href="#cb10-246"></a><span class="fu">### Optionaler Vergleich</span></span>
+<span id="cb10-247"><a href="#cb10-247"></a></span>
+<span id="cb10-248"><a href="#cb10-248"></a>Installieren Sie im Browser **uBlock Origin**, leeren Sie den Cache, wiederholen Sie Schritt 2 mit derselben Seite und vergleichen Sie die Anzahl Drittparteien.</span>
+<span id="cb10-249"><a href="#cb10-249"></a></span>
+<span id="cb10-250"><a href="#cb10-250"></a><span class="fu">## Synthese: Was nehmen wir mit?</span></span>
+<span id="cb10-251"><a href="#cb10-251"></a></span>
+<span id="cb10-252"><a href="#cb10-252"></a><span class="ss">1. </span>**Aktive Sicht (Portscan).** Der Rechner hat eine Angriffsfläche aus *lauschenden Diensten*. Schutz: nicht benötigte Dienste deaktivieren, Firewall einschalten, Updates fahren.</span>
+<span id="cb10-253"><a href="#cb10-253"></a><span class="ss">2. </span>**Passive Sicht (Mitschnitt im Leerlauf).** Der Rechner spricht ohne mein Zutun mit Dutzenden Servern. Schutz: Telemetrie minimieren, Cloud-Dienste bewusst wählen, evtl. Pi-hole oder NextDNS einsetzen.</span>
+<span id="cb10-254"><a href="#cb10-254"></a><span class="ss">3. </span>**Passive Sicht (Webseiten-Aufruf).** Beim Surfen entstehen Datenspuren über ganze Werbe-Ökosysteme hinweg. Schutz: Content-Blocker, datenschutzfreundlicher Browser, Tracking-Schutz, ggf. eigener DNS-Resolver.</span>
+<span id="cb10-255"><a href="#cb10-255"></a><span class="ss">4. </span>**Was Wireshark *nicht* zeigt.** Phishing-Mails, Social Engineering, kompromittierte Anmeldedaten, Supply-Chain-Angriffe auf installierte Software. Genau dort liegt heute das grössere Risiko – deshalb ergänzen wir technische Massnahmen um **Verhalten** (Passwortmanager, 2FA / Passkeys, Skepsis bei Mails), **Resilienz** (Backups) und **Hygiene** (Updates, Patch-Management).</span>
+<span id="cb10-256"><a href="#cb10-256"></a></span>
+<span id="cb10-257"><a href="#cb10-257"></a><span class="fu">## Optional / Weiterführendes</span></span>
+<span id="cb10-258"><a href="#cb10-258"></a></span>
+<span id="cb10-259"><a href="#cb10-259"></a><span class="ss">- </span>**DNS over HTTPS aktivieren** (im Browser oder system-weit) und Capture wiederholen: Die <span class="in">`dns`</span>-Filterzeile bleibt leer, der DNS-Verkehr läuft jetzt in TLS verpackt zu einem konfigurierten Resolver.</span>
+<span id="cb10-260"><a href="#cb10-260"></a><span class="ss">- </span>**Eigenes Heimnetz vermessen** (nur dort!) mit <span class="in">`nmap -sn 192.168.1.0/24`</span> zur Host-Erkennung. Wie viele Geräte sind angeschlossen? Erkennen Sie alle?</span>
+<span id="cb10-261"><a href="#cb10-261"></a><span class="ss">- </span>**Mit `nmap -O` ein Betriebssystem-Fingerprinting** auf den eigenen Rechner versuchen. Wie genau ist die Vermutung?</span>
+<span id="cb10-262"><a href="#cb10-262"></a><span class="ss">- </span>**Display-Filter-Galerie in Wireshark** (Statistics → Protocol Hierarchy) ansehen: zeigt, welche Protokollanteile Ihr Verkehr in welcher Zeit hatte.</span>
+<span id="cb10-263"><a href="#cb10-263"></a></span>
+<span id="cb10-264"><a href="#cb10-264"></a><span class="fu">## Anhang: Häufige Stolpersteine</span></span>
+<span id="cb10-265"><a href="#cb10-265"></a></span>
+<span id="cb10-266"><a href="#cb10-266"></a><span class="pp">|</span> Problem <span class="pp">|</span> Ursache / Lösung <span class="pp">|</span></span>
+<span id="cb10-267"><a href="#cb10-267"></a><span class="pp">|---|---|</span></span>
+<span id="cb10-268"><a href="#cb10-268"></a><span class="pp">|</span> Wireshark zeigt unter Linux keine Interfaces <span class="pp">|</span> User nicht in Gruppe <span class="in">`wireshark`</span>, oder Sitzung nicht neu gestartet <span class="pp">|</span></span>
+<span id="cb10-269"><a href="#cb10-269"></a><span class="pp">|</span> Unter Windows fehlt «Adapter for loopback traffic capture» <span class="pp">|</span> Npcap ohne Loopback-Option installiert; Npcap mit Option neu installieren <span class="pp">|</span></span>
+<span id="cb10-270"><a href="#cb10-270"></a><span class="pp">|</span> <span class="in">`nmap`</span> zeigt unter Windows weniger Ports als unter Linux <span class="pp">|</span> Windows Defender Firewall filtert auch lokal; <span class="in">`127.0.0.1`</span> ist davon meist nicht betroffen, externe IPs schon <span class="pp">|</span></span>
+<span id="cb10-271"><a href="#cb10-271"></a><span class="pp">|</span> Mitschnitt enthält praktisch nichts <span class="pp">|</span> Falsches Interface (z. B. virtuelle Schnittstelle statt WLAN) gewählt <span class="pp">|</span></span>
+<span id="cb10-272"><a href="#cb10-272"></a><span class="pp">|</span> Wireshark wird auf grossen Capture-Dateien extrem langsam <span class="pp">|</span> Mit Capture-Filter (nicht Display-Filter!) schon beim Aufzeichnen einschränken <span class="pp">|</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/260522_self_defense/cyber-selbstverteidigung-nmap-wireshark.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
