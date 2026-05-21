@@ -14,19 +14,19 @@ format:
 
 ## Worum es geht
 
-In diesem Selbstversuch beobachtest du deinen eigenen Rechner aus zwei Perspektiven:
+In diesem Selbstversuch beobachten Sie Ihren eigenen Rechner aus zwei Perspektiven:
 
-1. **Aktiv**, indem du ihn mit `nmap` von «aussen» scannst und siehst, welche Dienste auf dem Gerät lauschen.
-2. **Passiv**, indem du mit Wireshark den Netzwerkverkehr mitschneidest und sichtbar machst, was der Rechner und einzelne Programme *ohne deine Aufforderung* mit der Welt austauschen.
+1. **Aktiv**, indem Sie ihn mit `nmap` von «aussen» scannen und sehen, welche Dienste auf dem Gerät lauschen.
+2. **Passiv**, indem Sie mit Wireshark den Netzwerkverkehr mitschneiden und sichtbar machen, was der Rechner und einzelne Programme *ohne Ihre Aufforderung* mit der Welt austauschen.
 
 Ziel ist nicht, Hacker:in zu werden, sondern ein realistisches Bild der eigenen Angriffsfläche und der eigenen Datenspur zu gewinnen. Daraus folgen die konkreten Massnahmen der «Cyber-Selbstverteidigung» – Firewall, Updates, Tracker-Schutz, Verschlüsselung – fast von selbst.
 
 ### Lernziele
 
-Nach diesem Versuch kannst du
+Nach diesem Versuch können Sie
 
 - den Unterschied zwischen aktivem Scannen und passivem Mitschneiden erklären;
-- die offenen Ports deines eigenen Geräts identifizieren und die zugehörigen Dienste benennen;
+- die offenen Ports Ihres eigenen Geräts identifizieren und die zugehörigen Dienste benennen;
 - einen Portscan im Netzwerkverkehr wiedererkennen (SYN / SYN-ACK / RST);
 - mit Display-Filtern in Wireshark gezielt DNS-, TLS- und Tracker-Verkehr sichtbar machen;
 - begründen, warum heutige Schutzmassnahmen weit mehr umfassen als «alle Ports zu».
@@ -43,14 +43,14 @@ Portscans und Netzwerkmitschnitte sind in der Schweiz nur auf **eigenen** System
 
 ## Vorbereitung: Software installieren
 
-Du brauchst zwei Werkzeuge: **Wireshark** (passiver Netzwerk-Sniffer) und **Nmap** (aktiver Portscanner).
+Sie brauchen zwei Werkzeuge: **Wireshark** (passiver Netzwerk-Sniffer) und **Nmap** (aktiver Portscanner).
 
 ### Windows 11
 
 1. Wireshark von <https://www.wireshark.org/download.html> herunterladen (64-bit Windows Installer).
 2. Installer ausführen. Während der Installation wird **Npcap** mitinstalliert. Wichtig:
    - Im Npcap-Dialog die Option **«Support loopback traffic ('Npcap Loopback Adapter')»** aktivieren.
-   - Falls Wireshark bei dir bereits installiert ist, aber kein «Adapter for loopback traffic capture» erscheint: Npcap separat von <https://npcap.com/> neu installieren und die Loopback-Option setzen.
+   - Falls Wireshark bei Ihnen bereits installiert ist, aber kein «Adapter for loopback traffic capture» erscheint: Npcap separat von <https://npcap.com/> neu installieren und die Loopback-Option setzen.
 3. Nmap von <https://nmap.org/download.html> herunterladen («Latest stable release self-installer»). Zenmap (GUI) kann mitinstalliert werden, ist für unseren Zweck aber nicht nötig.
    - Falls Nmap fragt, ob es ein eigenes Npcap installieren soll: das bereits von Wireshark installierte Npcap behalten.
 4. Schnelltest in der **PowerShell** (Windows-Taste, dann «PowerShell» eingeben):
@@ -89,8 +89,8 @@ netstat -ano | findstr LISTENING
 
 ### Beobachtungsfragen
 
-- Welche Ports sind bei dir offen? Welche Dienste vermutest du dahinter?
-- Recherchiere unbekannte Ports (`5353`, `631`, `139`, `445`, `5355`, `5040` …). Brauchst du den jeweiligen Dienst?
+- Welche Ports sind bei Ihnen offen? Welche Dienste vermuten Sie dahinter?
+- Recherchieren Sie unbekannte Ports (`5353`, `631`, `139`, `445`, `5355`, `5040` …). Brauchen Sie den jeweiligen Dienst?
 - Auf welcher Adresse lauscht der Dienst? `127.0.0.1` (nur lokal), `0.0.0.0` (alle Netzwerkkarten) oder eine konkrete IP?
 
 ## Teil 2 — Portscan auf den eigenen Rechner
@@ -116,9 +116,9 @@ nmap -sT -sV -p 1-1024 127.0.0.1
 
 ### Beobachtungsfragen
 
-- Stimmt das Ergebnis mit deiner Liste aus Teil 1 überein? Wo nicht – warum?
+- Stimmt das Ergebnis mit Ihrer Liste aus Teil 1 überein? Wo nicht – warum?
 - Was bedeuten `open`, `closed`, `filtered`?
-- Was würde sich vermutlich ändern, wenn du `localhost` durch die **IP im WLAN** ersetzen würdest? (Hinweis: Firewall des Betriebssystems.)
+- Was würde sich vermutlich ändern, wenn Sie `localhost` durch die **IP im WLAN** ersetzen würden? (Hinweis: Firewall des Betriebssystems.)
 
 ## Teil 3 — Wireshark beobachtet den Scan
 
@@ -153,9 +153,9 @@ nmap -sT -p 1-1024 127.0.0.1
 
 ### Schritt 5: Aufzeichnung stoppen und analysieren
 
-Auf das rote Quadrat klicken. Du siehst jetzt mehrere tausend Pakete. Mit **Display-Filtern** machen wir Struktur sichtbar:
+Auf das rote Quadrat klicken. Sie sehen jetzt mehrere tausend Pakete. Mit **Display-Filtern** machen wir Struktur sichtbar:
 
-| Display-Filter | Was du siehst |
+| Display-Filter | Was Sie sehen |
 |---|---|
 | `tcp.flags.syn == 1 and tcp.flags.ack == 0` | Die SYN-Pakete des Scans: einer pro geprüftem Port |
 | `tcp.flags.syn == 1 and tcp.flags.ack == 1` | SYN-ACK von **offenen** Ports |
@@ -167,8 +167,8 @@ Den Filter ins Feld direkt unter der Symbolleiste eingeben und Enter drücken.
 ### Beobachtungsfragen
 
 - Wie viele SYN-Pakete schickt nmap pro Sekunde? Was würde das für einen Scan auf alle 65 535 Ports bedeuten?
-- Welche der von dir in Teil 2 als `open` identifizierten Ports siehst du jetzt mit SYN-ACK?
-- Was passiert nach dem Drei-Wege-Handshake bei `-sT` an einem offenen Port? (Tipp: schau auf die FIN- bzw. RST-Pakete am Ende.)
+- Welche der von Ihnen in Teil 2 als `open` identifizierten Ports sehen Sie jetzt mit SYN-ACK?
+- Was passiert nach dem Drei-Wege-Handshake bei `-sT` an einem offenen Port? (Tipp: schauen Sie auf die FIN- bzw. RST-Pakete am Ende.)
 
 ## Teil 4 — Was tut der Rechner, wenn ich gar nichts tue?
 
@@ -176,8 +176,8 @@ Jetzt drehen wir den Aufbau: keine Aktion am Rechner, aber Wireshark hört auf d
 
 ### Schritt 1: Vorbereitung
 
-- Schliesse **alle** Browserfenster.
-- Lass aber Mail-Client, Cloud-Sync (OneDrive, Nextcloud, …), Messenger u.ä. laufen, falls vorhanden – die wollen wir ja gerade beobachten.
+- Schliessen Sie **alle** Browserfenster.
+- Lassen Sie aber Mail-Client, Cloud-Sync (OneDrive, Nextcloud, …), Messenger u.ä. laufen, falls vorhanden – die wollen wir ja gerade beobachten.
 
 ### Schritt 2: Wireshark neu starten
 
@@ -194,7 +194,7 @@ Zwei Minuten lang den Rechner in Ruhe lassen. Dann Capture stoppen.
 
 ### Schritt 4: Mit Display-Filtern erkunden
 
-| Display-Filter | Was du siehst |
+| Display-Filter | Was Sie sehen |
 |---|---|
 | `dns` | Alle DNS-Anfragen: welche Hostnamen werden aufgelöst? |
 | `tls.handshake.type == 1` | TLS-«Client Hello»: mit welchen Servern wird verschlüsselt gesprochen? |
@@ -206,13 +206,13 @@ Besonders aufschlussreich: **rechte Maustaste auf eine DNS-Zeile → Follow → 
 
 ### Beobachtungsfragen
 
-- Welche Hostnamen erscheinen, obwohl du nichts machst? Welche Applikationen verraten sich dadurch?
-- Findest du Update-Checks, Cloud-Sync, Telemetrie? Notiere drei konkrete Beispiele.
-- Welche Hostnamen erkennst du *nicht*? Wie könntest du sie zuordnen?
+- Welche Hostnamen erscheinen, obwohl Sie nichts machen? Welche Applikationen verraten sich dadurch?
+- Finden Sie Update-Checks, Cloud-Sync, Telemetrie? Notieren Sie drei konkrete Beispiele.
+- Welche Hostnamen erkennen Sie *nicht*? Wie könnten Sie sie zuordnen?
 
 ## Teil 5 — Eine «harmlose» Website besuchen
 
-Jetzt sehen wir uns an, was der Browser tut, wenn du eine einzige Newsseite öffnest.
+Jetzt sehen wir uns an, was der Browser tut, wenn Sie eine einzige Newsseite öffnen.
 
 ### Schritt 1: Vorbereitung
 
@@ -245,7 +245,7 @@ Zusätzlich praktisch: **Statistics → Endpoints → IPv4** zeigt eine Liste al
 
 ### Optionaler Vergleich
 
-Installiere im Browser **uBlock Origin**, leere den Cache, wiederhole Schritt 2 mit derselben Seite und vergleiche die Anzahl Drittparteien.
+Installieren Sie im Browser **uBlock Origin**, leeren Sie den Cache, wiederholen Sie Schritt 2 mit derselben Seite und vergleichen Sie die Anzahl Drittparteien.
 
 ## Synthese: Was nehmen wir mit?
 
@@ -257,9 +257,9 @@ Installiere im Browser **uBlock Origin**, leere den Cache, wiederhole Schritt 2 
 ## Optional / Weiterführendes
 
 - **DNS over HTTPS aktivieren** (im Browser oder system-weit) und Capture wiederholen: Die `dns`-Filterzeile bleibt leer, der DNS-Verkehr läuft jetzt in TLS verpackt zu einem konfigurierten Resolver.
-- **Eigenes Heimnetz vermessen** (nur dort!) mit `nmap -sn 192.168.1.0/24` zur Host-Erkennung. Wie viele Geräte sind angeschlossen? Erkennst du alle?
+- **Eigenes Heimnetz vermessen** (nur dort!) mit `nmap -sn 192.168.1.0/24` zur Host-Erkennung. Wie viele Geräte sind angeschlossen? Erkennen Sie alle?
 - **Mit `nmap -O` ein Betriebssystem-Fingerprinting** auf den eigenen Rechner versuchen. Wie genau ist die Vermutung?
-- **Display-Filter-Galerie in Wireshark** (Statistics → Protocol Hierarchy) ansehen: zeigt, welche Protokollanteile dein Verkehr in welcher Zeit hatte.
+- **Display-Filter-Galerie in Wireshark** (Statistics → Protocol Hierarchy) ansehen: zeigt, welche Protokollanteile Ihr Verkehr in welcher Zeit hatte.
 
 ## Anhang: Häufige Stolpersteine
 
