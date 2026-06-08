@@ -22,6 +22,10 @@ book:
       chapters:
         - index.qmd
 
+    - part: "Anwendungen"
+      chapters:
+        - files/260611_trigonometrie/260611_trigonometrie.ipynb
+
     - part: "Cybersicherheit"
       chapters:
         - files/260508_cybergefahren/cybergefahren.qmd
