@@ -1,0 +1,25 @@
+\documentclass[tikz,border=5mm]{standalone}
+\usetikzlibrary{angles,quotes}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5, >=stealth]
+
+  % 1. Definition der Eckpunkte (Allgemeines Dreieck)
+  \coordinate[label=below left:$A$] (A) at (0,0);
+  \coordinate[label=below right:$B$] (B) at (5,0);
+  \coordinate[label=above:$C$] (C) at (1.5,3.5);
+
+  % 2. Zeichnen der Dreiecksseiten und deren Beschriftung
+  \draw[thick] (A) -- (B) node[midway, below=2pt] {$c$}
+                    -- (C) node[midway, above right=1pt] {$a$}
+                    -- cycle node[midway, above left=1pt] {$b$};
+
+  % 3. Zeichnen und Beschriften der Innenwinkel
+  % Die 'angles'-Bibliothek zeichnet automatisch Bögen gegen den Uhrzeigersinn.
+  % 'angle eccentricity' bestimmt den Abstand der Beschriftung vom Scheitelpunkt.
+  \pic[draw, "$\alpha$", angle radius=0.7cm, angle eccentricity=1.4] {angle = B--A--C};
+  \pic[draw, "$\beta$", angle radius=0.7cm, angle eccentricity=1.4] {angle = C--B--A};
+  \pic[draw, "$\gamma$", angle radius=0.6cm, angle eccentricity=1.4] {angle = A--C--B};
+
+\end{tikzpicture}
+\end{document}
