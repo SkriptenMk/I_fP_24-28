@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jacques Mock Schindler">
 
-<title>17&nbsp; RSA – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
+<title>2&nbsp; Landesvermessung – Unterlagen für den Informatikunterricht in der Klasse 2fP</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -58,7 +59,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,8 +88,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../files/250822/netzwerke.html" rel="next">
-<link href="../../files/251031/asymmetrie.html" rel="prev">
+<link href="../../files/260508_cybergefahren/cybergefahren.html" rel="next">
+<link href="../../index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -150,7 +170,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/250912/files.html">Kryptologie</a></li><li class="breadcrumb-item"><a href="../../files/251114_rsa/rsa.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">RSA</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260611_trigonometrie/260611_trigonometrie.html">Anwendungen</a></li><li class="breadcrumb-item"><a href="../../files/260611_trigonometrie/260611_trigonometrie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Landesvermessung</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -207,7 +227,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../files/260611_trigonometrie/260611_trigonometrie.html" class="sidebar-item-text sidebar-link">
+  <a href="../../files/260611_trigonometrie/260611_trigonometrie.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Landesvermessung</span></span></a>
   </div>
 </li>
@@ -341,7 +361,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../files/251114_rsa/rsa.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../files/251114_rsa/rsa.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">RSA</span></span></a>
   </div>
 </li>
@@ -579,28 +599,39 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link active" data-scroll-target="#lernziele"><span class="header-section-number">17.1</span> Lernziele</a></li>
-  <li><a href="#die-mathematik-hinter-rsa" id="toc-die-mathematik-hinter-rsa" class="nav-link" data-scroll-target="#die-mathematik-hinter-rsa"><span class="header-section-number">17.2</span> Die Mathematik hinter RSA</a>
+  <li><a href="#anwendungsübung" id="toc-anwendungsübung" class="nav-link active" data-scroll-target="#anwendungsübung"><span class="header-section-number">2.1</span> Anwendungsübung</a>
   <ul class="collapse">
-  <li><a href="#tipps" id="toc-tipps" class="nav-link" data-scroll-target="#tipps"><span class="header-section-number">17.2.1</span> Tipps</a></li>
-  <li><a href="#signieren" id="toc-signieren" class="nav-link" data-scroll-target="#signieren"><span class="header-section-number">17.2.2</span> Signieren</a></li>
+  <li><a href="#arbeitsschritte" id="toc-arbeitsschritte" class="nav-link" data-scroll-target="#arbeitsschritte"><span class="header-section-number">2.1.1</span> Arbeitsschritte</a></li>
+  <li><a href="#berechnungen-mit-hilfe-von-python" id="toc-berechnungen-mit-hilfe-von-python" class="nav-link" data-scroll-target="#berechnungen-mit-hilfe-von-python"><span class="header-section-number">2.1.2</span> Berechnungen mit Hilfe von Python</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/251114_rsa/rsa.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260611_trigonometrie/260611_trigonometrie.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/250912/files.html">Kryptologie</a></li><li class="breadcrumb-item"><a href="../../files/251114_rsa/rsa.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">RSA</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../files/260611_trigonometrie/260611_trigonometrie.html">Anwendungen</a></li><li class="breadcrumb-item"><a href="../../files/260611_trigonometrie/260611_trigonometrie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Landesvermessung</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">RSA</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Landesvermessung</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacques Mock Schindler </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">11.06.2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -610,79 +641,295 @@ window.Quarto = {
 </header>
 
 
-<p>RSA ist ein Kryptografie-System für asymmetrische Verschlüsselung und Signatur. Es wurde Jahrzehnte lang verwendet und wird nun stetig von neueren Systemen abgelöst.</p>
-<section id="lernziele" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="lernziele"><span class="header-section-number">17.1</span> Lernziele</h2>
-<ol type="1">
-<li>Sie entschlüsseln und verschlüsseln eine Zahl mit dem gegebenen öffentlichen, beziehungsweise mit dem privaten Schlüssel.</li>
-<li>Sie wissen, auf welcher mathematischen Schwierigkeit RSA beruht. Anders ausgedrückt: Was muss man machen, um vom öffentlichen auf den privaten Schlüssel zu kommen.</li>
-<li>Sie erklären das Prinzip der Signatur. Sie berechnen eine RSA Signatur. Sie überprüfen, ob eine Nachricht zur RSA Signatur passt.</li>
-</ol>
-</section>
-<section id="die-mathematik-hinter-rsa" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="die-mathematik-hinter-rsa"><span class="header-section-number">17.2</span> Die Mathematik hinter RSA</h2>
-<p>Wie RSA funktioniert, betrachten wir mit dieser interaktiven Webseite <a href="https://www.cryptool.org/de/cto/rsa-step-by-step/">www.cryptool.org/de/cto/rsa-step-by-step/</a>.</p>
-<section id="tipps" class="level3" data-number="17.2.1">
-<h3 data-number="17.2.1" class="anchored" data-anchor-id="tipps"><span class="header-section-number">17.2.1</span> Tipps</h3>
-<p>Der Taschenrechner kann nicht gut modulo mit grossen Zahlen rechnen.</p>
-<p>Python ist da besser geeignet. Wenn Sie <span class="math inline">\(c=88^{17} ~mod~ 143\)</span> rechnen möchten, können Sie es in Python wie folgt berechnen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>c <span class="op">=</span> <span class="dv">88</span><span class="op">**</span><span class="dv">17</span> <span class="op">%</span> <span class="dv">143</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(c)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># 121</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Zusätzlicher Hintergrund zum Rechnen
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Python kann $88000^{80021} nicht ausrechnen. Im Gegensatz dazu ist die Berechnung von <span class="math inline">\(88000^{80021} \mod 89911\)</span> möglich.</p>
-<p><span class="math inline">\(88000^{80021}\)</span> ist zu gross für den Speicher. In der zweiten Berechnung berechnet Python immer wieder den Rest. Das braucht viel weniger Speicher und geht erst noch schneller.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="signieren" class="level3" data-number="17.2.2">
-<h3 data-number="17.2.2" class="anchored" data-anchor-id="signieren"><span class="header-section-number">17.2.2</span> Signieren</h3>
-<p>Betrachten wir die Situation, dass Alice mitteilen möchte, wann Sie am Bahnhof ankommt. Sie kann es nicht direkt an Bob schreiben, sondern Mallory. Sie möchte nicht, dass Bob zu einer falschen Uhrzeit am Bahnhof wartet. Alice hat Bob deshalb im Vorfeld ihren öffentlichen Schlüssel geteilt.</p>
-<ul>
-<li>Privater Schlüssel: <span class="math inline">\((n=143, d=113)\)</span></li>
-<li>Öffentlicher Schlüssel: <span class="math inline">\((n=143,e=17)\)</span></li>
-</ul>
-<p>Mallory darf den öffentlichen Schlüssel auch kennen. Der private Schlüssel kennt nur Alice.</p>
-<p>Was Alice macht, ist sie Gibt die Stunde bekannt: Sie kommt um 15 Uhr an. Nun berechnet Alice zusätzlich <span class="math display">\[ 15^d ~mod~ n = 15^{113} ~mod~ 143
-= 97 \]</span>. Sie legt diese Zahl 97 als Signatur bei.</p>
-<p>Wenn Mallory nichts ändert, bekommt Bob “Uhrzeit 15, Signatur 97”. Bob kann nun den Inhalt überprüfen, indem er <span class="math display">\[ signatur ^ e ~mod~ n = 97
-^{17} ~mod~ 143 = 15 \]</span> berechnet. Er merkt, die Zahl stimmt überein.</p>
-<p>Wenn Mallory eine falsche Zeit an Bob geben möchte und die Zeit zu 14 anpasst, merkt Alice, dass die Zeit nicht mit der Signatur über einpasst. Wenn Mallory die Signatur auch anpassen möchte, müsste sie die Signatur finden, sodass <span class="math display">\[ x = 14^e ~mod~n. \]</span> Dies ist genau so schwierig, wie das Entschlüsseln der Nachricht.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Die Landesvermessung basiert traditionellerweise im Wesentlichen auf der Anwendung von trigonometrischen Funktionen. Man spricht daher auch von Triangulation.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Trigonometrische Grundlagen">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Aufgabe
+<span class="screen-reader-only">Hinweis</span>Trigonometrische Grundlagen
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>In einem allgemeinen Dreieck (vgl. <a href="#fig-dreieck" class="quarto-xref">Abbildung&nbsp;<span>2.1</span></a>) gelten die folgenden beiden Sätze:</p>
+<div id="fig-dreieck" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dreieck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="dreieck.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dreieck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.1: Allgemeines Dreieck.
+</figcaption>
+</figure>
+</div>
+<p><strong>Sinussatz</strong></p>
+<p><span class="math display">\[
+\frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma}
+\]</span></p>
+<p><strong>Kosinussatz</strong></p>
+<p><span class="math display">\[\begin{align*}
+a^2 &amp;= b^2 + c^2 - 2 \cdot b \cdot c \cdot \cos \alpha \\
+b^2 &amp;= c^2 + a^2 - 2 \cdot c \cdot a \cdot \cos \beta \\
+c^2 &amp;= a^2 + b^2 - 2 \cdot a \cdot b \cdot \cos \gamma
+\end{align*}\]</span></p>
+</div>
+</div>
+<section id="anwendungsübung" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="anwendungsübung"><span class="header-section-number">2.1</span> Anwendungsübung</h2>
+<p>Im Folgenden soll das anhand der Vermessung einer Strecke in unzugänglichem Gelände illustriert und angewendet werden.</p>
+<p>Gegeben sei die folgende Ausgangslage (vgl. <a href="#fig-vermessung" class="quarto-xref">Abbildung&nbsp;<span>2.2</span></a>):</p>
+<div id="fig-vermessung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vermessung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vermessung.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vermessung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.2: Vermessungsskizze<span class="citation" data-cites="doberkatEbeneTrigonometrieAnalytische2024">.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span>
+</figcaption>
+</figure>
+</div>
+<p>Gesucht ist die Strecke <span class="math inline">\(\overline{AB}\)</span> (<span class="math inline">\(\ell\)</span>). Gemessen werden kann die Strecke <span class="math inline">\(\overline{CD}\)</span> (<span class="math inline">\(s\)</span>) sowie die Winkel <span class="math inline">\(\alpha_1\)</span>, <span class="math inline">\(\alpha_2\)</span>, <span class="math inline">\(\beta_1\)</span> und <span class="math inline">\(\beta_2\)</span>. Dabei liegen <span class="math inline">\(\alpha_1\)</span> und <span class="math inline">\(\alpha_2\)</span> im Punkt <span class="math inline">\(D\)</span>, <span class="math inline">\(\beta_1\)</span> und <span class="math inline">\(\beta_2\)</span> im Punkt <span class="math inline">\(C\)</span>.</p>
+<section id="arbeitsschritte" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="arbeitsschritte"><span class="header-section-number">2.1.1</span> Arbeitsschritte</h3>
+<p>Die Idee ist, die Basisstrecke <span class="math inline">\(s = \overline{CD}\)</span> über zwei Hilfsdreiecke mit der gesuchten Strecke zu verknüpfen. Aus dem Dreieck <span class="math inline">\(C\,D\,B\)</span> erhält man die Strecke <span class="math inline">\(\overline{CB}\)</span>, aus dem Dreieck <span class="math inline">\(C\,D\,A\)</span> die Strecke <span class="math inline">\(\overline{CA}\)</span>. Beide Strecken teilen sich den Punkt <span class="math inline">\(C\)</span>; der von ihnen eingeschlossene Winkel ist <span class="math inline">\(\beta_2 - \beta_1\)</span>. Damit lässt sich die Zielstrecke im Dreieck <span class="math inline">\(C\,A\,B\)</span> über den Kosinussatz bestimmen.</p>
+<p>Mit den gemessenen Grössen lassen sich der Reihe nach die folgenden fehlenden Grössen berechnen:</p>
 <ol type="1">
-<li>Erstellen Sie auf der <a href="https://www.cryptool.org/de/cto/rsa-step-by-step/">bekannten cryptool Seite</a> ein Schlüsselpaar.</li>
-<li>Wählen Sie (zufällig) 3 Zahlen.</li>
-<li>Erstellen Sie zu jeder Zahl die Signatur.</li>
-<li>Verändern Sie bei einem Tupel die Zahl, bei einem anderen die Signatur.</li>
-<li>Tauschen Sie den öffentlichen Schlüssel mit den 3 Tupeln mit Ihrem Nachbar aus.</li>
-<li>Testen Sie die Tupel, welches stimmt.</li>
+<li><span class="math inline">\(\gamma_1 = 180^{\circ} - (\alpha_1 + \beta_1)\)</span></li>
+<li>Mit Hilfe des Sinussatzes (Strecke gegenüber <span class="math inline">\(\alpha_1\)</span>, d.h. <span class="math inline">\(\overline{CB}\)</span>): <span class="math inline">\(a = \dfrac{s \cdot \sin \alpha_1}{\sin \gamma_1}\)</span></li>
+<li><span class="math inline">\(\gamma_2 = 180^{\circ} - (\alpha_2 + \beta_2)\)</span></li>
+<li>Mit Hilfe des Sinussatzes (Strecke gegenüber <span class="math inline">\(\alpha_2\)</span>, d.h. <span class="math inline">\(\overline{CA}\)</span>): <span class="math inline">\(b = \dfrac{s \cdot \sin \alpha_2}{\sin \gamma_2}\)</span></li>
+<li>Mit Hilfe des Kosinussatzes im Dreieck <span class="math inline">\(C\,A\,B\)</span>: <span class="math inline">\(\ell =\sqrt{a^2 + b^2 - 2ab \cos (\beta_2 - \beta_1)}\)</span></li>
+</ol>
+</section>
+<section id="berechnungen-mit-hilfe-von-python" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="berechnungen-mit-hilfe-von-python"><span class="header-section-number">2.1.2</span> Berechnungen mit Hilfe von Python</h3>
+<p>Es ist deutlich einfacher, alle Messwerte einer Python-Funktion zu übergeben, als alle Schritte manuell mit Hilfe eines Taschenrechners einzeln zu berechnen. Dabei ist allerdings zu beachten, dass Python Winkelberechnungen in Bogenmass und nicht in Grad vornimmt.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Winkel in Bogenmass
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="circle.svg" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p>Das Bogenmass <span class="math inline">\(\widehat{\varphi}\)</span> eines Winkels ist das Verhältnis der Länge des vom Winkel <span class="math inline">\(\varphi\)</span> ausgeschnittenen Kreisbogens zum Radius des Kreises. Es wird auch mit <span class="math inline">\(\operatorname{arc} \varphi\)</span> bezeichnet.</p>
+<p><span class="math display">\[\widehat{\varphi} = \frac{b}{r} = \operatorname{arc} \varphi =
+\frac{\pi}{180^\circ} \varphi \iff \varphi = \frac{180^\circ}{\pi}
+\widehat{\varphi}\]</span></p>
+<p>Auf dem Einheitskreis (<span class="math inline">\(r=1\)</span>) gilt: <span class="math inline">\(\widehat{\varphi} = b\)</span>. Die Einheit des Bogenmasses ist der Radiant (rad). Ein Winkel von 1 rad entspricht einem Kreisbogen, der dieselbe Länge wie der Radius hat.<span class="citation" data-cites="durandiFormelnTabellenBegriffe2022"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Glücklicherweise stellt Python im Modul <code>math</code> die Funktion <code>math.radians()</code> zur Verfügung, mit welcher Grad in Bogenmass umgerechnet werden können. Hierzu muss das Modul vorab mit <code>import math</code> importiert werden. Das Modul <code>math</code> stellt darüber hinaus auch alle erforderlichen trigonometrischen Funktionen (<code>math.sin()</code> und <code>math.cos()</code>) zur Verfügung.</p>
+<p>Um die Python-Funktion so schlank wie möglich und gut lesbar zu halten, wird als erstes eine Hilfsfunktion implementiert, welche Grad in Bogenmass umrechnet. Weil es aber auch Kompasse mit einer Eichung in A‰ und Gon gibt, soll die Funktion alternativ auch Werte in diesen Einheiten umrechnen.</p>
+<div id="d7c5b2e6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> math</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cc102969" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> angle_converter(angle: <span class="bu">float</span>, mil: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>, gon: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">"""Konvertiert einen Winkel in das Bogenmass (Radiant).</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    Unterstützt die Umrechnung von Altgrad (Standard), Artillerie-Promille</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    oder Gon. Es darf jeweils nur ein Modus aktiv sein.</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    Args:</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">        angle (float): Der zu konvertierende Winkelwert.</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">        mil (bool, optional): Wenn True, wird der Winkel als Artillerie-Promille</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">            (A‰) interpretiert. Standard ist False.</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">        gon (bool, optional): Wenn True, wird der Winkel als Gon (Neugrad)</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">            interpretiert. Standard ist False.</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">    Returns:</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">        float: Der umgerechnete Winkel im Bogenmass.</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">    Raises:</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">        ValueError: Wenn sowohl 'mil' als auch 'gon' auf True gesetzt sind.</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">    """</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="cf">if</span> mil <span class="kw">and</span> gon:</span>
+<span id="cb2-21"><a href="#cb2-21"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(</span>
+<span id="cb2-22"><a href="#cb2-22"></a>            <span class="st">"Es kann nur 'mil=True' (Artillerie) ODER 'gon=True' gewählt werden."</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>        )</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="cf">if</span> mil:</span>
+<span id="cb2-26"><a href="#cb2-26"></a>        <span class="cf">return</span> angle <span class="op">*</span> (math.pi <span class="op">/</span> <span class="dv">3200</span>)</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    <span class="cf">elif</span> gon:</span>
+<span id="cb2-28"><a href="#cb2-28"></a>        <span class="cf">return</span> angle <span class="op">*</span> (math.pi <span class="op">/</span> <span class="dv">200</span>)</span>
+<span id="cb2-29"><a href="#cb2-29"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-30"><a href="#cb2-30"></a>        <span class="cf">return</span> math.radians(angle)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Wie die für die Berechnung erforderlichen Winkel gemessen werden, soll am Beispiel von <span class="math inline">\(\alpha_1\)</span> in <a href="#fig-vermessung" class="quarto-xref">Abbildung&nbsp;<span>2.2</span></a> gezeigt werden. Dazu wird mit dem Kompass von der Position <span class="math inline">\(D\)</span> aus der Azimut nach <span class="math inline">\(B\)</span> und nach <span class="math inline">\(C\)</span> gemessen. Die Differenz der beiden Messungen entspricht <span class="math inline">\(\alpha_1\)</span>.</p>
+<p>Um diese Berechnung in einer Python-Funktion zu implementieren, muss sie als Algorithmus beschrieben werden. Dabei gilt es den Fall zu berücksichtigen, dass die beiden Messungen die Nordrichtung einschliessen. Um auch diese Situation abzudecken, bedient man sich der <em>modularen Subtraktion</em>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Modulare Subtraktion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In der modularen Arithmetik geht es darum, das uns bekannte Rechnen mit Zahlen aus einer unendlichen Menge auf endliche Zahlenmengen zu übertragen<span class="citation" data-cites="iwanowskiDiskreteMathematikMit2021">.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></span> So kann sichergestellt werden, dass das Resultat der Winkelberechnung innerhalb der Windrose bleibt.</p>
+<p><strong>Allgemein für 360°</strong> <span class="math inline">\((a - b) \pmod{360}\)</span></p>
+<ol type="1">
+<li>Differenz berechnen: <span class="math inline">\(d = a - b\)</span></li>
+<li>Modulo bilden: <span class="math inline">\(r = d \pmod{360}\)</span></li>
+</ol>
+<p>Der in der klassischen Darstellung übliche dritte Schritt – «falls das Ergebnis negativ ist, einmal <span class="math inline">\(360\)</span> addieren» – entfällt in Python: Der Operator <code>%</code> liefert bei positivem Divisor stets ein Ergebnis im Bereich <span class="math inline">\([0, 360)\)</span> und normalisiert damit automatisch.</p>
+<p><strong>Zahlenbeispiel</strong> <span class="math inline">\(40^{\circ} - 110^{\circ}\)</span></p>
+<ol type="1">
+<li><span class="math inline">\(40 - 110 = - 70\)</span></li>
+<li><span class="math inline">\(-70 &lt; 0: \text{Wahr}\)</span></li>
+<li><span class="math inline">\(−70 + 360 = 290\)</span></li>
+<li><span class="math inline">\(40 − 110 \equiv 290 \pmod{360}\)</span></li>
 </ol>
 </div>
 </div>
+<p>Implementiert in einer Python-Funktion sieht das folgendermassen aus:</p>
+<div id="62fa2e14" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> angle_diff(angle1: <span class="bu">float</span>, angle2: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">"""Berechnet die modulare Differenz (angle1 - angle2) modulo 360 Grad.</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">    </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">    Berücksichtigt automatisch den Nord-Übergang, indem negative Differenzen</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">    in den positiven Kreislauf [0, 360) überführt werden.</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">    Args:</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">        angle1 (float): Der Ausgangswinkel (z. B. erste Peilung).</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">        angle2 (float): Der abzuziehende Winkel (z. B. zweite Peilung).</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">    Returns:</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">        float: Die modulare Winkeldifferenz im Bereich von 0 bis &lt;360 Grad.</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>    <span class="cf">return</span> (angle1 <span class="op">-</span> angle2) <span class="op">%</span> <span class="dv">360</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nun braucht es noch eine Hilfsfunktion für den Sinussatz.</p>
+<div id="5df8e6a6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> sine_rule(length: <span class="bu">float</span>, opposite_angle: <span class="bu">float</span>, ref_angle: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="co">"""Berechnet eine Dreieckseite mit Hilfe des Sinussatzes.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">    Bestimmt die Seite, die dem Winkel ``opposite_angle`` gegenüberliegt,</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">    ausgehend von einer bekannten Seite ``length`` und deren gegenüber-</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">    liegendem Winkel ``ref_angle``:</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">        gesuchte Seite = length * sin(opposite_angle) / sin(ref_angle)</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">    Alle Winkel müssen im Bogenmass (Radiant) übergeben werden.</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">    Args:</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">        length (float): Bekannte Seite (hier die Basisstrecke s).</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">        opposite_angle (float): Winkel gegenüber der gesuchten Seite</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">            (im Bogenmass).</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">        ref_angle (float): Winkel gegenüber der bekannten Seite ``length``</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">            (im Bogenmass).</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">    Returns:</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">        float: Die Länge der gesuchten Seite.</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">    """</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="cf">return</span> (length <span class="op">*</span> math.sin(opposite_angle)) <span class="op">/</span> math.sin(ref_angle)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Damit liegend die erforderlichen Hilfsfunktionen vor und die eigentliche Berechnung entlang der Formel <span class="math inline">\(\ell =\sqrt{a^2 + b^2 - 2ab
+\cos (\beta_2 - \beta_1)}\)</span> kann als Python-Funktion implementiert werden.</p>
+<div id="2a194aea" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> triangulation(s: <span class="bu">float</span>,</span>
+<span id="cb5-2"><a href="#cb5-2"></a>                  alpha1_a: <span class="bu">float</span>, alpha1_b: <span class="bu">float</span>,</span>
+<span id="cb5-3"><a href="#cb5-3"></a>                  alpha2_a: <span class="bu">float</span>, alpha2_b: <span class="bu">float</span>,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>                  beta1_a: <span class="bu">float</span>, beta1_b: <span class="bu">float</span>,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>                  beta2_a: <span class="bu">float</span>, beta2_b: <span class="bu">float</span>,</span>
+<span id="cb5-6"><a href="#cb5-6"></a>                  mil: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>                  gon: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="co">"""Berechnet eine unzugängliche Strecke mittels Triangulation aus Kompasspeilungen.</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">    Bestimmt die Länge der unbekannten Zielstrecke AB (l) aus einer bekannten</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">    Basislänge CD (s) und den zugehörigen Azimut-Peilungen. Aus je zwei</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">    Peilungen wird über die modulare Differenz ein innerer Dreieckswinkel</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">    gebildet. Über den Sinussatz werden daraus die Strecken von C nach B bzw.</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">    von C nach A bestimmt; der Kosinussatz im Dreieck C-A-B liefert schliesslich</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">    die Zielstrecke, wobei der von beiden Strecken in C eingeschlossene Winkel</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">    der Differenz beta2 - beta1 entspricht.</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="co">    Alle vier Teilwinkel werden aus je zwei Kompasspeilungen (a und b)</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">    rekonstruiert.</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co">    Args:</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co">        s (float): Die gemessene, zugängliche Basisstrecke (CD).</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">        alpha1_a (float): Erste Kompasspeilung für den Teilwinkel Alpha 1 (bei D).</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">        alpha1_b (float): Zweite Kompasspeilung für den Teilwinkel Alpha 1 (bei D).</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">        alpha2_a (float): Erste Kompasspeilung für den Teilwinkel Alpha 2 (bei D).</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">        alpha2_b (float): Zweite Kompasspeilung für den Teilwinkel Alpha 2 (bei D).</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">        beta1_a (float): Erste Kompasspeilung für den Teilwinkel Beta 1 (bei C).</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">        beta1_b (float): Zweite Kompasspeilung für den Teilwinkel Beta 1 (bei C).</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">        beta2_a (float): Erste Kompasspeilung für den Teilwinkel Beta 2 (bei C).</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co">        beta2_b (float): Zweite Kompasspeilung für den Teilwinkel Beta 2 (bei C).</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">        mil (bool, optional): Wenn True, werden alle Peilungswerte als</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co">            Artillerie-Promille (A‰) interpretiert. Standard ist False.</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">        gon (bool, optional): Wenn True, werden alle Peilungswerte als</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">            Gon (Neugrad) interpretiert. Standard ist False.</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co">    Returns:</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">        float: Die berechnete Länge der unzugänglichen Zielstrecke (l).</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">    Raises:</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">        ValueError: Wenn über die Hilfsfunktionen sowohl 'mil' als auch 'gon'</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">            auf True gesetzt sind.</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">    """</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>    <span class="co"># Aus je zwei Peilungen den inneren Teilwinkel als modulare Differenz bilden.</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a>    input_angles <span class="op">=</span> [alpha1_a, alpha1_b, alpha2_a, alpha2_b,</span>
+<span id="cb5-45"><a href="#cb5-45"></a>                    beta1_a, beta1_b, beta2_a, beta2_b]</span>
+<span id="cb5-46"><a href="#cb5-46"></a>    angles <span class="op">=</span> []</span>
+<span id="cb5-47"><a href="#cb5-47"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(input_angles), <span class="dv">2</span>):</span>
+<span id="cb5-48"><a href="#cb5-48"></a>        diff <span class="op">=</span> angle_diff(input_angles[i], input_angles[i <span class="op">+</span> <span class="dv">1</span>])</span>
+<span id="cb5-49"><a href="#cb5-49"></a>        angles.append(diff)</span>
+<span id="cb5-50"><a href="#cb5-50"></a></span>
+<span id="cb5-51"><a href="#cb5-51"></a>    <span class="co"># In Bogenmass umrechnen.</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a>    alpha1, alpha2, beta1, beta2 <span class="op">=</span> (</span>
+<span id="cb5-53"><a href="#cb5-53"></a>        angle_converter(angle, mil, gon) <span class="cf">for</span> angle <span class="kw">in</span> angles</span>
+<span id="cb5-54"><a href="#cb5-54"></a>    )</span>
+<span id="cb5-55"><a href="#cb5-55"></a></span>
+<span id="cb5-56"><a href="#cb5-56"></a>    <span class="co"># Hilfsdreiecke an der Basis s: gamma liegt jeweils gegenüber s.</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a>    gamma1 <span class="op">=</span> math.radians(<span class="dv">180</span>) <span class="op">-</span> (alpha1 <span class="op">+</span> beta1)</span>
+<span id="cb5-58"><a href="#cb5-58"></a>    gamma2 <span class="op">=</span> math.radians(<span class="dv">180</span>) <span class="op">-</span> (alpha2 <span class="op">+</span> beta2)</span>
+<span id="cb5-59"><a href="#cb5-59"></a></span>
+<span id="cb5-60"><a href="#cb5-60"></a>    <span class="co"># Sinussatz liefert die Strecke gegenüber alpha (von C aus): CB bzw. CA.</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a>    strecke_cb <span class="op">=</span> sine_rule(s, alpha1, gamma1)</span>
+<span id="cb5-62"><a href="#cb5-62"></a>    strecke_ca <span class="op">=</span> sine_rule(s, alpha2, gamma2)</span>
+<span id="cb5-63"><a href="#cb5-63"></a></span>
+<span id="cb5-64"><a href="#cb5-64"></a>    <span class="co"># Kosinussatz im Dreieck C-A-B; eingeschlossener Winkel in C ist beta2 - beta1.</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a>    l <span class="op">=</span> math.sqrt(</span>
+<span id="cb5-66"><a href="#cb5-66"></a>        strecke_cb<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> strecke_ca<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-67"><a href="#cb5-67"></a>        <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> strecke_cb <span class="op">*</span> strecke_ca <span class="op">*</span> math.cos(beta2 <span class="op">-</span> beta1)</span>
+<span id="cb5-68"><a href="#cb5-68"></a>    )</span>
+<span id="cb5-69"><a href="#cb5-69"></a>    <span class="cf">return</span> l</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-doberkatEbeneTrigonometrieAnalytische2024" class="csl-entry" role="listitem">
+Doberkat, Ernst-Erich, und Michael Jung. <em>Ebene Trigonometrie &amp; Analytische Geometrie: Grundlagen und Anwendungen für Geodäsie, Karographie und verwandte Disziplinen</em>. Springer Berlin Heidelberg, 2024. Zugegriffen 4. Juni 2026. <a href="https://doi.org/10.1007/978-3-662-68843-4_1">https://doi.org/10.1007/978-3-662-68843-4_1</a>.
+</div>
+<div id="ref-durandiFormelnTabellenBegriffe2022" class="csl-entry" role="listitem">
+Durandi, Werner, Baoswan Dzung Wong, Markus Kriener, u.&nbsp;a. <em><span>Formeln, Tabellen, Begriffe: Mathematik - Physik - Chemie</span></em>. 8., aktualisierte Auflage. Herausgegeben von Verein Schweizerischer Mathematik- und Physiklehrkräfte und Werner Durandi. Orell Füssli Verlag, 2022.
+</div>
+<div id="ref-iwanowskiDiskreteMathematikMit2021" class="csl-entry" role="listitem">
+Iwanowski, Sebastian, und Rainer Lang. <em><span>Diskrete Mathematik mit Grundlagen: Lehrbuch für Studierende von MINT-Fächern</span></em>. Springer Fachmedien Wiesbaden, 2021. Zugegriffen 24. Mai 2026. <a href="https://doi.org/10.1007/978-3-658-32760-6">https://doi.org/10.1007/978-3-658-32760-6</a>.
+</div>
+</div>
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="#ref-doberkatEbeneTrigonometrieAnalytische2024" role="doc-biblioref">Ernst-Erich Doberkat und Michael Jung, <em>Ebene Trigonometrie &amp; Analytische Geometrie: Grundlagen und Anwendungen für Geodäsie, Karographie und verwandte Disziplinen</em> (Springer Berlin Heidelberg, 2024), 56, zugegriffen 4. Juni 2026, <span>https://doi.org/10.1007/978-3-662-68843-4_1</span></a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="#ref-durandiFormelnTabellenBegriffe2022" role="doc-biblioref">Werner Durandi u.&nbsp;a., <em><span>Formeln, Tabellen, Begriffe: Mathematik - Physik - Chemie</span></em>, 8., aktualisierte Auflage, hg. von Verein Schweizerischer Mathematik- und Physiklehrkräfte und Werner Durandi (Orell Füssli Verlag, 2022), 91</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="#ref-iwanowskiDiskreteMathematikMit2021" role="doc-biblioref">Sebastian Iwanowski und Rainer Lang, <em><span>Diskrete Mathematik mit Grundlagen: Lehrbuch für Studierende von MINT-Fächern</span></em> (Springer Fachmedien Wiesbaden, 2021), 166, zugegriffen 24. Mai 2026, <span>https://doi.org/10.1007/978-3-658-32760-6</span></a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -756,6 +1003,57 @@ window.Quarto = {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1088,13 +1386,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../files/251031/asymmetrie.html" class="pagination-link" aria-label="Public-Key-Kryptographie">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Public-Key-Kryptographie</span></span>
+      <a href="../../index.html" class="pagination-link" aria-label="Obligatorisches Fach Informatik (2fP)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Obligatorisches Fach Informatik (2fP)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../files/250822/netzwerke.html" class="pagination-link" aria-label="Computernetzwerke">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Computernetzwerke</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../files/260508_cybergefahren/cybergefahren.html" class="pagination-link" aria-label="Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cyberrisiken – von der Lebenswelt der Jugendlichen zum gesellschaftlichen Problem</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1103,4 +1401,4 @@ window.Quarto = {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SkriptenMk/I_fP_24-28/edit/main/files/251114_rsa/rsa.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/SkriptenMk/I_fP_24-28/blob/main/files/260611_trigonometrie/260611_trigonometrie.ipynb" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/SkriptenMk/I_fP_24-28/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div></div></footer></body></html>

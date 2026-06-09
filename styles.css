@@ -1,0 +1,6 @@
+/* Erhöht den Einzug von automatisch umgebrochenen Code-Zeilen im HTML */
+.sourceCode pre > code > span {
+    display: inline-block;
+    padding-left: 2.5em;  /* Verschiebt die gesamte Zeile nach rechts */
+    text-indent: -2.5em; /* Holt nur die erste Zeile (inkl. Zeilennummer) wieder zurück */
+}
