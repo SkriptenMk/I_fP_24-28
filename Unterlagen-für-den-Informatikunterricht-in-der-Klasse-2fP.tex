@@ -551,7 +551,7 @@ Zahlen aus einer unendlichen Menge auf endliche Zahlenmengen zu
 sichergestellt werden, dass das Resultat der Winkelberechnung innerhalb
 der Windrose bleibt.
 
-\textbf{Allgemein für 360°} \((a - b) \mod 360\)
+\textbf{Allgemein für 360°} \((a - b) \pmod{360}\)
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -559,7 +559,7 @@ der Windrose bleibt.
 \item
   Differenz berechnen: \(d = a - b\)
 \item
-  Modulo bilden: \(r = d \mod 360\)
+  Modulo bilden: \(r = d \pmod{360}\)
 \item
   Falls \(r\) negativ ist, einmal 360 addieren: \(r+360\)
 \end{enumerate}
@@ -576,10 +576,81 @@ der Windrose bleibt.
 \item
   \(−70 + 360 = 290\)
 \item
-  \(40 − 110 \equiv 290 (\mod 360)\)
+  \(40 − 110 \equiv 290 \pmod{360}\)
 \end{enumerate}
 
 \end{tcolorbox}
+
+Implementiert in einer Python-Funktion sieht das folgendermassen aus:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{def}\NormalTok{ angle\_diff(angle1: }\BuiltInTok{float}\NormalTok{, angle2: }\BuiltInTok{float}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+    \CommentTok{"""Berechnet die modulare Differenz (angle1 {-} angle2) modulo 360 Grad.}
+\CommentTok{    }
+\CommentTok{    Berücksichtigt automatisch den Nord{-}Übergang, indem negative Differenzen}
+\CommentTok{    in den positiven Kreislauf [0, 360) überführt werden.}
+
+\CommentTok{    Args:}
+\CommentTok{        angle1 (float): Der Ausgangswinkel (z. B. erste Peilung).}
+\CommentTok{        angle2 (float): Der abzuziehende Winkel (z. B. zweite Peilung).}
+
+\CommentTok{    Returns:}
+\CommentTok{        float: Die modulare Winkeldifferenz im Bereich von 0 bis \textless{}360 Grad.}
+\CommentTok{    """}
+    \ControlFlowTok{return}\NormalTok{ (angle1 }\OperatorTok{{-}}\NormalTok{ angle2) }\OperatorTok{\%} \DecValTok{360}
+\end{Highlighting}
+\end{Shaded}
+
+Nun braucht es noch eine Hilfsfunktion für den Sinussatz.
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{def}\NormalTok{ sine\_rule(length: }\BuiltInTok{float}\NormalTok{, angle1: }\BuiltInTok{float}\NormalTok{, angle2: }\BuiltInTok{float}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+    \ControlFlowTok{return}\NormalTok{ (length }\OperatorTok{*}\NormalTok{ math.sin(angle1)) }\OperatorTok{/}\NormalTok{ math.sin(angle2)}
+\end{Highlighting}
+\end{Shaded}
+
+Damit liegend die erforderlichen Hilfsfunktionen vor und die eigentliche
+Berechnung entlang der Formel \(\ell =\sqrt{a^2 + b^2 - 2ab
+\cos (\beta_2 - \beta_1)}\) kann als Python-Funktion implementiert
+werden.
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{def}\NormalTok{ triangulation(s: }\BuiltInTok{float}\NormalTok{, }
+\NormalTok{                  alpha1\_a: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  alpha1\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  alpha2\_a: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  alpha2\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta1\_a: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta1\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta2\_a: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta2\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  a: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{, }
+\NormalTok{                  gon: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+\NormalTok{    input\_angles }\OperatorTok{=}\NormalTok{ [alpha1\_a, alpha1\_b, alpha2\_a, alpha2\_b, beta1\_a, beta1\_b, beta2\_a, beta2\_b]}
+\NormalTok{    angles }\OperatorTok{=}\NormalTok{ []}
+    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, }\BuiltInTok{len}\NormalTok{(input\_angles)}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{):}
+\NormalTok{        diff }\OperatorTok{=}\NormalTok{ angle\_diff(input\_angles[i], input\_angles[i}\OperatorTok{+}\DecValTok{1}\NormalTok{])}
+\NormalTok{        angles.append(diff)}
+        
+\NormalTok{    i }\OperatorTok{=} \DecValTok{0}
+    \ControlFlowTok{for}\NormalTok{ angle }\KeywordTok{in}\NormalTok{ angles:}
+\NormalTok{        angles[i] }\OperatorTok{=}\NormalTok{ anlgeconverter(angle, a, gon)}
+        
+\NormalTok{    alpha1, alpha2, beta1, beta2 }\OperatorTok{=}\NormalTok{ angles}
+        
+\NormalTok{    gamma1 }\OperatorTok{=}\NormalTok{ math.radians(}\DecValTok{180}\NormalTok{) }\OperatorTok{{-}}\NormalTok{ (alpha1 }\OperatorTok{+}\NormalTok{ beta1)}
+\NormalTok{    gamma2 }\OperatorTok{=}\NormalTok{ math.radians(}\DecValTok{180}\NormalTok{) }\OperatorTok{{-}}\NormalTok{ (alpha2 }\OperatorTok{+}\NormalTok{ beta2)}
+    
+\NormalTok{    a }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha1, gamma1)}
+\NormalTok{    b }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha2, gamma2)}
+    
+\NormalTok{    l }\OperatorTok{=}\NormalTok{ math.sqrt(a}\OperatorTok{**}\DecValTok{2}\OperatorTok{+}\NormalTok{b}\OperatorTok{**}\DecValTok{2}\OperatorTok{{-}}\DecValTok{2}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{b}\OperatorTok{*}\NormalTok{math.cos(beta2}\OperatorTok{{-}}\NormalTok{beta1))}
+    \ControlFlowTok{return}\NormalTok{ l}
+\end{Highlighting}
+\end{Shaded}
 
 \part{Cybersicherheit}
 
