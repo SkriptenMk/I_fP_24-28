@@ -21,5 +21,6 @@ docs/_build/
 !./docs/250919_vigenere/Mann_1989_Der Zauberberg - Roman.pdf
 !./.github/*
 /.quarto/
+!styles.css
 
 **/*.quarto_ipynb

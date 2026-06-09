@@ -115,7 +115,9 @@ format:
     code-copy: true
     toc: true
     code-line-numbers: true
+    code-overflow: wrap
     notebook-view: true
+    css: styles.css
   pdf:
     pdf-engine: lualatex
     documentclass: scrreprt
@@ -127,3 +129,9 @@ format:
     # include-in-header: preamble.tex
     mainfont: "Libertinus Serif"
     monofont: "Libertinus Mono"
+    keep-tex: true
+    include-in-header:
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+        \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
