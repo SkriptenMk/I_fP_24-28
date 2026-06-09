@@ -418,9 +418,19 @@ Abbildung~\ref{fig-vermessung}):
 
 Gesucht ist die Strecke \(\overline{AB}\) (\(\ell\)). Gemessen werden
 kann die Strecke \(\overline{CD}\) (\(s\)) sowie die Winkel
-\(\alpha_1\), \(\alpha_2\), \(\beta_1\) und \(\beta_2\).
+\(\alpha_1\), \(\alpha_2\), \(\beta_1\) und \(\beta_2\). Dabei liegen
+\(\alpha_1\) und \(\alpha_2\) im Punkt \(D\), \(\beta_1\) und
+\(\beta_2\) im Punkt \(C\).
 
 \subsection{Arbeitsschritte}\label{arbeitsschritte}
+
+Die Idee ist, die Basisstrecke \(s = \overline{CD}\) über zwei
+Hilfsdreiecke mit der gesuchten Strecke zu verknüpfen. Aus dem Dreieck
+\(C\,D\,B\) erhält man die Strecke \(\overline{CB}\), aus dem Dreieck
+\(C\,D\,A\) die Strecke \(\overline{CA}\). Beide Strecken teilen sich
+den Punkt \(C\); der von ihnen eingeschlossene Winkel ist
+\(\beta_2 - \beta_1\). Damit lässt sich die Zielstrecke im Dreieck
+\(C\,A\,B\) über den Kosinussatz bestimmen.
 
 Mit den gemessenen Grössen lassen sich der Reihe nach die folgenden
 fehlenden Grössen berechnen:
@@ -431,15 +441,17 @@ fehlenden Grössen berechnen:
 \item
   \(\gamma_1 = 180^{\circ} - (\alpha_1 + \beta_1)\)
 \item
-  Mit Hilfe des Sinussatzes
-  \(a = \frac{s \cdot \sin \alpha_1}{\sin \gamma_1}\)
+  Mit Hilfe des Sinussatzes (Strecke gegenüber \(\alpha_1\), d.h.
+  \(\overline{CB}\)):
+  \(a = \dfrac{s \cdot \sin \alpha_1}{\sin \gamma_1}\)
 \item
   \(\gamma_2 = 180^{\circ} - (\alpha_2 + \beta_2)\)
 \item
-  Mit Hilfe des Sinussatzes
-  \(b = \frac{s \cdot \sin \alpha_2}{\sin \gamma_2}\)
+  Mit Hilfe des Sinussatzes (Strecke gegenüber \(\alpha_2\), d.h.
+  \(\overline{CA}\)):
+  \(b = \dfrac{s \cdot \sin \alpha_2}{\sin \gamma_2}\)
 \item
-  Mit Hilfe des Kosinussatzes
+  Mit Hilfe des Kosinussatzes im Dreieck \(C\,A\,B\):
   \(\ell =\sqrt{a^2 + b^2 - 2ab \cos (\beta_2 - \beta_1)}\)
 \end{enumerate}
 
@@ -463,7 +475,7 @@ des Kreises. Es wird auch mit \(\operatorname{arc} \varphi\) bezeichnet.
 \frac{\pi}{180^\circ} \varphi \iff \varphi = \frac{180^\circ}{\pi}
 \widehat{\varphi}\]
 
-Auf dem Einheitskreis (\(r=1\)) gilt: \(\widehat{\varphi} = b\)Die
+Auf dem Einheitskreis (\(r=1\)) gilt: \(\widehat{\varphi} = b\). Die
 Einheit des Bogenmasses ist der Radiant (rad). Ein Winkel von 1 rad
 entspricht einem Kreisbogen, der dieselbe Länge wie der Radius
 hat.\footnote{Werner Durandi u.~a., \emph{{Formeln, Tabellen, Begriffe:
@@ -494,7 +506,7 @@ Einheiten umrechnen.
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
-\KeywordTok{def}\NormalTok{ angleconverter(angle: }\BuiltInTok{float}\NormalTok{, a: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{, gon: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+\KeywordTok{def}\NormalTok{ angle\_converter(angle: }\BuiltInTok{float}\NormalTok{, mil: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{, gon: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
     \CommentTok{"""Konvertiert einen Winkel in das Bogenmass (Radiant).}
 
 \CommentTok{    Unterstützt die Umrechnung von Altgrad (Standard), Artillerie{-}Promille}
@@ -502,7 +514,7 @@ Einheiten umrechnen.
 
 \CommentTok{    Args:}
 \CommentTok{        angle (float): Der zu konvertierende Winkelwert.}
-\CommentTok{        a (bool, optional): Wenn True, wird der Winkel als Artillerie{-}Promille}
+\CommentTok{        mil (bool, optional): Wenn True, wird der Winkel als Artillerie{-}Promille}
 \CommentTok{            (A‰) interpretiert. Standard ist False.}
 \CommentTok{        gon (bool, optional): Wenn True, wird der Winkel als Gon (Neugrad)}
 \CommentTok{            interpretiert. Standard ist False.}
@@ -511,14 +523,14 @@ Einheiten umrechnen.
 \CommentTok{        float: Der umgerechnete Winkel im Bogenmass.}
 
 \CommentTok{    Raises:}
-\CommentTok{        ValueError: Wenn sowohl \textquotesingle{}a\textquotesingle{} als auch \textquotesingle{}gon\textquotesingle{} auf True gesetzt sind.}
+\CommentTok{        ValueError: Wenn sowohl \textquotesingle{}mil\textquotesingle{} als auch \textquotesingle{}gon\textquotesingle{} auf True gesetzt sind.}
 \CommentTok{    """}
-    \ControlFlowTok{if}\NormalTok{ a }\KeywordTok{and}\NormalTok{ gon:}
+    \ControlFlowTok{if}\NormalTok{ mil }\KeywordTok{and}\NormalTok{ gon:}
         \ControlFlowTok{raise} \PreprocessorTok{ValueError}\NormalTok{(}
-            \StringTok{"Es kann nur \textquotesingle{}a=True\textquotesingle{} (Artillerie) ODER \textquotesingle{}gon=True\textquotesingle{} gewählt werden."}
+            \StringTok{"Es kann nur \textquotesingle{}mil=True\textquotesingle{} (Artillerie) ODER \textquotesingle{}gon=True\textquotesingle{} gewählt werden."}
 \NormalTok{        )}
-        
-    \ControlFlowTok{if}\NormalTok{ a:}
+
+    \ControlFlowTok{if}\NormalTok{ mil:}
         \ControlFlowTok{return}\NormalTok{ angle }\OperatorTok{*}\NormalTok{ (math.pi }\OperatorTok{/} \DecValTok{3200}\NormalTok{)}
     \ControlFlowTok{elif}\NormalTok{ gon:}
         \ControlFlowTok{return}\NormalTok{ angle }\OperatorTok{*}\NormalTok{ (math.pi }\OperatorTok{/} \DecValTok{200}\NormalTok{)}
@@ -560,9 +572,12 @@ der Windrose bleibt.
   Differenz berechnen: \(d = a - b\)
 \item
   Modulo bilden: \(r = d \pmod{360}\)
-\item
-  Falls \(r\) negativ ist, einmal 360 addieren: \(r+360\)
 \end{enumerate}
+
+Der in der klassischen Darstellung übliche dritte Schritt -- «falls das
+Ergebnis negativ ist, einmal \(360\) addieren» -- entfällt in Python:
+Der Operator \texttt{\%} liefert bei positivem Divisor stets ein
+Ergebnis im Bereich \([0, 360)\) und normalisiert damit automatisch.
 
 \textbf{Zahlenbeispiel} \(40^{\circ} - 110^{\circ}\)
 
@@ -606,8 +621,28 @@ Nun braucht es noch eine Hilfsfunktion für den Sinussatz.
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
-\KeywordTok{def}\NormalTok{ sine\_rule(length: }\BuiltInTok{float}\NormalTok{, angle1: }\BuiltInTok{float}\NormalTok{, angle2: }\BuiltInTok{float}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
-    \ControlFlowTok{return}\NormalTok{ (length }\OperatorTok{*}\NormalTok{ math.sin(angle1)) }\OperatorTok{/}\NormalTok{ math.sin(angle2)}
+\KeywordTok{def}\NormalTok{ sine\_rule(length: }\BuiltInTok{float}\NormalTok{, opposite\_angle: }\BuiltInTok{float}\NormalTok{, ref\_angle: }\BuiltInTok{float}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+    \CommentTok{"""Berechnet eine Dreieckseite mit Hilfe des Sinussatzes.}
+
+\CommentTok{    Bestimmt die Seite, die dem Winkel \textasciigrave{}\textasciigrave{}opposite\_angle\textasciigrave{}\textasciigrave{} gegenüberliegt,}
+\CommentTok{    ausgehend von einer bekannten Seite \textasciigrave{}\textasciigrave{}length\textasciigrave{}\textasciigrave{} und deren gegenüber{-}}
+\CommentTok{    liegendem Winkel \textasciigrave{}\textasciigrave{}ref\_angle\textasciigrave{}\textasciigrave{}:}
+
+\CommentTok{        gesuchte Seite = length * sin(opposite\_angle) / sin(ref\_angle)}
+
+\CommentTok{    Alle Winkel müssen im Bogenmass (Radiant) übergeben werden.}
+
+\CommentTok{    Args:}
+\CommentTok{        length (float): Bekannte Seite (hier die Basisstrecke s).}
+\CommentTok{        opposite\_angle (float): Winkel gegenüber der gesuchten Seite}
+\CommentTok{            (im Bogenmass).}
+\CommentTok{        ref\_angle (float): Winkel gegenüber der bekannten Seite \textasciigrave{}\textasciigrave{}length\textasciigrave{}\textasciigrave{}}
+\CommentTok{            (im Bogenmass).}
+
+\CommentTok{    Returns:}
+\CommentTok{        float: Die Länge der gesuchten Seite.}
+\CommentTok{    """}
+    \ControlFlowTok{return}\NormalTok{ (length }\OperatorTok{*}\NormalTok{ math.sin(opposite\_angle)) }\OperatorTok{/}\NormalTok{ math.sin(ref\_angle)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -618,36 +653,74 @@ werden.
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
-\KeywordTok{def}\NormalTok{ triangulation(s: }\BuiltInTok{float}\NormalTok{, }
-\NormalTok{                  alpha1\_a: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  alpha1\_b: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  alpha2\_a: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  alpha2\_b: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  beta1\_a: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  beta1\_b: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  beta2\_a: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  beta2\_b: }\BuiltInTok{float}\NormalTok{,}
-\NormalTok{                  a: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{, }
+\KeywordTok{def}\NormalTok{ triangulation(s: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  alpha1\_a: }\BuiltInTok{float}\NormalTok{, alpha1\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  alpha2\_a: }\BuiltInTok{float}\NormalTok{, alpha2\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta1\_a: }\BuiltInTok{float}\NormalTok{, beta1\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  beta2\_a: }\BuiltInTok{float}\NormalTok{, beta2\_b: }\BuiltInTok{float}\NormalTok{,}
+\NormalTok{                  mil: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{,}
 \NormalTok{                  gon: }\BuiltInTok{bool} \OperatorTok{=} \VariableTok{False}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
-\NormalTok{    input\_angles }\OperatorTok{=}\NormalTok{ [alpha1\_a, alpha1\_b, alpha2\_a, alpha2\_b, beta1\_a, beta1\_b, beta2\_a, beta2\_b]}
+    \CommentTok{"""Berechnet eine unzugängliche Strecke mittels Triangulation aus Kompasspeilungen.}
+
+\CommentTok{    Bestimmt die Länge der unbekannten Zielstrecke AB (l) aus einer bekannten}
+\CommentTok{    Basislänge CD (s) und den zugehörigen Azimut{-}Peilungen. Aus je zwei}
+\CommentTok{    Peilungen wird über die modulare Differenz ein innerer Dreieckswinkel}
+\CommentTok{    gebildet. Über den Sinussatz werden daraus die Strecken von C nach B bzw.}
+\CommentTok{    von C nach A bestimmt; der Kosinussatz im Dreieck C{-}A{-}B liefert schliesslich}
+\CommentTok{    die Zielstrecke, wobei der von beiden Strecken in C eingeschlossene Winkel}
+\CommentTok{    der Differenz beta2 {-} beta1 entspricht.}
+
+\CommentTok{    Alle vier Teilwinkel werden aus je zwei Kompasspeilungen (a und b)}
+\CommentTok{    rekonstruiert.}
+
+\CommentTok{    Args:}
+\CommentTok{        s (float): Die gemessene, zugängliche Basisstrecke (CD).}
+\CommentTok{        alpha1\_a (float): Erste Kompasspeilung für den Teilwinkel Alpha 1 (bei D).}
+\CommentTok{        alpha1\_b (float): Zweite Kompasspeilung für den Teilwinkel Alpha 1 (bei D).}
+\CommentTok{        alpha2\_a (float): Erste Kompasspeilung für den Teilwinkel Alpha 2 (bei D).}
+\CommentTok{        alpha2\_b (float): Zweite Kompasspeilung für den Teilwinkel Alpha 2 (bei D).}
+\CommentTok{        beta1\_a (float): Erste Kompasspeilung für den Teilwinkel Beta 1 (bei C).}
+\CommentTok{        beta1\_b (float): Zweite Kompasspeilung für den Teilwinkel Beta 1 (bei C).}
+\CommentTok{        beta2\_a (float): Erste Kompasspeilung für den Teilwinkel Beta 2 (bei C).}
+\CommentTok{        beta2\_b (float): Zweite Kompasspeilung für den Teilwinkel Beta 2 (bei C).}
+\CommentTok{        mil (bool, optional): Wenn True, werden alle Peilungswerte als}
+\CommentTok{            Artillerie{-}Promille (A‰) interpretiert. Standard ist False.}
+\CommentTok{        gon (bool, optional): Wenn True, werden alle Peilungswerte als}
+\CommentTok{            Gon (Neugrad) interpretiert. Standard ist False.}
+
+\CommentTok{    Returns:}
+\CommentTok{        float: Die berechnete Länge der unzugänglichen Zielstrecke (l).}
+
+\CommentTok{    Raises:}
+\CommentTok{        ValueError: Wenn über die Hilfsfunktionen sowohl \textquotesingle{}mil\textquotesingle{} als auch \textquotesingle{}gon\textquotesingle{}}
+\CommentTok{            auf True gesetzt sind.}
+\CommentTok{    """}
+    \CommentTok{\# Aus je zwei Peilungen den inneren Teilwinkel als modulare Differenz bilden.}
+\NormalTok{    input\_angles }\OperatorTok{=}\NormalTok{ [alpha1\_a, alpha1\_b, alpha2\_a, alpha2\_b,}
+\NormalTok{                    beta1\_a, beta1\_b, beta2\_a, beta2\_b]}
 \NormalTok{    angles }\OperatorTok{=}\NormalTok{ []}
-    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, }\BuiltInTok{len}\NormalTok{(input\_angles)}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{):}
-\NormalTok{        diff }\OperatorTok{=}\NormalTok{ angle\_diff(input\_angles[i], input\_angles[i}\OperatorTok{+}\DecValTok{1}\NormalTok{])}
+    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, }\BuiltInTok{len}\NormalTok{(input\_angles), }\DecValTok{2}\NormalTok{):}
+\NormalTok{        diff }\OperatorTok{=}\NormalTok{ angle\_diff(input\_angles[i], input\_angles[i }\OperatorTok{+} \DecValTok{1}\NormalTok{])}
 \NormalTok{        angles.append(diff)}
-        
-\NormalTok{    i }\OperatorTok{=} \DecValTok{0}
-    \ControlFlowTok{for}\NormalTok{ angle }\KeywordTok{in}\NormalTok{ angles:}
-\NormalTok{        angles[i] }\OperatorTok{=}\NormalTok{ anlgeconverter(angle, a, gon)}
-        
-\NormalTok{    alpha1, alpha2, beta1, beta2 }\OperatorTok{=}\NormalTok{ angles}
-        
+
+    \CommentTok{\# In Bogenmass umrechnen.}
+\NormalTok{    alpha1, alpha2, beta1, beta2 }\OperatorTok{=}\NormalTok{ (}
+\NormalTok{        angle\_converter(angle, mil, gon) }\ControlFlowTok{for}\NormalTok{ angle }\KeywordTok{in}\NormalTok{ angles}
+\NormalTok{    )}
+
+    \CommentTok{\# Hilfsdreiecke an der Basis s: gamma liegt jeweils gegenüber s.}
 \NormalTok{    gamma1 }\OperatorTok{=}\NormalTok{ math.radians(}\DecValTok{180}\NormalTok{) }\OperatorTok{{-}}\NormalTok{ (alpha1 }\OperatorTok{+}\NormalTok{ beta1)}
 \NormalTok{    gamma2 }\OperatorTok{=}\NormalTok{ math.radians(}\DecValTok{180}\NormalTok{) }\OperatorTok{{-}}\NormalTok{ (alpha2 }\OperatorTok{+}\NormalTok{ beta2)}
-    
-\NormalTok{    a }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha1, gamma1)}
-\NormalTok{    b }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha2, gamma2)}
-    
-\NormalTok{    l }\OperatorTok{=}\NormalTok{ math.sqrt(a}\OperatorTok{**}\DecValTok{2}\OperatorTok{+}\NormalTok{b}\OperatorTok{**}\DecValTok{2}\OperatorTok{{-}}\DecValTok{2}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{b}\OperatorTok{*}\NormalTok{math.cos(beta2}\OperatorTok{{-}}\NormalTok{beta1))}
+
+    \CommentTok{\# Sinussatz liefert die Strecke gegenüber alpha (von C aus): CB bzw. CA.}
+\NormalTok{    strecke\_cb }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha1, gamma1)}
+\NormalTok{    strecke\_ca }\OperatorTok{=}\NormalTok{ sine\_rule(s, alpha2, gamma2)}
+
+    \CommentTok{\# Kosinussatz im Dreieck C{-}A{-}B; eingeschlossener Winkel in C ist beta2 {-} beta1.}
+\NormalTok{    l }\OperatorTok{=}\NormalTok{ math.sqrt(}
+\NormalTok{        strecke\_cb}\OperatorTok{**}\DecValTok{2} \OperatorTok{+}\NormalTok{ strecke\_ca}\OperatorTok{**}\DecValTok{2}
+        \OperatorTok{{-}} \DecValTok{2} \OperatorTok{*}\NormalTok{ strecke\_cb }\OperatorTok{*}\NormalTok{ strecke\_ca }\OperatorTok{*}\NormalTok{ math.cos(beta2 }\OperatorTok{{-}}\NormalTok{ beta1)}
+\NormalTok{    )}
     \ControlFlowTok{return}\NormalTok{ l}
 \end{Highlighting}
 \end{Shaded}
